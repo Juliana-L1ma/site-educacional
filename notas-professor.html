@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header-professor-adm">
+        <nav id="nav-menu-hamburguer">
+            <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+              <span id="hamburger"><img src="./img/barra-de-menu.png" alt="Menu aberto ícones criados por verry purnomo - Flaticon"></span>
+            </button>
+            <ul id="menu" role="menu">
+              <br><li><a class="header-item" href="index.html">Home</a></li><br><hr>
+              <br><li> <a class="header-item" href="products.html">Products</a></li><br><hr>
+              <br><li><a class="header-item" href="aboutus.html">About us</a></li> <br><hr>          
+          </ul>
+          </nav>
+
+          <a href="https://www.flaticon.com/br/icones-gratis/perfil" title="Perfil ícones criados por inkubators - Flaticon" id="icone-perfil"><img src="./img/perfil-de-usuario.png"></a>
+          <a href="https://www.flaticon.com/br/icones-gratis/engrenagem" title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem"><img src="./img/engrenagem.png"></a>
+    </header>
+
+
+
+    <main id="main-notas-professor">
+
+        <p class="texto-notas-professor">Inserir ou alterar notas</p>
+
+        <img src="img/linha2 -.png" alt="" class="linha-nota-professor">
+
+
+        <label class="label-notas-professor" for="turma">Turma:</label>
+
+	<select id="turma" name="turma">
+		<option value="M3P">M3P</option>
+		<option value="M2P">M2P</option>
+		<option value="M1P">M1P</option>
+	</select> 
+    <hr class="linha-n-p">
+
+
+    <br>
+
+    <div class="tudo-nota-professor">
+
+   
+
+    <label class="sai" for="turma"><p class="label-notas-professor-2"> Unidade<br>Curricular :</p> </label>
+
+ 
+	<select id="unidade" name="turma">
+		<option value="1">1</option>
+		<option value="M2P">M2P</option>
+		<option value="M1P">M1P</option>
+	</select> 
+   
+    
+</div>
+<hr class="linha-n-p">
+
+
+
+
+<br>
+
+
+<div class="conteudo-nota-professor">
+
+    <p class="alunos-notas-professor">Alunos</p>
+
+</div>
+
+
+
+<div class="notas-professor">
+
+    <p>Beatriz Brito Ferreira</p> <br>
+    <p>Critérios</p>
+
+
+</div>
+
+
+
+
+
+    
+
+
+
+
+
+    </main>
+
+
+
+
+
+    
+    
+</body>
+
+
+
+<script>
+    const btnMobile = document.getElementById('btn-mobile');
+
+function toggleMenu(event) {
+  if (event.type === 'touchstart') event.preventDefault();
+  const nav = document.getElementById('nav-menu-hamburguer');
+  nav.classList.toggle('active');
+  const active = nav.classList.contains('active');
+  event.currentTarget.setAttribute('aria-expanded', active);
+  if (active) {
+    event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
+  } else {
+    event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
+  }
+}
+
+btnMobile.addEventListener('click', toggleMenu);
+btnMobile.addEventListener('touchstart', toggleMenu);
+</script>
+</html>
