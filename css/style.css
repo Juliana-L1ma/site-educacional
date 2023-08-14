@@ -264,6 +264,169 @@ justify-content: center;
 
     }
 
+      
+
+
+
+
+
+    /* PÁGINA NOTAS PROFESSOR */
+
+
+
+
+
+    .header-professor-adm{
+      background-color: var(--azul-escuro);
+      display: flex;
+      flex-direction: row;
+      height: 10vh;
+      align-items: center;
+    }
+    #icone-perfil{
+      margin-left: 55%;
+    }
+    #icone-engrenagem{
+      margin-left: 8%;
+    }
+    a {
+      color: rgb(240, 240, 240);
+      text-decoration: none;
+    }
+
+    #menu {
+      display: block;
+      position: absolute;
+      width: 100%;
+      right: 0px;
+      background: var(--azul-escuro);
+      transition: 0.5s;
+      z-index: 1000;
+      height: 0px;
+      visibility: hidden;
+      overflow-y: hidden;
+    }
+    #nav-menu-hamburguer.active #menu {
+      display: flex;
+      flex-direction: column;
+      height: calc(30vh - 60px);
+      visibility: visible;
+      overflow-y: auto;
+    }
+    #menu a {
+      text-align: center;
+      font-family: var(--fontes-de-texto);
+      font-size: 15px;
+      padding: 1rem 0;
+      margin: 0 1rem;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+    }
+    #btn-mobile {
+      display: flex;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      gap: 0.5rem;
+      color: #d6d8db;
+    }
+
+
+
+    .texto-notas-professor{
+      font-family: var(--fontes-de-titulo);
+      font-size: 25px;
+      font-weight: 900;
+      text-align: center;
+      margin-top: 7%;
+      
+    }
+
+    .unidade-notas-professor{
+      font-family: var(--fontes-de-titulo);
+      font-size: 22px;
+      font-weight: 900;
+      text-align: center;
+      margin-top: 7%;
+      
+    }
+
+    .linha-nota-professor{
+      width: 70px;
+      margin-top: -4%;
+      margin-left: 15%;
+      margin-bottom: 10%;
+    }
+
+    .label-notas-professor{
+      font-family: var(--fontes-de-texto);
+      font-size: 27px;
+
+      margin-left: -18%;
+    }
+
+
+    .label-notas-professor-2{
+      font-family: var(--fontes-de-texto);
+      font-size: 18px;
+
+     
+    }
+
+    #turma{
+      text-decoration: none;
+      border: none;
+      margin-left: 17%;
+      
+    }
+
+    #unidade{
+      text-decoration: none;
+      border: none;
+      margin-left: 17%;
+    }
+ 
+
+
+
+    .linha-n-p{
+      width: 170px;
+      margin-left: 43%;
+      border-bottom: 2px solid #912B64;
+      color: var(--bordo);
+    }
+
+    .tudo-nota-professor{
+      display: flex;
+      justify-content: center;
+   
+    }
+
+    .sai{
+      margin-left: -11%;
+    }
+
+
+
+    
+    .alunos-notas-professor{
+      border: 2px solid #0A395E;
+      color: #F5F5F5;
+      border-radius: 5px;
+      background-color: var(--azul-escuro);
+      width: 100px;
+      text-align: center;
+      font-family: var(--fontes-de-titulo);
+      font-weight: 700;
+      font-size: 20px;
+      padding: 2%;
+    }
+    .conteudo-nota-professor{
+      display: flex;
+      justify-content: center;
+    }
+
 
     
   }
