@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+   <header id="header-login">
+
+    <div class="seta-verde">
+
+        <img src="img/imagem-seta.png" alt="" id="seta-verde">
+
+    </div>
+
+   </header>
+
+   <main id="main-login">
+
+    <div class="texto-login">
+
+        <p id="texto-login">
+            Bem-Vindo! <br>
+           
+        </p>
+
+        <p id="texto-login2">
+            faça login para continuar
+           
+        </p>
+
+       
+    </div>
+
+    <form>
+
+        <div class="input1-login">
+
+
+            <div class="form__group field-login">
+    
+    
+            <input  placeholder="E-mail" required class="form__field-login" type="E-mail" name="password" id="myPassword" size="30" />
+            <label for="name" class="form__label-login">E-mail </label>
+    
+                
+    
+               
+                
+            </div>
+    
+    
+        </div>
+    
+    
+        <div class="input2-login">
+    
+    
+            <div class="form__group field-login">
+                <input type="password" class="form__field-login" placeholder="Senha" required>
+                <label for="name" class="form__label-login">Senha</label>
+            </div>
+    
+    
+    
+    
+            <div class="botao-login">
+    
+               
+    
+                <button class="button" type="submit">
+                   
+                    <p class="text">Entrar</p>
+                  </button>
+
+                 
+            
+            </div>
+    
+            
+        </div>
+    
+    
+
+    </form>
+
+
+
+   </main>
+
+   <footer id="footer-login">
+
+   
+
+
+    <div class="senha-login">
+        <img src="img/linha-login-removebg-preview.png" alt="" class="img-login">
+        <a href="#" id="senha-login">Esqueci a senha</a>
+        <img src="img/linha2 -.png" alt="" class="img-login">
+
+    </div>
+
+    
+
+   </footer>
+    
+</body>
+
+
+
+<script>
+    function mouseoverPass(obj) {
+        var obj = document.getElementById('myPassword');
+        obj.type = "text";
+      }
+      function mouseoutPass(obj) {
+        var obj = document.getElementById('myPassword');
+        obj.type = "password";
+      }
+          
+     
+   
+      
+     
+      
+          
+</script>
+</html>
