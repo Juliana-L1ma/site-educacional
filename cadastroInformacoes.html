@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /*fonte nova*/
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+      /*fim fonte nova*/
+
+      :root {
+        --azul-escuro: #0a395e;
+        --bordo: #912b64;
+        --amarelo: #faf4d3;
+        --verde: #70a288;
+        --background-color-branco: #f5f5f5;
+        --preto: #0c1618;
+        --azul-claro-botao: #93b4db;
+        --fontes-de-texto: "Questrial", sans-serif;
+        --fontes-de-titulo: "Roboto", sans-serif;
+      }
+
+      @media (max-width: 480px) {
+        body {
+          background-color: var(--background-color-branco);
+        }
+
+        .header-professor-adm {
+          background-color: var(--azul-escuro);
+          display: flex;
+          flex-direction: row;
+          height: 10vh;
+          align-items: center;
+        }
+
+        /*new**/
+        .headertitulo {
+          height: 42vh;
+          border-radius: 10%;
+          width: 100%;
+          background-color: var(--azul-escuro);
+        }
+
+        .central {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          align-content: space-around;
+        }
+
+        .titulocentral {
+          margin-top: 10%;
+          color: var(--amarelo);
+          font-family: "Poppins", sans-serif;
+          font-size: x-large;
+        }
+
+        .hrVerde_cadastroInfo {
+          border: none;
+          background-color: var(--verde);
+          width: 15vw;
+          height: 0.5vh;
+          display: flex;
+          align-self: flex-start;
+        }
+
+        .inputCadastroInfo {
+          background: none;
+          border: none;
+          border-bottom: 1px solid var(--preto);
+        }
+
+        .select_cadastroInfos_turma {
+          background-color: var(--azul-escuro);
+          border: none;
+          border-bottom: 1px solid black;
+          width: 100%;
+          text-align: center;
+          color: var(--background-color-branco);
+        }
+
+        .select_cadastroInfos_turma:focus {
+          outline: none;
+        }
+
+        .select_cadastroInfos_turma option {
+          background-color: #0a395e;
+          color: var(--preto);
+        }
+
+        .select_cadastroInfos_turma:hover option {
+          background-color: #ffffff;
+          color: var(--preto);
+        }
+
+
+        /*Opções a serem selecionadas*/
+        .escolha_aluno_cadastroInfo, .escolha_professor_cadastroInfo, .escolha_curso_cadastroInfo, .escolha_turma_cadastroInfo, .escolha_uc_cadastroInfo {
+display: none;
+        }
+      }
+    </style>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="headertitulo">
+      <header class="header-professor-adm">
+        <nav id="nav-menu-hamburguer">
+          <button
+            aria-label="Abrir Menu"
+            id="btn-mobile"
+            aria-haspopup="true"
+            aria-controls="menu"
+            aria-expanded="false"
+          >
+            <span id="hamburger"
+              ><img
+                src="./img/barra-de-menu.png"
+                alt="Menu aberto ícones criados por verry purnomo - Flaticon"
+            /></span>
+          </button>
+          <ul id="menu" role="menu">
+            <br />
+            <li><a class="header-item" href="index.html">Home</a></li>
+            <br />
+            <hr />
+            <br />
+            <li><a class="header-item" href="products.html">Products</a></li>
+            <br />
+            <hr />
+            <br />
+            <li><a class="header-item" href="aboutus.html">About us</a></li>
+            <br />
+            <hr />
+          </ul>
+        </nav>
+
+        <a
+          href="https://www.flaticon.com/br/icones-gratis/perfil"
+          title="Perfil ícones criados por inkubators - Flaticon"
+          id="icone-perfil"
+          ><img src="./img/perfil-de-usuario.png"
+        /></a>
+        <a
+          href="https://www.flaticon.com/br/icones-gratis/engrenagem"
+          title="Engrenagem ícones criados por Freepik - Flaticon"
+          id="icone-engrenagem"
+          ><img src="./img/engrenagem.png"
+        /></a>
+      </header>
+      <div class="central">
+        <h1 class="titulocentral">Cadastro de Informações</h1>
+        <hr class="hrVerde_cadastroInfo">
+
+        <div style="align-items: self-start; margin-top: 10%;">
+          <div style="display: flex; width: 90%;">
+            <label
+              for="tes"
+              style="
+                font-family: 'Poppins';
+                font-weight: 500;
+                color: var(--background-color-branco);
+              "
+              >Categoria:</label
+            >
+            <select
+              name="tes"
+              class="select_cadastroInfos_turma"
+              id=""
+              required
+            >
+              <option value="">Aluno</option>
+              <option value="">Professor</option>
+              <option value="">Curso</option>
+              <option value="">Turma</option>
+              <option value="">Unidade curricular</option>
+            </select>
+          </div>
+
+          <br />
+          <div style="display: flex; width: 90%;">
+
+            <div class="escolha_aluno_cadastroInfo">
+            <label for="" style=" font-family: 'Poppins'; font-weight: 500;
+                color: var(--background-color-branco);
+              "
+              >Turma:</label
+            >
+            <select name="" class="select_cadastroInfos_turma" id="" required>
+              <option value="">ta</option>
+              <option value="">sim</option>
+            </select>
+          </div>
+
+            <div class="escolha_professor_cadastroInfo">
+            <label for="" style=" font-family: 'Poppins'; font-weight: 500;
+                color: var(--background-color-branco);
+              "
+              >Turma:</label
+            >
+            <select name="" class="select_cadastroInfos_turma" id="" required>
+              <option value="">ta</option>
+              <option value="">sim</option>
+            </select>
+          </div>
+
+            <div class="escolha_curso_cadastroInfo">
+            <label for="" style=" font-family: 'Poppins'; font-weight: 500;
+                color: var(--background-color-branco);
+              "
+              >Turma:</label
+            >
+            <select name="" class="select_cadastroInfos_turma" id="" required>
+              <option value="">ta</option>
+              <option value="">sim</option>
+            </select>
+          </div>
+
+            <div class="escolha_turma_cadastroInfo">
+            <label for="" style=" font-family: 'Poppins'; font-weight: 500;
+                color: var(--background-color-branco);
+              "
+              >Turma:</label
+            >
+            <select name="" class="select_cadastroInfos_turma" id="" required>
+              <option value="">ta</option>
+              <option value="">sim</option>
+            </select>
+          </div>
+
+            <div class="escolha_uc_cadastroInfo">
+            <label for="" style=" font-family: 'Poppins'; font-weight: 500;
+                color: var(--background-color-branco);
+              "
+              >Turma:</label
+            >
+            <select name="" class="select_cadastroInfos_turma" id="" required>
+              <option value="">ta</option>
+              <option value="">sim</option>
+            </select>
+          </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const btnMobile = document.getElementById("btn-mobile");
+
+      function toggleMenu(event) {
+        if (event.type === "touchstart") event.preventDefault();
+        const nav = document.getElementById("nav-menu-hamburguer");
+        nav.classList.toggle("active");
+        const active = nav.classList.contains("active");
+        event.currentTarget.setAttribute("aria-expanded", active);
+        if (active) {
+          event.currentTarget.setAttribute("aria-label", "Fechar Menu");
+        } else {
+          event.currentTarget.setAttribute("aria-label", "Abrir Menu");
+        }
+      }
+
+      btnMobile.addEventListener("click", toggleMenu);
+      btnMobile.addEventListener("touchstart", toggleMenu);
+
+
+    </script>
+  </body>
+</html>
