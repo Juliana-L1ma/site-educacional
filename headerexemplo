@@ -1,7 +1,23 @@
 <link rel="stylesheet" href="css/header.css"/>
 
 <header class="header-professor-adm">
-      <div class="div-cabecalho">
+      <div class="div-cabecalho" id="modo-desktop">
+        <ul>
+          <a href="">
+            <li>Home</li>
+          </a>
+          <a href="">
+            <li>Perfil</li>
+          </a>
+          <a href="">
+            <li>Funcionalidades</li>
+          </a>
+          <a href="">
+            <li>Sobre o Senai</li>
+          </a>
+        </ul>
+      </div>
+      <div class="div-cabecalho" id="modo-mobile">
         <nav id="nav-menu-hamburguer">
           <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
             <span id="hamburger">
@@ -15,7 +31,7 @@
         </ul>
         </nav>
       </div>
-      <div class="div-cabecalho">
+      <div class="div-cabecalho" id="modo-mobilee">
         <a href="https://www.flaticon.com/br/icones-gratis/perfil" title="Perfil ícones criados por inkubators - Flaticon" id="icone-perfil"> 
           <img src="./img/perfil-de-usuario.png"/>
         </a>
