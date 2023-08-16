@@ -475,6 +475,9 @@ padding-top: 7%;
         width: 260px;
        margin-left: 15%;
     }
+      .body-PRA{
+      background-color: var(--background-color-branco);
+    }
   }
  
  
