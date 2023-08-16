@@ -378,8 +378,62 @@ padding-top: 7%;
       background-color: var(--background-color-branco);
     }
     
-    /*------------------- ESTILO HOME DO ALUNO ----------------*/
+    
+/* PÁGINA GERENCIAMENTO DE ALUNOS */
 
+    .texto-GerenciamentoDeAlunos{
+      font-family: var(--fontes-de-titulo);
+      font-size: 23px;
+      font-weight: 900;
+      text-align: center;
+      margin-top: 7%;
+      
+    }
+    .linhaVerde-GerenciantoDeAlunos{
+      width: 45px;
+      margin-left: 16%;
+      border: 1px solid var(--verde);
+      margin-bottom: 7%;
+    }
+
+    .label-GerenciamentoDeAlunos{
+      font-family: var(--fontes-de-texto);
+      font-size: 20px;
+      margin-left: 15%;
+      
+      
+     
+    }
+
+    #turma2{
+      text-decoration: none;
+      border: none;
+      margin-left: 25%;
+      background-color: var(--background-color-branco);
+      
+    }
+
+    .boletim-GerenciamentoDeAlunos{
+      color: var(--verde);
+      text-decoration: underline;
+      font-family: var(--fontes-de-texto);
+      font-weight: 700;
+      margin-left: 10%;
+      
+    }
+
+    .info-GerenciamentoDeAlunos{
+      color: var(--verde);
+      text-decoration: underline;
+      font-family: var(--fontes-de-texto);
+      font-weight: 700;
+      margin-left: 10%;
+    }
+
+    
+  }
+ 
+ 
 
 
 
