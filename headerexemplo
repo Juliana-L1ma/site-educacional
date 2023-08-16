@@ -1,94 +1,44 @@
-  <header class="header-professor-adm">
+<link rel="stylesheet" href="css/header.css"/>
+
+<header class="header-professor-adm">
+      <div class="div-cabecalho">
         <nav id="nav-menu-hamburguer">
-            <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
-              <span id="hamburger"><img src="./img/barra-de-menu.png" alt="Menu aberto ícones criados por verry purnomo - Flaticon"></span>
-            </button>
-            <ul id="menu" role="menu">
-              <br><li><a class="header-item" href="index.html">Home</a></li><br><hr>
-              <br><li> <a class="header-item" href="products.html">Products</a></li><br><hr>
-              <br><li><a class="header-item" href="aboutus.html">About us</a></li> <br><hr>          
-          </ul>
-          </nav>
-
-          <a href="https://www.flaticon.com/br/icones-gratis/perfil" title="Perfil ícones criados por inkubators - Flaticon" id="icone-perfil"><img src="./img/perfil-de-usuario.png"></a>
-          <a href="https://www.flaticon.com/br/icones-gratis/engrenagem" title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem"><img src="./img/engrenagem.png"></a>
+          <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+            <span id="hamburger">
+              <img src="./img/barra-de-menu.png" alt="Menu aberto ícones criados por verry purnomo - Flaticon"/> 
+            </span>
+          </button>
+          <ul id="menu" role="menu">
+            <br><li><a class="header-item" href="index.html">Home</a></li><br><hr>
+            <br><li> <a class="header-item" href="products.html">Products</a></li><br><hr>
+            <br><li><a class="header-item" href="aboutus.html">About us</a></li> <br><hr>          
+        </ul>
+        </nav>
+      </div>
+      <div class="div-cabecalho">
+        <a href="https://www.flaticon.com/br/icones-gratis/perfil" title="Perfil ícones criados por inkubators - Flaticon" id="icone-perfil"> 
+          <img src="./img/perfil-de-usuario.png"/>
+        </a>
+        <a href="https://www.flaticon.com/br/icones-gratis/engrenagem" title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem"> <img src="./img/engrenagem.png"/>
+        </a>
+      </div>
     </header>
-
-
-    .header-professor-adm{
-      background-color: var(--azul-escuro);
-      display: flex;
-      flex-direction: row;
-      height: 10vh;
-      align-items: center;
-    }
-    #icone-perfil{
-      margin-left: 55%;
-    }
-    #icone-engrenagem{
-      margin-left: 8%;
-    }
-    a {
-      color: rgb(240, 240, 240);
-      text-decoration: none;
-    }
-
-    #menu {
-      display: block;
-      position: absolute;
-      width: 100%;
-      right: 0px;
-      background: var(--azul-escuro);
-      transition: 0.5s;
-      z-index: 1000;
-      height: 0px;
-      visibility: hidden;
-      overflow-y: hidden;
-    }
-    #nav-menu-hamburguer.active #menu {
-      display: flex;
-      flex-direction: column;
-      height: calc(30vh - 60px);
-      visibility: visible;
-      overflow-y: auto;
-    }
-    #menu a {
-      text-align: center;
-      font-family: var(--fontes-de-texto);
-      font-size: 15px;
-      padding: 1rem 0;
-      margin: 0 1rem;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.05);
-    }
-    #btn-mobile {
-      display: flex;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      border: none;
-      background: none;
-      cursor: pointer;
-      gap: 0.5rem;
-      color: #d6d8db;
-    }
-
-
-
-  <script>
-        const btnMobile = document.getElementById('btn-mobile');
-    
-    function toggleMenu(event) {
-      if (event.type === 'touchstart') event.preventDefault();
-      const nav = document.getElementById('nav-menu-hamburguer');
-      nav.classList.toggle('active');
-      const active = nav.classList.contains('active');
-      event.currentTarget.setAttribute('aria-expanded', active);
-      if (active) {
-        event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
-      } else {
-        event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
+    <script>
+      const btnMobile = document.getElementById('btn-mobile');
+  
+      function toggleMenu(event) {
+        if (event.type === 'touchstart') event.preventDefault();
+        const nav = document.getElementById('nav-menu-hamburguer');
+        nav.classList.toggle('active');
+        const active = nav.classList.contains('active');
+        event.currentTarget.setAttribute('aria-expanded', active);
+        if (active) {
+          event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
+        } else {
+          event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
+        }
       }
-    }
-    
-    btnMobile.addEventListener('click', toggleMenu);
-    btnMobile.addEventListener('touchstart', toggleMenu);
+  
+      btnMobile.addEventListener('click', toggleMenu);
+      btnMobile.addEventListener('touchstart', toggleMenu);
     </script>
