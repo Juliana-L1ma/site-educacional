@@ -17,286 +17,85 @@
     margin: 0;
     padding: 0;
   }
-  /* Mobile*/
+  
   @media (max-width: 480px){
-      /*-------- ESTILO PADRÃO DAS PÁGINAS, HEADER E FOOTER --------------*/
-    .header-professor-adm{
-      background-color: var(--azul-escuro);
-      display: flex;
-      flex-direction: row;
-      height: 10vh;
-      align-items: center;
-    }
-    #icone-perfil{
-      margin-left: 55%;
-    }
-    #icone-engrenagem{
-      margin-left: 8%;
-    }
-    a {
-      color: rgb(240, 240, 240);
-      text-decoration: none;
-    }
 
-    #menu {
-      display: block;
-      position: absolute;
-      width: 100%;
-      right: 0px;
-      background: var(--azul-escuro);
-      transition: 0.5s;
-      z-index: 1000;
-      height: 0px;
-      visibility: hidden;
-      overflow-y: hidden;
-    }
-    #nav-menu-hamburguer.active #menu {
-      display: flex;
-      flex-direction: column;
-      height: calc(30vh - 60px);
-      visibility: visible;
-      overflow-y: auto;
-    }
-    #menu a {
-      text-align: center;
-      font-family: var(--fontes-de-texto);
-      font-size: 15px;
-      padding: 1rem 0;
-      margin: 0 1rem;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.05);
-    }
-    #btn-mobile {
-      display: flex;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      border: none;
-      background: none;
-      cursor: pointer;
-      gap: 0.5rem;
-      color: #d6d8db;
-    }
+    /*------------------ footer ------------*/
+    /*-------- ESTILO PADRÃO DAS PÁGINAS, HEADER E FOOTER --------------*/
+  .header-professor-adm{
+    background-color: var(--azul-escuro);
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+    align-items: center;
+  }
+  #icone-perfil{
+    margin-left: 55%;
+  }
+  #icone-engrenagem{
+    margin-left: 8%;
+  }
+  a {
+    color: rgb(240, 240, 240);
+    text-decoration: none;
+  }
 
+  #menu {
+    display: block;
+    position: absolute;
+    width: 100%;
+    right: 0px;
+    background: var(--azul-escuro);
+    transition: 0.5s;
+    z-index: 1000;
+    height: 0px;
+    visibility: hidden;
+    overflow-y: hidden;
+  }
+  #nav-menu-hamburguer.active #menu {
+    display: flex;
+    flex-direction: column;
+    height: calc(30vh - 60px);
+    visibility: visible;
+    overflow-y: auto;
+  }
+  #menu a {
+    text-align: center;
+    font-family: var(--fontes-de-texto);
+    font-size: 15px;
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+  }
+  #btn-mobile {
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 0.5rem;
+    color: #d6d8db;
+  }
 
- /*------------------ footer ------------*/
- .footer-professor-adm{
+  /*FOOTER*/
+
+.footer-professor-adm{
   background-color: #0A395E;
   font-size: 12px;
   text-align: left;
   color: var(--background-color-branco);
   padding-top: 8%;
-}
-
-.direitosAutorais{
+  }
+  
+  .direitosAutorais{
   font-size: 10px;
   text-align: center;
   padding: 2%;
-}
-/*------------------ FIM DO FOOTER---------------*/
-      
-    #carouselExampleAutoplaying{
-        margin: 0 auto;
-        margin-top: 15%;
-        width: 300px;
-        height: 450px;
-        background-color: #ffffff;
-      }
-      .info-introducao{
-       text-align: center;
-       font-size: 17px;
-      }
-      #titulo-ola{
-        margin-top: 15%;
-        color: var(--azul-escuro);
-      }
-      .introducao1{
-        margin-top: 8%;
-      }
-      .introducao2{
-        margin-top: 30%;
-      }
-      .introducao3{
-        margin-top: 20%;
-      }
-     .carousel-indicators{
-        background-color: #595b5c59;
-        width: 100px;
-        height: 20px;
-        padding: 1px;
-        border-radius: 100px;
-        margin:0 auto;
-        margin-top: 100%;
-        position: relative;
-     }
-    
-     /*---------- estilo do botão que leva para a página de login------------*/
-      #gologin{
-        border: none;
-        margin: 0%;
-        padding: 0;
-        margin-left: 70%;
-        margin-top: 35%;
-        margin-bottom: 10%;
-        background-color: #ffffff;
-      }
-      #setabemvindo{
-        margin: 0%;
-        padding: 0;
-        height: 30px;
-        width: 60px;
-      }
-
-    /*-------------------------------------------*/
-
-
-    /* PÁGINA DE LOGIN GERAL*/
-
-    #seta-verde{
-      margin-top: 4%;
-      width: 23%;
-    }
-
-    .texto-login{
-      margin-top: 8%;
-    }
-
-    #texto-login{
-      font-family: var(--fontes-de-titulo);
-      font-weight: 800;
-      font-size: 40px;
-      margin-left: 7%;
-      color: var(--azul-escuro);
-    }
-
-    #texto-login2{
-      font-family: var(--fontes-de-titulo);
-      margin-left: 8%;
-    }
-
-    .input1-login{
-      margin-top: 20%;
-    }
-
-    .input2-login{
-      margin-top: 20%;
-    }
-
-    .form__group {
-      position: relative;
-      padding: 20px 0 0;
-      width: 100%;
-      max-width: 180px;
-    }
-    
-    .form__field-login {
-  margin-left: 18%;
-      font-family: var(--fontes-de-titulo);
-      width: 170%;
-      border: none;
-      border-bottom: 1px solid #150031;
-      outline: 0;
-      font-size: 17px;
-      color: var(--preto);
-      padding: 7px 0;
-      background: transparent;
-      transition: border-color 0.2s;
-    }
-    
-    .form__field-login::placeholder {
-      color: transparent;
-    }
-    
-    .form__field-login:placeholder-shown ~ .form__label-login {
-      font-size: 17px;
-      cursor: text;
-      top: 20px;
-    }
-    
-    .form__label-login {
-      font-family: var(--fontes-de-titulo);
-      margin-left: 18%;
-      position: absolute;
-      top: 0;
-      display: block;
-      transition: 0.2s;
-      font-size: 17px;
-      color: var(--preto);
-      pointer-events: none;
-    }
-    
-    .form__field-login:focus ~ .form__label-login {
-      font-family: var(--fontes-de-titulo);
-      position: absolute;
-      top: 0;
-      display: block;
-      transition: 0.2s;
-      font-size: 17px;
-      color: var(--preto);
-      font-weight: 700;
-    }
-    
-    /* reset input */
-    .form__field-login:required, .form__field-login:invalid {
-      box-shadow: none;
-    }
-
-    .olho {
-      cursor: pointer;
-      left: 160px;
-      margin-left: 100%;
-      width: 40%;
-    }
-
-    .button-login {
-      margin-top: 15%;
-      margin-left: 36%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px 15px;
-      gap: 15px;
-      background: rgb(145,43,100);
-background: linear-gradient(90deg, rgba(145,43,100,1) 1%, rgba(204,110,163,1) 49%, rgba(145,43,100,1) 100%);
-      outline: 3px --bordo;
-      outline-offset: -3px;
-      border-radius: 2px;
-      border: none;
-      cursor: pointer;
-      transition: 400ms;
-      width: 100px;
-    }
-    
-    .button-login .text {
-      color: white;
-      font-size: 1em;
-      transition: 400ms;
-      font-family: var(--fontes-de-texto);
-      
-    }
-    
-    .senha-login{
-      text-align: center;
-      margin-top: 20%;
-    }
-
-    #senha-login{
-      text-decoration: none;
-      color: var(--preto);
-      text-align: center;
-      margin-top: 4%;
-      font-size: 17px;
-    }
-
-    .img-login{
-      width: 90px;
-    }
-    .senha-login{
-display: flex;
-flex-direction: row;
-justify-content: center;
-    }
-
+  }
+  /*------------------ FIM DO FOOTER---------------*/
+  
 /*------------- ESTILO DA HOME DO PROFESSOR -------------------*/
-
     #bemvindo-professor{
       font-family: var(--fontes-de-titulo);
       margin-top: 80px;
@@ -367,16 +166,12 @@ justify-content: center;
     .label-notas-professor{
       font-family: var(--fontes-de-texto);
       font-size: 27px;
-
       margin-left: -18%;
     }
-
 
     .label-notas-professor-2{
       font-family: var(--fontes-de-texto);
       font-size: 18px;
-
-     
     }
 
     #turma{
@@ -391,10 +186,6 @@ justify-content: center;
       border: none;
       margin-left: 17%;
     }
- 
-
-
-
     .linha-n-p{
       width: 170px;
       margin-left: 43%;
@@ -430,6 +221,11 @@ justify-content: center;
     }
 
     
+    /*------------------- ESTILO HOME DO ALUNO ----------------*/
+
+
+
+
   }
  
  
