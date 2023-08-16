@@ -430,6 +430,54 @@ padding-top: 7%;
       margin-left: 10%;
     }
 
+
+      /* PÁGINA PLANEJAMENTO E REGISTRO DE ALUNOS */
+
+
+    .titulo-planejamentoRegistroDeAlunos{
+      font-family: var(--fontes-de-titulo);
+      font-weight: 1000;
+      font-size: 24px;
+      text-align: center;
+      margin-top: 8%;
+    }
+
+
+    .botao-PRA {
+      margin-top: 13%;
+      margin-left: 27%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 15px;
+      gap: 15px;
+      background: rgb(145,43,100);
+      outline: 3px --bordo;
+      outline-offset: -3px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      transition: 400ms;
+      width: 175px;
+      padding: 5%;
+    }
+    
+    .botao-PRA .text-PRA {
+      color: var(--background-color-branco);
+      font-size: 17px;
+      transition: 400ms;
+      font-family: var(--fontes-de-texto);
+     
+      
+    }
+
+    .img-PRA{
+        width: 260px;
+       margin-left: 15%;
+    }
+  }
+ 
+ 
     
   }
  
