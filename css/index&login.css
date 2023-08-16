@@ -16,88 +16,15 @@
   *{
     margin: 0;
     padding: 0;
+    background-color: var(--background-color-branco);
   }
 
   /* Mobile*/
   @media (max-width: 480px){
-    /*-------- ESTILO PADRÃO DAS PÁGINAS, HEADER E FOOTER --------------*/
-  .header-professor-adm{
-    background-color: var(--azul-escuro);
-    display: flex;
-    flex-direction: row;
-    height: 10vh;
-    align-items: center;
-  }
-  #icone-perfil{
-    margin-left: 55%;
-  }
-  #icone-engrenagem{
-    margin-left: 8%;
-  }
-  a {
-    color: rgb(240, 240, 240);
-    text-decoration: none;
-  }
-
-  #menu {
-    display: block;
-    position: absolute;
-    width: 100%;
-    right: 0px;
-    background: var(--azul-escuro);
-    transition: 0.5s;
-    z-index: 1000;
-    height: 0px;
-    visibility: hidden;
-    overflow-y: hidden;
-  }
-  #nav-menu-hamburguer.active #menu {
-    display: flex;
-    flex-direction: column;
-    height: calc(30vh - 60px);
-    visibility: visible;
-    overflow-y: auto;
-  }
-  #menu a {
-    text-align: center;
-    font-family: var(--fontes-de-texto);
-    font-size: 15px;
-    padding: 1rem 0;
-    margin: 0 1rem;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
-  }
-  #btn-mobile {
-    display: flex;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border: none;
-    background: none;
-    cursor: pointer;
-    gap: 0.5rem;
-    color: #d6d8db;
-  }
-
-
-/*------------------ footer ------------*/
-.footer-professor-adm{
-background-color: #0A395E;
-font-size: 12px;
-text-align: left;
-color: var(--background-color-branco);
-padding-top: 8%;
-}
-
-.direitosAutorais{
-font-size: 10px;
-text-align: center;
-padding: 2%;
-}
-/*------------------ FIM DO FOOTER---------------*/
-    
   #carouselExampleAutoplaying{
       margin: 0 auto;
       margin-top: 15%;
-      width: 300px;
+      width: 250px;
       height: 450px;
       background-color: #ffffff;
     }
@@ -135,7 +62,7 @@ padding: 2%;
       margin: 0%;
       padding: 0;
       margin-left: 70%;
-      margin-top: 35%;
+      margin-top: 30%;
       margin-bottom: 10%;
       background-color: #ffffff;
     }
@@ -163,7 +90,7 @@ padding: 2%;
   #texto-login{
     font-family: var(--fontes-de-titulo);
     font-weight: 800;
-    font-size: 40px;
+    font-size: 30px;
     margin-left: 7%;
     color: var(--azul-escuro);
   }
@@ -185,11 +112,11 @@ padding: 2%;
     position: relative;
     padding: 20px 0 0;
     width: 100%;
-    max-width: 180px;
+    max-width: 150px;
   }
   
   .form__field-login {
-margin-left: 18%;
+    margin-left: 18%;
     font-family: var(--fontes-de-titulo);
     width: 170%;
     border: none;
@@ -246,7 +173,6 @@ margin-left: 18%;
     margin-left: 100%;
     width: 40%;
   }
-
   .button-login {
     margin-top: 15%;
     margin-left: 36%;
@@ -255,9 +181,12 @@ margin-left: 18%;
     align-items: center;
     padding: 10px 15px;
     gap: 15px;
+    color: rgb(255, 255, 255);
+    font-family: var(--fontes-de-titulo);
+    font-weight: bold;
     background: rgb(145,43,100);
-background: linear-gradient(90deg, rgba(145,43,100,1) 1%, rgba(204,110,163,1) 49%, rgba(145,43,100,1) 100%);
-    outline: 3px --bordo;
+    background: linear-gradient(90deg, rgba(145,43,100,1) 1%, rgba(204,110,163,1) 49%, rgba(145,43,100,1) 100%);
+    outline: 3px #912B64;
     outline-offset: -3px;
     border-radius: 2px;
     border: none;
@@ -266,17 +195,12 @@ background: linear-gradient(90deg, rgba(145,43,100,1) 1%, rgba(204,110,163,1) 49
     width: 100px;
   }
   
-  .button-login .text {
-    color: white;
-    font-size: 1em;
-    transition: 400ms;
-    font-family: var(--fontes-de-texto);
-    
-  }
+ 
   
   .senha-login{
     text-align: center;
     margin-top: 20%;
+    font-family: var(--fontes-de-texto);
   }
 
   #senha-login{
@@ -284,7 +208,7 @@ background: linear-gradient(90deg, rgba(145,43,100,1) 1%, rgba(204,110,163,1) 49
     color: var(--preto);
     text-align: center;
     margin-top: 4%;
-    font-size: 17px;
+    font-size: 15px;
   }
 
   .img-login{
