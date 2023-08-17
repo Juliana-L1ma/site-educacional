@@ -115,6 +115,102 @@
             text-align: center;
             gap: 4%;
         }
+        .linha-verde-PlanejamentoDeAula{
+              
+            height: 15px;
+            background-color: var(--verde);
+            
+           
+        }
+
+
+        .titulo-PlanejamentoDeAula{
+               
+            background-color: #912B64;
+            padding: 5%;
+            font-weight: 700;
+            height: 3px;
+        }
+    
+        #titulo-PlanejamentoDeAula2{
+            text-align: center;
+            font-family:var(--fontes-de-titulo);
+            color: var(--background-color-branco);
+            font-size: 25px;
+            margin-top: -4%;
+        }
+        .img-PlanejamentoDeAula{
+            width: 5%;
+            margin-top: -2%;
+        }
+
+
+
+
+
+        .livroPDA{
+            width: 80px;
+            margin-left: -7%;
+            padding-right: 4%;
+            
+        }
+
+        .meio-PDA{
+            display: flex;
+           justify-content: center;
+           
+        }
+        .disciplina-PDA{
+            font-family: var(--fontes-de-titulo);
+            font-size: 27px;
+            text-align: center;
+           
+        }
+
+
+        .botao-PDA {
+            margin-top: 13%;
+            margin-left: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 15px;
+            gap: 15px;
+            background:#93B4DB;
+            outline: 3px --bordo;
+            outline-offset: -3px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: 400ms;
+            width: 230px;
+            padding: 5%;
+        }
+
+            .botao-PDA .text-PDA {
+                color: var(--preto);
+                font-size: 17px;
+                transition: 400ms;
+                font-family: var(--fontes-de-texto);
+            
+                
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
         @media screen and (max-width: 900px){
             #modo-desktop{
@@ -135,15 +231,15 @@
                 padding: 7%;
                 font-weight: 700;
             }
-            #titulo-PlanejamentoDeAula{
+            #titulo-PlanejamentoDeAula2{
                 text-align: center;
                 font-family:var(--fontes-de-titulo);
                 color: var(--background-color-branco);
                 font-size: 22px;
-                margin-top: -10%;
+            margin-top: -12%;
             }
             .img-PlanejamentoDeAula{
-                width: 13%;
+                width: 11%;
             }
 
             
@@ -184,6 +280,8 @@
                     background-color: #0A395E;
                 
                 }
+
+
 
         }
 
@@ -248,10 +346,19 @@
         <hr class="linha-verde-PlanejamentoDeAula">
 
         <div class="titulo-PlanejamentoDeAula">
-            <img class="img-PlanejamentoDeAula" src="img/seta-planejamentoDeAula.png" alt="">
+            <a href="#"><img class="img-PlanejamentoDeAula" src="img/seta-planejamentoDeAula.png" alt=""></a>
 
-            <p id="titulo-PlanejamentoDeAula">Planejamento u.c</p>
+           
+            <p id="titulo-PlanejamentoDeAula2">Planejamento de Aula</p>
         </div>
+
+        <br>
+
+        <div class="meio-PDA">
+            <img class="livroPDA" src="img/livro-PDA-removebg-preview.png" alt="">
+            <p class="disciplina-PDA">Disciplinas:</p>
+        </div>
+        
 
         <br>
         <button class="botao-PDA" type="submit">
