@@ -4,8 +4,295 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/areaAdm.css"/>
     <title>Área Administrativa</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Questrial&family=Ruda&display=swap');*{
+        padding: 0;
+        margin: 0;
+    }
+    
+    :root{
+        --azul-escuro: #0A395E;
+        --bordo: #912B64;
+        --amarelo: #FAF4D3;
+        --verde: #70A288;
+        --background-color-branco: #F5F5F5;
+        --preto: #0C1618;
+        --azul-claro-botao: #93B4DB;
+        --fontes-de-texto: 'Questrial', sans-serif;
+        --fontes-de-titulo:'Roboto', sans-serif ;
+    }
+    
+    
+    body{
+        background-color: var(--background-color-branco);
+    }
+    
+    header{
+        width: 100%;
+        height: 10vh;
+        background-color: #0A395E;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Lato', sans-serif;
+    }
+    
+    .div-cabecalho{
+        padding-left: 2%;
+        padding-right: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    #btn-mobile{
+        background-color: transparent;
+        border-color: transparent;
+    }
+    
+    #menu {
+        display: block;
+        position: absolute;
+        width: 100%;
+        right: 0px;
+        background: var(--azul-escuro);
+        transition: 0.5s;
+        z-index: 1000;
+        height: 0px;
+        visibility: hidden;
+        overflow-y: hidden;
+      }
+    #nav-menu-hamburguer.active #menu {
+        display: flex;
+        flex-direction: column;
+        height: calc(30vh - 60px);
+        visibility: visible;
+        overflow-y: auto;
+      }
+    #menu a {
+        text-align: center;
+        font-family: var(--fontes-de-texto);
+        font-size: 15px;
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+      }
+    #btn-mobile {
+        display: flex;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: 0.5rem;
+        color: #d6d8db;
+      }
+    
+    a{
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    #modo-desktop{
+        width: 100vw;
+    }
+    
+    #modo-desktop li{
+        list-style: none;
+    }
+    
+    #modo-desktop ul{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        text-align: center;
+        gap: 4%;
+    }
+    
+    #editar{
+        cursor: pointer;
+    }
+    
+    #editar:hover{
+        transform: scale(0.9);
+    }
+    
+    @media screen and (max-width: 900px){
+        #modo-desktop{
+            display: none;
+        }
+    }
+    
+    @media screen and (min-width: 900px) {
+        #nav-menu-hamburguer{
+            display: none;
+        }
+        .div-cabecalho{
+            margin-left: -5%;
+        }
+    }
+    
+    /* ÁREA DO ADMINISTRADOR */
+    
+    #container-adm{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .fotoPerfil{
+        margin-top: 5%;
+        width: 180px;
+        height: 180px;
+        background-color: #0C1618;
+        border-radius: 90%;
+    }
+    
+    .linha{
+        margin: 1%;
+        width: 320px;
+        height: 1px;
+        background-color: #912B64;
+    }
+    
+    #nomeUsuario{
+        margin-top: 1%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 2%;
+        align-items: center;
+        font-family: 'Questrial', sans-serif;
+        font-size: 150%;
+    }
+    
+    .adm{
+        font-family: 'Ruda', sans-serif;
+        text-transform: uppercase;
+        color: #0A395E;
+        font-size: 155%;
+    }
+    
+    .subtitulo{
+        margin-top: 3%;
+        font-family: 'Ruda', sans-serif;
+        font-size: 120%;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+    
+    #areaBotoes{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        gap: 5%;
+        margin-top: 2%;
+    }
+    
+    #areaBotoes button{
+        margin-top: 5%;
+        width: 300px;
+        height: 5vh;
+        display: flex;
+        justify-content: left;
+        text-align: center;
+        font-family: 'Questrial', sans-serif;
+        font-size: 115%;
+        align-items: center;
+        gap: 20%;
+        background-color: #fff;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+    }
+    
+    #areaBotoes img{
+        margin-top: 5%;
+        box-shadow: 7px 7px 0px 0px #0A395E;
+        border-radius: 9%;
+    
+    }
+    
+    .info{
+        margin-top: 3%;
+        margin-right: 2%;
+        margin-bottom: 1%;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+    
+    /*MEDIA QUERIES PÁGINA DO ADMINISTRADOR*/
+    @media screen and (max-width: 670px){
+        #areaBotoes button{
+            width: 270px;
+        }
+        #nomeUsuario{
+            margin-top: 5%;
+        }
+        .adm{
+            margin-top: 3%;
+            font-size: 145%;
+        }
+        .subtitulo{
+            margin-top: 5%;
+        }
+        .icone-info{
+            width: 90%;
+        }
+    }
+    
+    @media screen and (max-width: 560px){
+        #areaBotoes{
+            flex-direction: column;
+        }
+        .fotoPerfil{
+            width: 150px;
+            height: 150px;
+        }
+        .adm{
+            font-size: 130%;
+        }
+        .subtitulo{
+            margin-top: 9%;
+        }
+        .linha{
+            margin-top: 4%;
+        }
+        .icone-info{
+            width: 70%;
+        }
+    }
+    
+    @media screen and (max-width: 330px){
+        .fotoPerfil{
+            width: 130px;
+            height: 130px;
+        }
+        .linha{
+            width:220px;
+        }
+    }
+    
+    @media screen and (max-width: 293px){
+        .fotoPerfil{
+            width: 130px;
+            height: 130px;
+        }
+        .linha{
+            width: 190px;
+        }
+        #areaBotoes button{
+            width: 250px;
+        }
+    }
+    </style>
   </head>
   <body>
     <header class="header-professor-adm">
@@ -59,35 +346,32 @@
         <p class="subtitulo">Gerencie o Portal Educacional</p>
       </div>
       <div id="areaBotoes">
-        <button>
-          <img src="img/visao.png" alt="">
-          Visualizar
-        </button>
-        <button>
-          <img src="img/adicionar.png" alt="">
-          Cadastrar
-        </button>
-        <button>
-          <img src="img/atualizar.png" alt="">
-          Atualizar
-        </button>
-        <button>
-          <img src="img/excluir.png" alt="">
-          Excluir
-        </button>
+        <div id="botoes1">
+          <button>
+            <img src="img/visao.png" alt="">
+            Visualizar
+          </button>
+          <button>
+            <img src="img/adicionar.png" alt="">
+            Cadastrar
+          </button>
+        </div>
+        <div id="botoes2">
+          <button>
+            <img src="img/atualizar.png" alt="">
+            Atualizar
+          </button>
+          <button>
+            <img src="img/excluir.png" alt="">
+            Excluir
+          </button>
+        </div>
       </div>
       <div class="info">
-        <img src="img/informacoes.png" alt="">
+        <img class="icone-info" src="img/informacoes.png" alt="">
       </div>
-
     </main>
-
-
-
-
-
-
-
+    
     <script>
       const btnMobile = document.getElementById('btn-mobile');
   
@@ -103,11 +387,8 @@
           event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
         }
       }
-  
       btnMobile.addEventListener('click', toggleMenu);
       btnMobile.addEventListener('touchstart', toggleMenu);
     </script>
   </body>
-  
-
 </html>
