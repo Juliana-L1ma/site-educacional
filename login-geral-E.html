@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de login</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+  
+  *{
+      padding: 0;
+      margin: 0;
+  }
+  
+  :root{
+      --azul-escuro: #0A395E;
+      --bordo: #912B64;
+      --amarelo: #FAF4D3;
+      --verde: #70A288;
+      --background-color-branco: #F5F5F5;
+      --preto: #0C1618;
+      --azul-claro-botao: #93B4DB;
+      --fontes-de-texto: 'Questrial', sans-serif;
+      --fontes-de-titulo:'Roboto', sans-serif ;
+  }
+  
+  
+  body{
+      background-color: var(--background-color-branco);
+      
+  }
+  
+  header{
+      width: 100vw;
+      height: 10vh;
+      background-color: #0A395E;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Lato', sans-serif;
+  }
+  
+  .div-cabecalho{
+      padding-left: 2%;
+      padding-right: 2%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+  }
+  
+  #btn-mobile{
+      background-color: transparent;
+      border-color: transparent;
+  }
+  
+  #menu {
+      display: block;
+      position: absolute;
+      width: 100%;
+      right: 0px;
+      background: var(--azul-escuro);
+      transition: 0.5s;
+      z-index: 1000;
+      height: 0px;
+      visibility: hidden;
+      overflow-y: hidden;
+    }
+  #nav-menu-hamburguer.active #menu {
+      display: flex;
+      flex-direction: column;
+      height: calc(30vh - 60px);
+      visibility: visible;
+      overflow-y: auto;
+    }
+  #menu a {
+      text-align: center;
+      font-family: var(--fontes-de-texto);
+      font-size: 15px;
+      padding: 1rem 0;
+      margin: 0 1rem;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+    }
+  #btn-mobile {
+      display: flex;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      gap: 0.5rem;
+      color: #d6d8db;
+    }
+  
+  a{
+      color: #fff;
+      text-decoration: none;
+  }
+  
+  #modo-desktop{
+      width: 100vw;
+  }
+  
+  #modo-desktop li{
+      list-style: none;
+  }
+  
+  #modo-desktop ul{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      text-align: center;
+      gap: 4%;
+  }
+  
+  @media screen and (max-width: 900px){
+      #modo-desktop{
+          display: none;
+      }
+      
+  
+   /* PÁGINA DE LOGIN GERAL*/
+  
+   #seta-verde{
+    margin-top: 4%;
+    width: 23%;
+  }
+  
+  .texto-login{
+    margin-top: 8%;
+    
+  }
+  
+  #texto-login{
+    
+    font-family: var(--fontes-de-titulo);
+    font-weight: 800;
+    font-size: 40px;
+    margin-left: 7%;
+    color: var(--azul-escuro);
+  
+  }
+  
+  
+  #texto-login2{
+  
+    font-family: var(--fontes-de-titulo);
+    margin-left: 8%;
+  
+  }
+  
+  
+    
+  
+  .input1-login{
+    margin-top: 20%;
+  }
+  
+  
+  .input2-login{
+    margin-top: 20%;
+  }
+  
+  .form__group {
+    position: relative;
+    padding: 20px 0 0;
+    width: 100%;
+    max-width: 180px;
+  }
+  
+  .form__field-login {
+  margin-left: 18%;
+    font-family: var(--fontes-de-titulo);
+    width: 170%;
+    border: none;
+    border-bottom: 1px solid #150031;
+    outline: 0;
+    font-size: 17px;
+    color: var(--preto);
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  
+  .form__field-login::placeholder {
+    color: transparent;
+  }
+  
+  .form__field-login:placeholder-shown ~ .form__label-login {
+    font-size: 17px;
+    cursor: text;
+    top: 20px;
+  }
+  
+  .form__label-login {
+    font-family: var(--fontes-de-titulo);
+    margin-left: 18%;
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 17px;
+    color: var(--preto);
+    pointer-events: none;
+  }
+  
+  
+  
+  .form__field-login:focus ~ .form__label-login {
+    font-family: var(--fontes-de-titulo);
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 17px;
+    color: var(--preto);
+    font-weight: 700;
+  }
+  
+  /* reset input */
+  .form__field-login:required, .form__field-login:invalid {
+    box-shadow: none;
+  }
+  
+  
+  
+  .olho {
+    cursor: pointer;
+    left: 160px;
+    margin-left: 100%;
+    width: 40%;
+  }
+  
+  
+  
+  
+  
+  
+  
+  .button {
+    margin-top: 15%;
+    margin-left: 36%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 15px;
+    background: rgb(145,43,100);
+  background: linear-gradient(90deg, rgba(145,43,100,1) 1%, rgba(204,110,163,1) 49%, rgba(145,43,100,1) 100%);
+    outline: 3px --bordo;
+    outline-offset: -3px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+    width: 100px;
+  }
+  
+  .button .text {
+    color: white;
+    font-size: 1em;
+    transition: 400ms;
+    font-family: var(--fontes-de-texto);
+    
+  }
+  
+  
+  
+  
+  .senha-login{
+   
+    text-align: center;
+    margin-top: 20%;
+  }
+  
+  #senha-login{
+    text-decoration: none;
+    color: var(--preto);
+    text-align: center;
+    margin-top: 4%;
+    font-size: 17px;
+   
+  }
+  
+  
+  
+  .img-login{
+    width: 90px;
+  }
+  
+  
+  .senha-login{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+  
+  
+  }
+  
+  
+  
+  
+  
+  
+}
+  
+
+  
+  
+  
+  
+  @media screen and (min-width: 900px) {
+      #nav-menu-hamburguer{
+          display: none;
+      }
+      .div-cabecalho{
+          margin-left: -5%;
+      }
+  
+  }
+  
+      </style>
+</head>
+
+<body>
+    
+   <header id="header-login">
+
+    <div class="seta-verde">
+
+        <img src="img/imagem-seta.png" alt="" id="seta-verde">
+
+    </div>
+
+   </header>
+
+   <main id="main-login">
+
+    <div class="texto-login">
+
+        <p id="texto-login">
+            Bem-Vindo! <br>
+           
+        </p>
+
+        <p id="texto-login2">
+            faça login para continuar
+           
+        </p>
+
+       
+    </div>
+
+    <form>
+
+        <div class="input1-login">
+
+
+            <div class="form__group field-login">
+    
+    
+            <input  placeholder="E-mail" required class="form__field-login" type="E-mail" name="password" id="myPassword" size="30" />
+            <label for="name" class="form__label-login">E-mail </label>
+    
+                
+    
+               
+                
+            </div>
+    
+    
+        </div>
+    
+    
+        <div class="input2-login">
+    
+    
+            <div class="form__group field-login">
+                <input type="password" class="form__field-login" placeholder="Senha" required>
+                <label for="name" class="form__label-login">Senha</label>
+            </div>
+    
+    
+    
+    
+            <div class="botao-login">
+    
+               
+    
+                <button class="button" type="submit">
+                   
+                    <p class="text">Entrar</p>
+                  </button>
+
+                 
+            
+            </div>
+    
+            
+        </div>
+    
+    
+
+    </form>
+
+
+
+   </main>
+
+   <footer id="footer-login">
+
+   
+
+
+    <div class="senha-login">
+        <img src="img/linha-login-removebg-preview.png" alt="" class="img-login">
+        <a href="#" id="senha-login">Esqueci a senha</a>
+        <img src="img/linha2 -.png" alt="" class="img-login">
+
+    </div>
+
+    
+
+   </footer>
+    
+</body>
+
+
+
+<script>
+    function mouseoverPass(obj) {
+        var obj = document.getElementById('myPassword');
+        obj.type = "text";
+      }
+      function mouseoutPass(obj) {
+        var obj = document.getElementById('myPassword');
+        obj.type = "password";
+      }
+          
+     
+   
+      
+     
+      
+          
+</script>
+</html>

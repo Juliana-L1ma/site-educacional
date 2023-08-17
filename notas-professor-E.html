@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas</title>
+    <style>
+
+      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --azul-escuro: #0A395E;
+    --bordo: #912B64;
+    --amarelo: #FAF4D3;
+    --verde: #70A288;
+    --background-color-branco: #F5F5F5;
+    --preto: #0C1618;
+    --azul-claro-botao: #93B4DB;
+    --fontes-de-texto: 'Questrial', sans-serif;
+    --fontes-de-titulo:'Roboto', sans-serif ;
+}
+
+
+body{
+    background-color: var(--background-color-branco);
+    
+}
+
+header{
+    width: 100vw;
+    height: 10vh;
+    background-color: #0A395E;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+}
+
+.div-cabecalho{
+    padding-left: 2%;
+    padding-right: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#btn-mobile{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#menu {
+    display: block;
+    position: absolute;
+    width: 100%;
+    right: 0px;
+    background: var(--azul-escuro);
+    transition: 0.5s;
+    z-index: 1000;
+    height: 0px;
+    visibility: hidden;
+    overflow-y: hidden;
+  }
+#nav-menu-hamburguer.active #menu {
+    display: flex;
+    flex-direction: column;
+    height: calc(30vh - 60px);
+    visibility: visible;
+    overflow-y: auto;
+  }
+#menu a {
+    text-align: center;
+    font-family: var(--fontes-de-texto);
+    font-size: 15px;
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+  }
+#btn-mobile {
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 0.5rem;
+    color: #d6d8db;
+  }
+
+a{
+    color: #fff;
+    text-decoration: none;
+}
+
+#modo-desktop{
+    width: 100vw;
+}
+
+#modo-desktop li{
+    list-style: none;
+}
+
+#modo-desktop ul{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+    gap: 4%;
+}
+
+@media screen and (max-width: 900px){
+    #modo-desktop{
+        display: none;
+    }
+    
+
+ /* PÁGINA DE LOGIN GERAL*/
+
+ #seta-verde{
+  margin-top: 4%;
+  width: 23%;
+}
+
+.texto-login{
+  margin-top: 8%;
+  
+}
+
+#texto-login{
+  
+  font-family: var(--fontes-de-titulo);
+  font-weight: 800;
+  font-size: 40px;
+  margin-left: 7%;
+  color: var(--azul-escuro);
+
+}
+
+
+#texto-login2{
+
+  font-family: var(--fontes-de-titulo);
+  margin-left: 8%;
+
+}
+
+
+  
+
+.input1-login{
+  margin-top: 20%;
+}
+
+
+.input2-login{
+  margin-top: 20%;
+}
+
+.form__group {
+  position: relative;
+  padding: 20px 0 0;
+  width: 100%;
+  max-width: 180px;
+}
+
+.form__field-login {
+margin-left: 18%;
+  font-family: var(--fontes-de-titulo);
+  width: 170%;
+  border: none;
+  border-bottom: 1px solid #150031;
+  outline: 0;
+  font-size: 17px;
+  color: var(--preto);
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field-login::placeholder {
+  color: transparent;
+}
+
+.form__field-login:placeholder-shown ~ .form__label-login {
+  font-size: 17px;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label-login {
+  font-family: var(--fontes-de-titulo);
+  margin-left: 18%;
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: var(--preto);
+  pointer-events: none;
+}
+
+
+
+.form__field-login:focus ~ .form__label-login {
+  font-family: var(--fontes-de-titulo);
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: var(--preto);
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field-login:required, .form__field-login:invalid {
+  box-shadow: none;
+}
+
+
+
+.olho {
+  cursor: pointer;
+  left: 160px;
+  margin-left: 100%;
+  width: 40%;
+}
+
+
+
+
+
+
+
+.button {
+  margin-top: 15%;
+  margin-left: 36%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 15px;
+  background: rgb(145,43,100);
+background: linear-gradient(90deg, rgba(145,43,100,1) 1%, rgba(204,110,163,1) 49%, rgba(145,43,100,1) 100%);
+  outline: 3px --bordo;
+  outline-offset: -3px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+  width: 100px;
+}
+
+.button .text {
+  color: white;
+  font-size: 1em;
+  transition: 400ms;
+  font-family: var(--fontes-de-texto);
+  
+}
+
+
+
+
+.senha-login{
+ 
+  text-align: center;
+  margin-top: 20%;
+}
+
+#senha-login{
+  text-decoration: none;
+  color: var(--preto);
+  text-align: center;
+  margin-top: 4%;
+  font-size: 17px;
+ 
+}
+
+
+
+.img-login{
+  width: 90px;
+}
+
+
+.senha-login{
+display: flex;
+flex-direction: row;
+justify-content: center;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* PÁGINA NOTAS PROFESSOR */
+
+
+
+
+
+
+
+.texto-notas-professor{
+  font-family: var(--fontes-de-titulo);
+  font-size: 25px;
+  font-weight: 900;
+  text-align: center;
+  margin-top: 7%;
+  margin-bottom: 5%;
+  
+}
+
+.unidade-notas-professor{
+  font-family: var(--fontes-de-titulo);
+  font-size: 25px;
+  font-weight: 900;
+
+  margin-top: 7%;
+  
+}
+
+
+
+.label-notas-professor{
+  font-family: var(--fontes-de-texto);
+  font-size: 27px;
+
+  margin-left: 16%;
+}
+
+
+.label-notas-professor-2{
+  font-family: var(--fontes-de-texto);
+  font-size: 20px;
+
+ 
+}
+
+#turma{
+  text-decoration: none;
+  border: none;
+  margin-left: 20%;
+  background-color: var(--background-color-branco);
+  
+}
+
+#unidade{
+  text-decoration: none;
+  border: none;
+  margin-left: 17%;
+  background-color: var(--background-color-branco);
+}
+
+
+
+
+.linha-n-p{
+  width: 170px;
+  margin-left: 43%;
+  border-bottom: 2px solid #912B64;
+  color: var(--bordo);
+}
+
+.tudo-nota-professor{
+  display: flex;
+  justify-content: center;
+
+}
+
+.sai{
+  margin-left: -11%;
+}
+
+
+
+
+.alunos-notas-professor{
+  border: 2px solid #0A395E;
+  color: #F5F5F5;
+  border-radius: 7px;
+  background-color: var(--azul-escuro);
+  width: 150px;
+  text-align: center;
+  font-family: var(--fontes-de-titulo);
+  font-weight: 700;
+  font-size: 20px;
+  padding: 2%;
+}
+.conteudo-nota-professor{
+  display: flex;
+  justify-content: center;
+}
+
+#meuSelect {
+  background-color: #ffffffa6; /* Cor de fundo do select */
+  color: #333; /* Cor do texto do select */
+  border: 1px solid #ccc; /* Borda do select */
+  border-radius: 5px; /* Cantos arredondados */
+  padding: 5px; /* Espaçamento interno */
+  text-decoration: none;
+}
+
+#meuSelect option {
+  background-color: #d40000; /* Cor de fundo das opções */
+  color: #ff0000; /* Cor do texto das opções */
+}
+
+
+#nota-aluno{
+  text-decoration: none;
+  border: none;
+  margin-left: 10%;
+ 
+  font-family: var(--fontes-de-texto);
+  margin-top: 10%;
+  font-size: 17px;
+  background-color: var(--amarelo);
+
+  
+}
+
+.criterio-nota-professor{
+
+  font-family: var(--fontes-de-titulo);
+  font-size: 15px;
+  margin-left: 11%;
+  margin-top: 3%;
+
+}
+
+.nota-nota-professor{
+  font-family: var(--fontes-de-texto);
+  font-weight: 800;
+  font-size: 23px;
+  margin-left: 10%;
+}
+
+
+.nomes-alunos{
+  font-family: var(--fontes-de-texto);
+  font-size: 18px;
+  text-align: justify;
+  margin-left: 10%;
+  padding: 4%;
+}
+
+.linhas-nota-professor1{
+  margin-top: 5%;
+  width: 85%;
+  margin-left: 7%;
+
+}
+.linhas-nota-professor{
+ color: var(--preto);
+  width: 85%;
+  margin-left: 7%;
+
+}
+
+.notas-professor{
+ height: 340px;
+  border-radius: 16px;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: -10%;
+padding-top: 7%;
+  background-color: var(--amarelo);
+}
+
+
+.body-nota-professor{
+  background-color: var(--background-color-branco);
+}
+
+
+
+
+
+
+
+
+
+/* PÁGINA GERENCIAMENTO DE ALUNOS */
+
+.texto-GerenciamentoDeAlunos{
+  font-family: var(--fontes-de-titulo);
+  font-size: 23px;
+  font-weight: 900;
+  text-align: center;
+  margin-top: 7%;
+  
+}
+.linhaVerde-GerenciantoDeAlunos{
+  width: 45px;
+  margin-left: 16%;
+  border: 1px solid var(--verde);
+  margin-bottom: 7%;
+}
+
+.label-GerenciamentoDeAlunos{
+  font-family: var(--fontes-de-texto);
+  font-size: 20px;
+  margin-left: 15%;
+  
+  
+ 
+}
+
+#turma2{
+  text-decoration: none;
+  border: none;
+  margin-left: 25%;
+  background-color: var(--background-color-branco);
+  
+}
+
+.boletim-GerenciamentoDeAlunos{
+  color: var(--verde);
+  text-decoration: underline;
+  font-family: var(--fontes-de-texto);
+  font-weight: 700;
+  margin-left: 10%;
+  
+}
+
+.info-GerenciamentoDeAlunos{
+  color: var(--verde);
+  text-decoration: underline;
+  font-family: var(--fontes-de-texto);
+  font-weight: 700;
+  margin-left: 10%;
+}
+
+
+
+/* PÁGINA PLANEJAMENTO E REGISTRO DE ALUNOS */
+
+
+.titulo-planejamentoRegistroDeAlunos{
+  font-family: var(--fontes-de-titulo);
+  font-weight: 1000;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 8%;
+}
+
+
+.botao-PRA {
+  margin-top: 13%;
+  margin-left: 27%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 15px;
+  background: rgb(145,43,100);
+  outline: 3px --bordo;
+  outline-offset: -3px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+  width: 175px;
+  padding: 5%;
+}
+
+.botao-PRA .text-PRA {
+  color: var(--background-color-branco);
+  font-size: 17px;
+  transition: 400ms;
+  font-family: var(--fontes-de-texto);
+ 
+  
+}
+
+.img-PRA{
+    width: 260px;
+   margin-left: 15%;
+}
+.body-PRA{
+  background-color: var(--background-color-branco);
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 900px) {
+    #nav-menu-hamburguer{
+        display: none;
+    }
+    .div-cabecalho{
+        margin-left: -5%;
+    }
+
+}
+
+    </style>
+</head>
+<body    class="body-nota-professor">
+
+</head>
+<body class="body-gerenciamentoDeAlunos">
+
+  <header class="header-professor-adm">
+    <div class="div-cabecalho" id="modo-desktop">
+      <ul>
+        <a href="">
+          <li>Home</li>
+        </a>
+        <a href="">
+          <li>Perfil</li>
+        </a>
+        <a href="">
+          <li>Funcionalidades</li>
+        </a>
+        <a href="">
+          <li>Sobre o Senai</li>
+        </a>
+      </ul>
+    </div>
+    <div class="div-cabecalho" id="modo-mobile">
+      <nav id="nav-menu-hamburguer">
+        <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+          <span id="hamburger">
+            <img src="./img/barra-de-menu.png" alt="Menu aberto ícones criados por verry purnomo - Flaticon"/> 
+          </span>
+        </button>
+        <ul id="menu" role="menu">
+          <br><li><a class="header-item" href="index.html">Home</a></li><br><hr>
+          <br><li> <a class="header-item" href="products.html">Products</a></li><br><hr>
+          <br><li><a class="header-item" href="aboutus.html">About us</a></li> <br><hr>          
+      </ul>
+      </nav>
+    </div>
+    <div class="div-cabecalho" id="modo-mobilee">
+      <a href="https://www.flaticon.com/br/icones-gratis/perfil" title="Perfil ícones criados por inkubators - Flaticon" id="icone-perfil"> 
+        <img src="./img/perfil-de-usuario.png"/>
+      </a>
+      <a href="https://www.flaticon.com/br/icones-gratis/engrenagem" title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem"> <img src="./img/engrenagem.png"/>
+      </a>
+    </div>
+  </header>
+
+
+
+    <main id="main-notas-professor">
+
+        <p class="texto-notas-professor">Inserir ou alterar notas</p>
+
+       
+
+        <label class="label-notas-professor" for="turma">Turma:</label>
+
+	<select id="turma" name="turma">
+		<option value="M3P">M3P</option>
+		<option value="M2P">M2P</option>
+		<option value="M1P">M1P</option>
+	</select> 
+    <hr class="linha-n-p">
+
+
+    <br>
+
+    <div class="tudo-nota-professor">
+
+   
+
+    <label class="sai" for="turma"><p class="label-notas-professor-2"> Unidade<br>Curricular :</p> </label>
+
+ 
+	<select id="unidade" name="turma">
+		<option value="1">1</option>
+		<option value="M2P">M2P</option>
+		<option value="M1P">M1P</option>
+	</select> 
+   
+    
+</div>
+<hr class="linha-n-p">
+
+
+
+
+<br>
+
+
+<div class="conteudo-nota-professor">
+
+    <p class="alunos-notas-professor">Alunos</p>
+
+</div>
+
+
+
+<div class="notas-professor">
+
+
+
+
+
+
+  <p id="nota-aluno">Beatriz Brito Ferreira</p>
+  
+
+
+    <p class="criterio-nota-professor">Critério:</p>
+    <br>
+    <p class="nota-nota-professor">Nota: </p>
+
+    <hr class="linhas-nota-professor1">
+
+    <p class="nomes-alunos">Evelyn Victoria da Silva Santos</p>
+
+    <hr class="linhas-nota-professor">
+
+    <p class="nomes-alunos">Juliana Pereira Lima</p>
+
+    <hr class="linhas-nota-professor">
+
+    <p class="nomes-alunos">Trinity Domingues dos Santos</p>
+
+    <hr class="linhas-nota-professor">
+
+
+
+
+
+   
+
+ 
+   
+    <br>
+
+</div>
+
+
+
+
+
+    
+
+
+
+
+
+    </main>
+
+
+
+
+
+    
+    
+</body>
+
+
+
+<script>
+  const btnMobile = document.getElementById('btn-mobile');
+
+  function toggleMenu(event) {
+    if (event.type === 'touchstart') event.preventDefault();
+    const nav = document.getElementById('nav-menu-hamburguer');
+    nav.classList.toggle('active');
+    const active = nav.classList.contains('active');
+    event.currentTarget.setAttribute('aria-expanded', active);
+    if (active) {
+      event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
+    } else {
+      event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
+    }
+  }
+
+  btnMobile.addEventListener('click', toggleMenu);
+  btnMobile.addEventListener('touchstart', toggleMenu);
+</script>
+</html>
