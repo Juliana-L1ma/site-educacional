@@ -1,126 +1,396 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <style>
-      /*fonte nova*/
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-      /*fim fonte nova*/
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
 
-      :root {
-        --azul-escuro: #0a395e;
-        --bordo: #912b64;
-        --amarelo: #faf4d3;
-        --verde: #70a288;
-        --background-color-branco: #f5f5f5;
-        --preto: #0c1618;
-        --azul-claro-botao: #93b4db;
-        --fontes-de-texto: "Questrial", sans-serif;
-        --fontes-de-titulo: "Roboto", sans-serif;
-      }
+  <style>
+     /*fonte nova*/
+ @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+ /*fim fonte nova*/
+ @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+ @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+ /*questrial textos*/
 
-      @media (max-width: 480px) {
-        body {
-          background-color: var(--background-color-branco);
-        }
+ /*header trinity*/
+ body {
+   background-color: var(--background-color-branco);
+ }
 
-        .header-professor-adm {
-          background-color: var(--azul-escuro);
-          display: flex;
-          flex-direction: row;
-          height: 10vh;
-          align-items: center;
-        }
+ /* começo de infos que ja tem */
+ :root {
+   --azul-escuro: #0A395E;
+   --bordo: #912B64;
+   --amarelo: #FAF4D3;
+   --verde: #70A288;
+   --background-color-branco: #F5F5F5;
+   --preto: #0C1618;
+   --azul-claro-botao: #93B4DB;
+   --fontes-de-texto: 'Questrial', sans-serif;
+   --fontes-de-titulo: 'Roboto', sans-serif;
+ }
 
-        /*new**/
-        .headertitulo {
-          height: 42vh;
-          border-radius: 10%;
-          width: 100%;
-          background-color: var(--azul-escuro);
-        }
-
-        .central {
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
-          align-content: space-around;
-        }
-
-        .titulocentral {
-          margin-top: 10%;
-          color: var(--amarelo);
-          font-family: "Poppins", sans-serif;
-          font-size: x-large;
-        }
-
-        .hrVerde_cadastroInfo {
-          border: none;
-          background-color: var(--verde);
-          width: 15vw;
-          height: 0.5vh;
-          display: flex;
-          align-self: flex-start;
-        }
-
-        .inputCadastroInfo {
-          background: none;
-          border: none;
-          border-bottom: 1px solid var(--preto);
-        }
-
-        .select_cadastroInfos_turma {
-          background-color: var(--azul-escuro);
-          border: none;
-          border-bottom: 1px solid black;
-          width: 100%;
-          text-align: center;
-          color: var(--background-color-branco);
-        }
-
-        .select_cadastroInfos_turma:focus {
-          outline: none;
-        }
-
-        .select_cadastroInfos_turma option {
-          background-color: #0a395e;
-          color: var(--preto);
-        }
-
-        .select_cadastroInfos_turma:hover option {
-          background-color: #ffffff;
-          color: var(--preto);
-        }
+ *{
+  margin: 0;
+  padding: 0;
+  font-family: var(--fontes-de-texto);
+}
 
 
-        /*Opções a serem selecionadas*/
-        .escolha_aluno_cadastroInfo, .escolha_professor_cadastroInfo, .escolha_curso_cadastroInfo, .escolha_turma_cadastroInfo, .escolha_uc_cadastroInfo {
-display: none;
-        }
-      }
-    </style>
-    <title>Document</title>
-  </head>
+ body {
+   background-color: var(--background-color-branco);
+ }
 
-  <body>
-    <div class="headertitulo">
-      <header class="header-professor-adm">
+ /* fim de infos que ja tem */
+
+ header {
+   width: 100%;
+   height: 10vh;
+   background-color: #0a395e;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-family: "Lato", sans-serif;
+ }
+
+ .div-cabecalho {
+   padding-left: 2%;
+   padding-right: 2%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+ }
+
+ #btn-mobile {
+   background-color: transparent;
+   border-color: transparent;
+ }
+
+ #menu {
+   display: block;
+   position: absolute;
+   width: 100%;
+   right: 0px;
+   background: var(--azul-escuro);
+   transition: 0.5s;
+   z-index: 1000;
+   height: 0px;
+   visibility: hidden;
+   overflow-y: hidden;
+ }
+
+ #nav-menu-hamburguer.active #menu {
+   display: flex;
+   flex-direction: column;
+   height: calc(30vh - 60px);
+   visibility: visible;
+   overflow-y: auto;
+ }
+
+ #menu a {
+   text-align: center;
+   font-family: var(--fontes-de-texto);
+   font-size: 15px;
+   padding: 1rem 0;
+   margin: 0 1rem;
+   border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+ }
+
+ #btn-mobile {
+   display: flex;
+   padding: 0.5rem 1rem;
+   font-size: 1rem;
+   border: none;
+   background: none;
+   cursor: pointer;
+   gap: 0.5rem;
+   color: #d6d8db;
+ }
+
+ a {
+   color: #fff;
+   text-decoration: none;
+ }
+
+ #modo-desktop {
+   width: 100vw;
+ }
+
+ #modo-desktop li {
+   list-style: none;
+ }
+
+ #modo-desktop ul {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   flex-direction: row;
+   text-align: center;
+   gap: 4%;
+ }
+
+ @media screen and (max-width: 900px) {
+   #modo-desktop {
+     display: none;
+   }
+ }
+
+ @media screen and (min-width: 900px) {
+   #nav-menu-hamburguer {
+     display: none;
+   }
+
+   .div-cabecalho {
+     margin-left: -5%;
+   }
+ }
+
+ /*fim header trinity*/
+
+ /* @media (max-width: 480px) { */
+ /*new**/
+ .headertitulo {
+   height: 42vh;
+   border-radius: 10%;
+   width: 100%;
+   background-color: var(--azul-escuro);
+ }
+
+ .central {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   align-content: space-around;
+ }
+
+ .titulocentral {
+   margin-top: 10%;
+   color: var(--amarelo);
+   font-family: "Poppins", sans-serif;
+   font-size: 1.5rem;
+ }
+
+ .hrVerde_cadastroInfo {
+   border: none;
+   background-color: var(--verde);
+   width: 15vw;
+   height: 0.5vh;
+   display: flex;
+   align-self: flex-start;
+ }
+
+ .inputCadastroInfo {
+   background: none;
+   border: none;
+   border-bottom: 1px solid var(--preto);
+ }
+
+ .select_cadastroInfos_turma, .t1 select {
+   background-color: var(--amarelo);
+   border: none;
+   -bottom: 1px solid black;
+   text-align: left;
+   font-size: 120%;
+   margin-top: 2%;
+   height: 4vh;
+   width: 300px;
+   border-radius: 20px;
+   padding: 9px;
+   color: #0C1618;
+   outline: 0;
+ }
+
+ .labelEscolha {
+   font-family: "Poppins";
+   font-weight: 500;
+   color: var(--background-color-branco);
+   width: max-content;
+ }
+
+ .select2_cadastrosInfo {
+  width: fit-content;
+  font-size: 120%;
+  margin-top: 2%;
+  height: 4vh;
+  border: none;
+  border-radius: 20px;
+  padding: 9px;
+  color: #0C1618;
+  background-color: #FAF4D3;
+  outline: 0;
+ }
+
+ .select2_cadastrosInfo option {
+   background-color: #0a395e;
+   border-bottom: 1px solid var(--preto);
+   color: var(--background-color-branco);
+   width: 100%;
+ }
+
+ .select2_cadastrosInfo:focus {
+   outline: none;
+ }
+
+ .select_cadastroInfos_turma:hover option {
+   background-color: #ffffff;
+   color: var(--preto);
+ }
+
+#alinhaSelect{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 5%;
+}
+
+.btnAdd{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#alinhamento{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 4%;
+}
+
+ /*Opções a serem selecionadas*/
+ #escolha_aluno_cadastroInfo,
+ /*#escolha_professor_cadastroInfo,*/
+ #escolha_curso_cadastroInfo,
+ #escolha_turma_cadastroInfo,
+ #escolha_unidade_curricular_cadastroInfo {
+   display: none;
+ }
+
+ /* } */
+
+ .divCategoria2_naoVisivel {
+   display: none;
+ }
+
+ .divCategoria2_naoVisivel input {
+   flex-grow: 1;
+   background: none;
+   border: none;
+   outline: none;
+   text-align: center;
+   border-bottom: 1px solid var(--preto);
+ }
+
+ .t1 {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   margin: 3%;
+   width: 90%;
+ }
+
+ .t1 input{
+  font-family: 'Questrial', sans-serif;
+  font-size: 110%;
+  margin-top: 2%;
+  height: 1.5vh;
+  width: 260px;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  color: #0C1618;
+  background-color: #fff;
+  outline: 0;
+  text-align: left;
+  padding: 9px;
+ }
+
+ .t1 label{
+  margin-top: 3%;
+  margin-bottom: 4%;
+  font-size: 120%;
+ }
+
+
+ #texto_preenchaDados_cadastroInfo {
+   font-weight: 400;
+   margin: 5%;
+   font-size: x-large;
+   text-align: center;
+   text-decoration: 2px solid var(--bordo) underline;
+ }
+
+
+
+ @media (min-width: 480px) {
+   .titulocentral {
+     margin-top: 2em;
+   }
+
+   #divCategorias_cadastroinfo {
+     align-items: self-start;
+     justify-content: space-around;
+     gap: .5em;
+     display: flex;
+     margin-top: 2em;
+   }
+
+.main_cadastroInfos{
+  justify-content: center;
+}
+
+   .divCategoria2_naoVisivel {
+    max-width: 70%;
+   }
+
+   .t2 {
+    width: 100%;
+  }
+
+  .divCategoria2_naoVisivel {
+    width: 60%;
+  }
+
+ }
+
+ 
+ .alinharInputs{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+ }
+  </style>
+</head>
+
+<body>
+  <div class="headertitulo">
+    <header class="header-professor-adm">
+      <div class="div-cabecalho" id="modo-desktop">
+        <ul>
+          <a href="">
+            <li>Home</li>
+          </a>
+          <a href="">
+            <li>Perfil</li>
+          </a>
+          <a href="">
+            <li>Funcionalidades</li>
+          </a>
+          <a href="">
+            <li>Sobre o Senai</li>
+          </a>
+        </ul>
+      </div>
+      <div class="div-cabecalho" id="modo-mobile">
         <nav id="nav-menu-hamburguer">
-          <button
-            aria-label="Abrir Menu"
-            id="btn-mobile"
-            aria-haspopup="true"
-            aria-controls="menu"
-            aria-expanded="false"
-          >
-            <span id="hamburger"
-              ><img
-                src="./img/barra-de-menu.png"
-                alt="Menu aberto ícones criados por verry purnomo - Flaticon"
-            /></span>
+          <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu"
+            aria-expanded="false">
+            <span id="hamburger">
+              <img src="./img/barra-de-menu.png" alt="Menu aberto ícones criados por verry purnomo - Flaticon" />
+            </span>
           </button>
           <ul id="menu" role="menu">
             <br />
@@ -137,138 +407,293 @@ display: none;
             <hr />
           </ul>
         </nav>
+      </div>
+      <div class="div-cabecalho" id="modo-mobilee">
+        <a href="https://www.flaticon.com/br/icones-gratis/perfil"
+          title="Perfil ícones criados por inkubators - Flaticon" id="icone-perfil">
+          <img src="./img/perfil-de-usuario.png" />
+        </a>
+        <a href="https://www.flaticon.com/br/icones-gratis/engrenagem"
+          title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem">
+          <img src="./img/engrenagem.png" />
+        </a>
+      </div>
+    </header>
 
-        <a
-          href="https://www.flaticon.com/br/icones-gratis/perfil"
-          title="Perfil ícones criados por inkubators - Flaticon"
-          id="icone-perfil"
-          ><img src="./img/perfil-de-usuario.png"
-        /></a>
-        <a
-          href="https://www.flaticon.com/br/icones-gratis/engrenagem"
-          title="Engrenagem ícones criados por Freepik - Flaticon"
-          id="icone-engrenagem"
-          ><img src="./img/engrenagem.png"
-        /></a>
-      </header>
-      <div class="central">
-        <h1 class="titulocentral">Cadastro de Informações</h1>
-        <hr class="hrVerde_cadastroInfo">
+    <div class="central">
+      <h1 class="titulocentral">Cadastro de Informações</h1>
+      <hr class="hrVerde_cadastroInfo" />
 
-        <div style="align-items: self-start; margin-top: 10%;">
-          <div style="display: flex; width: 90%;">
-            <label
-              for="tes"
-              style="
-                font-family: 'Poppins';
-                font-weight: 500;
-                color: var(--background-color-branco);
-              "
-              >Categoria:</label
-            >
-            <select
-              name="tes"
-              class="select_cadastroInfos_turma"
-              id=""
-              required
-            >
-              <option value="">Aluno</option>
-              <option value="">Professor</option>
-              <option value="">Curso</option>
-              <option value="">Turma</option>
-              <option value="">Unidade curricular</option>
+      <div id="divCategorias_cadastroinfo">
+        <div style="display: flex; width: 90%">
+          <select name="tes" class="select_cadastroInfos_turma" id="select1_cadastroinfo"
+            onchange="categoria2_cadastroinfo()" required>
+            <option id="opcaovazia_cadastroInfo" value=""></option>
+            <option value="aluno">Aluno</option>
+            <option value="professor">Professor</option>
+            <option value="curso">Curso</option>
+            <option value="turma">Turma</option>
+            <option value="unidade_curricular">Unidade curricular</option>
+          </select>
+        </div>
+
+        <br/>
+        <div style="display: flex; width: 90%">
+          <div class="categoriaSelecionada_cadastroInfo" id="escolha_aluno_cadastroInfo">
+            <select name="" class="select2_cadastrosInfo" id="select_aluno_cadastroInfos" required>
+              <option value="">${M3P}</option>
+              <option value="">${M4M}</option>
+              <option value="">${M4E}</option>
+              <option value="">${CAI}</option>
             </select>
           </div>
 
-          <br />
-          <div style="display: flex; width: 90%;">
+          <div class="categoriaSelecionada_cadastroInfo" id="escolha_curso_cadastroInfo">
+            <label class="labelEscolha" for="">Período:</label>
+            <select name="" class="select_curso_cadastroInfos select2_cadastrosInfo" id="" style="width: 25%" required>
+              <option value="">1 semestre</option>
+              <option value="">2 semestres</option>
+              <option value="">3 semestres</option>
+              <option value="">4 semestres</option>
+            </select>
 
-            <div class="escolha_aluno_cadastroInfo">
-            <label for="" style=" font-family: 'Poppins'; font-weight: 500;
-                color: var(--background-color-branco);
-              "
-              >Turma:</label
-            >
-            <select name="" class="select_cadastroInfos_turma" id="" required>
+            <select name="" class="select_curso_cadastroInfos select2_cadastrosInfo" style="width: 25%" id="" required>
+              <option value="">Manhã</option>
+              <option value="">Tarde</option>
+              <option value="">Noite</option>
+            </select>
+          </div>
+
+          <div class="categoriaSelecionada_cadastroInfo" id="escolha_turma_cadastroInfo">
+            <label class="labelEscolha" for="">Área de atuação:</label>
+            <select name="" class="select_turma_cadastroInfos select2_cadastrosInfo" id="" required>
+              <option value="">Tecnologia</option>
+              <option value="">Elétrica</option>
+              <option value="">Eletrônica</option>
+              <option value="">Mecânica</option>
+            </select>
+          </div>
+
+          <div class="categoriaSelecionada_cadastroInfo" id="escolha_unidade_curricular_cadastroInfo">
+            <label class="labelEscolha" for="">Curso:</label>
+            <select name="" class="select_uc_cadastroInfos select2_cadastrosInfo" id="" required>
               <option value="">ta</option>
               <option value="">sim</option>
             </select>
-          </div>
-
-            <div class="escolha_professor_cadastroInfo">
-            <label for="" style=" font-family: 'Poppins'; font-weight: 500;
-                color: var(--background-color-branco);
-              "
-              >Turma:</label
-            >
-            <select name="" class="select_cadastroInfos_turma" id="" required>
-              <option value="">ta</option>
-              <option value="">sim</option>
-            </select>
-          </div>
-
-            <div class="escolha_curso_cadastroInfo">
-            <label for="" style=" font-family: 'Poppins'; font-weight: 500;
-                color: var(--background-color-branco);
-              "
-              >Turma:</label
-            >
-            <select name="" class="select_cadastroInfos_turma" id="" required>
-              <option value="">ta</option>
-              <option value="">sim</option>
-            </select>
-          </div>
-
-            <div class="escolha_turma_cadastroInfo">
-            <label for="" style=" font-family: 'Poppins'; font-weight: 500;
-                color: var(--background-color-branco);
-              "
-              >Turma:</label
-            >
-            <select name="" class="select_cadastroInfos_turma" id="" required>
-              <option value="">ta</option>
-              <option value="">sim</option>
-            </select>
-          </div>
-
-            <div class="escolha_uc_cadastroInfo">
-            <label for="" style=" font-family: 'Poppins'; font-weight: 500;
-                color: var(--background-color-branco);
-              "
-              >Turma:</label
-            >
-            <select name="" class="select_cadastroInfos_turma" id="" required>
-              <option value="">ta</option>
-              <option value="">sim</option>
-            </select>
-          </div>
-
-            
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script>
-      const btnMobile = document.getElementById("btn-mobile");
 
-      function toggleMenu(event) {
-        if (event.type === "touchstart") event.preventDefault();
-        const nav = document.getElementById("nav-menu-hamburguer");
-        nav.classList.toggle("active");
-        const active = nav.classList.contains("active");
-        event.currentTarget.setAttribute("aria-expanded", active);
-        if (active) {
-          event.currentTarget.setAttribute("aria-label", "Fechar Menu");
-        } else {
-          event.currentTarget.setAttribute("aria-label", "Abrir Menu");
-        }
+
+  <main class="main_cadastroInfos">
+    <h2 id="texto_preenchaDados_cadastroInfo">Preencha com os dados exigidos</h2>
+
+    <div id="t2" style="display: flex; justify-content: center;">
+      <div class="divCategoria2_naoVisivel" id="div_cadastroInfo_aluno">
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Nome completo:</label>
+          <input type="text" id="nomeCompleto_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">CPF:</label>
+          <input type="text" id="enderecoVirtual_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Data de nascimento:</label>
+          <input type="date" id="dataNasc_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Endereço:</label>
+          <input type="text" id="periodo_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">E-mail:</label>
+          <input type="email" id="enderecoVirtual_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">E-mail educacional:</label>
+          <input type="email" id="emailEd_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Senha:</label>
+          <input type="text" id="senhaEd_cadastroInfos">
+        </div>
+      </div>
+
+      <div class="divCategoria2_naoVisivel" id="div_cadastroInfo_professor">
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Nome completo:</label>
+          <input type="text" id="nomeCompleto_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">CPF:</label>
+          <input type="text" id="cpf_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Data de nascimento:</label>
+          <input type="date" id="dataNasc_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Endereço:</label>
+          <input type="text" id="endereco_cadastroInfos">
+        </div>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">E-mail:</label>
+          <input type="email" id="email_cadastroInfos">
+        </div>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Telefone:</label>
+          <input type="number" id="telefone_cadastroInfos">
+        </div>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">E-mail educacional:</label>
+          <input type="text" id="emailEd_cadastroInfos">
+        </div>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Senha:</label>
+          <input type="text" id="senhaEd_cadastroInfos">
+        </div>
+
+      </div>
+
+      <div class="divCategoria2_naoVisivel" id="div_cadastroInfo_curso">
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Nome do curso:</label>
+          <input type="text" id="nomeDaTurma_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Carga horária:</label>
+          <input type="number" id="cargaHoraria_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Total de alunos:</label>
+          <input type="number" id="totalAlunos_cadastroInfos">
+        </div>
+        <div class="opcoesCurso">
+          <label for="">Categoria:</label>
+          <div id="alinharOpCurso">
+            <input type="checkbox" name="" class="checkgroup" id="ok">
+            <label for="nomeCompleto_cadastroInfos">Técnico</label>
+            <input type="checkbox" name="" class="checkgroup" id="ok">
+            <label for="nomeCompleto_cadastroInfos">CAI</label>
+            <input type="checkbox" name="" class="checkgroup" id="na">
+            <label for="nomeCompleto_cadastroInfos">FIC</label>
+          </div>
+        </div>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Data de início:</label>
+          <input type="date" id="dataDeInicio_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Data de conclusão:</label>
+          <input type="date" id="datadeConclusao_cadastroInfos">
+        </div>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Custo:</label>
+          <input type="number" id="datadeConclusao_cadastroInfos" placeholder="R$">
+        </div>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Disciplinas:</label>
+          <div id="alinhaSelect">
+          <select name="opcoes" id="opcoes">
+            <option value="opcao1">Matéria I</option>
+            <option value="opcao2">Matéria II</option>
+            <option value="opcao3">Matéria III</option>
+          </select>
+          <button class="btnAdd" onclick="addDisciplina()"><img src="img/adicionar.png" alt=""></button>
+        </div>
+        </div>
+      </div>
+
+      <div class="divCategoria2_naoVisivel" id="div_cadastroInfo_turma">
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Oçl:</label>
+          <input type="text" id="nomeCompleto_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">virtual:</label>
+          <input type="text" id="enderecoVirtual_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Data de nascimento:</label>
+          <input type="text" id="dataNasc_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Período:</label>
+          <input type="text" id="periodo_cadastroInfos">
+        </div>
+      </div>
+
+      <div class="divCategoria2_naoVisivel" id="div_cadastroInfo_unidade_curricular">
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Nome completo:</label>
+          <input type="text" id="nomeCompleto_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">CPF:</label>
+          <input type="text" id="enderecoVirtual_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Data de nascimento:</label>
+          <input type="text" id="dataNasc_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Endereço:</label>
+          <input type="text" id="periodo_cadastroInfos">
+        </div>
+      </div>
+      
+    </div>
+  </main>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <script>
+    // --------------------------- header
+    const btnMobile = document.getElementById("btn-mobile");
+
+    function toggleMenu(event) {
+      if (event.type === "touchstart") event.preventDefault();
+      const nav = document.getElementById("nav-menu-hamburguer");
+      nav.classList.toggle("active");
+      const active = nav.classList.contains("active");
+      event.currentTarget.setAttribute("aria-expanded", active);
+      if (active) {
+        event.currentTarget.setAttribute("aria-label", "Fechar Menu");
+      } else {
+        event.currentTarget.setAttribute("aria-label", "Abrir Menu");
       }
+    }
 
-      btnMobile.addEventListener("click", toggleMenu);
-      btnMobile.addEventListener("touchstart", toggleMenu);
+    btnMobile.addEventListener("click", toggleMenu);
+    btnMobile.addEventListener("touchstart", toggleMenu);
+     // ---------------------------  fim do header
 
 
-    </script>
-  </body>
+  </script>
+
+  <script type="text/javascript" src="cadastroJS.js"></script>
+</body>
+
 </html>
