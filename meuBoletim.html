@@ -112,6 +112,115 @@
             gap: 4%;
         }
         
+
+        /*Main*/ 
+        .topo-boletim{
+          margin: 0 auto;
+          margin-top: 2%;
+          display: flex;
+      }
+      #tituloBoletim{
+        font-size: 24px;
+        font-family: var(--fontes-de-titulo);
+        font-weight: bold;
+        color: #0A395E;
+        text-align: center;
+        display: flex;
+    }
+        #foto-do-aluno{
+          background-color: #0C1618;
+          height: 200px;
+          width: 200px;
+          border-radius: 10px;
+          margin-left: 3%;
+      }
+      
+      .turma-do-aluno{
+          display: flex;
+          flex-direction: row;
+      }
+      #info-aluno-boletim{
+          width: 80%;
+          margin-top: 1%;
+          margin-left: 4%;
+          font-size: 25px;
+      }
+      .alinhaDados{
+          display: flex;
+          flex-direction: row;
+          font-family: var(--fontes-de-titulo);
+          font-size: 20px;
+      }
+      #turma-do-aluno-valor, #unidade-curricular-valor{
+          margin-left: 2%;
+      }
+      #linhaVerde-separacao{
+          border: 2px solid #29a866;
+      }
+
+      .boletim-titulo{
+        margin-left: 3%;
+        font-family: var(--fontes-de-titulo);
+      }
+      #boletim-geral{
+        width: 90%;
+        margin-left: 3%;
+      }
+      #linha-separacao-roxa{
+         border: 2px solid #691c88;
+      }
+      #legendaCriterios{
+        font-family: var(--fontes-de-texto);
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-start;
+        font-size: 20px;
+      }
+      #excelente, #regular, #ruim{
+        display: flex;
+        flex-direction: row;
+        margin-left: 5%;
+      }
+      #azul, #comportamento-color, #relacionamento-color{
+        background-color: #0A395E;
+        margin-left: 2%;
+        width: 20px;
+        height: 20px;
+      }
+      #verde, #pontualidade-color{
+        background-color: #70A288;
+        margin-left: 2%;
+        width: 20px;
+        height: 20px;
+      }
+      #bordo{
+        background-color: #912B64;
+        margin-left: 2%;
+        width: 20px;
+        height: 20px;
+      }
+      #consideracoes{
+        margin: 5%;
+        font-family: var(--fontes-de-texto);
+        border: 1px solid #000000;
+        padding: 2%;
+      }
+
+     #relacionamento, #comportamento, #pontualidade{
+        display: flex;
+        flex-direction: row;
+      }
+      #nota-final{
+        display: flex;
+        flex-direction: row;
+        font-family: var(--fontes-de-texto);
+      }
+
+      .nome-da-materia{
+        font-family: var(--fontes-de-titulo);
+        font-weight: bold;
+        font-size: 20px;
+      }
             /*------------- DESKTOP -----------------*/
             @media screen and (max-width: 900px){
               #modo-desktop{
@@ -126,9 +235,8 @@
               .div-cabecalho{
                   margin-left: -5%;
               }
-          
           }
-
+/*mobile*/
           @media (max-width: 480px){
             #foto-do-aluno{
                 background-color: #0C1618;
@@ -169,11 +277,68 @@
                 text-align: center;
                 display: flex;
             }
-            #linhaVerde-separacao-desktop{
-                display: none;
-            }
             #linhaVerde-separacao{
                 border: 2px solid #29a866;
+            }
+            .boletim-titulo{
+              margin-left: 4%;
+              font-family: var(--fontes-de-titulo);
+            }
+            #tabela-CD, #boletim-geral{
+              margin-right: 3%;
+            }
+            #linha-separacao-roxa{
+               border: 2px solid #691c88;
+            }
+            #legendaCriterios{
+              font-family: var(--fontes-de-texto);
+              display: flex;
+              flex-direction: row;
+              justify-content:flex-start;
+            }
+            #excelente, #regular, #ruim{
+              display: flex;
+              flex-direction: row;
+              margin-left: 5%;
+            }
+            #azul, #comportamento-color, #relacionamento-color{
+              background-color: #0A395E;
+              margin-left: 2%;
+              width: 20px;
+              height: 20px;
+            }
+            #verde, #pontualidade-color{
+              background-color: #70A288;
+              margin-left: 2%;
+              width: 20px;
+              height: 20px;
+            }
+            #bordo{
+              background-color: #912B64;
+              margin-left: 2%;
+              width: 20px;
+              height: 20px;
+            }
+            #consideracoes{
+              margin: 5%;
+              font-family: var(--fontes-de-texto);
+              border: 1px solid #000000;
+              padding: 2%;
+            }
+
+           #relacionamento, #comportamento, #pontualidade{
+              display: flex;
+              flex-direction: row;
+            }
+            #nota-final{
+              display: flex;
+              flex-direction: row;
+              font-family: var(--fontes-de-texto);
+            }
+
+            .nome-da-materia{
+              font-family: var(--fontes-de-titulo);
+              font-weight: bold;
             }
           }
     </style>
@@ -224,7 +389,6 @@
         
         <div id="info-aluno-boletim">
             <h2 id="tituloBoletim">Aluno(a):  <p id="nomeDoAluno-boletim">$nomeDoAluno</p></h2>
-            <hr id="linhaVerde-separacao-desktop">
             <div class="alinhaDados"><p><b>Turma:</b></p><p id="turma-do-aluno-valor">$turma</p></div>
             <div class="alinhaDados"><p><b>UC:</b></p> <p id="unidade-curricular-valor">$unidadeCurricular</p></div>
         </div>
@@ -232,10 +396,10 @@
      
       <hr id="linhaVerde-separacao">
 
-    <h2 id="boletim">Boletim</h2>
+    <h2 class="boletim-titulo">Boletim geral</h2>
 
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" id="boletim-geral">
         <thead>
           <tr>
             <th scope="col">Disciplinas</th>
@@ -251,7 +415,7 @@
           </tr>
 
           <tr>
-            <td>Banco de Dados</td>
+            <td>Java</td>
             <td>100</td>
             <td>5</td>
           </tr>
@@ -260,12 +424,6 @@
             <td>Linguagem de Marcação</td>
             <td>100</td>
             <td>4</td>
-          </tr>
-
-          <tr>
-            <td>Programação Back-end</td>
-            <td>100</td>
-            <td>1</td>
           </tr>
 
           <tr>
@@ -278,59 +436,197 @@
 
 
 
-      <h2 id="boletim">Critérios</h2>
-
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">C1</th>
-            <th scope="col">C2</th>
-            <th scope="col">C3</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Crítico</th>
-            <td>50</td>
-            <td>50</td>
-            <td>40</td>
-          </tr>
-          <tr>
-            <th scope="row">Desejáveis</th>
-            <td>50</td>
-            <td>50</td>
-            <td>40</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <hr id="linha-separacao-cinza">
+      <hr id="linha-separacao-roxa">
 
       <nav id="legendaCriterios">
         <div id="excelente">
-            <div id="azul"></div>
-            <p>Excelente</p>
+          <p>Excelente: </p>
+          <div id="azul"></div>
         </div>
 
-        <div id="Regular">
-            <div id="Regular"></div>
-            <p>Regular</p>
+        <div id="regular">
+          <p>Regular: </p>
+          <div id="verde"></div>
         </div>
 
-        <div id="Ruim">
-            <div id="bordo"></div>
-            <p>Ruim</p>
+        <div id="ruim">
+          <p>Ruim: </p>
+          <div id="bordo"></div>
         </div>
       </nav>
 
       <nav id="consideracoes">
-        <div id="comportamento">Comportamento: <div id="comportamento-color"></div></div>
-        <div id="relacionamento">Relacionamento: <div id="relacionamento-color"></div></div>
-        <div id="pontualidade">Pontualidade: <div id="pontualidade-color"></div></div>
+        <p class="nome-da-materia">$Redes</p>
+        <table class="table table-bordered" id="tabela-CD">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">C1</th>
+              <th scope="col">C2</th>
+              <th scope="col">C3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Crítico</th>
+              <td>50</td>
+              <td>50</td>
+              <td>40</td>
+            </tr>
+            <tr>
+              <th scope="row">Desejáveis</th>
+              <td>50</td>
+              <td>50</td>
+              <td>40</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div id="comportamento">
+          <p>Comportamento:</p> 
+          <div id="comportamento-color"></div>
+        </div>
+
+        <div id="relacionamento">
+          <p>Relacionamento: </p>
+          <div id="relacionamento-color"></div>
+        </div>
+
+        <div id="pontualidade">
+          <p>Pontualidade: </p>
+          <div id="pontualidade-color"></div>
+        </div>
       </nav>
 
-      <h3 id="nota-final">Nota final: <p id="notaFinal-valor"></p></h3>
+      <nav id="consideracoes">
+        <p class="nome-da-materia">$Java</p>
+        <table class="table table-bordered" id="tabela-CD">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">C1</th>
+              <th scope="col">C2</th>
+              <th scope="col">C3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Crítico</th>
+              <td>50</td>
+              <td>50</td>
+              <td>40</td>
+            </tr>
+            <tr>
+              <th scope="row">Desejáveis</th>
+              <td>50</td>
+              <td>50</td>
+              <td>40</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div id="comportamento">
+          <p>Comportamento:</p> 
+          <div id="comportamento-color"></div>
+        </div>
+
+        <div id="relacionamento">
+          <p>Relacionamento: </p>
+          <div id="relacionamento-color"></div>
+        </div>
+
+        <div id="pontualidade">
+          <p>Pontualidade: </p>
+          <div id="pontualidade-color"></div>
+        </div>
+      </nav>
+
+
+      <nav id="consideracoes">
+        <p class="nome-da-materia">$Linguagem de Marcação</p>
+        <table class="table table-bordered" id="tabela-CD">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">C1</th>
+              <th scope="col">C2</th>
+              <th scope="col">C3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Crítico</th>
+              <td>50</td>
+              <td>50</td>
+              <td>40</td>
+            </tr>
+            <tr>
+              <th scope="row">Desejáveis</th>
+              <td>50</td>
+              <td>50</td>
+              <td>40</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div id="comportamento">
+          <p>Comportamento:</p> 
+          <div id="comportamento-color"></div>
+        </div>
+
+        <div id="relacionamento">
+          <p>Relacionamento: </p>
+          <div id="relacionamento-color"></div>
+        </div>
+
+        <div id="pontualidade">
+          <p>Pontualidade: </p>
+          <div id="pontualidade-color"></div>
+        </div>
+      </nav>
+
+      <nav id="consideracoes">
+        <p class="nome-da-materia">$Sistemas Operacionais</p>
+        <table class="table table-bordered" id="tabela-CD">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">C1</th>
+              <th scope="col">C2</th>
+              <th scope="col">C3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Crítico</th>
+              <td>50</td>
+              <td>50</td>
+              <td>40</td>
+            </tr>
+            <tr>
+              <th scope="row">Desejáveis</th>
+              <td>50</td>
+              <td>50</td>
+              <td>40</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div id="comportamento">
+          <p>Comportamento:</p> 
+          <div id="comportamento-color"></div>
+        </div>
+
+        <div id="relacionamento">
+          <p>Relacionamento: </p>
+          <div id="relacionamento-color"></div>
+        </div>
+
+        <div id="pontualidade">
+          <p>Pontualidade: </p>
+          <div id="pontualidade-color"></div>
+        </div>
+      </nav>
 </body>
 
  <!-- js para fazer as ações do menu hamburguer -->
