@@ -1,207 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planejamento de Aulas</title>
-    <style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planejamento de Aulas</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+    * {
+      padding: 0;
+      margin: 0;
+    }
 
-        *{
-            padding: 0;
-            margin: 0;
-        }
-        
-        :root{
-            --azul-escuro: #0A395E;
-            --bordo: #912B64;
-            --amarelo: #FAF4D3;
-            --verde: #70A288;
-            --background-color-branco: #F5F5F5;
-            --preto: #0C1618;
-            --azul-claro-botao: #93B4DB;
-            --fontes-de-texto: 'Questrial', sans-serif;
-            --fontes-de-titulo:'Roboto', sans-serif ;
-        }
-        
-        
-        body{
-            background-color: var(--background-color-branco);
-            
-        }
-        
-        header{
-            width: 100%;
-            height: 10vh;
-            background-color: #0A395E;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Lato', sans-serif;
-        }
-        
-        .div-cabecalho{
-            padding-left: 2%;
-            padding-right: 2%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        #btn-mobile{
-            background-color: transparent;
-            border-color: transparent;
-        }
-        
-        #menu {
-            display: block;
-            position: absolute;
-            width: 100%;
-            right: 0px;
-            background: var(--azul-escuro);
-            transition: 0.5s;
-            z-index: 1000;
-            height: 0px;
-            visibility: hidden;
-            overflow-y: hidden;
-          }
-        #nav-menu-hamburguer.active #menu {
-            display: flex;
-            flex-direction: column;
-            height: calc(30vh - 60px);
-            visibility: visible;
-            overflow-y: auto;
-          }
-        #menu a {
-            text-align: center;
-            font-family: var(--fontes-de-texto);
-            font-size: 15px;
-            padding: 1rem 0;
-            margin: 0 1rem;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
-          }
-        #btn-mobile {
-            display: flex;
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            border: none;
-            background: none;
-            cursor: pointer;
-            gap: 0.5rem;
-            color: #d6d8db;
-          }
-        
-        a{
-            color: #fff;
-            text-decoration: none;
-        }
-        
-        #modo-desktop{
-            width: 100vw;
-        }
-        
-        #modo-desktop li{
-            list-style: none;
-        }
-        
-        #modo-desktop ul{
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            flex-direction: row;
-            text-align: center;
-            gap: 4%;
-        }
-        .linha-verde-PlanejamentoDeAula{
-              
-            height: 15px;
-            background-color: var(--verde);
-            
-           
-        }
+    :root {
+      --azul-escuro: #0A395E;
+      --bordo: #912B64;
+      --amarelo: #FAF4D3;
+      --verde: #70A288;
+      --background-color-branco: #F5F5F5;
+      --preto: #0C1618;
+      --azul-claro-botao: #93B4DB;
+      --fontes-de-texto: 'Questrial', sans-serif;
+      --fontes-de-titulo: 'Roboto', sans-serif;
+    }
 
 
-        .titulo-PlanejamentoDeAula{
-               
-            background-color: #912B64;
-            padding: 5%;
-            font-weight: 700;
-            height: 3px;
-        }
-    
-        #titulo-PlanejamentoDeAula2{
-            text-align: center;
-            font-family:var(--fontes-de-titulo);
-            color: var(--background-color-branco);
-            font-size: 25px;
-            margin-top: -4%;
-        }
-        .img-PlanejamentoDeAula{
-            width: 5%;
-            margin-top: -2%;
-        }
+    body {
+      background-color: var(--background-color-branco);
+
+    }
+
+    header {
+      width: 100%;
+      height: 10vh;
+      background-color: #0A395E;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .div-cabecalho {
+      padding-left: 2%;
+      padding-right: 2%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #btn-mobile {
+      background-color: transparent;
+      border-color: transparent;
+    }
+
+    #menu {
+      display: block;
+      position: absolute;
+      width: 100%;
+      right: 0px;
+      background: var(--azul-escuro);
+      transition: 0.5s;
+      z-index: 1000;
+      height: 0px;
+      visibility: hidden;
+      overflow-y: hidden;
+    }
+
+    #nav-menu-hamburguer.active #menu {
+      display: flex;
+      flex-direction: column;
+      height: calc(30vh - 60px);
+      visibility: visible;
+      overflow-y: auto;
+    }
+
+    #menu a {
+      text-align: center;
+      font-family: var(--fontes-de-texto);
+      font-size: 15px;
+      padding: 1rem 0;
+      margin: 0 1rem;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+    }
+
+    #btn-mobile {
+      display: flex;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      gap: 0.5rem;
+      color: #d6d8db;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    #modo-desktop {
+      width: 100vw;
+    }
+
+    #modo-desktop li {
+      list-style: none;
+    }
+
+    #modo-desktop ul {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      text-align: center;
+      gap: 4%;
+    }
+
+    .linha-verde-PlanejamentoDeAula {
+
+      height: 15px;
+      background-color: var(--verde);
 
 
+    }
 
 
+    .titulo-PlanejamentoDeAula {
 
-        .livroPDA{
-            width: 80px;
-            margin-left: -7%;
-            padding-right: 4%;
-            
-        }
+      background-color: #912B64;
+      padding: 5%;
+      font-weight: 700;
+      height: 3px;
+    }
 
-        .meio-PDA{
-            display: flex;
-           justify-content: center;
-           
-        }
-        .disciplina-PDA{
-            font-family: var(--fontes-de-titulo);
-            font-size: 27px;
-            text-align: center;
-           
-        }
+    #titulo-PlanejamentoDeAula2 {
+      text-align: center;
+      font-family: var(--fontes-de-titulo);
+      color: var(--background-color-branco);
+      font-size: 25px;
+      margin-top: -4%;
+    }
 
-
-        .botao-PDA {
-            margin-top: 13%;
-            margin-left: 20%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 15px;
-            gap: 15px;
-            background:#93B4DB;
-            outline: 3px --bordo;
-            outline-offset: -3px;
-            border-radius: 30px;
-            border: none;
-            cursor: pointer;
-            transition: 400ms;
-            width: 230px;
-            padding: 5%;
-        }
-
-            .botao-PDA .text-PDA {
-                color: var(--preto);
-                font-size: 17px;
-                transition: 400ms;
-                font-family: var(--fontes-de-texto);
-            
-                
-            }
+    .img-PlanejamentoDeAula {
+      width: 5%;
+      margin-top: -2%;
+    }
 
 
 
 
 
+    .livroPDA {
+      width: 80px;
+      margin-left: -7%;
+      padding-right: 4%;
+
+    }
+
+    .meio-PDA {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .disciplina-PDA {
+      font-family: var(--fontes-de-titulo);
+      font-size: 27px;
+      text-align: center;
+
+    }
 
 
+    .botao-PDA {
+      margin-top: 13%;
+      margin-left: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 15px;
+      gap: 15px;
+      background: #93B4DB;
+      outline: 3px --bordo;
+      outline-offset: -3px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      transition: 400ms;
+      width: 230px;
+      padding: 5%;
+    }
+
+    .botao-PDA .text-PDA {
+      color: var(--preto);
+      font-size: 17px;
+      transition: 400ms;
+      font-family: var(--fontes-de-texto);
+
+
+    }
 
 
 
@@ -211,202 +210,271 @@
 
 
 
-        
-        @media screen and (max-width: 900px){
-            #modo-desktop{
-                display: none;
-            }
-
-            .linha-verde-PlanejamentoDeAula{
-              
-                height: 15px;
-                background-color: var(--verde);
-                
-               
-                
-            }
-            .titulo-PlanejamentoDeAula{
-               
-                background-color: #912B64;
-                padding: 7%;
-                font-weight: 700;
-            }
-            #titulo-PlanejamentoDeAula2{
-                text-align: center;
-                font-family:var(--fontes-de-titulo);
-                color: var(--background-color-branco);
-                font-size: 22px;
-            margin-top: -12%;
-            }
-            .img-PlanejamentoDeAula{
-                width: 11%;
-            }
-
-            
-            .botao-PDA {
-                margin-top: 13%;
-                margin-left: 20%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 10px 15px;
-                gap: 15px;
-                background:#93B4DB;
-                outline: 3px --bordo;
-                outline-offset: -3px;
-                border-radius: 30px;
-                border: none;
-                cursor: pointer;
-                transition: 400ms;
-                width: 230px;
-                padding: 5%;
-            }
-  
-                .botao-PDA .text-PDA {
-                    color: var(--preto);
-                    font-size: 17px;
-                    transition: 400ms;
-                    font-family: var(--fontes-de-texto);
-                
-                    
-                }
-
-
-                .footer-PDA{
-                   position: absolute;
-                   width: 100%;
-                   bottom: 0;
-                    height: 90px;
-                    background-color: #0A395E;
-                
-                }
 
 
 
-        }
 
-        
-        @media screen and (min-width: 900px) {
-            #nav-menu-hamburguer{
-                display: none;
-            }
-            .div-cabecalho{
-                margin-left: -5%;
-            }
+    .footer-PDA {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      height: 90px;
+      background-color: #0A395E;
+    }
 
-        
 
-        }
 
-    </style>
+    @media screen and (max-width: 900px) {
+      #modo-desktop {
+        display: none;
+      }
+
+      .linha-verde-PlanejamentoDeAula {
+
+        height: 15px;
+        background-color: var(--verde);
+
+
+
+      }
+
+      .botao-PDA {
+        margin-top: 13%;
+        margin-left: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 15px;
+        gap: 15px;
+        background: #93B4DB;
+        outline: 3px --bordo;
+        outline-offset: -3px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        transition: 400ms;
+        width: 230px;
+        padding: 5%;
+      }
+
+      .botao-PDA .text-PDA {
+        color: var(--preto);
+        font-size: 1.2em;
+        transition: 400ms;
+        font-family: var(--fontes-de-texto);
+
+
+      }
+    }
+
+
+    @media screen and (min-width: 900px) {
+      #nav-menu-hamburguer {
+        display: none;
+      }
+
+      .div-cabecalho {
+        margin-left: -5%;
+      }
+
+      #teste543 {
+        margin-top: 3em;
+        display: flex;
+        gap: 5vw;
+        justify-content: center;
+      }
+
+      .botao-PDA {
+        margin: 0;
+        padding: 1.5em;
+      }
+    }
+
+
+    @media (min-width: 420px) and (max-width: 900px) {
+      #teste543 {
+        margin-top: 3em;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 5vw;
+        justify-content: center;
+      }
+
+      .botao-PDA {
+        padding: 1.5em;
+        margin: 0;
+      }
+
+      .titulo-PlanejamentoDeAula {
+        background-color: #912B64;
+        font-weight: 700;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+      }
+
+      #titulo-PlanejamentoDeAula2 {
+        text-align: center;
+        font-family: var(--fontes-de-titulo);
+        color: var(--background-color-branco);
+        font-size: 22px;
+        margin-top: .8%;
+      }
+
+      .img-PlanejamentoDeAula {
+        width: 30%;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .titulo-PlanejamentoDeAula {
+        background-color: #912B64;
+        font-weight: 700;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+      }
+
+      #titulo-PlanejamentoDeAula2 {
+        text-align: center;
+        font-family: var(--fontes-de-titulo);
+        color: var(--background-color-branco);
+        font-size: 1em;
+        margin-top: .8%;
+      }
+
+      .img-PlanejamentoDeAula {
+        width: 30%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <header class="header-professor-adm">
-        <div class="div-cabecalho" id="modo-desktop">
-          <ul>
-            <a href="">
-              <li>Home</li>
-            </a>
-            <a href="">
-              <li>Perfil</li>
-            </a>
-            <a href="">
-              <li>Funcionalidades</li>
-            </a>
-            <a href="">
-              <li>Sobre o Senai</li>
-            </a>
-          </ul>
-        </div>
-        <div class="div-cabecalho" id="modo-mobile">
-          <nav id="nav-menu-hamburguer">
-            <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
-              <span id="hamburger">
-                <img src="./img/barra-de-menu.png" alt="Menu aberto ícones criados por verry purnomo - Flaticon"/> 
-              </span>
-            </button>
-            <ul id="menu" role="menu">
-              <br><li><a class="header-item" href="index.html">Home</a></li><br><hr>
-              <br><li> <a class="header-item" href="products.html">Products</a></li><br><hr>
-              <br><li><a class="header-item" href="aboutus.html">About us</a></li> <br><hr>          
-          </ul>
-          </nav>
-        </div>
-        <div class="div-cabecalho" id="modo-mobilee">
-          <a href="https://www.flaticon.com/br/icones-gratis/perfil" title="Perfil ícones criados por inkubators - Flaticon" id="icone-perfil"> 
-            <img src="./img/perfil-de-usuario.png"/>
-          </a>
-          <a href="https://www.flaticon.com/br/icones-gratis/engrenagem" title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem"> <img src="./img/engrenagem.png"/>
-          </a>
-        </div>
-      </header>
+  <header class="header-professor-adm">
+    <div class="div-cabecalho" id="modo-desktop">
+      <ul>
+        <a href="">
+          <li>Home</li>
+        </a>
+        <a href="">
+          <li>Perfil</li>
+        </a>
+        <a href="">
+          <li>Funcionalidades</li>
+        </a>
+        <a href="">
+          <li>Sobre o Senai</li>
+        </a>
+      </ul>
+    </div>
+    <div class="div-cabecalho" id="modo-mobile">
+      <nav id="nav-menu-hamburguer">
+        <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+          <span id="hamburger">
+            <img src="./img/barra-de-menu.png" alt="Menu aberto ícones criados por verry purnomo - Flaticon" />
+          </span>
+        </button>
+        <ul id="menu" role="menu">
+          <br>
+          <li><a class="header-item" href="index.html">Home</a></li><br>
+          <hr>
+          <br>
+          <li> <a class="header-item" href="products.html">Products</a></li><br>
+          <hr>
+          <br>
+          <li><a class="header-item" href="aboutus.html">About us</a></li> <br>
+          <hr>
+        </ul>
+      </nav>
+    </div>
+    <div class="div-cabecalho" id="modo-mobilee">
+      <a href="https://www.flaticon.com/br/icones-gratis/perfil" title="Perfil ícones criados por inkubators - Flaticon"
+        id="icone-perfil">
+        <img src="./img/perfil-de-usuario.png" />
+      </a>
+      <a href="https://www.flaticon.com/br/icones-gratis/engrenagem"
+        title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem"> <img
+          src="./img/engrenagem.png" />
+      </a>
+    </div>
+  </header>
 
-      <main>
-        <hr class="linha-verde-PlanejamentoDeAula">
+  <main>
+    <hr class="linha-verde-PlanejamentoDeAula">
 
-        <div class="titulo-PlanejamentoDeAula">
-            <a href="#"><img class="img-PlanejamentoDeAula" src="img/seta-planejamentoDeAula.png" alt=""></a>
+    <div class="titulo-PlanejamentoDeAula">
+      <a href="#"><img class="img-PlanejamentoDeAula" src="img/seta-planejamentoDeAula.png" alt=""></a>
 
-           
-            <p id="titulo-PlanejamentoDeAula2">Planejamento de Aula</p>
-        </div>
 
-        <br>
+      <p id="titulo-PlanejamentoDeAula2">Planejamento de Aula</p>
+    </div>
 
-        <div class="meio-PDA">
-            <img class="livroPDA" src="img/livro-PDA-removebg-preview.png" alt="">
-            <p class="disciplina-PDA">Disciplinas:</p>
-        </div>
-        
+    <br>
 
-        <br>
-        <button class="botao-PDA" type="submit">
-                   
-            <a href="#"><p class="text-PDA">Linguagem De Marcação</p></a>  
-  
-            </button>
-  
-           
-            <button class="botao-PDA" type="submit">
-                       
-              <a href="#"><p class="text-PDA">Sistemas Operacionais</p></a>  
-    
-              </button>
+    <div class="meio-PDA">
+      <img class="livroPDA" src="img/livro-PDA-removebg-preview.png" alt="">
+      <p class="disciplina-PDA">Disciplinas:</p>
+    </div>
 
-              <button class="botao-PDA" type="submit">
-                       
-                <a href="#"><p class="text-PDA">Programação Front-End</p></a>  
-      
-                </button>
-     
-      </main>
 
-      <footer>
-        <div class="footer-PDA">
+    <br>
+    <div id="teste543">
+      <button class="botao-PDA" type="submit">
 
-        </div>
-      </footer>
-    
+        <a href="#">
+          <p class="text-PDA">Linguagem De Marcação</p>
+        </a>
+
+      </button>
+
+
+      <button class="botao-PDA" type="submit">
+
+        <a href="#">
+          <p class="text-PDA">Sistemas Operacionais</p>
+        </a>
+
+      </button>
+
+      <button class="botao-PDA" type="submit">
+
+        <a href="#">
+          <p class="text-PDA">Programação Front-End</p>
+        </a>
+
+      </button>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-PDA">
+
+    </div>
+  </footer>
+
 </body>
 
 <script>
-    const btnMobile = document.getElementById('btn-mobile');
-  
-    function toggleMenu(event) {
-      if (event.type === 'touchstart') event.preventDefault();
-      const nav = document.getElementById('nav-menu-hamburguer');
-      nav.classList.toggle('active');
-      const active = nav.classList.contains('active');
-      event.currentTarget.setAttribute('aria-expanded', active);
-      if (active) {
-        event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
-      } else {
-        event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
-      }
+  const btnMobile = document.getElementById('btn-mobile');
+
+  function toggleMenu(event) {
+    if (event.type === 'touchstart') event.preventDefault();
+    const nav = document.getElementById('nav-menu-hamburguer');
+    nav.classList.toggle('active');
+    const active = nav.classList.contains('active');
+    event.currentTarget.setAttribute('aria-expanded', active);
+    if (active) {
+      event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
+    } else {
+      event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
     }
-  
-    btnMobile.addEventListener('click', toggleMenu);
-    btnMobile.addEventListener('touchstart', toggleMenu);
-  </script>
+  }
+
+  btnMobile.addEventListener('click', toggleMenu);
+  btnMobile.addEventListener('touchstart', toggleMenu);
+</script>
+
 </html>
