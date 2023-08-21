@@ -4,10 +4,203 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/index&login.css">
     <title>Bem-Vindo(a)</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'); /* roboto titulos*/
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');/*questrial textos*/
+
+:root {
+    --azul-escuro: #0A395E;
+    --bordo: #912B64;
+    --amarelo: #FAF4D3;
+    --verde: #70A288;
+    --background-color-branco: #F5F5F5;
+    --preto: #0C1618;
+    --azul-claro-botao: #93B4DB;
+    --fontes-de-texto: 'Questrial', sans-serif;
+    --fontes-de-titulo:'Roboto', sans-serif ;
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color-branco);
+  }
+ .header-professor-adm{
+    width: 100%;
+    height: 10vh;
+    background: var(--bordo);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.div-cabecalho{
+  padding-left: 2%;
+  padding-right: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+  a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#modo-desktop{
+  background: var(--bordo);
+    width: 100vw;
+}
+
+#modo-desktop li{
+  background: var(--bordo);
+    list-style: none;
+    font-family: var(--fontes-de-titulo);
+    font-weight: bold;
+}
+
+#modo-desktop ul{
+  background: var(--bordo);
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    margin-right: 5%;
+    gap: 4%;
+    font-size: 20px;
+}
+  #carouselExampleAutoplaying{
+    margin: 0 auto;
+    width: 500px;
+    height: 300px;
+    background-color: #ffffff;
+  }
+
+  #gologin{
+    border: none;
+    margin: 0%;
+    padding: 0;
+    margin-left: 80%;
+    margin-top: 20%;
+    background-color: #ffffff;
+  }
+  #setabemvindo{
+    margin: 0%;
+    padding: 0;
+    height: 50px;
+    width: 100px;
+  }
+  .info-introducao{
+    text-align: center;
+    font-size: 17px;
+   }
+   #titulo-ola{
+     margin-top: 15%;
+     color: var(--azul-escuro);
+   }
+   .introducao1{
+     margin-top: 8%;
+   }
+   .introducao2{
+     margin-top: 30%;
+   }
+   .introducao3{
+     margin-top: 20%;
+   }
+   .carousel-indicators{
+    background-color: #595b5c59;
+    width: 100px;
+    height: 20px;
+    padding: 1px;
+    border-radius: 100px;
+    margin:0 auto;
+    margin-top: 100%;
+    position: relative;
+ }
+  /* Mobile*/
+  @media (max-width: 480px){
+    .header-professor-adm{
+      display: none;
+    }
+  #carouselExampleAutoplaying{
+      margin: 0 auto;
+      margin-top: 15%;
+      width: 250px;
+      height: 450px;
+      background-color: #ffffff;
+    }
+    .info-introducao{
+     text-align: center;
+     font-size: 17px;
+    }
+    #titulo-ola{
+      margin-top: 15%;
+      color: var(--azul-escuro);
+    }
+    .introducao1{
+      margin-top: 8%;
+    }
+    .introducao2{
+      margin-top: 30%;
+    }
+    .introducao3{
+      margin-top: 20%;
+    }
+   .carousel-indicators{
+      background-color: #595b5c59;
+      width: 100px;
+      height: 20px;
+      padding: 1px;
+      border-radius: 100px;
+      margin:0 auto;
+      margin-top: 100%;
+      position: relative;
+   }
+  
+   /*---------- estilo do botão que leva para a página de login------------*/
+    #gologin{
+      border: none;
+      margin: 0%;
+      padding: 0;
+      margin-left: 70%;
+      margin-top: 30%;
+      margin-bottom: 10%;
+      background-color: #ffffff;
+    }
+    #setabemvindo{
+      margin: 0%;
+      padding: 0;
+      height: 30px;
+      width: 60px;
+    }
+
+  /*-------------------------------------------*/
+}
+
+    </style>
 </head>
 <body>
+  <header class="header-professor-adm">
+    <div class="div-cabecalho" id="modo-desktop">
+      <ul>
+        <a href="">
+          <li>Home</li>
+        </a>
+        <a href="">
+          <li>Contatos</li>
+        </a>
+        <a href="">
+          <li>FAQ's</li>
+        </a>
+        <a href="">
+          <li>Sobre o Senai</li>
+        </a>
+      </ul>
+    </div>
+  </header>
+
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -43,7 +236,7 @@
         </div>
       </div>
 
-      <button type="button" id="gologin"><a href="./login.html"><img src="./img/setaBordo.png" id="setabemvindo"></a></button>
+      <button type="button" id="gologin"><a href="./login-geral-E.html"><img src="./img/setaBordo.png" id="setabemvindo"></a></button>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </html>
