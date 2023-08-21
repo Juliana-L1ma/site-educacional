@@ -28,7 +28,7 @@
   }
 
   header{
-    width: 100vw;
+    width: 100%;
     height: 10vh;
     background-color: #0A395E;
     display: flex;
@@ -110,7 +110,50 @@ a{
     text-align: center;
     gap: 4%;
 }
+/*------------- ESTILO DA HOME DO PROFESSOR -------------------*/
+#bemvindo-professor{
+  font-family: var(--fontes-de-titulo);
+  margin-top: 80px;
+  text-align: center;
+}
 
+.caixa-de-funcionalidades{
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 150px;
+  width: 60vh;
+}
+
+#titulo-funcionalidade{
+  font-family: var(--fontes-de-titulo);
+  text-align: center;
+  font-weight:bolder;
+  color: #0A395E;
+}
+
+.botao-funcionalidade{
+  font-family: var(--fontes-de-texto);
+  height: 20vh;
+  width: 20vh;
+  border-radius: 10px;
+  border-color: #0C1618;
+  font-size: 12px;
+  padding: 2%;
+  margin-left: 8%;
+}
+.botao-funcionalidade:hover{
+  transform: scale(1.1);
+}
+.icone-funcionalidades{
+  height: 75px;
+  width: 75px;
+  padding: 1%;
+}
+#separacao-roxa{
+  border-top: 2px solid #88024e;
+
+}
+/*-------------------- FIM DA HOME DO PROFESSOR --------------*/
     /*------------- DESKTOP -----------------*/
     @media screen and (max-width: 900px){
       #modo-desktop{
@@ -127,14 +170,23 @@ a{
       }
   
   }
-
+  .footer-professor-adm{
+    width: auto;
+    background-color: #0A395E;
+    font-size: 20px;
+    text-align: left;
+    color: var(--background-color-branco);
+    padding-top: 4%;
+    }
+    
+    .direitosAutorais{
+    font-size: 10px;
+    text-align: center;
+    }
   @media (max-width: 480px){
 
     /*------------------ footer ------------*/
     /*-------- ESTILO PADRÃO DAS PÁGINAS, HEADER E FOOTER --------------*/
-    
-  
-
   /*FOOTER*/
 
 .footer-professor-adm{
