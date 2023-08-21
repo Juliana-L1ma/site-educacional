@@ -58,3 +58,79 @@
       btnMobile.addEventListener('click', toggleMenu);
       btnMobile.addEventListener('touchstart', toggleMenu);
     </script>
+
+
+
+------------------ FOOTER -------------------
+
+ <footer class="footer-professor-adm">
+
+        <div class="container">
+           
+
+            <div class="row">
+              <div class="col-6">
+                <p class="tituloRodape">Site SENAI oficial:</p><hr>
+                <p class="textoRodape">Acesse o site oficial do SENAI para ver outras informações <a href="https://www.sp.senai.br/">Clique aqui</a></p>
+              </div>
+
+              <div class="col-6">
+                <div class="contatos">
+                    <p class="tituloRodape">Contatos</p><hr>
+                    <p class="textoRodape">
+                        <a href="mailto:beatriz.britofer@gmail.com">Enviar email para Beatriz Brito</a><br>
+                        <a href="mailto:evelynvic23toria10@gmail.com">Enviar email para Evelyn Victória</a><br>
+                        <a href="mailto:jp6001707@gmail.com">Enviar email para Juliana Lima</a><br>
+                        <a href="mailto:trinitynascimento@gmail.com">Enviar email para Trinity Domingues</a><br>
+                        <br>
+                    </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <p class="direitosAutorais">
+                        Copyright 2023 - Beatriz Brito, Evelyn Victória Santos, Juliana Lima e Trinity Nascimento<br>
+                        Esse site foi produzido pelas alunas citadas acima no curso de Desenvolvimento de Sistemas do Senai "Nami Jafet" para uso escolar e administrativo
+                    </p>
+                   
+                </div>
+              </div>
+          </div>
+    
+    </footer>
+
+/*FOOTER MOBILE*/
+
+.footer-professor-adm{
+  background-color: #0A395E;
+  font-size: 12px;
+  text-align: left;
+  color: var(--background-color-branco);
+  padding-top: 8%;
+  }
+  
+  .direitosAutorais{
+  font-size: 10px;
+  text-align: center;
+  padding: 2%;
+  }
+
+
+
+  /*------------------ FOOTER DESKTOP---------------*/
+
+ .footer-professor-adm{
+    width: auto;
+    background-color: #0A395E;
+    font-size: 20px;
+    text-align: left;
+    color: var(--background-color-branco);
+    padding-top: 4%;
+    }
+    
+    .direitosAutorais{
+    font-size: 10px;
+    text-align: center;
+    }
