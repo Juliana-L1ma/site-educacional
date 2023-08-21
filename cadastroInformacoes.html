@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Cadastro de Informações</title>
 
   <style>
      /*fonte nova*/
@@ -312,12 +312,6 @@
   padding: 9px;
  }
 
- .t1 label{
-  margin-top: 5%;
-  margin-bottom: 5%;
-  font-size: 120%;
-  width: 100%;
- }
 
  .opcoes{
   margin-bottom: 5%;
@@ -334,6 +328,18 @@
  .attCadastro{
   color: #0C1618;
   cursor: pointer;
+ }
+
+ @media screen and (max-width: 480px){
+  .t1 label{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-size: 120%;
+  width: 100%;
+ }
+ .btnCadastro{
+  width: 60%;
+ }
  }
 
  @media (min-width: 480px) {
@@ -363,6 +369,7 @@
 .divCategoria2_naoVisivel {
  width: 60%;
 }
+
 }
 
  .alinharInputs{
@@ -390,7 +397,7 @@
   background-color: #912B64;
   color: #fff;
   border: none;
-  width: 60%;
+  width: 200px;
   height: 3.8vh;
  }
 
@@ -799,6 +806,7 @@
   </main>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
   <script>
     // --------------------------- header
     const btnMobile = document.getElementById("btn-mobile");
@@ -819,6 +827,8 @@
     btnMobile.addEventListener("click", toggleMenu);
     btnMobile.addEventListener("touchstart", toggleMenu);
      // ---------------------------  fim do header
+
+
   </script>
 
   <script type="text/javascript" src="cadastroJS.js"></script>
