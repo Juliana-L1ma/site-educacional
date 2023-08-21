@@ -170,7 +170,7 @@
    margin-top: 10%;
    color: var(--amarelo);
    font-family: "Poppins", sans-serif;
-   font-size: 1.5rem;
+   font-size: 1.6rem;
  }
 
  .hrVerde_cadastroInfo {
@@ -180,6 +180,7 @@
    height: 0.5vh;
    display: flex;
    align-self: flex-start;
+   margin-bottom: 3%;
  }
 
  .inputCadastroInfo {
@@ -195,7 +196,6 @@
    text-align: left;
    font-size: 120%;
    margin-top: 2%;
-   height: 4vh;
    width: 300px;
    border-radius: 20px;
    padding: 9px;
@@ -208,13 +208,13 @@
    font-weight: 500;
    color: var(--background-color-branco);
    width: max-content;
+   
  }
 
  .select2_cadastrosInfo {
   width: fit-content;
   font-size: 120%;
   margin-top: 2%;
-  height: 4vh;
   border: none;
   border-radius: 20px;
   padding: 9px;
@@ -239,11 +239,11 @@
    color: var(--preto);
  }
 
-#alinhaSelect{
+.alinhaSelect{
   display: flex;
-  justify-content: center;
   flex-direction: row;
   gap: 5%;
+  width: 100%;
 }
 
 .btnAdd{
@@ -252,11 +252,17 @@
   cursor: pointer;
 }
 
-#alinhamento{
+.alinhamento{
   display: flex;
   justify-content: center;
   flex-direction: row;
   gap: 4%;
+  align-items: center;
+}
+
+#alinharOpCurso{
+  margin-top: 5%;
+  margin-bottom: 2%;
 }
 
  /*Opções a serem selecionadas*/
@@ -287,8 +293,7 @@
    display: flex;
    justify-content: center;
    flex-direction: column;
-   margin: 3%;
-   width: 90%;
+   width: 100%;
  }
 
  .t1 input{
@@ -308,11 +313,15 @@
  }
 
  .t1 label{
-  margin-top: 3%;
-  margin-bottom: 4%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   font-size: 120%;
+  width: 100%;
  }
 
+ .opcoes{
+  margin-bottom: 5%;
+ }
 
  #texto_preenchaDados_cadastroInfo {
    font-weight: 400;
@@ -322,13 +331,15 @@
    text-decoration: 2px solid var(--bordo) underline;
  }
 
-
+ .attCadastro{
+  color: #0C1618;
+  cursor: pointer;
+ }
 
  @media (min-width: 480px) {
    .titulocentral {
      margin-top: 2em;
    }
-
    #divCategorias_cadastroinfo {
      align-items: self-start;
      justify-content: space-around;
@@ -341,26 +352,82 @@
   justify-content: center;
 }
 
-   .divCategoria2_naoVisivel {
-    max-width: 70%;
-   }
+.divCategoria2_naoVisivel {
+  max-width: 70%;
+}
 
-   .t2 {
-    width: 100%;
-  }
+.t2 {
+  width: 100%;
+}
 
-  .divCategoria2_naoVisivel {
-    width: 60%;
-  }
+.divCategoria2_naoVisivel {
+ width: 60%;
+}
+}
 
- }
-
- 
  .alinharInputs{
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+ }
+
+ .alinhaRadio{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+ }
+
+ .opcoesEscolha, .opcoes{
+  width: 100%;
+  justify-content: left;
+  flex-direction: column;
+  align-items: center;
+ }
+
+ .btnCadastro{
+  background-color: #912B64;
+  color: #fff;
+  border: none;
+  width: 60%;
+  height: 3.8vh;
+ }
+
+ .divBtnCadastro{
+  margin-top: 5vh;
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  width: 100%;
+ }
+
+ .attCadastro{
+  margin-top: 5%;
+  color: #0A395E;
+  cursor: pointer;
+ }
+
+ .main_cadastroInfos{
+  margin-left: 10%;
+ }
+
+ .opcoesCurso{
+  margin-top: 7%;
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  font-size: 120%;
+ }
+
+ .main_cadastroInfos h2{
+  margin-left: 0px;
+ }
+
+ .btnDel{
+  background-color: transparent;
+  border: none;
+
  }
   </style>
 </head>
@@ -425,7 +492,7 @@
       <hr class="hrVerde_cadastroInfo" />
 
       <div id="divCategorias_cadastroinfo">
-        <div style="display: flex; width: 90%">
+        <div>
           <select name="tes" class="select_cadastroInfos_turma" id="select1_cadastroinfo"
             onchange="categoria2_cadastroinfo()" required>
             <option id="opcaovazia_cadastroInfo" value=""></option>
@@ -449,15 +516,7 @@
           </div>
 
           <div class="categoriaSelecionada_cadastroInfo" id="escolha_curso_cadastroInfo">
-            <label class="labelEscolha" for="">Período:</label>
-            <select name="" class="select_curso_cadastroInfos select2_cadastrosInfo" id="" style="width: 25%" required>
-              <option value="">1 semestre</option>
-              <option value="">2 semestres</option>
-              <option value="">3 semestres</option>
-              <option value="">4 semestres</option>
-            </select>
-
-            <select name="" class="select_curso_cadastroInfos select2_cadastrosInfo" style="width: 25%" id="" required>
+            <select name="" class="select_curso_cadastroInfos select2_cadastrosInfo" id="" required>
               <option value="">Manhã</option>
               <option value="">Tarde</option>
               <option value="">Noite</option>
@@ -465,20 +524,19 @@
           </div>
 
           <div class="categoriaSelecionada_cadastroInfo" id="escolha_turma_cadastroInfo">
-            <label class="labelEscolha" for="">Área de atuação:</label>
+            <label class="labelEscolha" for=""></label>
             <select name="" class="select_turma_cadastroInfos select2_cadastrosInfo" id="" required>
-              <option value="">Tecnologia</option>
-              <option value="">Elétrica</option>
-              <option value="">Eletrônica</option>
-              <option value="">Mecânica</option>
+              <option value="">Curso 1</option>
+              <option value="">Curso 2</option>
+              <option value="">Curso 3</option>
             </select>
           </div>
 
           <div class="categoriaSelecionada_cadastroInfo" id="escolha_unidade_curricular_cadastroInfo">
-            <label class="labelEscolha" for="">Curso:</label>
+            <label class="labelEscolha" for=""></label>
             <select name="" class="select_uc_cadastroInfos select2_cadastrosInfo" id="" required>
-              <option value="">ta</option>
-              <option value="">sim</option>
+              <option value="">Curso I</option>
+              <option value="">Curso II</option>
             </select>
           </div>
         </div>
@@ -486,12 +544,40 @@
     </div>
   </div>
 
-
+  <h2 id="texto_preenchaDados_cadastroInfo" style="margin-left: none;">Preencha com os dados exigidos</h2>
 
   <main class="main_cadastroInfos">
-    <h2 id="texto_preenchaDados_cadastroInfo">Preencha com os dados exigidos</h2>
 
-    <div id="t2" style="display: flex; justify-content: center;">
+    <div id="t2" style="display: flex;">
+      <div class="divCategoria2_naoVisivel" id="div_cadastroInfo_unidade_curricular">
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Unidade curricular:</label>
+          <input type="text" id="nomeCompleto_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Carga horária:</label>
+          <input type="text" id="enderecoVirtual_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Área vinculada:</label>
+          <input type="text" id="dataNasc_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Data de criação:</label>
+          <input type="date" id="periodo_cadastroInfos">
+        </div>
+        <div class="divBtnCadastro">
+          <button class="btnCadastro">Cadastrar</button>
+          <a href="" class="attCadastro">Precisa atualizar o cadastro?</a>
+          <br>
+          <hr>
+        </div>
+        </div>
+      </div>
+
       <div class="divCategoria2_naoVisivel" id="div_cadastroInfo_aluno">
         <div class="t1">
           <label for="nomeCompleto_cadastroInfos">Nome completo:</label>
@@ -526,6 +612,12 @@
         <div class="t1">
           <label for="nomeCompleto_cadastroInfos">Senha:</label>
           <input type="text" id="senhaEd_cadastroInfos">
+        </div>
+        <div class="divBtnCadastro">
+          <button class="btnCadastro">Cadastrar</button>
+          <a href="" class="attCadastro">Precisa atualizar o cadastro?</a>
+          <br>
+          <hr>
         </div>
       </div>
 
@@ -565,7 +657,12 @@
           <label for="nomeCompleto_cadastroInfos">Senha:</label>
           <input type="text" id="senhaEd_cadastroInfos">
         </div>
-
+        <div class="divBtnCadastro">
+          <button class="btnCadastro">Cadastrar</button>
+          <a href="" class="attCadastro">Precisa atualizar o cadastro?</a>
+          <br>
+          <hr>
+        </div>
       </div>
 
       <div class="divCategoria2_naoVisivel" id="div_cadastroInfo_curso">
@@ -608,67 +705,100 @@
           <input type="number" id="datadeConclusao_cadastroInfos" placeholder="R$">
         </div>
         <div class="t1">
-          <label for="nomeCompleto_cadastroInfos">Disciplinas:</label>
-          <div id="alinhaSelect">
-          <select name="opcoes" id="opcoes">
+          <label for="nomeCompleto_cadastroInfos" class="labelCad">Disciplinas:</label>
+          <div class="alinhaSelect">
+          <select name="opcoes" class="opcoes">
             <option value="opcao1">Matéria I</option>
             <option value="opcao2">Matéria II</option>
             <option value="opcao3">Matéria III</option>
           </select>
           <button class="btnAdd" onclick="addDisciplina()"><img src="img/adicionarr.png" alt=""></button>
         </div>
+        <div id="resposta"></div>
+        <div class="divBtnCadastro">
+          <button class="btnCadastro">Cadastrar</button>
+          <a href="" class="attCadastro">Precisa atualizar o cadastro?</a>
+          <br>
+          <hr>
+        </div>
         </div>
       </div>
 
       <div class="divCategoria2_naoVisivel" id="div_cadastroInfo_turma">
         <div class="t1">
-          <label for="nomeCompleto_cadastroInfos">Oçl:</label>
+          <label for="nomeCompleto_cadastroInfos">Nome da turma:</label>
           <input type="text" id="nomeCompleto_cadastroInfos">
         </div>
         <br>
         <div class="t1">
-          <label for="nomeCompleto_cadastroInfos">virtual:</label>
+          <label for="nomeCompleto_cadastroInfos">Carga horária:</label>
           <input type="text" id="enderecoVirtual_cadastroInfos">
         </div>
         <br>
         <div class="t1">
-          <label for="nomeCompleto_cadastroInfos">Data de nascimento:</label>
-          <input type="text" id="dataNasc_cadastroInfos">
+          <label for="nomeCompleto_cadastroInfos">Data de início:</label>
+          <input type="date" id="dataNasc_cadastroInfos">
         </div>
         <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Data de conclusão:</label>
+          <input type="text" id="periodo_cadastroInfos">
+        </div>
         <div class="t1">
           <label for="nomeCompleto_cadastroInfos">Período:</label>
           <input type="text" id="periodo_cadastroInfos">
         </div>
-      </div>
-
-      <div class="divCategoria2_naoVisivel" id="div_cadastroInfo_unidade_curricular">
         <div class="t1">
-          <label for="nomeCompleto_cadastroInfos">Nome completo:</label>
-          <input type="text" id="nomeCompleto_cadastroInfos">
+          <label for="nomeCompleto_cadastroInfos">Total de alunos:</label>
+          <input type="number" id="periodo_cadastroInfos">
         </div>
-        <br>
         <div class="t1">
-          <label for="nomeCompleto_cadastroInfos">CPF:</label>
-          <input type="text" id="enderecoVirtual_cadastroInfos">
+          <label for="nomeCompleto_cadastroInfos" class="labelCad">Professores:</label>
+          <div class="alinhaSelect">
+          <select name="opcoes" class="opcoes">
+            <option value="opcao1">Professor I</option>
+            <option value="opcao2">Professor II</option>
+            <option value="opcao3">Professor III</option>
+          </select>
+          <button class="btnAdd" onclick="addProfessor()"><img src="img/adicionarr.png" alt=""></button>
+          </div>
+          <div id="respostaDois"></div>
         </div>
-        <br>
         <div class="t1">
-          <label for="nomeCompleto_cadastroInfos">Data de nascimento:</label>
-          <input type="text" id="dataNasc_cadastroInfos">
+          <label for="nomeCompleto_cadastroInfos">Disciplinas:</label>
+          <div class="alinhaSelect">
+          <select name="opcoes" class="opcoes">
+            <option value="opcao1">Banco de Dados</option>
+            <option value="opcao2">Redes</option>
+            <option value="opcao3">Linguagem de Marcação</option>
+          </select>
+          <button class="btnAdd" onclick="addUnidCurr()"><img src="img/adicionarr.png" alt=""></button>
         </div>
-        <br>
-        <div class="t1">
-          <label for="nomeCompleto_cadastroInfos">Endereço:</label>
-          <input type="text" id="periodo_cadastroInfos">
+        <div class="opcoesEscolha">
+          <div class="alinhaRadio">
+            <input type="checkbox" class="checkgroup" id="na">
+            <label>Ismael Alves</label>
+          </div>
+          <div class="alinhaRadio">
+            <input type="checkbox" class="checkgroup" id="ok">
+            <label>Silas Bastianelli</label>
+          </div>
+          <div class="alinhaRadio">
+            <input type="checkbox" class="checkgroup" id="ok">
+            <label>Bruno Messias</label>
+          </div>
+          <div class="divBtnCadastro">
+            <button class="btnCadastro">Cadastrar</button>
+            <a href="" class="attCadastro">Precisa atualizar o cadastro?</a>
+            <br>
+            <hr>
+          </div>
         </div>
-      </div>
-      
+ </div>     
     </div>
   </main>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
   <script>
     // --------------------------- header
     const btnMobile = document.getElementById("btn-mobile");
@@ -689,8 +819,6 @@
     btnMobile.addEventListener("click", toggleMenu);
     btnMobile.addEventListener("touchstart", toggleMenu);
      // ---------------------------  fim do header
-
-
   </script>
 
   <script type="text/javascript" src="cadastroJS.js"></script>
