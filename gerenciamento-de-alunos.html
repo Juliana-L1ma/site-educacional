@@ -1,535 +1,659 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciamento de Alunos</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciamento de Alunos</title>
 
-    <style>
+  <style>
+    .hidden {
+      display: none;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    :root {
+      --azul-escuro: #0A395E;
+      --bordo: #912B64;
+      --amarelo: #FAF4D3;
+      --verde: #70A288;
+      --background-color-branco: #F5F5F5;
+      --preto: #0C1618;
+      --azul-claro-botao: #93B4DB;
+      --fontes-de-texto: 'Questrial', sans-serif;
+      --fontes-de-titulo: 'Roboto', sans-serif;
+    }
 
 
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+    body {
+      background-color: var(--background-color-branco);
 
-        * {
-          padding: 0;
-          margin: 0;
-        }
+    }
+
+    header {
+      width: 100%;
+      height: 10vh;
+      background-color: #0A395E;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .div-cabecalho {
+      padding-left: 2%;
+      padding-right: 2%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #btn-mobile {
+      background-color: transparent;
+      border-color: transparent;
+    }
+
+    #menu {
+      display: block;
+      position: absolute;
+      width: 100%;
+      right: 0px;
+      background: var(--azul-escuro);
+      transition: 0.5s;
+      z-index: 1000;
+      height: 0px;
+      visibility: hidden;
+      overflow-y: hidden;
+    }
+
+    #nav-menu-hamburguer.active #menu {
+      display: flex;
+      flex-direction: column;
+      height: calc(30vh - 60px);
+      visibility: visible;
+      overflow-y: auto;
+    }
+
+    #menu a {
+      text-align: center;
+      font-family: var(--fontes-de-texto);
+      font-size: 15px;
+      padding: 1rem 0;
+      margin: 0 1rem;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+    }
+
+    #btn-mobile {
+      display: flex;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      gap: 0.5rem;
+      color: #d6d8db;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    #modo-desktop {
+      width: 100vw;
+    }
+
+    #modo-desktop li {
+      list-style: none;
+    }
+
+    #modo-desktop ul {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      text-align: center;
+      gap: 4%;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .div-titulo-GDA {
+
+
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      margin-top: 4%;
+
+    }
+
+    .titulo-GDA {
+      font-family: var(--fontes-de-titulo);
+      font-size: 29px;
+      font-weight: 700;
+    }
+
+    .linha-GDA {
+      border: 2px solid var(--bordo);
+      width: 22em;
+    }
+
+
+
+
+
+
+
+    .user-box {
+      display: flex;
+      justify-content: center;
+      margin-top: 3%;
+    }
+
+    .label-turma {
+      font-family: var(--fontes-de-texto);
+      font-size: 27px;
+    }
+
+    .select-turma {
+      background-color: var(--background-color-branco);
+      border: none;
+      width: 20em;
+      text-align: center;
+      font-family: var(--fontes-de-texto);
+      font-size: 23px;
+
+    }
+
+    .div-azul {
+      font-family: var(--fontes-de-titulo);
+      background-color: var(--azul-escuro);
+      color: var(--background-color-branco);
+      font-size: 20px;
+      width: 200px;
+      padding: 1%;
+      border-radius: 100px;
+      display: flex;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+
+
+
+    }
+
+
+    .div-amarela {
+
+      width: 900px;
+      display: flex;
+      background-color: var(--amarelo);
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      flex-direction: column;
+      justify-content: center;
+      height: 25em;
+
+    }
+
+    .select-alunos-boletim {
+
+      font-family: var(--fontes-de-texto);
+      font-size: 23px;
+      border: none;
+      background-color: var(--amarelo);
+      width: 17em;
+      margin-top: 2%;
+      font-weight: 600;
+      padding-left: 1%;
+
+
+    }
+
+
+
+
+
+
+
+    .mostrarTexto{
+      font-size: 22px;
+      font-family: var(--fontes-de-titulo);
+      margin-left: 3%;
+     
+    }
+
+    .mostraTextos{
     
-        :root {
-          --azul-escuro: #0A395E;
-          --bordo: #912B64;
-          --amarelo: #FAF4D3;
-          --verde: #70A288;
-          --background-color-branco: #F5F5F5;
-          --preto: #0C1618;
-          --azul-claro-botao: #93B4DB;
-          --fontes-de-texto: 'Questrial', sans-serif;
-          --fontes-de-titulo: 'Roboto', sans-serif;
-        }
     
-    
-        body {
-          background-color: var(--background-color-branco);
-    
-        }
-    
-        header {
-          width: 100%;
-          height: 10vh;
-          background-color: #0A395E;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-family: 'Lato', sans-serif;
-        }
-    
-        .div-cabecalho {
-          padding-left: 2%;
-          padding-right: 2%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-        }
-    
-        #btn-mobile {
-          background-color: transparent;
-          border-color: transparent;
-        }
-    
-        #menu {
-          display: block;
-          position: absolute;
-          width: 100%;
-          right: 0px;
-          background: var(--azul-escuro);
-          transition: 0.5s;
-          z-index: 1000;
-          height: 0px;
-          visibility: hidden;
-          overflow-y: hidden;
-        }
-    
-        #nav-menu-hamburguer.active #menu {
-          display: flex;
-          flex-direction: column;
-          height: calc(30vh - 60px);
-          visibility: visible;
-          overflow-y: auto;
-        }
-    
-        #menu a {
-          text-align: center;
-          font-family: var(--fontes-de-texto);
-          font-size: 15px;
-          padding: 1rem 0;
-          margin: 0 1rem;
-          border-bottom: 2px solid rgba(255, 255, 255, 0.05);
-        }
-    
-        #btn-mobile {
-          display: flex;
-          padding: 0.5rem 1rem;
-          font-size: 1rem;
+    }
+
+    .linha-nomes-GDA{
+      padding-top: 3%;
+      border: none;
+  }
+
+  
+  .div-amarela {
+
+    width: 70%;
+    display: flex;
+    background-color: var(--amarelo);
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    justify-content: center;
+   height: 100%;
+
+  }
+
+
+
+
+
+
+
+
+    @media screen and (max-width: 900px) {
+      #modo-desktop {
+        display: none;
+      }
+
+
+
+      .div-titulo-GDA {
+
+
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        margin-top: 4%;
+
+      }
+
+      .titulo-GDA {
+        font-family: var(--fontes-de-titulo);
+        font-size: 21px;
+        font-weight: 700;
+      }
+
+      .linha-GDA {
+        border: 2px solid var(--verde);
+        width: 4em;
+        display: flex;
+        margin-right: 12em;
+      }
+
+
+      .user-box {
+        display: flex;
+        justify-content: center;
+        margin-top: 3%;
+      }
+
+      .label-turma {
+        font-family: var(--fontes-de-texto);
+        font-size: 18px;
+        margin-top: 2%;
+      }
+
+      .select-turma {
+        background-color: var(--background-color-branco);
+        border: none;
+        width: 20em;
+        text-align: center;
+        font-family: var(--fontes-de-texto);
+        font-size: 16px;
+        margin-top: 2%;
+
+      }
+
+      .div-azul {
+        font-family: var(--fontes-de-titulo);
+        background-color: var(--azul-escuro);
+        color: var(--background-color-branco);
+        font-size: 20px;
+        width: 200px;
+        padding: 3%;
+        border-radius: 100px;
+        display: flex;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+
+
+
+      }
+
+
+      .div-amarela {
+
+        width: 100%;
+        display: flex;
+        background-color: var(--amarelo);
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        flex-direction: column;
+        justify-content: center;
+       height: 100%;
+
+      }
+
+      .select-alunos-boletim {
+
+        font-family: var(--fontes-de-texto);
+        font-size: 20px;
+        border: none;
+        background-color: var(--amarelo);
+        width: 17em;
+        font-weight: 600;
+        padding-left: 1%;
+
+
+      }
+
+      .link-GDA {
+        color: #70A288;
+        padding: 3%;
+        font-family: var(--fontes-de-texto);
+        font-size: 18px;
+
+      }
+
+
+
+      #nomes-GDA {
+        font-family: var(--fontes-de-texto);
+        font-size: 18px;
+        padding-top: 5%;
+        padding-left: 1%;
+      }
+
+      .links-GDA {
+        display: flex;
+        justify-content: center;
+        margin-top: -20%;
+
+
+       
+
+      }
+
+      .linha-nomes-GDA{
+          padding-top: 3%;
           border: none;
-          background: none;
-          cursor: pointer;
-          gap: 0.5rem;
-          color: #d6d8db;
-        }
-    
-        a {
-          color: #fff;
-          text-decoration: none;
-        }
-    
-        #modo-desktop {
-          width: 100vw;
-        }
-    
-        #modo-desktop li {
-          list-style: none;
-        }
-    
-        #modo-desktop ul {
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          flex-direction: row;
-          text-align: center;
-          gap: 4%;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        .div-titulo-GDA{
-
-          
-          align-items: center;
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-        
-            margin-top: 4%;
-
-        }
-
-        .titulo-GDA{
-            font-family: var(--fontes-de-titulo);
-            font-size: 29px;
-            font-weight: 700;
-        }
-
-        .linha-GDA{
-            border: 2px solid var(--bordo);
-            width: 22em;
-        }
-
-
-
+      }
 
       
-        .user-box{
-            display: flex;
-            justify-content: center;
-            margin-top: 3%;
-        }
-        .label-turma{
-            font-family: var(--fontes-de-texto);
-            font-size: 27px;
-        }
-         
-          .select-turma{
-            background-color: var(--background-color-branco);
-            border: none;
-           width: 20em;
-           text-align: center;
-           font-family: var(--fontes-de-texto);
-           font-size: 23px;
-           
-          }
 
-          .div-azul{
-            font-family: var(--fontes-de-titulo);
-            background-color: var(--azul-escuro);
-            color: var(--background-color-branco);
-            font-size: 20px;
-            width: 200px; 
-            padding: 1%;
-            border-radius: 100px;
-            display: flex;
-            justify-content: center;
-            margin-left: auto;
-            margin-right: auto; 
-
-      
-      
-          }
-
-
-          .div-amarela{
-           
-            width: 900px; 
-            display: flex;
-            background-color: var(--amarelo);
-            justify-content: center;
-            margin-left: auto;
-            margin-right: auto; 
-            flex-direction: column;
-            justify-content: center;
-            height: 25em;
-      
-          }
-
-          .select-alunos-boletim{
-       
-           font-family: var(--fontes-de-texto);
-           font-size: 23px;
-           border: none;
-           background-color: var(--amarelo);
-           width: 17em;
-           margin-top: 2%;
-           font-weight: 600;
-           padding-left: 1%;
-           
-        
-          }
-          .links-GDA{
-            display: flex;
-            justify-content: center;
-          
-     
-     
-          }
-          .link-GDA{
-            color: #70A288;
-            padding: 3%;
-            font-family: var(--fontes-de-texto);
-            font-size: 20px;
-            
-          }
- 
-
-
-
-          .nomes-GDA{
-            font-family: var(--fontes-de-texto);
-            font-size: 21px;
-            padding-top: 5%;
-            padding-left: 1%;
-          }
-
-
-
-
-
-        @media screen and (max-width: 900px) {
-            #modo-desktop {
-                display: none;
-              }
-
-
-                
-        .div-titulo-GDA{
-
-          
-            align-items: center;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-          
-              margin-top: 4%;
-  
-          }
-  
-          .titulo-GDA{
-              font-family: var(--fontes-de-titulo);
-              font-size: 21px;
-              font-weight: 700;
-          }
-  
-          .linha-GDA{
-              border: 2px solid var(--verde);
-              width: 4em;
-              display: flex;
-             margin-right: 12em;
-          }
-
-
-          .user-box{
-            display: flex;
-            justify-content: center;
-            margin-top: 3%;
-        }
-        .label-turma{
-            font-family: var(--fontes-de-texto);
-            font-size: 18px;
-            margin-top: 2%;
-        }
-         
-          .select-turma{
-            background-color: var(--background-color-branco);
-            border: none;
-           width: 20em;
-           text-align: center;
-           font-family: var(--fontes-de-texto);
-           font-size: 16px;
-           margin-top: 2%;
-           
-          }
-
-          .div-azul{
-            font-family: var(--fontes-de-titulo);
-            background-color: var(--azul-escuro);
-            color: var(--background-color-branco);
-            font-size: 20px;
-            width: 200px; 
-            padding: 1%;
-            border-radius: 100px;
-            display: flex;
-            justify-content: center;
-            margin-left: auto;
-            margin-right: auto; 
-            margin-top: 5%;
-
-      
-      
-          }
-
-
-          .div-amarela{
-           
-            width: 100%; 
-            display: flex;
-            background-color: var(--amarelo);
-            justify-content: center;
-            margin-left: auto;
-            margin-right: auto; 
-            flex-direction: column;
-            justify-content: center;
-            height: 25em;
-      
-          }
-
-          .select-alunos-boletim{
-       
-            font-family: var(--fontes-de-texto);
-            font-size: 20px;
-            border: none;
-            background-color: var(--amarelo);
-            width: 17em;
-            font-weight: 600;
-            padding-left: 1%;
-            
-         
-           }
-
-           .link-GDA{
-            color: #70A288;
-            padding: 3%;
-            font-family: var(--fontes-de-texto);
-            font-size: 18px;
-            
-          }
-
-
-          
-          .nomes-GDA{
-            font-family: var(--fontes-de-texto);
-            font-size: 18px;
-            padding-top: 5%;
-            padding-left: 1%;
-          }
-        }
-    
-    </style>
+    }
+  </style>
 </head>
 
 <body>
 
-    <header class="header-professor-adm">
-        <div class="div-cabecalho" id="modo-desktop">
-          <ul>
-            <a href="">
-              <li>Home</li>
-            </a>
-            <a href="">
-              <li>Perfil</li>
-            </a>
-            <a href="">
-              <li>Funcionalidades</li>
-            </a>
-            <a href="">
-              <li>Sobre o Senai</li>
-            </a>
-          </ul>
-        </div>
-        <div class="div-cabecalho" id="modo-mobile">
-          <nav id="nav-menu-hamburguer">
-            <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
-              <span id="hamburger">
-                <img src="./img/barra-de-menu.png" alt="Menu aberto ícones criados por verry purnomo - Flaticon" />
-              </span>
-            </button>
-            <ul id="menu" role="menu">
-              <br>
-              <li><a class="header-item" href="index.html">Home</a></li><br>
-              <hr>
-              <br>
-              <li> <a class="header-item" href="products.html">Products</a></li><br>
-              <hr>
-              <br>
-              <li><a class="header-item" href="aboutus.html">About us</a></li> <br>
-              <hr>
-            </ul>
-          </nav>
-        </div>
-        <div class="div-cabecalho" id="modo-mobilee">
-          <a href="https://www.flaticon.com/br/icones-gratis/perfil" title="Perfil ícones criados por inkubators - Flaticon"
-            id="icone-perfil">
-            <img src="./img/perfil-de-usuario.png" />
-          </a>
-          <a href="https://www.flaticon.com/br/icones-gratis/engrenagem"
-            title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem"> <img
-              src="./img/engrenagem.png" />
-          </a>
-        </div>
-      </header>
+  <header class="header-professor-adm">
+    <div class="div-cabecalho" id="modo-desktop">
+      <ul>
+        <a href="">
+          <li>Home</li>
+        </a>
+        <a href="">
+          <li>Perfil</li>
+        </a>
+        <a href="">
+          <li>Funcionalidades</li>
+        </a>
+        <a href="">
+          <li>Sobre o Senai</li>
+        </a>
+      </ul>
+    </div>
+    <div class="div-cabecalho" id="modo-mobile">
+      <nav id="nav-menu-hamburguer">
+        <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+          <span id="hamburger">
+            <img src="./img/barra-de-menu.png" alt="Menu aberto ícones criados por verry purnomo - Flaticon" />
+          </span>
+        </button>
+        <ul id="menu" role="menu">
+          <br>
+          <li><a class="header-item" href="index.html">Home</a></li><br>
+          <hr>
+          <br>
+          <li> <a class="header-item" href="products.html">Products</a></li><br>
+          <hr>
+          <br>
+          <li><a class="header-item" href="aboutus.html">About us</a></li> <br>
+          <hr>
+        </ul>
+      </nav>
+    </div>
+    <div class="div-cabecalho" id="modo-mobilee">
+      <a href="https://www.flaticon.com/br/icones-gratis/perfil" title="Perfil ícones criados por inkubators - Flaticon"
+        id="icone-perfil">
+        <img src="./img/perfil-de-usuario.png" />
+      </a>
+      <a href="https://www.flaticon.com/br/icones-gratis/engrenagem"
+        title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem"> <img
+          src="./img/engrenagem.png" />
+      </a>
+    </div>
+  </header>
 
 
-      <main class="main-GDA">
+  <main class="main-GDA">
 
-        <div class="div-titulo-GDA">
+    <div class="div-titulo-GDA">
 
-            <p class="titulo-GDA">Gerenciamento de Alunos</p>
-
-
-            <hr class="linha-GDA">
-        </div>
+      <p class="titulo-GDA">Gerenciamento de Alunos</p>
 
 
-
-
-              <div class="user-box">
-                <label class="label-turma">Turma: </label>
-               
-                <select class="select-turma">
-                    <option value="">Desenvolvimento de Sistemas</option>
-                    <option value="">Mecânica</option>
-                    <option value="">1</option>
-                </select>
-
-
-              </div>
-            
-
-
-              <br>
-
-              <div class="div-azul">
-
-                Alunos
-
-              </div>
-
-              <div class="div-amarela">
-
-                <select class="select-alunos-boletim">
-                    <option value="">Beatriz de Brito Ferreira</option>
-                    <option value="">Evelyn Victoria da Silva Santos</option>
-                </select>
-
-<br>
-
-
-                <div class="links-GDA">
-                <a class="link-GDA" href="#">Boletim</a> <a class="link-GDA" href="#">Informações pessoais</a>
-            </div>
-
-
-        
-
-            <hr class="linha-nomes-GDA">
-
-            <p class="nomes-GDA">Evelyn Victoria da Silva Santos</p>
-
-            <hr  class="linha-nomes-GDA">
-
-            <p class="nomes-GDA">Juliana Pereira</p>
-
-            <hr  class="linha-nomes-GDA">
-
-            <p class="nomes-GDA">Trinity Domingues</p>
-
-            <hr  class="linha-nomes-GDA">
-              </div>
+      <hr class="linha-GDA">
+    </div>
 
 
 
-      </main>
+
+    <div class="user-box">
+      <label class="label-turma">Turma: </label>
+
+      <select class="select-turma">
+        <option value="">Desenvolvimento de Sistemas</option>
+        <option value="">Mecânica</option>
+        <option value="">1</option>
+      </select>
 
 
-      <footer class="footer-GDA">
-
-      </footer>
-    
+    </div>
 
 
 
-    
+    <br>
+
+    <div class="div-azul">
+
+      Alunos
+
+    </div>
+
+    <div class="div-amarela">
+
+
+
+
+
+      <br>
+
+
+
+      <div id="informacoes" class="hidden">
+        <!-- <div class="links-GDA"> -->
+          <div class="b"></div>
+        <a class="link-GDA" href="#">Boletim</a>
+        <a class="link-GDA" href="#">Informações pessoais</a>
+        <!-- </div> -->
+      </div>
+
+
+
+
+      <hr class="linha-nomes-GDA">
+
+      <div class="mostraTextos">
+
+
+
+      <p class="mostrarTexto" onclick="pessoa_clique('${variavel1}')" id="${variavel1}">Evelyn Victoria da Silva Santos
+      </p>
+
+
+      <hr class="linha-nomes-GDA">
+
+      <p class="mostrarTexto" onclick="pessoa_clique('${variavel2}')" id="${variavel2}">Juliana Pereira</p>
+
+      <hr class="linha-nomes-GDA">
+
+      <p class="mostrarTexto" onclick="pessoa_clique('${variavel3}')" id="${variavel3}">Trinity Domingues</p>
+
+      <hr class="linha-nomes-GDA">
+
+      <p class="mostrarTexto" onclick="pessoa_clique('${variavel4}')" id="${variavel4}">Crislaine Ferreira</p>
+
+      <hr class="linha-nomes-GDA">
+
+      <p class="mostrarTexto" onclick="pessoa_clique('${variavel5}')" id="${variavel5}">Camila Santos</p>
+
+      <hr class="linha-nomes-GDA">
+
+      <p class="mostrarTexto" onclick="pessoa_clique('${variavel6}')" id="${variavel6}">Victoria dos Santos</p>
+
+      <hr class="linha-nomes-GDA">
+    </div>
+
+  </div>
+
+  </main>
+
+
+  <footer class="footer-GDA">
+
+  </footer>
+
+
+
+
+
 </body>
 
 
 <script>
-    const btnMobile = document.getElementById('btn-mobile');
-  
-    function toggleMenu(event) {
-      if (event.type === 'touchstart') event.preventDefault();
-      const nav = document.getElementById('nav-menu-hamburguer');
-      nav.classList.toggle('active');
-      const active = nav.classList.contains('active');
-      event.currentTarget.setAttribute('aria-expanded', active);
-      if (active) {
-        event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
-      } else {
-        event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
-      }
+  const btnMobile = document.getElementById('btn-mobile');
+
+  function toggleMenu(event) {
+    if (event.type === 'touchstart') event.preventDefault();
+    const nav = document.getElementById('nav-menu-hamburguer');
+    nav.classList.toggle('active');
+    const active = nav.classList.contains('active');
+    event.currentTarget.setAttribute('aria-expanded', active);
+    if (active) {
+      event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
+    } else {
+      event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
     }
+  }
+
+  btnMobile.addEventListener('click', toggleMenu);
+  btnMobile.addEventListener('touchstart', toggleMenu);
+</script>
+
+
+
+
+
+<script>
+
+  // Criação das variáveis
+  // Inserindo o conteúdo as divs já existentes.
+  var elementosMostrarTexto = document.getElementsByClassName("mostrarTexto");
+  var infoDiv = document.getElementById("informacoes");
   
-    btnMobile.addEventListener('click', toggleMenu);
-    btnMobile.addEventListener('touchstart', toggleMenu);
-  </script>
+  var textoExibido = "";
+  
+  // Crie um objeto para rastrear quais elementos já receberam os links
+  var elementosComLinks = {};
+  
+  function pessoa_clique(cpf) {
+
+    // De acordo com o CPF da pessoa
+    var pessoa_selecionada = document.getElementById(`${cpf}`);
+  
+    // Verifique se os links já foram adicionados a esse elemento
+    if (!elementosComLinks[cpf]) {
+
+      // Criando um elemento de texto
+      var boletim = document.createElement("a");
+      boletim.innerHTML = 'Boletim';
+      boletim.href = '#';
+
+      boletim.style.color = "#70A288";
+      boletim.style.paddingRight= "7%";
+      boletim.style.paddingLeft= "2%";
+      boletim.style.fontSize = "20px";
+  
+        // Criando um elemento de texto
+      var informacoes = document.createElement("a");
+     
+      informacoes.innerHTML = 'Informações pessoais';
+      informacoes.href = '#';
+
+      informacoes.style.fontSize = "20px";
+      informacoes.style.color = "#70A288";
+      boletim.style.paddingRight= "7%";
+      boletim.style.paddingLeft= "7%";
+
+      
+  
+      // Criando um appendChild para que os links fiquem organizados
+      pessoa_selecionada.appendChild(boletim);
+      pessoa_selecionada.appendChild(informacoes);
+  
+      // Marque o elemento como tendo os links adicionados
+      elementosComLinks[cpf] = true;
+    }
+  }
+  
+
+</script>
+
+
 </html>
