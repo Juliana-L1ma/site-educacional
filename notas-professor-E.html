@@ -116,6 +116,120 @@ a{
     gap: 4%;
 }
 
+.texto-notas-professor{
+  font-size: 32px;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 5%;
+  font-family: var(--fontes-de-texto);
+  color: var(--azul-escuro);
+}
+.label-notas-professor{
+  font-size: 25px;
+  font-family: var(--fontes-de-titulo);
+
+}
+#turma{
+  border: none;
+  background-color: rgb(255, 255, 255);
+  width: 20%;
+  border-radius: 30px;
+  height: 30px;
+  text-align: center;
+ 
+}
+.linha-n-p{
+  display: none;
+}
+.label-notas-professor-2{
+  font-size: 25px;
+  font-family: var(--fontes-de-titulo);
+}
+#unidade{
+  border: none;
+  background-color: rgb(255, 255, 255);
+  width: 20%;
+  border-radius: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.centraliza-NP{
+
+  display: flex;
+  justify-content:space-evenly;
+
+  margin-top: 4%;
+}
+.alunos-notas-professor{
+  border: 2px solid #0A395E;
+  color: #F5F5F5;
+  border-radius: 30px;
+  background-color: var(--azul-escuro);
+  width: 250px;
+  text-align: center;
+  font-family: var(--fontes-de-titulo);
+  font-weight: 700;
+  font-size: 20px;
+  padding: 1%;
+}
+
+.conteudo-nota-professor{
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+}
+
+.notas-professor{
+  height: 100%;
+   border-radius: 16px;
+
+   width: 100%;
+
+
+
+   background-color: var(--amarelo);
+ }
+
+ .mostrarTexto{
+  font-size: 20px;
+  font-family: var(--fontes-de-texto);
+  padding: 1%;
+ }
+
+
+ .linha-nomes-GDA{
+  display: none;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 900px){
     #modo-desktop{
         display: none;
@@ -687,10 +801,15 @@ padding-top: 7%;
 
     <main id="main-notas-professor">
 
-        <p class="texto-notas-professor">Inserir ou alterar notas</p>
 
+   
+
+        <p class="texto-notas-professor">Inserir ou alterar notas</p>
+        <div class="centraliza-NP">
        
 
+          
+ 
         <label class="label-notas-professor" for="turma">Turma:</label>
 
 	<select id="turma" name="turma">
@@ -701,22 +820,22 @@ padding-top: 7%;
     <hr class="linha-n-p">
 
 
-    <br>
 
-    <div class="tudo-nota-professor">
-
-   
-
-    <label class="sai" for="turma"><p class="label-notas-professor-2"> Unidade<br>Curricular :</p> </label>
+    <label class="label-notas-professor-2" for="turma">
+     Unidade Curricular :</label>
 
  
 	<select id="unidade" name="turma">
 		<option value="1">1</option>
-		<option value="M2P">M2P</option>
-		<option value="M1P">M1P</option>
+		<option value="M2P">2</option>
+		<option value="M1P">3</option>
 	</select> 
    
+ 
     
+</div>
+
+
 </div>
 <hr class="linha-n-p">
 
@@ -741,30 +860,29 @@ padding-top: 7%;
 
 
 
-  <p id="nota-aluno">Beatriz Brito Ferreira</p>
-  
+  <p class="mostrarTexto" onclick="pessoa_clique('${variavel1}')" id="${variavel1}">Evelyn Victoria da Silva Santos
+  </p>
 
 
-    <p class="criterio-nota-professor">Critério:</p>
-    <br>
-    <p class="nota-nota-professor">Nota: </p>
+  <hr class="linha-nomes-GDA">
 
-    <hr class="linhas-nota-professor1">
+  <p class="mostrarTexto" onclick="pessoa_clique('${variavel2}')" id="${variavel2}">Juliana Pereira</p>
 
-    <p class="nomes-alunos">Evelyn Victoria da Silva Santos</p>
+  <hr class="linha-nomes-GDA">
 
-    <hr class="linhas-nota-professor">
+  <p class="mostrarTexto" onclick="pessoa_clique('${variavel3}')" id="${variavel3}">Trinity Domingues</p>
 
-    <p class="nomes-alunos">Juliana Pereira Lima</p>
+  <hr class="linha-nomes-GDA">
 
-    <hr class="linhas-nota-professor">
+  <p class="mostrarTexto" onclick="pessoa_clique('${variavel4}')" id="${variavel4}">Crislaine Ferreira</p>
 
-    <p class="nomes-alunos">Trinity Domingues dos Santos</p>
+  <hr class="linha-nomes-GDA">
 
-    <hr class="linhas-nota-professor">
+  <p class="mostrarTexto" onclick="pessoa_clique('${variavel5}')" id="${variavel5}">Camila Santos</p>
 
+  <hr class="linha-nomes-GDA">
 
-
+  <p class="mostrarTexto" onclick="pessoa_clique('${variavel6}')" id="${variavel6}">Victoria dos Santos</p>
 
 
    
@@ -798,22 +916,207 @@ padding-top: 7%;
 
 
 <script>
-  const btnMobile = document.getElementById('btn-mobile');
+/*// Criação das variáveis
+var elementosMostrarTexto = document.getElementsByClassName("mostrarTexto");
+var infoDiv = document.getElementById("informacoes");
 
-  function toggleMenu(event) {
-    if (event.type === 'touchstart') event.preventDefault();
-    const nav = document.getElementById('nav-menu-hamburguer');
-    nav.classList.toggle('active');
-    const active = nav.classList.contains('active');
-    event.currentTarget.setAttribute('aria-expanded', active);
-    if (active) {
-      event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
-    } else {
-      event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
+var textoExibido = "";
+
+// Crie um objeto para rastrear quais elementos já receberam os links
+var elementosComLinks = {};
+
+// Crie um objeto para rastrear os campos de entrada ativos e respostas enviadas
+var camposAtivos = {};
+var respostasEnviadas = {};
+
+function pessoa_clique(cpf) {
+  // De acordo com o CPF da pessoa
+  var pessoa_selecionada = document.getElementById(`${cpf}`);
+
+  // Verifique se os links já foram adicionados a esse elemento
+  if (!elementosComLinks[cpf]) {
+    // Criando um elemento de select
+    var criteriosSelect = document.createElement("select");
+
+    // Adicionar opções ao select
+    var opcao1 = document.createElement("option");
+    opcao1.text = "Critério 1";
+    criteriosSelect.add(opcao1);
+
+    var opcao2 = document.createElement("option");
+    opcao2.text = "Critério 2";
+    criteriosSelect.add(opcao2);
+
+    // Criando um elemento de input de texto
+    var inputTexto = document.createElement("input");
+    inputTexto.type = "text";
+    inputTexto.placeholder = "Digite um texto...";
+
+    // Criando um botão para salvar e exibir o texto
+    var botaoEnviar = document.createElement("button");
+    botaoEnviar.textContent = "Enviar";
+    botaoEnviar.addEventListener("click", function () {
+      var opcaoSelecionada = criteriosSelect.value;
+      var textoInserido = inputTexto.value;
+
+      // Criando um elemento de parágrafo para exibir a resposta
+      var respostaParagrafo = document.createElement("p");
+      respostaParagrafo.textContent = `Resposta para "${opcaoSelecionada}": ${textoInserido}`;
+
+      // Criando um botão para apagar a resposta
+      var botaoApagar = document.createElement("button");
+      botaoApagar.textContent = "Apagar";
+      botaoApagar.addEventListener("click", function () {
+        pessoa_selecionada.removeChild(respostaParagrafo);
+        pessoa_selecionada.removeChild(botaoApagar);
+        camposAtivos[opcaoSelecionada] = true; // Campo de entrada ativo para esta opção
+        inputTexto.disabled = false; // Ativar campo de entrada ao apagar
+        respostasEnviadas[opcaoSelecionada] = false; // Marcar resposta como não enviada
+      });
+
+      // Marcar a resposta como enviada
+      respostasEnviadas[opcaoSelecionada] = true;
+
+      // Desativar o campo de entrada de texto se não estiver ativo ou todas as respostas já foram enviadas
+      if (!camposAtivos[opcaoSelecionada] || todasRespostasEnviadas()) {
+        inputTexto.disabled = true;
+      }
+
+      // Adicionar o parágrafo e o botão de apagar
+      pessoa_selecionada.appendChild(respostaParagrafo);
+      pessoa_selecionada.appendChild(botaoApagar);
+      camposAtivos[opcaoSelecionada] = false; // Campo de entrada não está ativo para uma nova resposta
+    });
+
+    // Adicionar evento de mudança ao select para ativar o campo de entrada correspondente
+    criteriosSelect.addEventListener("change", function () {
+      var opcaoSelecionada = criteriosSelect.value;
+      inputTexto.disabled = !camposAtivos[opcaoSelecionada];
+    });
+
+    // Inicializar camposAtivos e respostasEnviadas para todas as opções do select
+    camposAtivos[opcao1.text] = true;
+    camposAtivos[opcao2.text] = true;
+    respostasEnviadas[opcao1.text] = false;
+    respostasEnviadas[opcao2.text] = false;
+
+    // Criando um appendChild para que os elementos fiquem organizados
+    pessoa_selecionada.appendChild(criteriosSelect);
+    pessoa_selecionada.appendChild(inputTexto);
+    pessoa_selecionada.appendChild(botaoEnviar);
+
+    // Marque o elemento como tendo os links adicionados
+    elementosComLinks[cpf] = true;
+  }
+}
+
+// Função auxiliar para verificar se todas as respostas foram enviadas
+function todasRespostasEnviadas() {
+  for (var opcao in respostasEnviadas) {
+    if (!respostasEnviadas[opcao]) {
+      return false;
     }
   }
+  return true;
+}
+*/
 
-  btnMobile.addEventListener('click', toggleMenu);
-  btnMobile.addEventListener('touchstart', toggleMenu);
+
+
+
+
+// Criação das variáveis
+var elementosMostrarTexto = document.getElementsByClassName("mostrarTexto");
+var infoDiv = document.getElementById("informacoes");
+
+var textoExibido = "";
+
+// Crie um objeto para rastrear quais elementos já receberam os links
+var elementosComLinks = {};
+
+function pessoa_clique(cpf) {
+  // De acordo com o CPF da pessoa
+  var pessoa_selecionada = document.getElementById(`${cpf}`);
+
+  // Verifique se os links já foram adicionados a esse elemento
+  if (!elementosComLinks[cpf]) {
+    // Criando um elemento de select
+    var criteriosSelect = document.createElement("select");
+
+    criteriosSelect.style.background = "none";
+    criteriosSelect.style.fontSize = "16px";
+    criteriosSelect.style.color = "#0A395E";
+    criteriosSelect.style.border = "none";
+    criteriosSelect.style.marginLeft = "3%";
+
+    // Adicionar opções ao select
+    var opcao1 = document.createElement("option");
+    opcao1.text = "D1";
+    criteriosSelect.add(opcao1);
+
+    var opcao2 = document.createElement("option");
+    opcao2.text = "D2";
+    criteriosSelect.add(opcao2);
+
+    // Criando um elemento de input de texto
+    var inputTexto = document.createElement("input");
+    inputTexto.type = "text";
+    inputTexto.placeholder = "Digite um texto...";
+
+    inputTexto.style.border = "none";
+    inputTexto.style.width = "160px";
+    inputTexto.style.height = "25px";
+    inputTexto.style.marginLeft = "5%";
+
+
+    // Criando um botão para salvar e exibir o texto
+    var botaoEnviar = document.createElement("button");
+    botaoEnviar.textContent = "Enviar";
+
+    botaoEnviar.style.border = "none";
+    botaoEnviar.style.height= "25px";
+    botaoEnviar.style.marginLeft = "5%";
+
+    botaoEnviar.addEventListener("click", function () {
+      var opcaoSelecionada = criteriosSelect.value;
+      var textoInserido = inputTexto.value;
+
+      // Criando um elemento de parágrafo para exibir a resposta
+      var respostaParagrafo = document.createElement("p");
+      respostaParagrafo.style.fontSize = "15px";
+      respostaParagrafo.textContent = `Resposta para "${opcaoSelecionada}": ${textoInserido}`;
+
+      // Adicionar o parágrafo
+      pessoa_selecionada.appendChild(respostaParagrafo);
+    });
+
+    // Criando um appendChild para que os elementos fiquem organizados
+    pessoa_selecionada.appendChild(criteriosSelect);
+    pessoa_selecionada.appendChild(inputTexto);
+    pessoa_selecionada.appendChild(botaoEnviar);
+
+    // Marque o elemento como tendo os links adicionados
+    elementosComLinks[cpf] = true;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
+
 </html>
