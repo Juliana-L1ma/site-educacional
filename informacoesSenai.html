@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações SENAI</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Questrial&family=Ruda&display=swap');*{
+        padding: 0;
+        margin: 0;
+    }
+    :root{
+        --azul-escuro: #0A395E;
+        --bordo: #912B64;
+        --amarelo: #FAF4D3;
+        --verde: #70A288;
+        --background-color-branco: #F5F5F5;
+        --preto: #0C1618;
+        --azul-claro-botao: #93B4DB;
+        --fontes-de-texto: 'Questrial', sans-serif;
+        --fontes-de-titulo:'Roboto', sans-serif ;
+    }
+    
+    
+    body{
+        background-color: var(--background-color-branco);
+    }
+    
+    header{
+        width: 100%;
+        height: 10vh;
+        background-color: #0A395E;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Lato', sans-serif;
+    }
+    
+    .div-cabecalho{
+        padding-left: 2%;
+        padding-right: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    #btn-mobile{
+        background-color: transparent;
+        border-color: transparent;
+    }
+    
+    #menu {
+        display: block;
+        position: absolute;
+        width: 100%;
+        right: 0px;
+        background: var(--azul-escuro);
+        transition: 0.5s;
+        z-index: 1000;
+        height: 0px;
+        visibility: hidden;
+        overflow-y: hidden;
+      }
+    #nav-menu-hamburguer.active #menu {
+        display: flex;
+        flex-direction: column;
+        height: calc(30vh - 60px);
+        visibility: visible;
+        overflow-y: auto;
+      }
+    #menu a {
+        text-align: center;
+        font-family: var(--fontes-de-texto);
+        font-size: 15px;
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+      }
+    #btn-mobile {
+        display: flex;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: 0.5rem;
+        color: #d6d8db;
+      }
+    
+    a{
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    #modo-desktop{
+        width: 100vw;
+    }
+    
+    #modo-desktop li{
+        list-style: none;
+    }
+    
+    #modo-desktop ul{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        text-align: center;
+        gap: 4%;
+    }
+    .separacaoAmarela{
+        width: 100%;
+        height: 25px;
+        background-color: #FAF4D3;
+    }
+    .dadosSenai{
+        width: 50%;
+        margin-left: 3%;
+        margin-top: 7%;
+        font-size: 20px;
+        font-family: var(--fontes-de-texto);
+        color: #0C1618;
+    }
+    .dadosSenai, .links-endereco{
+        color: #0C1618;
+    }
+    #separacaoRoxa-quemSomos{
+        border: 2px solid #912B64;
+    }
+    .footer-quemSomos{
+        background-color: #70A288;
+        display: flex;
+        margin-top: 18%;
+    }
+    #img-footer-QS{
+        width: 300px;
+        height: 300px;
+        padding: 2%;
+    }
+    .links-endereco-faleConosco{
+        color: #0C1618;
+        font-size: 20px;
+        margin-top: 4%;
+        margin-left: 3%;
+        font-family: var(--fontes-de-texto);
+        font-weight: bold;
+    }
+    .quemSomos{
+        display: flex;
+    }
+    .mapaSenai{
+        width: 450px;
+        height: 400px;
+        margin-left: 3%;
+        margin-top: 3%;
+    }
+    .direitosAutorais-quemSomos{
+        font-family: var(--fontes-de-titulo);
+      font-size: 13px;
+      cursor: pointer;
+      text-align: center;
+      margin-top: 15%;
+      }
+       /*------------- DESKTOP -----------------*/
+       @media screen and (max-width: 900px){
+        #modo-desktop{
+            display: none;
+        }
+    }
+    
+    @media screen and (min-width: 900px) {
+        #nav-menu-hamburguer{
+            display: none;
+        }
+        .div-cabecalho{
+            margin-left: -5%;
+        }
+    }
+      
+    @media (max-width: 480px){
+        .dadosSenai{
+            width: 90%;
+            margin-left: 4%;
+            margin-top: 7%;
+            font-size: 18px;
+            font-family: var(--fontes-de-texto);
+            color: #0C1618;
+        }
+        .quemSomos{
+            display: flex;
+            flex-direction: column;
+        }
+        .footer-quemSomos{
+            display: flex;
+            flex-direction: column;
+            margin-top: 18%;
+        }
+        #img-footer-QS{
+            width: 200px;
+            height: 200px;
+            padding: 2%;
+            margin:0 auto;
+        }
+        .links-endereco-faleConosco{
+            color: #0C1618;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 4%;
+            margin-left: 3%;
+            font-family: var(--fontes-de-texto);
+            font-weight: bold;
+        }
+        
+        .mapaSenai{
+            width: 320px;
+            height: 240px;
+            margin-left: 3%;
+            margin-top: 3%;
+        }
+        .direitosAutorais-quemSomos{
+            font-family: var(--fontes-de-titulo);
+          font-size: 10px;
+          padding: 5%;
+          cursor: pointer;
+          text-align: center;
+          margin-top: 5%;
+          }
+    }
+/*tablets e laptops*/
+    @media (max-width: 768px) and (max-width:1199px){
+
+    }
+</style>
+
+<body>
+    <header class="header-professor-adm">
+        <div class="div-cabecalho" id="modo-desktop">
+          <ul>
+            <a href="">
+              <li>Home</li>
+            </a>
+            <a href="">
+              <li>Perfil</li>
+            </a>
+            <a href="">
+              <li>Funcionalidades</li>
+            </a>
+            <a href="">
+              <li>Sobre o Senai</li>
+            </a>
+          </ul>
+        </div>
+        <div class="div-cabecalho" id="modo-mobile">
+          <nav id="nav-menu-hamburguer">
+            <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+              <span id="hamburger">
+                <img src="./img/barra-de-menu.png" alt="Menu aberto ícones criados por verry purnomo - Flaticon" />
+              </span>
+            </button>
+            <ul id="menu" role="menu">
+              <br>
+              <li><a class="header-item" href="index.html">Home</a></li><br>
+              <hr>
+              <br>
+              <li> <a class="header-item" href="products.html">Products</a></li><br>
+              <hr>
+              <br>
+              <li><a class="header-item" href="aboutus.html">About us</a></li> <br>
+              <hr>
+            </ul>
+          </nav>
+        </div>
+        <div class="div-cabecalho" id="modo-mobilee">
+          <a href="https://www.flaticon.com/br/icones-gratis/perfil" title="Perfil ícones criados por inkubators - Flaticon"
+            id="icone-perfil">
+            <img src="./img/perfil-de-usuario.png" />
+          </a>
+          <a href="https://www.flaticon.com/br/icones-gratis/engrenagem"
+            title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem"> <img
+              src="./img/engrenagem.png" />
+          </a>
+        </div>
+      </header>
+
+      <div class="separacaoAmarela"></div>
+
+      <main class="quemSomos">
+        <div class="dadosSenai">
+            <h1 class="nomeSenai">Senai Nami Jafet</h1>
+            <br><hr id="separacaoRoxa-quemSomos"><br>
+      
+            <p id="informacoesDoSenai">
+                <a class="links-endereco" href="https://www.google.com/maps/place/SENAI+Nami+Jafet/@-23.522988,-46.1856686,15z/data=!4m6!3m5!1s0x94cdd83f25b7f87b:0x28b1c3bd2eea56e3!8m2!3d-23.522988!4d-46.1856686!16s%2Fg%2F1tg9tt5f?entry=ttu"> ENDEREÇO: R. Dom Antônio Cândido de Alvarenga, 353 - Centro - Mogi das Cruzes/SP</a><br><br>
+               <a class="links-endereco" href="tel:+(11) 4728-3900"> TELEFONE: (11) 4728-3900</a><BR><br>
+              <a class="links-endereco" href="http://mogidascruzes.sp.senai.br">SITE: http://mogidascruzes.sp.senai.br</a>
+            </p>
+           </div>
+            <iframe class="mapaSenai" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14633.057926341688!2d-46.1856686!3d-23.522988!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd83f25b7f87b%3A0x28b1c3bd2eea56e3!2sSENAI%20Nami%20Jafet!5e0!3m2!1spt-BR!2sbr!4v1693403878596!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </main>
+      
+     
+      
+      <footer class="footer-quemSomos">
+        <img src="./site-educacional-main/img/Setup Wizard-bro.png" alt="" id="img-footer-QS">
+
+        <a class="links-endereco-faleConosco" href="mailto:senaimogidascruzes@sp.senai.br">Fale conosco aqui</a>
+        <p class="direitosAutorais-quemSomos">
+            Copyright 2023 - Beatriz Brito, Evelyn Victória Santos, Juliana Lima e Trinity Nascimento<br>
+            Esse site foi produzido pelas alunas citadas acima no curso de Desenvolvimento de Sistemas do Senai "Nami Jafet" para uso escolar e administrativo
+        </p>
+      </footer>
+</body>
+</html>
