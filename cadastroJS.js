@@ -1,3 +1,6 @@
+function teste(){
+  document.querySelector("#escolha_turma2_cadastroInfo").style.display = "none";
+}
 
 function categoria2_cadastroinfo() {
     var valorSelect1_cadastroInfo = document.getElementById("select1_cadastroinfo").value;
@@ -19,16 +22,18 @@ function categoria2_cadastroinfo() {
       elementosSelect.style.background = "none";
     });
 
-
-    if (valorSelect1_cadastroInfo !== document.querySelector("#opcaovazia_cadastroInfo") && valorSelect1_cadastroInfo !== "professor") {
+    if (valorSelect1_cadastroInfo !== document.querySelector("#opcaovazia_cadastroInfo") && valorSelect1_cadastroInfo !== "professor" && valorSelect1_cadastroInfo !== "curso") {
       document.getElementById("opcaovazia_cadastroInfo").style.display = 'none';
       document.querySelector("#escolha_" + valorSelect1_cadastroInfo + "_cadastroInfo").style.display = "flex";
       document.querySelector("#div_cadastroInfo_" + valorSelect1_cadastroInfo).style.display = "block";
 
       console.log("#div_cadastroInfo_" + valorSelect1_cadastroInfo)
     }
-    else if (valorSelect1_cadastroInfo === "professor") {
+    else if (valorSelect1_cadastroInfo === "professor" || valorSelect1_cadastroInfo === "curso") {
       document.querySelector("#div_cadastroInfo_" + valorSelect1_cadastroInfo).style.display = "block";
+    }
+     if (valorSelect1_cadastroInfo === "turma"){
+      document.querySelector("#escolha_turma2_cadastroInfo").style.display = "flex";
     }
   }
 
