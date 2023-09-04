@@ -270,7 +270,7 @@
  /*#escolha_professor_cadastroInfo,*/
  #escolha_curso_cadastroInfo,
  #escolha_turma_cadastroInfo,
- #escolha_unidade_curricular_cadastroInfo {
+ #escolha_unidade_curricular_cadastroInfo, #escolha_periodo_cadastroInfo {
    display: none;
  }
 
@@ -436,10 +436,26 @@
   border: none;
 
  }
+
+ .t1 #pdf_plano_curso{
+  height: 4vh;
+  width: 50px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+ }
+
+ .pdfAnexado{
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  align-items: center;
+  
+}
   </style>
 </head>
 
-<body>
+<body onload="teste()">
   <div class="headertitulo">
     <header class="header-professor-adm">
       <div class="div-cabecalho" id="modo-desktop">
@@ -522,8 +538,8 @@
             </select>
           </div>
 
-          <div class="categoriaSelecionada_cadastroInfo" id="escolha_curso_cadastroInfo">
-            <select name="" class="select_curso_cadastroInfos select2_cadastrosInfo" id="" required>
+          <div class="categoriaSelecionada_cadastroInfo" id="escolha_turma2_cadastroInfo">
+            <select name="" class="select_turma_cadastroInfos select2_cadastrosInfo" id="" required>
               <option value="">Manhã</option>
               <option value="">Tarde</option>
               <option value="">Noite</option>
@@ -572,10 +588,6 @@
           <input type="text" id="dataNasc_cadastroInfos">
         </div>
         <br>
-        <div class="t1">
-          <label for="nomeCompleto_cadastroInfos">Data de criação:</label>
-          <input type="date" id="periodo_cadastroInfos">
-        </div>
         <div class="divBtnCadastro">
           <button class="btnCadastro">Cadastrar</button>
           <a href="" class="attCadastro">Precisa atualizar o cadastro?</a>
@@ -587,12 +599,21 @@
 
       <div class="divCategoria2_naoVisivel" id="div_cadastroInfo_aluno">
         <div class="t1">
-          <label for="nomeCompleto_cadastroInfos">Nome completo:</label>
+          <label for="nomeCompleto_cadastroInfos">Nome:</label>
+          <input type="text" id="nomeCompleto_cadastroInfos">
+        </div>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Sobrenome:</label>
           <input type="text" id="nomeCompleto_cadastroInfos">
         </div>
         <br>
         <div class="t1">
           <label for="nomeCompleto_cadastroInfos">CPF:</label>
+          <input type="text" id="enderecoVirtual_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">RG:</label>
           <input type="text" id="enderecoVirtual_cadastroInfos">
         </div>
         <br>
@@ -603,6 +624,16 @@
         <br>
         <div class="t1">
           <label for="nomeCompleto_cadastroInfos">Endereço:</label>
+          <input type="text" id="periodo_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Complemento:</label>
+          <input type="text" id="periodo_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Telefone:</label>
           <input type="text" id="periodo_cadastroInfos">
         </div>
         <br>
@@ -630,7 +661,12 @@
 
       <div class="divCategoria2_naoVisivel" id="div_cadastroInfo_professor">
         <div class="t1">
-          <label for="nomeCompleto_cadastroInfos">Nome completo:</label>
+          <label for="nomeCompleto_cadastroInfos">Nome:</label>
+          <input type="text" id="nomeCompleto_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Sobrenome:</label>
           <input type="text" id="nomeCompleto_cadastroInfos">
         </div>
         <br>
@@ -648,6 +684,16 @@
           <label for="nomeCompleto_cadastroInfos">Endereço:</label>
           <input type="text" id="endereco_cadastroInfos">
         </div>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Complemento:</label>
+          <input type="text" id="nomeCompleto_cadastroInfos">
+        </div>
+        <br>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Formação:</label>
+          <input type="text" id="nomeCompleto_cadastroInfos">
+        </div>
+        <br>
         <div class="t1">
           <label for="nomeCompleto_cadastroInfos">E-mail:</label>
           <input type="email" id="email_cadastroInfos">
@@ -684,7 +730,7 @@
         </div>
         <br>
         <div class="t1">
-          <label for="nomeCompleto_cadastroInfos">Total de alunos:</label>
+          <label for="nomeCompleto_cadastroInfos">Capacidade:</label>
           <input type="number" id="totalAlunos_cadastroInfos">
         </div>
         <div class="opcoesCurso">
@@ -698,18 +744,17 @@
             <label for="nomeCompleto_cadastroInfos">FIC</label>
           </div>
         </div>
-        <div class="t1">
-          <label for="nomeCompleto_cadastroInfos">Data de início:</label>
-          <input type="date" id="dataDeInicio_cadastroInfos">
-        </div>
-        <br>
-        <div class="t1">
-          <label for="nomeCompleto_cadastroInfos">Data de conclusão:</label>
-          <input type="date" id="datadeConclusao_cadastroInfos">
-        </div>
+
         <div class="t1">
           <label for="nomeCompleto_cadastroInfos">Custo:</label>
           <input type="number" id="datadeConclusao_cadastroInfos" placeholder="R$">
+        </div>
+        <div class="t1">
+          <label for="nomeCompleto_cadastroInfos">Plano de curso:</label>
+          <button id="pdf_plano_curso">
+            <img src="img/envio.png" alt="">
+          </button>
+          <div class="pdfAnexado">planoCurso.pdf</div>
         </div>
         <div class="t1">
           <label for="nomeCompleto_cadastroInfos" class="labelCad">Disciplinas:</label>
@@ -735,11 +780,6 @@
         <div class="t1">
           <label for="nomeCompleto_cadastroInfos">Nome da turma:</label>
           <input type="text" id="nomeCompleto_cadastroInfos">
-        </div>
-        <br>
-        <div class="t1">
-          <label for="nomeCompleto_cadastroInfos">Carga horária:</label>
-          <input type="text" id="enderecoVirtual_cadastroInfos">
         </div>
         <br>
         <div class="t1">
