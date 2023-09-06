@@ -29,7 +29,7 @@
   }
 
   header{
-    width: 100vw;
+    width: 100%;
     height: 10vh;
     background-color: #0A395E;
     display: flex;
@@ -39,8 +39,7 @@
 }
 
 .div-cabecalho{
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-right: 8%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,7 +95,7 @@ a{
 }
 
 #modo-desktop{
-    width: 100vw;
+    width: 100%;
 }
 
 #modo-desktop li{
@@ -111,6 +110,105 @@ a{
     text-align: center;
     gap: 4%;
 }
+#mainAluno{
+  background-color: #0A395E;
+  height: 70%;
+  padding-bottom: 5%;
+  border-radius: 0px  0px 50px  50px;
+}
+.imagemAluno{
+  background-color: var(--verde);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto;
+  padding: 5%;
+  padding-top: 5%;
+}
+#hr-aluno{
+  border-bottom: 2px solid #f8e67e;
+  width: 60%;
+  margin: auto;
+}
+.informacoesDoAluno{
+  width: 80%;
+  margin: auto;
+  margin-top: 4%;
+  color: var(--background-color-branco);
+  text-align: center;
+  font-size: 20px;
+}
+#cursos{
+  width: 400px;
+}
+.cta {
+  display: flex;
+  padding: 11px;
+  text-decoration: none;
+  font-family:var(--fontes-de-titulo);
+  font-size: 20px;
+  font-weight: bold;
+  color: #912B64;
+  background: #F5F5F5;
+  box-shadow: 6px 6px 0 #c9c8c8;
+  transform: skewX(-15deg);
+  border: none;
+  margin: 0 auto ;
+  margin-top: 2%;
+}
+.cta1{
+  width: 150px;
+}
+.cta:focus {
+  outline: none;
+}
+
+.span {
+  transform: skewX(15deg)
+}
+
+.second {
+  width: 20px;
+  position: relative;
+  top: 2%;
+}
+  #caixa-botoes{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items: center;
+    margin-left: 3%;
+  }
+  .buttonDoAluno{
+    margin-top: 5%;
+    padding: 1% 2%;
+    color: #0C1618;
+    font-family: var(--fontes-de-texto);
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--bordo);  
+    cursor:pointer;
+    background: var(--background-color-branco);
+    box-shadow: 7px 5px #adadad;
+    border: none;
+  }
+  .buttonDoAluno:hover{
+    transform: scale(1.1);
+  }
+  .footer-aluno{
+    width: auto;
+    margin-top: 10%;
+    background-color: #0A395E;
+    font-size: 20px;
+    text-align: left;
+    color: var(--background-color-branco);
+    padding-top: 4%;
+    }
+    
+    .direitosAutorais{
+    font-size: 10px;
+    text-align: center;
+    }
 
     /*------------- DESKTOP -----------------*/
     @media screen and (max-width: 900px){
@@ -126,100 +224,39 @@ a{
       .div-cabecalho{
           margin-left: -5%;
       }
-  
   }
 
-  /*mobile*/  
-  @media (max-width: 480px){
-
-    /*------------------ footer ------------*/
-    /*-------- ESTILO PADRÃO DAS PÁGINAS, HEADER E FOOTER --------------*/
-    
-  
-
-  /*FOOTER*/
-
-.footer-professor-adm{
-  background-color: #0A395E;
-  font-size: 12px;
-  text-align: left;
-  color: var(--background-color-branco);
-  padding-top: 8%;
-  }
-  
-  .direitosAutorais{
-  font-size: 10px;
-  text-align: center;
-  padding: 2%;
-  }
-  /*------------------ FIM DO FOOTER---------------*/
-
-   /*------------------- ESTILO HOME DO ALUNO ----------------*/
-
-   #mainAluno{
-    background-color: var(--azul-escuro);
-    margin-bottom: 15%;
-    padding-bottom: 20%;
-    border-radius: 0%  0% 15%  15%   ;
-  }
-
-  .imagemAluno{
-    background-color: var(--verde);
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: 0 auto;
-    padding: 5%;
-  }
-  #hr-aluno{
-    border-bottom: 2px solid #f8e67e;
-    width: 60%;
-    margin: auto;
-  }
-  .informacoesDoAluno{
-    width: 80%;
-    margin: auto;
-    margin-top: 4%;
-    color: var(--background-color-branco);
-    text-align: center;
-    font-size: 20px;
-  }
-
-  #cursos{
-    width: 85%;
-  }
-  .cta {
-    display: flex;
-    padding: 11px;
-    text-decoration: none;
-    font-family:var(--fontes-de-titulo);
-    font-size: 20px;
-    color: #912B64;
-    background: #F5F5F5;
-    box-shadow: 6px 6px 0 #c9c8c8;
-    transform: skewX(-15deg);
-    border: none;
-    margin: 0 auto ;
-    margin-top: 8%;
-  }
-  .cta1{
-    width: 150px;
-  }
-  .cta:focus {
-    outline: none;
-  }
-  
-  .span {
-    transform: skewX(15deg)
-  }
-  
-  .second {
-    width: 20px;
-    position: relative;
-    top: 12%;
-  }
-  
-}
+    /*mobile*/  
+    @media (max-width: 480px){
+      #mainAluno{
+        background-color: #0A395E;
+        padding-bottom: 15%;
+        border-radius: 0px  0px 50px  50px;
+      }
+      
+    .informacoesDoAluno{
+      width: 80%;
+      margin: auto;
+      margin-top: 10%;
+      margin-bottom: 15%;
+      color: var(--background-color-branco);
+      text-align: center;
+      font-size: 20px;
+    }
+      #cursos{
+        width: 280px;
+      }
+      .footer-aluno{
+        width: auto;
+        margin-top: 20%;
+        background-color: #0A395E;
+        font-size: 10px;
+        text-align: left;
+        color: var(--background-color-branco);
+        padding-top: 4%;
+        }
+        
+    }
     </style>
 </head>
 <body>
@@ -284,27 +321,16 @@ a{
       </div>
 
       <div id="caixa-botoes">
-        <button class="cta cta1">
-          <span class="span">Boletim</span>
-          <span class="second">
-            <svg width="50px" height="20px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            </svg>
-          </span> 
-      </button>
-  
-      <button class="cta">
-        <span class="span">Informações</span>
-        <span class="second">
-          <svg width="50px" height="20px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          </svg>
-        </span> 
-    </button>
+
+        <a href="./meuBoletim.html" class="buttonDoAluno">Boletim</a>
+        <a href="./" class="buttonDoAluno">Informações</a>
+
       </div>
       
 
     </main>
 
-    <footer class="footer-professor-adm">
+    <footer class="footer-aluno">
 
         <div class="container">
            
