@@ -393,6 +393,29 @@
             <option value="mecanica">Mecânica</option>
             <option value="eletrica">Elétrica</option>
           </select>
+
+          <div class="labelEscolha" id="labelTurma">
+            <label for="">Turma:</label>
+          </div>
+          <div class="opcoesGeral">
+            <select name="attCurso" id="nomeTurmas" class="opcoesAtt">
+              <option value=""></option>
+              <option value="tecnologia">Turma I</option>
+              <option value="mecanica">Turma II</option>
+              <option value="eletrica">Turma III</option>
+            </select>
+          </div>
+          <div class="labelEscolha" id="labelSemestre">
+            <label for="">Semestre:</label>
+          </div>
+          <div class="opcoesGeral">
+            <select name="attCurso" id="semestreCurso" class="opcoesAtt">
+              <option value=""></option>
+              <option value="tecnologia">1° Semestre</option>
+              <option value="mecanica">2° Semestre</option>
+              <option value="eletrica">3° Semestre</option>
+            </select>
+          </div>
         </div>
       </div>
     </main>
@@ -405,16 +428,19 @@
         var labelForm = document.getElementById("labelForm");
         var opcoesAtt = document.querySelectorAll(".opcoesAtt");
         var labelEscolha = document.querySelectorAll(".labelEscolha");
+        var labelTurma = document.getElementById("labelTurma")
+        var labelSemestre = document.getElementById("labelSemestre")
         var formacaoEsc = document.getElementById("formacaoEsc");
         var cursooEsc = document.getElementById("cursooEsc");
+        var nomeTurmas = document.getElementById("nomeTurmas");
+        var semestreCurso = document.getElementById("semestreCurso");
+
 
         opcoesAtt.forEach(function (div) {
           div.style.display = "none";
-          div.style.width = "60%";
 
           labelEscolha.forEach(function (div) {
             div.style.display = "none";
-            div.style.width = "60%";
           });
         });
 
@@ -510,17 +536,20 @@
                   if(cursoEsc.value === "c1"){
                     console.log("Curso 1")
                   }
-                  if(cursoEsc.value === "c1"){
+                  if(cursoEsc.value === "c2"){
                     console.log("Curso 2")
                   }
-                  if(cursoEsc.value === "c1"){
+                  if(cursoEsc.value === "c3"){
                     console.log("Curso 3")
                   }
                 });
               });
             }
             if(selectAtualizar.value === "turma"){
-              console.log("Mostrar turma escolhida!")
+              labelTurma.style.display = 'block';
+              nomeTurmas.style.display = 'block';
+              labelSemestre.style.display = 'block';
+              semestreCurso.style.display = "block";
             }
           });
         });
