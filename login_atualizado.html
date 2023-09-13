@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Login</title>
+    <style>
+        /* ---------------- padrão PARA IGNORAR ---------------------*/
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+        /* roboto titulos*/
+        @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+        /*questrial textos*/
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+        /*Lato textos*/
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+        /*poppins textos*/
+
+
+        :root {
+            --azul-escuro: #0A395E;
+            --bordo: #912B64;
+            --amarelo: #FAF4D3;
+            --verde: #70A288;
+            --background-color-branco: #F5F5F5;
+            --preto: #0C1618;
+            --azul-claro-botao: #93B4DB;
+            --fontes-de-texto: 'Questrial', sans-serif;
+            --fontes-de-titulo: 'Roboto', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: var(--fontes-de-texto);
+        }
+
+        /*início de parte PADRÃO*/
+        body {
+            background-color: var(--background-color-branco);
+        }
+
+        #headermaior {
+            display: none;
+        }
+
+        .div-cabecalho {
+            padding-left: 2%;
+            padding-right: 2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #btn-mobile {
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+        #menu {
+            display: block;
+            position: absolute;
+            width: 100%;
+            right: 0px;
+            background: var(--azul-escuro);
+            transition: 0.5s;
+            z-index: 1000;
+            height: 0px;
+            visibility: hidden;
+            overflow-y: hidden;
+        }
+
+        #nav-menu-hamburguer.active #menu {
+            display: flex;
+            flex-direction: column;
+            height: calc(30vh - 60px);
+            visibility: visible;
+            overflow-y: auto;
+        }
+
+        #menu a {
+            display: flex;
+            text-align: right;
+            font-family: var(--fontes-de-texto);
+            font-size: 15px;
+            padding: 1rem 0;
+            margin: 0 1rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #modo-desktop {
+            width: 100vw;
+        }
+
+        #modo-desktop li {
+            list-style: none;
+        }
+
+        #modo-desktop ul {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            text-align: center;
+            gap: 4%;
+        }
+
+        /*fim de parte PADRÃO*/
+
+
+        /*------------ FIM de padrão PARA IGNORAR --------------------*/
+
+        /*código do login geral*/
+        .titulo_principal_login {
+            font-family: var(--fontes-de-titulo);
+            color: var(--azul-escuro);
+        }
+
+        .subtitulo_login {
+            font-family: var(--fontes-de-titulo);
+        }
+
+        main {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #headermenor {
+            width: 90%;
+            margin: 5%;
+            height: 6vh;
+        }
+
+        #div_1 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        #caixa_geral {
+            display: flex;
+            flex-direction: column;
+            gap: 5vh;
+            width: 80%;
+        }
+
+        #caixa_bemvindo_login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #botao_envio_login {
+            background-color: var(--bordo);
+            border: none;
+            padding: 1.2%;
+            width: 25%;
+            cursor: pointer;
+            font-family: var(--fontes-de-titulo);
+            color: var(--background-color-branco);
+            font-weight: 600;
+            outline: none;
+        }
+
+        #email_login,
+        #senha_login {
+            border: none;
+            outline: none;
+            border-bottom: 1px solid var(--preto);
+            width: 100%;
+            background: none;
+        }
+
+        #form_senha_login {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 6vh;
+            width: 100%;
+        }
+
+        #form_senha_login input::placeholder,
+        #form_senha_login input {
+            font-size: 2.2vh;
+        }
+
+        #img_senha_login {
+            cursor: pointer;
+        }
+
+        @media(max-width: 500px) {
+            #caixa_bemvindo_login {
+                margin-top: 40%;
+            }
+
+            #caixa_geral {
+                display: flex;
+                flex-direction: column;
+                width: 80%;
+            }
+
+            #form_senha_login {
+                margin-top: 15%;
+            }
+
+            #botao_envio_login {
+                padding: 1.8%; 
+            }
+        }
+
+
+
+        @media(min-width: 500px) and (max-width: 767px) {
+            #caixa_geral {
+                display: flex;
+                flex-direction: column;
+                width: 80%;
+            }
+
+            #form_senha_login {
+                margin-top: 15%;
+            }
+
+            #botao_envio_login {
+                padding: 1.8%; 
+            }
+        }
+
+        @media(min-width: 768px) {
+            #headermaior {
+                width: 100vw;
+                height: 10vh;
+                background-color: #0a395e;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-family: "Lato", sans-serif;
+
+            }
+
+            #headermenor {
+                display: none;
+            }
+
+            #div_1 {
+                width: 90%;
+                min-height: 90vh;
+                background-color: #fff;
+                align-items: center;
+            }
+
+            #caixa_geral {
+                display: flex;
+                flex-direction: column;
+                width: 80%;
+            }
+
+            #form_senha_login {
+                margin-top: 5%;
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="headermenor">
+            <a href="#"><img style="height: 70%;" src="img/imagem-seta1.png" alt=""></a>
+        </div>
+        <div id="headermaior">
+            <div class="div-cabecalho" id="modo-desktop">
+                <ul>
+                    <a href="">
+                        <li>Home</li>
+                    </a>
+                    <a href="">
+                        <li>Perfil</li>
+                    </a>
+                    <a href="">
+                        <li>Funcionalidades</li>
+                    </a>
+                    <a href="">
+                        <li>Sobre o Senai</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="div-cabecalho" id="modo-mobile">
+                <nav id="nav-menu-hamburguer">
+                    <ul id="menu" role="menu">
+                        <br />
+                        <li><a class="header-item" href="index.html">Home</a></li>
+                        <br />
+                        <hr />
+                        <br />
+                        <li><a class="header-item" href="index.html">Perfil</a></li>
+                        <br />
+                        <hr />
+                        <br />
+                        <li><a class="header-item" href="products.html">Funcionalidades</a></li>
+                        <br />
+                        <hr />
+                        <br />
+                        <li><a class="header-item" href="aboutus.html">Sobre o SENAI</a></li>
+                        <br />
+                        <hr />
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="div_1">
+            <div id="caixa_geral">
+                <div id="caixa_bemvindo_login">
+                    <h1 class="titulo_principal_login">Bem vindo!</h1>
+                    <h3 class="subtitulo_login">Faça login para continuar</h3>
+                </div>
+
+                <form action="" id="form_senha_login">
+                    <input onclick="pa()" id="email_login" type="email" value="" placeholder="Insira seu email"
+                        required>
+                    <div style="display: flex; width: 100%;">
+                        <input id="senha_login" type="password" placeholder="Insira seu senha" required>
+                        <img id="img_senha_login" src="img/olho_esconde.svg" height="20px" alt="">
+                    </div>
+                    <button id="botao_envio_login">Entrar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        var form_senha_login = document.getElementById("form_senha_login");
+        var teste = document.getElementById("email_login")
+        var visualizacao_senha_login = document.querySelector("#img_senha_login");
+
+        var senha_login = document.querySelector("#senha_login");
+
+        function pa() {
+            console.log("foi")
+        }
+
+        visualizacao_senha_login.addEventListener('click', function () {
+            form_senha_login.classList.toggle('visibilidade_login')
+            if (form_senha_login.classList.contains("visibilidade_login")) {
+                visualizacao_senha_login.src = 'img/olho_aberto.svg';
+                senha_login.type = 'text';
+            }
+            else {
+                visualizacao_senha_login.src = 'img/olho_esconde.svg';
+                senha_login.setAttribute('type', 'password');
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
