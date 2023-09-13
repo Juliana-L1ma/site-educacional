@@ -36,7 +36,7 @@
       }
 
       header {
-        width: 100vw;
+        width: 100%;
         height: 10vh;
         background-color: #0a395e;
         display: flex;
@@ -393,20 +393,8 @@
             <option value="mecanica">Mecânica</option>
             <option value="eletrica">Elétrica</option>
           </select>
-
-          <div class="labelEscolha" id="labelTurma">
-            <label for="">Turma:</label>
-          </div>
-          <div class="opcoesGeral">
-            <select name="attCurso" id="nomeTurmas" class="opcoesAtt">
-              <option value=""></option>
-              <option value="tecnologia">Turma I</option>
-              <option value="mecanica">Turma II</option>
-              <option value="eletrica">Turma III</option>
-            </select>
-          </div>
           <div class="labelEscolha" id="labelSemestre">
-            <label for="">Semestre:</label>
+            <label for="" id="labelSem">Semestre:</label>
           </div>
           <div class="opcoesGeral">
             <select name="attCurso" id="semestreCurso" class="opcoesAtt">
@@ -428,11 +416,10 @@
         var labelForm = document.getElementById("labelForm");
         var opcoesAtt = document.querySelectorAll(".opcoesAtt");
         var labelEscolha = document.querySelectorAll(".labelEscolha");
-        var labelTurma = document.getElementById("labelTurma")
         var labelSemestre = document.getElementById("labelSemestre")
+        var labelSem = document.getElementById("labelSemestre");
         var formacaoEsc = document.getElementById("formacaoEsc");
         var cursooEsc = document.getElementById("cursooEsc");
-        var nomeTurmas = document.getElementById("nomeTurmas");
         var semestreCurso = document.getElementById("semestreCurso");
 
 
@@ -441,17 +428,19 @@
 
           labelEscolha.forEach(function (div) {
             div.style.display = "none";
+            div.style.textAlign = "left";
           });
         });
 
         $(document).ready(function () {
           $("#categoriaAtt").change(function () {
             if (selectAtualizar.value === "aluno") {
+              labelSem.style.color= "transparent";
               console.log(selectAtualizar.value);
               opcoesAtt.forEach(function (div) {
                 div.style.display = "block";
                 formacaoEsc.style.display = "none";
-
+                semestreCurso.style.display = "none";
                 labelEscolha.forEach(function (div) {
                   div.style.display = "block";
                   labelForm.style.display = "none";
@@ -546,9 +535,10 @@
               });
             }
             if(selectAtualizar.value === "turma"){
-              labelTurma.style.display = 'block';
-              nomeTurmas.style.display = 'block';
-              labelSemestre.style.display = 'block';
+              cursoEsc.style.display = 'block';
+              cursooEsc.style.display = "block";
+              labelSem.style.color = "#000";
+              labelSemestre.style.display = "block";
               semestreCurso.style.display = "block";
             }
           });
