@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Atualizar - Professores</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'); /* roboto titulos*/
+        @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');/*questrial textos*/
+        
+        :root {
+            --azul-escuro: #0A395E;
+            --bordo: #912B64;
+            --amarelo: #FAF4D3;
+            --verde: #70A288;
+            --background-color-branco: #F5F5F5;
+            --preto: #0C1618;
+            --azul-claro-botao: #93B4DB;
+            --fontes-de-texto: 'Questrial', sans-serif;
+            --fontes-de-titulo:'Roboto', sans-serif ;
+          }
+        
+          *{
+            margin: 0;
+            padding: 0;
+          }
+        
+          body{
+            background-color: var(--background-color-branco);
+          }
+          header{
+            width: 100%;
+            height: 10vh;
+            background-color: #0A395E;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        .div-cabecalho{
+            padding-left: 2%;
+            padding-right: 2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        #btn-mobile{
+            background-color: transparent;
+            border-color: transparent;
+        }
+        
+        #menu {
+            display: block;
+            position: absolute;
+            width: 100%;
+            right: 0px;
+            background: var(--azul-escuro);
+            transition: 0.5s;
+            z-index: 1000;
+            height: 0px;
+            visibility: hidden;
+            overflow-y: hidden;
+          }
+        #nav-menu-hamburguer.active #menu {
+            display: flex;
+            flex-direction: column;
+            height: calc(30vh - 60px);
+            visibility: visible;
+            overflow-y: auto;
+          }
+        #menu a {
+            text-align: center;
+            font-family: var(--fontes-de-texto);
+            font-size: 15px;
+            padding: 1rem 0;
+            margin: 0 1rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+          }
+        #btn-mobile {
+            display: flex;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            gap: 0.5rem;
+            color: #d6d8db;
+          }
+        
+        a{
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        #modo-desktop{
+            width: 100vw;
+        }
+        
+        #modo-desktop li{
+            list-style: none;
+        }
+        
+        #modo-desktop ul{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            text-align: center;
+            gap: 4%;
+        }
+          .button-atualiza{
+            font-size: 18px;
+            font-family: var(--fontes-de-texto);
+            outline: 0;
+            border: 0;
+            cursor: pointer;
+            background: linear-gradient(90deg, rgba(145,43,100,1) 1%, rgba(204,110,163,1) 49%, rgba(145,43,100,1) 100%);
+            padding: 0 2em;
+            border-radius: 0.3em;
+            color: #fff;
+            height: 2.6em;
+            text-shadow: 0 2px 0 rgb(0 0 0 / 50%);
+            margin-left: 4%;
+            margin-bottom: 2%;
+          }
+          .button-atualiza:hover{
+            transform: scale(1.1);
+          }
+          .seta-esquerda-azul{
+            width: 60px;
+            height: 35px;
+          }
+          .topo-areaDeFormacao{
+            display: flex;
+            width: 80%;
+            margin: 3%;
+            margin-left: 4%;
+            font-family: var(--fontes-de-texto);
+          }
+          .infoAreaDeFormacao{
+            margin-left: 5%;
+          }
+          #tabela-infoDisciplinas-form{
+            width: 80%;
+            margin-left: 4%;
+          }
+           /*------------- DESKTOP -----------------*/
+         @media screen and (max-width: 900px){
+            #modo-desktop{
+                display: none;
+            }
+            .footer-professor-adm{
+              width: auto;
+              background-color: #0A395E;
+              font-size: 20px;
+              text-align: left;
+              color: var(--background-color-branco);
+              padding-top: 4%;
+              }
+              
+              .direitosAutorais{
+              font-size: 10px;
+              text-align: center;
+              }
+        }
+        
+        @media screen and (min-width: 900px) {
+            #nav-menu-hamburguer{
+                display: none;
+            }
+            .div-cabecalho{
+                margin-left: -5%;
+            }
+            .footer-professor-adm{
+                width: auto;
+                background-color: #0A395E;
+                font-size: 20px;
+                text-align: left;
+                color: var(--background-color-branco);
+                padding-top: 4%;
+                }
+                
+                .direitosAutorais{
+                font-size: 10px;
+                text-align: center;
+                }
+        }
+        /*mobile*/
+        @media (max-width: 480px){
+              .seta-esquerda-azul{
+                margin-top: 2%;
+                width: 55px;
+                height: 30px;
+              }
+               .footer-professor-adm{
+          background-color: #0A395E;
+          font-size: 12px;
+          text-align: left;
+          color: var(--background-color-branco);
+          padding-top: 8%;
+          }
+          
+          .direitosAutorais{
+          font-size: 10px;
+          text-align: center;
+          padding: 2%;
+          }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-professor-adm">
+        <div class="div-cabecalho" id="modo-desktop">
+          <ul>
+            <a href="">
+              <li>Home</li>
+            </a>
+            <a href="">
+              <li>Perfil</li>
+            </a>
+            <a href="">
+              <li>Funcionalidades</li>
+            </a>
+            <a href="">
+              <li>Sobre o Senai</li>
+            </a>
+          </ul>
+        </div>
+        <div class="div-cabecalho" id="modo-mobile">
+          <nav id="nav-menu-hamburguer">
+            <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+              <span id="hamburger">
+                <img src="./img/barra-de-menu.png" alt="Menu aberto ícones criados por verry purnomo - Flaticon"/> 
+              </span>
+            </button>
+            <ul id="menu" role="menu">
+              <br><li><a class="header-item" href="index.html">Home</a></li><br><hr>
+              <br><li> <a class="header-item" href="products.html">Perfil</a></li><br><hr>
+              <br><li><a class="header-item" href="aboutus.html">Funcionalidades</a></li> <br><hr>          
+          </ul>
+          </nav>
+        </div>
+        <div class="div-cabecalho" id="modo-mobilee">
+          <a href="https://www.flaticon.com/br/icones-gratis/perfil" title="Perfil ícones criados por inkubators - Flaticon" id="icone-perfil"> 
+            <img src="./img/perfil-de-usuario.png"/>
+          </a>
+          <a href="https://www.flaticon.com/br/icones-gratis/engrenagem" title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem"> <img src="./img/engrenagem.png"/>
+          </a>
+        </div>
+      </header>
+
+
+      <nav class="topo-areaDeFormacao">
+        <a href="./atualizarInformacoes.html"><img src="./img/seta-esquerda-azul.png" alt="seta esquerda azul" class="seta-esquerda-azul"></a>
+
+        <div class="infoAreaDeFormacao">
+        <h1>Disciplinas</h1>
+        <h3>Desenvolvimento de Sistemas</h3>
+        <h5>Clique na célula que deseja editar</h5>
+       </div>
+      </nav>
+
+      <div class="container-disciplinas">
+
+      <form id="tabela-infoDisciplinas-form">
+        <table class="table table-bordered" id="tabela-disciplinaSemestral-atualizar">
+            <thead>
+                <tr>
+                    <td colspan="3" style="text-align: center;">1º Semestre</td>
+                </tr>
+              <tr>
+                <th scope="col">Disciplinas</th>
+                <th scope="col">Professor</th>
+                <th scope="col">Carga horária</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lorem ipsum</td>
+                <td>Lorem ipsum</td>
+                <td>Lorem ipsum</td>
+              </tr>
+    
+              <tr>
+                <td>Lorem ipsum</td>
+                <td>Lorem ipsum</td>
+                <td>Lorem ipsum</td>
+              </tr>
+    
+              <tr>
+                <td>Lorem ipsum</td>
+                <td>Lorem ipsum</td>
+                <td>Lorem ipsum</td>
+              </tr>
+
+              <tr>
+                <td>Lorem ipsum</td>
+                <td>Lorem ipsum</td>
+                <td>Lorem ipsum</td>
+              </tr>
+    
+            </tbody>
+          </table>
+    
+          <table class="table table-bordered" id="tabela-disciplinaSemestral-atualizar">
+            <thead>
+                <tr>
+                    <td colspan="3" style="text-align: center;">2º Semestre</td>
+                </tr>
+                <tr>
+                    <th scope="col">Disciplinas</th>
+                    <th scope="col">Professor</th>
+                    <th scope="col">Carga horária</th>
+                  </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Lorem ipsum</td>
+                    <td>Lorem ipsum</td>
+                    <td>Lorem ipsum</td>
+                  </tr>
+    
+                  <tr>
+                    <td>Lorem ipsum</td>
+                    <td>Lorem ipsum</td>
+                    <td>Lorem ipsum</td>
+                  </tr>
+    
+                  <tr>
+                    <td>Lorem ipsum</td>
+                    <td>Lorem ipsum</td>
+                    <td>Lorem ipsum</td>
+                  </tr>
+
+                  <tr>
+                    <td>Lorem ipsum</td>
+                    <td>Lorem ipsum</td>
+                    <td>Lorem ipsum</td>
+                  </tr>
+            </tbody>
+          </table>
+    </div>
+
+        <button class="button-atualiza" type="button" id="atualizarTabelaDisciplinaSemestral" onclick="avisoAtualizado()">
+          Atualizar
+         </button>
+      </form>
+
+     <footer class="footer-professor-adm">
+      <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <p class="tituloRodape">Site SENAI oficial:</p><hr>
+              <p class="textoRodape">Acesse o site oficial do SENAI para ver outras informações <a href="https://www.sp.senai.br/">Clique aqui</a></p>
+            </div>
+
+            <div class="col-6">
+              <div class="contatos">
+                  <p class="tituloRodape">Contatos</p><hr>
+                  <p class="textoRodape">
+                     <a href="mailto:beatriz.britofer@gmail.com">Enviar email para Beatriz Brito</a><br>
+                    <a href="mailto:evelynvic23toria10@gmail.com">Enviar email para Evelyn Victória</a><br>
+                    <a href="mailto:jp6001707@gmail.com">Enviar email para Juliana Lima</a><br>
+                    <a href="mailto:trinitynascimento@gmail.com">Enviar email para Trinity Domingues</a><br>
+                      <br>
+                  </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col-12">
+                  <p class="direitosAutorais">
+                      Copyright 2023 - Beatriz Brito, Evelyn Victória Santos, Juliana Lima e Trinity Nascimento<br>
+                      Esse site foi produzido pelas alunas citadas acima no curso de Desenvolvimento de Sistemas do Senai "Nami Jafet" para uso escolar e administrativo
+                  </p>
+                 
+              </div>
+            </div>
+        </div>
+  
+  </footer>
+</body>
+<script>
+    const btnMobile = document.getElementById('btn-mobile');
+
+function toggleMenu(event) {
+  if (event.type === 'touchstart') event.preventDefault();
+  const nav = document.getElementById('nav-menu-hamburguer');
+  nav.classList.toggle('active');
+  const active = nav.classList.contains('active');
+  event.currentTarget.setAttribute('aria-expanded', active);
+  if (active) {
+    event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
+  } else {
+    event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
+  }
+}
+
+btnMobile.addEventListener('click', toggleMenu);
+btnMobile.addEventListener('touchstart', toggleMenu);
+
+function avisoAtualizado(){
+    Swal.fire({
+        position: 'relative',
+        icon: 'success',
+        title: 'Dados atualizados com sucesso!',
+        showConfirmButton: false,
+        timer: 1700
+      })
+    }
+</script>
+</html>
