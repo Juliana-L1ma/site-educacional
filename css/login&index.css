@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'); /* roboto titulos*/
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');/*questrial textos*/
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --azul-escuro: #0A395E;
+    --bordo: #912B64;
+    --amarelo: #FAF4D3;
+    --verde: #70A288;
+    --background-color-branco: #F5F5F5;
+    --preto: #0C1618;
+    --azul-claro-botao: #93B4DB;
+    --fontes-de-texto: 'Questrial', sans-serif;
+    --fontes-de-titulo: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--background-color-branco);
+}
+
+/*------------ STYLE DO LOGIN DESKTOP ---------------- */
+header {
+    width: 100%;
+    height: 10vh;
+    background-color: var(--bordo);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+}
+
+.div-cabecalho {
+    padding-left: 2%;
+    padding-right: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#btn-mobile {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#menu {
+    display: block;
+    position: absolute;
+    width: 100%;
+    right: 0px;
+    background: var(--azul-escuro);
+    transition: 0.5s;
+    z-index: 1000;
+    height: 0px;
+    visibility: hidden;
+    overflow-y: hidden;
+}
+
+#nav-menu-hamburguer.active #menu {
+    display: flex;
+    flex-direction: column;
+    height: calc(30vh - 60px);
+    visibility: visible;
+    overflow-y: auto;
+}
+
+#menu a {
+    text-align: center;
+    font-family: var(--fontes-de-texto);
+    font-size: 16px;
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+#btn-mobile {
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 0.5rem;
+    color: #d6d8db;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#modo-desktop {
+    width: 100vw;
+}
+
+#modo-desktop li {
+    list-style: none;
+}
+
+#modo-desktop ul {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+    gap: 4%;
+}
+
+.texto-login {
+    text-align: center;
+    margin-top: 5%;
+}
+
+.t1 {
+    font-size: 35px;
+    font-family: var(--fontes-de-titulo);
+    font-weight: 600;
+    color: var(--azul-escuro);
+}
+
+.t2 {
+    font-family: var(--fontes-de-texto);
+    font-size: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-box-login {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+}
+
+.login-box-login .user-box-login {
+    position: relative;
+}
+
+.login-box-login .user-box-login input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid var(--azul-escuro);
+    outline: none;
+    background: transparent;
+}
+
+.login-box-login .user-box-login label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box-login .user-box-login input:focus~label,
+.login-box-login .user-box-login input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #000000;
+    font-size: 12px;
+}
+
+.login-box-login form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #000000;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+}
+
+
+.botao-login {
+    padding: 2%;
+    width: 100px;
+    background-color: #912B64;
+    color: var(--background-color-branco);
+    font-family: var(--fontes-de-titulo);
+    font-size: 16px;
+    border: none;
+}
+
+.imagem-login {
+    display: none;
+}
+
+.senha-login {
+    margin-top: 27em;
+    display: flex;
+    justify-content: center;
+}
+
+.senha-login2 {
+    font-family: var(--fontes-de-texto);
+    font-size: 18px;
+    color: var(--bordo);
+}
+
+/* ----------------------- STYLE INDEX DESKTOP------------------------------*/
+#carouselExampleAutoplaying {
+    margin: 0 auto;
+    width: 500px;
+    height: 300px;
+    background-color: var(--background-color-branco);
+}
+
+#gologin {
+    border: none;
+    margin: 0%;
+    padding: 0;
+    margin-left: 80%;
+    margin-top: 20%;
+    background-color: var(--background-color-branco);
+}
+
+#setabemvindo {
+    margin: 0%;
+    padding: 0;
+    height: 50px;
+    width: 100px;
+}
+
+.info-introducao {
+    text-align: center;
+    font-size: 17px;
+}
+
+#titulo-ola {
+    margin-top: 15%;
+    color: var(--azul-escuro);
+}
+
+.introducao1 {
+    margin-top: 8%;
+}
+
+.introducao2 {
+    margin-top: 30%;
+}
+
+.introducao3 {
+    margin-top: 20%;
+}
+
+.carousel-indicators {
+    background-color: #595b5c59;
+    width: 100px;
+    height: 20px;
+    padding: 1px;
+    border-radius: 100px;
+    margin: 0 auto;
+    margin-top: 100%;
+    position: relative;
+}
+
+/* Mobile*/
+@media (max-width: 480px) {
+
+    /* STYLE MOBILE DO LOGIN*/
+    #modo-desktop {
+        display: none;
+    }
+    header {
+        display: none;
+    }
+    .imagem-login {
+        display: block;
+        margin-left: -1em;
+    }
+    .imagem-login2 {
+        width: 8em;
+    }
+
+    .texto-login {
+        text-align: left;
+        margin-top: 5%;
+        margin-left: 6%;
+    }
+
+    .t1 {
+        font-size: 35px;
+        font-family: var(--fontes-de-titulo);
+        font-weight: 600;
+        color: var(--azul-escuro);
+    }
+
+    .t2 {
+        font-family: var(--fontes-de-texto);
+        font-size: 20px;
+    }
+
+    .login-box-login {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 300px;
+        padding: 40px;
+        transform: translate(-50%, -50%);
+    }
+
+    .botao-login {
+        padding: 2%;
+        width: 100px;
+        margin-left: 6em;
+        background-color: #912B64;
+        color: var(--background-color-branco);
+        font-family: var(--fontes-de-titulo);
+        font-size: 16px;
+        border: none;
+    }
+
+    /*------------ STYLE MOBILE INDEX ----------------*/
+    .header-professor-adm{
+        display: none;
+      }
+    #carouselExampleAutoplaying{
+        margin: 0 auto;
+        margin-top: 15%;
+        width: 250px;
+        height: 450px;
+        background-color: var(--background-color-branco);
+      }
+      .info-introducao{
+       text-align: center;
+       font-size: 17px;
+      }
+      #titulo-ola{
+        margin-top: 15%;
+        color: var(--azul-escuro);
+      }
+      .introducao1{
+        margin-top: 8%;
+      }
+      .introducao2{
+        margin-top: 30%;
+      }
+      .introducao3{
+        margin-top: 20%;
+      }
+     .carousel-indicators{
+        background-color: #595b5c59;
+        width: 100px;
+        height: 20px;
+        padding: 1px;
+        border-radius: 100px;
+        margin:0 auto;
+        margin-top: 100%;
+        position: relative;
+     }
+    
+     /*---------- estilo do botão que leva para a página de login------------*/
+      #gologin{
+        border: none;
+        margin: 0%;
+        padding: 0;
+        margin-left: 70%;
+        margin-top: 30%;
+        margin-bottom: 10%;
+        background-color: var(--background-color-branco);
+      }
+      #setabemvindo{
+        margin: 0%;
+        padding: 0;
+        height: 30px;
+        width: 60px;
+      }
+}
