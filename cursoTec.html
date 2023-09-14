@@ -1,52 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
     <title>Curso Técnico</title>
     <style>
-      .hidden {
-        display: none;
-      }
-  
-      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
-  
-      * {
-        padding: 0;
-        margin: 0;
-      }
-  
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"); /* roboto titulos*/
+      @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap"); /*questrial textos*/
+
       :root {
-        --azul-escuro: #0A395E;
-        --bordo: #912B64;
-        --amarelo: #FAF4D3;
-        --verde: #70A288;
-        --background-color-branco: #F5F5F5;
-        --preto: #0C1618;
-        --azul-claro-botao: #93B4DB;
-        --fontes-de-texto: 'Questrial', sans-serif;
-        --fontes-de-titulo: 'Roboto', sans-serif;
+        --azul-escuro: #0a395e;
+        --bordo: #912b64;
+        --amarelo: #faf4d3;
+        --verde: #70a288;
+        --background-color-branco: #f5f5f5;
+        --preto: #0c1618;
+        --azul-claro-botao: #93b4db;
+        --fontes-de-texto: "Questrial", sans-serif;
+        --fontes-de-titulo: "Roboto", sans-serif;
       }
-  
-  
-      body {
-        background-color: var(--background-color-branco);
-  
+
+      * {
+        margin: 0;
+        padding: 0;
       }
-  
+
       header {
         width: 100%;
         height: 10vh;
-        background-color: #0A395E;
+        background-color: #0a395e;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-family: 'Lato', sans-serif;
+        font-family: "Lato", sans-serif;
       }
-  
+
       .div-cabecalho {
         padding-left: 2%;
         padding-right: 2%;
@@ -55,12 +50,12 @@
         align-items: center;
         gap: 10px;
       }
-  
+
       #btn-mobile {
         background-color: transparent;
         border-color: transparent;
       }
-  
+
       #menu {
         display: block;
         position: absolute;
@@ -73,7 +68,6 @@
         visibility: hidden;
         overflow-y: hidden;
       }
-  
       #nav-menu-hamburguer.active #menu {
         display: flex;
         flex-direction: column;
@@ -81,7 +75,6 @@
         visibility: visible;
         overflow-y: auto;
       }
-  
       #menu a {
         text-align: center;
         font-family: var(--fontes-de-texto);
@@ -90,7 +83,6 @@
         margin: 0 1rem;
         border-bottom: 2px solid rgba(255, 255, 255, 0.05);
       }
-  
       #btn-mobile {
         display: flex;
         padding: 0.5rem 1rem;
@@ -101,20 +93,20 @@
         gap: 0.5rem;
         color: #d6d8db;
       }
-  
+
       a {
         color: #fff;
         text-decoration: none;
       }
-  
+
       #modo-desktop {
         width: 100vw;
       }
-  
+
       #modo-desktop li {
         list-style: none;
       }
-  
+
       #modo-desktop ul {
         width: 100%;
         display: flex;
@@ -123,456 +115,421 @@
         text-align: center;
         gap: 4%;
       }
+
+      .textoCursotec {
+        display: flex;
+        justify-content: center;
+        margin-top: 4em;
+        margin-bottom: 4em;
+      }
+      .tituloCursotec {
+        text-align: center;
+        font-family: var(--fontes-de-titulo);
+        color: var(--azul-escuro);
+        font-weight: 700;
+        font-size: 25px;
+      }
+      .imgCursotec {
+        margin-top: 3em;
+        margin-left: 9em;
+      }
+
   
-  
-  
-  
-  
-  
-  
-  
-  
-       
-            .textoCursotec{
-                display: flex;
-                justify-content: center;
-                margin-top: 4em;
-                margin-bottom: 4em;
-               
-            }
-            .tituloCursotec{
-                text-align: center;
-                font-family: var(--fontes-de-titulo);
-                color: var(--azul-escuro);
-                font-weight: 700;
-                font-size: 25px;
-            }
-            .imgCursotec{
+      .div-cabecalho {
+        margin-left: -5%;
+      }
 
-              margin-top: 3em;
-              margin-left: 9em;
-              
-             
-            }
+      .footer-professor-adm {
+        width: auto;
+        background-color: #0a395e;
+        font-size: 20px;
+        text-align: left;
+        color: var(--background-color-branco);
+        padding-top: 4%;
+      }
 
+      .direitosAutorais {
+        font-size: 10px;
+        text-align: center;
+      }
 
+      .textosCursotec {
+        display: flex;
+        justify-content: space-around;
+        justify-items: center;
+        margin-top: 4em;
+      }
 
-            #nav-menu-hamburguer{
-                display: none;
-            }
-            .div-cabecalho{
-                margin-left: -5%;
-            }
-            
-            .footer-professor-adm{
-              width: auto;
-              background-color: #0A395E;
-              font-size: 20px;
-              text-align: left;
-              color: var(--background-color-branco);
-              padding-top: 4%;
-              }
-              
-              .direitosAutorais{
-              font-size: 10px;
-              text-align: center;
-              }
+      .excluirCursotec {
+        font-family: var(--fontes-de-texto);
+        color: var(--azul-escuro);
+      }
 
+      .botaoCursotec {
+        font-size: 18px;
+        font-family: var(--fontes-de-texto);
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+        background: linear-gradient(
+          90deg,
+          rgba(145, 43, 100, 1) 1%,
+          rgba(204, 110, 163, 1) 49%,
+          rgba(145, 43, 100, 1) 100%
+        );
+        padding: 0 2em;
+        border-radius: 0.3em;
+        color: #fff;
+        height: 2.6em;
+        text-shadow: 0 2px 0 rgb(0 0 0 / 50%);
+        margin-left: 2%;
+        margin-bottom: 2%;
+      }
+      .botaoCursotec {
+        transform: scale(1.1);
+      }
+      .linkExcluirCursotec {
+        color: var(--azul-escuro);
+      }
 
-              .textosCursotec{
-              
-                display: flex;
-                justify-content: space-around;
-                justify-items: center;
-                margin-top: 4em;
-              }
+      @media screen and (max-width: 900px) {
+        #modo-desktop {
+          display: none;
+        }
+      }
 
-              .excluirCursotec{
-                font-family: var(--fontes-de-texto);
-                color: var(--azul-escuro);
-              }
+      @media screen and (min-width: 900px) {
+        #nav-menu-hamburguer {
+          display: none;
+        }
+        .div-cabecalho {
+          margin-left: -5%;
+        }
+      }
 
+      @media (max-width: 480px) {
+        #modo-desktop {
+          display: none;
+        }
+        .textoCursotec {
+          display: flex;
+          justify-content: center;
+          margin-top: 3em;
+          margin-bottom: 2em;
+        }
 
+        .footer-professor-adm {
+          background-color: #0a395e;
+          font-size: 12px;
+          text-align: left;
+          color: var(--background-color-branco);
+          padding-top: 8%;
+        }
 
-              .botaoCursotec{
-                font-size: 18px;
-                font-family: var(--fontes-de-texto);
-                outline: 0;
-                border: 0;
-                cursor: pointer;
-                background: linear-gradient(90deg, rgba(145,43,100,1) 1%, rgba(204,110,163,1) 49%, rgba(145,43,100,1) 100%);
-                padding: 0 2em;
-                border-radius: 0.3em;
-                color: #fff;
-                height: 2.6em;
-                text-shadow: 0 2px 0 rgb(0 0 0 / 50%);
-                margin-left: 2%;
-                margin-bottom: 2%;
-              }
-              .botaoCursotec{
-                transform: scale(1.1);
-              }
-              .linkExcluirCursotec{
-                color: var(--azul-escuro);
-              }
+        .direitosAutorais {
+          font-size: 10px;
+          text-align: center;
+          padding: 2%;
+        }
+        .botaoCursotec {
+          font-size: 13px;
+          font-family: var(--fontes-de-texto);
 
-              @media screen and (max-width: 900px){
-                #modo-desktop{
-                    display: none;
-                }
-            }
-            
-            @media screen and (min-width: 900px) {
-                #nav-menu-hamburguer{
-                    display: none;
-                }
-                .div-cabecalho{
-                    margin-left: -5%;
-                }
-            
-            }
-            
+          background: linear-gradient(
+            90deg,
+            rgba(145, 43, 100, 1) 1%,
+            rgba(204, 110, 163, 1) 49%,
+            rgba(145, 43, 100, 1) 100%
+          );
+          padding: 0 2em;
+          border-radius: 0.3em;
+          color: #fff;
+          height: 2.6em;
+          text-shadow: none;
+        }
+        .botaoCursotec {
+          transform: scale(1.1);
+        }
+        .imgCursotec {
+          display: flex;
 
-
-            @media (max-width: 480px) {
-              #modo-desktop {
-                display: none;
-              }
-                .textoCursotec{
-                    display: flex;
-                    justify-content: center;
-                    margin-top: 3em;
-                    margin-bottom: 2em;
-                   
-                }
-
-
-                .footer-professor-adm{
-                    background-color: #0A395E;
-                    font-size: 12px;
-                    text-align: left;
-                    color: var(--background-color-branco);
-                    padding-top: 8%;
-                    }
-                    
-                    .direitosAutorais{
-                    font-size: 10px;
-                    text-align: center;
-                    padding: 2%;
-                    }
-                    .botaoCursotec{
-                        font-size: 13px;
-                        font-family: var(--fontes-de-texto);
-                      
-                        background: linear-gradient(90deg, rgba(145,43,100,1) 1%, rgba(204,110,163,1) 49%, rgba(145,43,100,1) 100%);
-                        padding: 0 2em;
-                        border-radius: 0.3em;
-                        color: #fff;
-                        height: 2.6em;
-                      text-shadow: none;
-                      }
-                      .botaoCursotec{
-                        transform: scale(1.1);
-                      }
-                      .imgCursotec{
-              
-                        display: flex;
-
-                        margin-left: 2em;
-                        margin-top: 2em;
-                    }
-
-
-                    
-    
-            }
-      
-      
-
-
-
-        
-            
-      
-      
-      
+          margin-left: 2em;
+          margin-top: 2em;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header class="header-professor-adm">
-        <div class="div-cabecalho" id="modo-desktop">
-          <ul>
-            <a href="">
-              <li>Home</li>
-            </a>
-            <a href="">
-              <li>Perfil</li>
-            </a>
-            <a href="">
-              <li>Funcionalidades</li>
-            </a>
-            <a href="">
-              <li>Sobre o Senai</li>
-            </a>
-          </ul>
-        </div>
-        <div class="div-cabecalho" id="modo-mobile">
-          <nav id="nav-menu-hamburguer">
-            <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
-              <span id="hamburger">
-                <img src="./img/barra-de-menu.png" alt="Menu aberto ícones criados por verry purnomo - Flaticon"/> 
-              </span>
-            </button>
-            <ul id="menu" role="menu">
-              <br><li><a class="header-item" href="index.html">Home</a></li><br><hr>
-              <br><li> <a class="header-item" href="products.html">Perfil</a></li><br><hr>
-              <br><li><a class="header-item" href="aboutus.html">Funcionalidades</a></li> <br><hr>          
-          </ul>
-          </nav>
-        </div>
-        <div class="div-cabecalho" id="modo-mobilee">
-          <a href="https://www.flaticon.com/br/icones-gratis/perfil" title="Perfil ícones criados por inkubators - Flaticon" id="icone-perfil"> 
-            <img src="./img/perfil-de-usuario.png"/>
+      <div class="div-cabecalho" id="modo-desktop">
+        <ul>
+          <a href="">
+            <li>Home</li>
           </a>
-          <a href="https://www.flaticon.com/br/icones-gratis/engrenagem" title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem"> <img src="./img/engrenagem.png"/>
+          <a href="">
+            <li>Perfil</li>
           </a>
+          <a href="">
+            <li>Funcionalidades</li>
+          </a>
+          <a href="">
+            <li>Sobre o Senai</li>
+          </a>
+        </ul>
+      </div>
+      <div class="div-cabecalho" id="modo-mobile">
+        <nav id="nav-menu-hamburguer">
+          <button
+            aria-label="Abrir Menu"
+            id="btn-mobile"
+            aria-haspopup="true"
+            aria-controls="menu"
+            aria-expanded="false"
+          >
+            <span id="hamburger">
+              <img
+                src="./img/barra-de-menu.png"
+                alt="Menu aberto ícones criados por verry purnomo - Flaticon"
+              />
+            </span>
+          </button>
+          <ul id="menu" role="menu">
+            <br />
+            <li><a class="header-item" href="index.html">Home</a></li>
+            <br />
+            <hr />
+            <br />
+            <li><a class="header-item" href="products.html">Perfil</a></li>
+            <br />
+            <hr />
+            <br />
+            <li>
+              <a class="header-item" href="aboutus.html">Funcionalidades</a>
+            </li>
+            <br />
+            <hr />
+          </ul>
+        </nav>
+      </div>
+      <div class="div-cabecalho" id="modo-mobilee">
+        <a
+          href="https://www.flaticon.com/br/icones-gratis/perfil"
+          title="Perfil ícones criados por inkubators - Flaticon"
+          id="icone-perfil"
+        >
+          <img src="./img/perfil-de-usuario.png" />
+        </a>
+        <a
+          href="https://www.flaticon.com/br/icones-gratis/engrenagem"
+          title="Engrenagem ícones criados por Freepik - Flaticon"
+          id="icone-engrenagem"
+        >
+          <img src="./img/engrenagem.png" />
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <div class="tudoCursotec">
+        <div class="imgCursotec">
+          <a href=""><img src="img/seta-esquerda-azul.png" alt="" /></a>
         </div>
-      </header>
 
-
-
-  
-      <main>
-
-        <div class="tudoCursotec">
-
-            <div class="imgCursotec">
-
-                <a href=""><img src="img/seta-esquerda-azul.png" alt=""></a> 
-
-            </div>
-
-          
-
-            <div class="textoCursotec">
-    
-                <p class="tituloCursotec">CURSO TÉCNICO</p>
-    
-            </div>
-    
-
+        <div class="textoCursotec">
+          <p class="tituloCursotec">CURSO TÉCNICO</p>
         </div>
+      </div>
 
+      <table class="table table-bordered" id="tabela-alunos-atualizar">
+        <thead>
+          <tr>
+            <th scope="col">Curso</th>
+            <th scope="col">Turmas</th>
+            <th scope="col">Carga Horária</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Desenvolvimento de Sistemas</td>
+            <td>3</td>
+            <td>1200</td>
+          </tr>
 
+          <tr>
+            <td>Mecatrônica</td>
+            <td>1</td>
+            <td>1500</td>
+          </tr>
 
-        <table class="table table-bordered" id="tabela-alunos-atualizar">
-            <thead>
-           
-              <tr>
-                <th scope="col">Curso</th>
-                <th scope="col">Turmas</th>
-                <th scope="col">Carga Horária</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Desenvolvimento de Sistemas</td>
-                <td>3</td>
-                <td>1200</td>
-              </tr>
-    
-              <tr>
-                <td>Mecatrônica</td>
-                <td>1</td>
-                <td>1500</td>
-              </tr>
-    
-              <tr>
-                <td>Eletroeletrônica</td>
-                <td>2</td>
-                <td>1500</td>
-              </tr>
-            </tbody>
-          </table>
+          <tr>
+            <td>Eletroeletrônica</td>
+            <td>2</td>
+            <td>1500</td>
+          </tr>
+        </tbody>
+      </table>
 
+      <br />
 
-          <br>
+      <table class="table table-bordered" id="tabela-alunos-atualizar">
+        <thead>
+          <tr>
+            <td colspan="3" style="text-align: center">
+              Desenvolvimento de Sistemas
+            </td>
+          </tr>
+          <tr>
+            <th scope="col">Turmas</th>
+            <th scope="col">Início</th>
+            <th scope="col">Término</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>M1P</td>
+            <td>11/06/2022</td>
+            <td>21/12/2023</td>
+          </tr>
 
+          <tr>
+            <td>M2P</td>
+            <td>21/12/2022</td>
+            <td>22/06/2024</td>
+          </tr>
 
-          
-        <table class="table table-bordered" id="tabela-alunos-atualizar">
-            <thead>
-                <tr>
-                    <td colspan="3" style="text-align: center;">Desenvolvimento de Sistemas</td>
-                </tr>
-              <tr>
-                <th scope="col">Turmas</th>
-                <th scope="col">Início</th>
-                <th scope="col">Término</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>M1P</td>
-                <td>11/06/2022</td>
-                <td>21/12/2023</td>
-              </tr>
-    
-              <tr>
-                <td>M2P</td>
-                <td>21/12/2022</td>
-                <td>22/06/2024</td>
-              </tr>
-    
-              <tr>
-                <td>M3P</td>
-                <td>22/12/2022</td>
-                <td>21/12/2024</td>
-              </tr>
-            </tbody>
-          </table>
+          <tr>
+            <td>M3P</td>
+            <td>22/12/2022</td>
+            <td>21/12/2024</td>
+          </tr>
+        </tbody>
+      </table>
 
+      <br />
 
-          <br>
+      <table class="table table-bordered" id="tabela-alunos-atualizar">
+        <thead>
+          <tr>
+            <td colspan="3" style="text-align: center">Mecatrônica</td>
+          </tr>
+          <tr>
+            <th scope="col">Turmas</th>
+            <th scope="col">Início</th>
+            <th scope="col">Término</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>T2M</td>
+            <td>11/06/2022</td>
+            <td>21/12/2023</td>
+          </tr>
+        </tbody>
+      </table>
 
-          
-          <table class="table table-bordered" id="tabela-alunos-atualizar">
-            <thead>
-                <tr>
-                    <td colspan="3" style="text-align: center;">Mecatrônica</td>
-                </tr>
-              <tr>
-                <th scope="col">Turmas</th>
-                <th scope="col">Início</th>
-                <th scope="col">Término</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>T2M</td>
-                <td>11/06/2022</td>
-                <td>21/12/2023</td>
-              </tr>
-            </tbody>
-          </table>
+      <br />
 
+      <table class="table table-bordered" id="tabela-alunos-atualizar">
+        <thead>
+          <tr>
+            <td colspan="3" style="text-align: center">Eletroeletrônica</td>
+          </tr>
+          <tr>
+            <th scope="col">Turmas</th>
+            <th scope="col">Início</th>
+            <th scope="col">Término</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>T1E</td>
+            <td>11/06/2022</td>
+            <td>21/12/2023</td>
+          </tr>
 
-          <br>
+          <tr>
+            <td>T2E</td>
+            <td>21/12/2022</td>
+            <td>22/06/2024</td>
+          </tr>
+        </tbody>
+      </table>
 
-          <table class="table table-bordered" id="tabela-alunos-atualizar">
-            <thead>
-                <tr>
-                    <td colspan="3" style="text-align: center;">Eletroeletrônica</td>
-                </tr>
-              <tr>
-                <th scope="col">Turmas</th>
-                <th scope="col">Início</th>
-                <th scope="col">Término</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>T1E</td>
-                <td>11/06/2022</td>
-                <td>21/12/2023</td>
-              </tr>
-    
-              <tr>
-                <td>T2E</td>
-                <td>21/12/2022</td>
-                <td>22/06/2024</td>
-              </tr>
-    
-             
-            </tbody>
-          </table>
+      <div class="textosCursotec">
+        <p class="excluirCursotec">
+          <a class="linkExcluirCursotec" href="">Precisa excluir o cadastro?</a>
+        </p>
 
+        <button class="botaoCursotec">Atualizar</button>
+      </div>
+    </main>
 
-
-          <div class="textosCursotec">
-
-            <p class="excluirCursotec"><a class="linkExcluirCursotec" href="">Precisa excluir o cadastro?</a> </p>
-
-            <button class="botaoCursotec">
-
-                Atualizar
-
-            </button>
-
+    <footer class="footer-professor-adm">
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <p class="tituloRodape">Site SENAI oficial:</p>
+            <hr />
+            <p class="textoRodape">
+              Acesse o site oficial do SENAI para ver outras informações
+              <a href="https://www.sp.senai.br/">Clique aqui</a>
+            </p>
           </div>
 
-
-       
-      </main>
-
-
-
-
-
-      <footer class="footer-professor-adm">
-
-        <div class="container">
-           
-  
-            <div class="row">
-              <div class="col-6">
-                <p class="tituloRodape">Site SENAI oficial:</p><hr>
-                <p class="textoRodape">Acesse o site oficial do SENAI para ver outras informações <a href="https://www.sp.senai.br/">Clique aqui</a></p>
-              </div>
-  
-              <div class="col-6">
-                <div class="contatos">
-                    <p class="tituloRodape">Contatos</p><hr>
-                    <p class="textoRodape">
-                       <a href="mailto:beatriz.britofer@gmail.com">Enviar email para Beatriz Brito</a><br>
-                      <a href="mailto:evelynvic23toria10@gmail.com">Enviar email para Evelyn Victória</a><br>
-                      <a href="mailto:jp6001707@gmail.com">Enviar email para Juliana Lima</a><br>
-                      <a href="mailto:trinitynascimento@gmail.com">Enviar email para Trinity Domingues</a><br>
-                        <br>
-                    </p>
-                </div>
-              </div>
+          <div class="col-6">
+            <div class="contatos">
+              <p class="tituloRodape">Contatos</p>
+              <hr />
+              <p class="textoRodape">
+                <a href="mailto:beatriz.britofer@gmail.com"
+                  >Enviar email para Beatriz Brito</a
+                ><br />
+                <a href="mailto:evelynvic23toria10@gmail.com"
+                  >Enviar email para Evelyn Victória</a
+                ><br />
+                <a href="mailto:jp6001707@gmail.com"
+                  >Enviar email para Juliana Lima</a
+                ><br />
+                <a href="mailto:trinitynascimento@gmail.com"
+                  >Enviar email para Trinity Domingues</a
+                ><br />
+                <br />
+              </p>
             </div>
-  
-            <div class="row">
-                <div class="col-12">
-                    <p class="direitosAutorais">
-                        Copyright 2023 - Beatriz Brito, Evelyn Victória Santos, Juliana Lima e Trinity Nascimento<br>
-                        Esse site foi produzido pelas alunas citadas acima no curso de Desenvolvimento de Sistemas do Senai "Nami Jafet" para uso escolar e administrativo
-                    </p>
-                   
-                </div>
-              </div>
           </div>
-    
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <p class="direitosAutorais">
+              Copyright 2023 - Beatriz Brito, Evelyn Victória Santos, Juliana
+              Lima e Trinity Nascimento<br />
+              Esse site foi produzido pelas alunas citadas acima no curso de
+              Desenvolvimento de Sistemas do Senai "Nami Jafet" para uso escolar
+              e administrativo
+            </p>
+          </div>
+        </div>
+      </div>
     </footer>
-
-
-    
-    
-    
-</body>
-
-<script>
-  const btnMobile = document.getElementById('btn-mobile');
-
-function toggleMenu(event) {
-if (event.type === 'touchstart') event.preventDefault();
-const nav = document.getElementById('nav-menu-hamburguer');
-nav.classList.toggle('active');
-const active = nav.classList.contains('active');
-event.currentTarget.setAttribute('aria-expanded', active);
-if (active) {
-  event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
-} else {
-  event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
-}
-}
-
-btnMobile.addEventListener('click', toggleMenu);
-btnMobile.addEventListener('touchstart', toggleMenu);
-
+    <script>
+      const btnMobile = document.getElementById('btn-mobile');
+  
+  function toggleMenu(event) {
+    if (event.type === 'touchstart') event.preventDefault();
+    const nav = document.getElementById('nav-menu-hamburguer');
+    nav.classList.toggle('active');
+    const active = nav.classList.contains('active');
+    event.currentTarget.setAttribute('aria-expanded', active);
+    if (active) {
+      event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
+    } else {
+      event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
+    }
+  }
+  
+  btnMobile.addEventListener('click', toggleMenu);
+  btnMobile.addEventListener('touchstart', toggleMenu);
 </script>
-
-
+  </body>
 </html>
