@@ -23,14 +23,8 @@ body {
 }
 
 /*------------ STYLE DO LOGIN DESKTOP ---------------- */
-header {
-    width: 100%;
-    height: 10vh;
-    background-color: var(--bordo);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: 'Lato', sans-serif;
+#headermaior {
+    display: none;
 }
 
 .div-cabecalho {
@@ -69,24 +63,13 @@ header {
 }
 
 #menu a {
-    text-align: center;
+    display: flex;
+    text-align: right;
     font-family: var(--fontes-de-texto);
-    font-size: 16px;
+    font-size: 15px;
     padding: 1rem 0;
     margin: 0 1rem;
     border-bottom: 2px solid rgba(255, 255, 255, 0.05);
-}
-
-#btn-mobile {
-    display: flex;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: 700;
-    border: none;
-    background: none;
-    cursor: pointer;
-    gap: 0.5rem;
-    color: #d6d8db;
 }
 
 a {
@@ -111,111 +94,174 @@ a {
     gap: 4%;
 }
 
-.texto-login {
-    text-align: center;
-    margin-top: 5%;
-}
+/*fim de parte PADRÃO*/
 
-.t1 {
-    font-size: 35px;
+
+/*------------ FIM de padrão PARA IGNORAR --------------------*/
+
+/*código do login geral*/
+.titulo_principal_login {
     font-family: var(--fontes-de-titulo);
-    font-weight: 600;
     color: var(--azul-escuro);
+    font-size: 3em;
 }
 
-.t2 {
-    font-family: var(--fontes-de-texto);
-    font-size: 20px;
+.subtitulo_login {
+    font-family: var(--fontes-de-titulo);
 }
 
-form {
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+#headermenor {
+    width: 90%;
+    margin: 5%;
+    height: 6vh;
+}
+
+#div_1 {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.login-box-login {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
+#caixa_bemvindo_login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.login-box-login .user-box-login {
-    position: relative;
-}
-
-.login-box-login .user-box-login input {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: rgb(0, 0, 0);
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid var(--azul-escuro);
-    outline: none;
-    background: transparent;
-}
-
-.login-box-login .user-box-login label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 0;
-    font-size: 16px;
-    color: rgb(0, 0, 0);
-    pointer-events: none;
-    transition: .5s;
-}
-
-.login-box-login .user-box-login input:focus~label,
-.login-box-login .user-box-login input:valid~label {
-    top: -20px;
-    left: 0;
-    color: #000000;
-    font-size: 12px;
-}
-
-.login-box-login form a {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    color: #000000;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: .5s;
-    margin-top: 40px;
-    letter-spacing: 4px
-}
-
-
-.botao-login {
-    padding: 2%;
-    width: 100px;
+#botao_envio_login {
+    padding: 1%;
+    width: 150px;
     background-color: #912B64;
+    cursor: pointer;
     color: var(--background-color-branco);
     font-family: var(--fontes-de-titulo);
     font-size: 16px;
+    font-weight: bold;
     border: none;
 }
 
-.imagem-login {
-    display: none;
+#email_login,
+#senha_login {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--preto);
+    width: 60%;
+    background: none;
+}
+#senha_login{
+    margin-left: 20%;
 }
 
-.senha-login {
-    margin-top: 27em;
+#form_senha_login {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 6vh;
+    width: 100%;
 }
 
-.senha-login2 {
-    font-family: var(--fontes-de-texto);
-    font-size: 18px;
-    color: var(--bordo);
+#form_senha_login input::placeholder,
+#form_senha_login input {
+    font-size: 2.2vh;
+}
+
+#img_senha_login {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+@media(max-width: 500px) {
+    #caixa_bemvindo_login {
+        margin-top: 40%;
+    }
+
+    #caixa_geral {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+    }
+
+    #form_senha_login {
+        margin-top: 15%;
+    }
+
+    #botao_envio_login {
+        padding: 2%; 
+    }
+}
+
+
+
+@media(min-width: 500px) and (max-width: 767px) {
+    #caixa_geral {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+    }
+    #email_login,
+    #senha_login {
+        width: 100%;
+    }
+    #senha_login{
+        margin-left: 0%;
+        width: 100%;
+    }
+    #form_senha_login {
+        margin-top: 15%;
+    }
+
+    #botao_envio_login {
+        padding: 1.8%; 
+    }
+}
+
+@media(min-width: 768px) {
+    #headermaior {
+        width: 100vw;
+        height: 10vh;
+        background-color: #0a395e;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: "Lato", sans-serif;
+
+    }
+    #email_login,
+    #senha_login {
+        width: 100%;
+    }
+    #senha_login{
+        margin-left: 0%;
+        width: 100%;
+    }
+    #headermenor {
+        display: none;
+    }
+
+    #div_1 {
+        width: 90%;
+        min-height: 90vh;
+        background-color: #fff;
+        align-items: center;
+    }
+
+    #caixa_geral {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+    }
+
+    #form_senha_login {
+        margin-top: 5%;
+        display: flex;
+    }
 }
 
 /* ----------------------- STYLE INDEX DESKTOP------------------------------*/
@@ -277,60 +323,24 @@ form {
 
 /* Mobile*/
 @media (max-width: 480px) {
-
-    /* STYLE MOBILE DO LOGIN*/
-    #modo-desktop {
-        display: none;
+    .titulo_principal_login {
+        font-size: 2.5em;
     }
-    header {
-        display: none;
+    .subtitulo_login {
+        font-size: 1em;
+        margin-bottom: 10%;
     }
-    .imagem-login {
-        display: block;
-        margin-left: -1em;
+    #email_login,
+    #senha_login {
+        width: 100%;
     }
-    .imagem-login2 {
-        width: 8em;
+    #senha_login{
+        margin-left: 2%;
     }
-
-    .texto-login {
-        text-align: left;
-        margin-top: 5%;
-        margin-left: 6%;
+    #img_senha_login {
+        width: 30px;
+        height: 30px;
     }
-
-    .t1 {
-        font-size: 35px;
-        font-family: var(--fontes-de-titulo);
-        font-weight: 600;
-        color: var(--azul-escuro);
-    }
-
-    .t2 {
-        font-family: var(--fontes-de-texto);
-        font-size: 20px;
-    }
-
-    .login-box-login {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        width: 300px;
-        padding: 40px;
-        transform: translate(-50%, -50%);
-    }
-
-    .botao-login {
-        padding: 2%;
-        width: 100px;
-        margin-left: 6em;
-        background-color: #912B64;
-        color: var(--background-color-branco);
-        font-family: var(--fontes-de-titulo);
-        font-size: 16px;
-        border: none;
-    }
-
     /*------------ STYLE MOBILE INDEX ----------------*/
     .header-professor-adm{
         display: none;

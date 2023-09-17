@@ -1,0 +1,1033 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'); /* roboto titulos*/
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');/*questrial textos*/
+@import url("https://fonts.googleapis.com/css2?family=Ruda:wght@400;600&display=swap");/*ruda*/
+
+:root {
+    --azul-escuro: #0A395E;
+    --bordo: #912B64;
+    --amarelo: #FAF4D3;
+    --verde: #70A288;
+    --background-color-branco: #F5F5F5;
+    --preto: #0C1618;
+    --azul-claro-botao: #93B4DB;
+    --fontes-de-texto: 'Questrial', sans-serif;
+    --fontes-de-titulo:'Roboto', sans-serif ;
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    background-color: var(--background-color-branco);
+  }
+  /* --------- ESTILO DO HEADER PARA DESKTOP --------- */
+  header{
+    width: 100%;
+    height: 10vh;
+    background-color: #0A395E;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+}
+
+.div-cabecalho{
+    padding-left: 2%;
+    padding-right: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#btn-mobile{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#menu {
+    display: block;
+    position: absolute;
+    width: 100%;
+    right: 0px;
+    background: var(--azul-escuro);
+    transition: 0.5s;
+    z-index: 1000;
+    height: 0px;
+    visibility: hidden;
+    overflow-y: hidden;
+  }
+#nav-menu-hamburguer.active #menu {
+    display: flex;
+    flex-direction: column;
+    height: calc(30vh - 60px);
+    visibility: visible;
+    overflow-y: auto;
+  }
+#menu a {
+    text-align: center;
+    font-family: var(--fontes-de-texto);
+    font-size: 15px;
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+  }
+#btn-mobile {
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 0.5rem;
+    color: #d6d8db;
+  }
+
+a{
+    color: #fff;
+    text-decoration: none;
+}
+
+#modo-desktop{
+    width: 100vw;
+}
+
+#modo-desktop li{
+    list-style: none;
+}
+
+#modo-desktop ul{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+    gap: 4%;
+}
+/*------------- DESKTOP -----------------*/
+@media screen and (max-width: 900px){
+    #modo-desktop{
+        display: none;
+    }
+    .container-dadosAlunosSenai{
+        display: flex;
+        overflow-x: auto;
+      }
+      .container-dadosProfessores{
+        display: flex;
+        overflow-x: auto;
+      }
+      .footer-professor-adm{
+        width: auto;
+        background-color: #0A395E;
+        font-size: 20px;
+        text-align: left;
+        color: var(--background-color-branco);
+        padding-top: 4%;
+        }
+        
+        .direitosAutorais{
+        font-size: 10px;
+        text-align: center;
+        }
+}
+
+@media screen and (min-width: 900px) {
+    #nav-menu-hamburguer{
+        display: none;
+    }
+    .div-cabecalho{
+        margin-left: -5%;
+    }
+
+}
+.footer-professor-adm{
+  width: auto;
+  background-color: #0A395E;
+  font-size: 20px;
+  text-align: left;
+  color: var(--background-color-branco);
+  padding-top: 4%;
+  }
+  
+  .direitosAutorais{
+  font-size: 10px;
+  text-align: center;
+  }
+/*------FIM DO HEADER--------*/
+/*FOOTER PARA MOBILE*/
+@media (max-width: 480px){
+    .footer-professor-adm{
+      background-color: #0A395E;
+      font-size: 12px;
+      text-align: left;
+      color: var(--background-color-branco);
+      padding-top: 8%;
+      }
+      
+      .direitosAutorais{
+      font-size: 10px;
+      text-align: center;
+      padding: 2%;
+      }
+    }
+
+    @media (max-width: 480px){
+        /*----------------- atualizar alunos da turma desktop ----------*/
+.container-dadosAlunosSenai{
+    display: flex;
+    overflow-x: auto;
+  }
+  .seta-esquerda-azul{
+    margin-top: 2%;
+    width: 55px;
+    height: 30px;
+  }
+
+      /*----------- AREA DO ADM DESKTOP ------------*/
+      #editar{
+        cursor: pointer;
+    }
+    
+    #editar:hover{
+        transform: scale(0.9);
+    }
+    #container-adm{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      
+      .fotoPerfil{
+        margin-top: 5%;
+        width: 180px;
+        height: 180px;
+        background-color: #0C1618;
+        border-radius: 90%;
+      }
+      
+      .linha{
+        margin: 1%;
+        width: 320px;
+        height: 1px;
+        background-color: #912B64;
+      }
+      
+      #nomeUsuario{
+        margin-top: 1%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 2%;
+        align-items: center;
+        font-family: 'Questrial', sans-serif;
+        font-size: 150%;
+      }
+      
+      .adm{
+        font-family: 'Ruda', sans-serif;
+        text-transform: uppercase;
+        color: #0A395E;
+        font-size: 155%;
+      }
+      
+      .subtitulo{
+        margin-top: 3%;
+        font-family: 'Ruda', sans-serif;
+        font-size: 120%;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+      
+      #areaBotoes{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 5%;
+      }
+      
+      #areaBotoes button{
+        margin-top: 2%;
+        width: 19vw;
+        height: 5vh;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        font-family: 'Questrial', sans-serif;
+        font-size: 115%;
+        align-items: center;
+        background-color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      #areaBotoes img{
+        padding-top: 25px;
+      }
+    }
+
+     /*MEDIA QUERIES PÁGINA DO ADMINISTRADOR*/
+     @media screen and (max-width: 670px){
+        #areaBotoes button{
+            width: 270px;
+        }
+        #nomeUsuario{
+            margin-top: 5%;
+        }
+        .adm{
+            margin-top: 3%;
+            font-size: 145%;
+        }
+        .subtitulo{
+            margin-top: 5%;
+        }
+        .icone-info{
+            width: 90%;
+        }
+    }
+    
+    @media screen and (max-width: 560px){
+        #areaBotoes{
+            flex-direction: column;
+        }
+        .fotoPerfil{
+            width: 150px;
+            height: 150px;
+        }
+        .adm{
+            font-size: 130%;
+        }
+        .subtitulo{
+            margin-top: 9%;
+        }
+        .linha{
+            margin-top: 4%;
+        }
+        .icone-info{
+            width: 70%;
+        }
+    }
+    
+    @media screen and (max-width: 330px){
+        .fotoPerfil{
+            width: 130px;
+            height: 130px;
+        }
+        .linha{
+            width:220px;
+        }
+    }
+    
+    @media screen and (max-width: 293px){
+        .fotoPerfil{
+            width: 130px;
+            height: 130px;
+        }
+        .linha{
+            width: 190px;
+        }
+        #areaBotoes button{
+            width: 250px;
+        }
+    }
+    /* FIM DO MEDIA PARA ADMINISTRADOR*/ 
+
+    /*---------- Atualizar alunos da turma desktop ------------*/
+    .button-atualiza{
+        font-size: 18px;
+        font-family: var(--fontes-de-texto);
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+        background: linear-gradient(90deg, rgba(145,43,100,1) 1%, rgba(204,110,163,1) 49%, rgba(145,43,100,1) 100%);
+        padding: 0 2em;
+        border-radius: 0.3em;
+        color: #fff;
+        height: 2.6em;
+        text-shadow: 0 2px 0 rgb(0 0 0 / 50%);
+        margin-left: 4%;
+        margin-bottom: 2%;
+      }
+      .button-atualiza:hover{
+        transform: scale(1.1);
+      }
+      .seta-esquerda-azul{
+        width: 60px;
+        height: 35px;
+      }
+      .topo-areaDeFormacao{
+        display: flex;
+        width: 80%;
+        margin: 3%;
+        margin-left: 4%;
+        font-family: var(--fontes-de-texto);
+      }
+      .infoAreaDeFormacao{
+        margin-left: 5%;
+      }
+      #tabela-dadosAlunos-form{
+        width: 90%;
+        margin-left: 4%;
+      }
+
+/* ---------- ATUALIZAR DADOS SEMESTRAL DESKTOP ---------------*/
+.nav-seuperior-tabelasEdicoes{
+    width: 50%;
+    margin: 3%;
+    display: flex;
+  }
+  .seta-esquerda-azul{
+    width: 60px;
+    height: 35px;
+  }
+  .titulo-nav-tabelasEdicoes{
+    font-family: var(--fontes-de-texto);
+    font-weight: bold;
+    font-size: 24px;
+  }
+  .botao-lapis-edicaoDeTabelas{
+    border: none;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    background-color: var(--background-color-branco);
+  }
+  #info-edicoes{
+    margin: 4%;
+    font-family: var(--fontes-de-texto);
+    font-size: 18px;
+  }
+  .separacao-azul{
+    border:2px solid #074472 ;
+  }
+  .titulo-tabelaEdicoes{
+    font-family: var(--fontes-de-texto);
+    font-weight: bold;
+    font-size: 24px;
+    margin-left: 2%;
+  }
+  #tabela-alunos-semestre-atualizar, #tabela-professores-semestre-atualizar{
+    width: 90%;
+    margin-left: 2%;
+  }
+
+  .button-atualiza{
+    font-size: 18px;
+    font-family: var(--fontes-de-texto);
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgba(145,43,100,1) 1%, rgba(204,110,163,1) 49%, rgba(145,43,100,1) 100%);
+    padding: 0 2em;
+    border-radius: 0.3em;
+    color: #fff;
+    height: 2.6em;
+    text-shadow: 0 2px 0 rgb(0 0 0 / 50%);
+    margin-left: 2%;
+    margin-bottom: 2%;
+  }
+  .button-atualiza:hover{
+    transform: scale(1.1);
+  }
+
+  /*----------mobile DADOS SEMESTRAIS--------*/
+  @media (max-width: 480px){
+    .nav-seuperior-tabelasEdicoes{
+      width: 90%;
+      margin: 3%;
+    }
+    .seta-esquerda-azul{
+      margin-top: 2%;
+      width: 55px;
+      height: 30px;
+    }
+    .titulo-nav-tabelasEdicoes{
+      margin-left: 4%;
+      font-size: 18px;
+    }
+    #info-edicoes{
+      font-size: 16px;
+    }
+    
+    .titulo-tabelaEdicoes{
+      font-size: 18px;
+      margin-left: 5%;
+    }
+    #tabela-alunos-semestre-atualizar, #tabela-professores-semestre-atualizar{
+      margin: 0 auto;
+    }
+
+    .button-atualiza{
+      font-size: 15px;
+      margin-left: 6%;
+      margin-top: 4%;
+      height: 2.4em;
+    }
+    .button-atualiza:hover{
+      transform: scale(1.1);
+    }
+    .footer-professor-adm{
+      background-color: #0A395E;
+      font-size: 12px;
+      text-align: left;
+      color: var(--background-color-branco);
+      padding-top: 8%;
+      }
+      
+      .direitosAutorais{
+      font-size: 10px;
+      text-align: center;
+      padding: 2%;
+      }
+    }
+
+    /* -------- ATUALIZAR DISCIPLINAS SEMESTRAIS DESKTOP ---------*/
+    .topo-areaDeFormacao{
+        display: flex;
+        width: 80%;
+        margin: 3%;
+        margin-left: 4%;
+        font-family: var(--fontes-de-texto);
+      }
+      .infoAreaDeFormacao{
+        margin-left: 5%;
+      }
+      #tabela-infoDisciplinas-form{
+        width: 80%;
+        margin-left: 4%;
+      }
+
+      #tabela-professores-form{
+        width: 90%;
+        margin-left: 4%;
+      }
+      .atualiza-profess{
+        margin-left: 5%;
+      }
+
+      /* ----------- DESKTOP ATUALIZAR INFORMAÇÕES ------------*/
+      #mainAtt {
+        background-color: var(--azul-escuro);
+        margin-bottom: 15%;
+        padding-bottom: 20%;
+        border-radius: 0% 0% 15% 15%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: left;
+        align-items: left;
+        color: #fff;
+        font-family: var(--fonte-adicional);
+        padding-left: 10%;
+        padding-top: 8vh;
+      }
+  
+      #mainAtt h1 {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.7rem;
+      }
+  
+      #mainAtt h2 {
+        font-size: 1rem;
+      }
+  
+      #linhaAtt {
+        height: 1px;
+        width: 50%;
+        margin-top: 10px;
+        background-color: var(--bordo);
+      }
+  
+      #areaAtt p {
+        font-family: var(--fonte-adicional);
+        color: var(--preto);
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+  
+      #areaAtt {
+        display: flex;
+        justify-content: left;
+        align-items: left;
+        flex-direction: column;
+        margin-left: 8%;
+      }
+  
+      .geralAtt select {
+        background-color: var(--amarelo);
+        border: none;
+        -bottom: 1px solid black;
+        text-align: left;
+        font-size: 120%;
+        margin-top: 2%;
+        width: 300px;
+        border-radius: 20px;
+        padding: 9px;
+        color: #0c1618;
+        outline: 0;
+        box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.192);
+      }
+  
+      .alinhaSelect select {
+        background-color: var(--amarelo);
+        border: none;
+        -bottom: 1px solid black;
+        text-align: left;
+        font-size: 120%;
+        margin-top: 2%;
+        width: 300px;
+        border-radius: 20px;
+        padding: 9px;
+        color: #0c1618;
+        outline: 0;
+        box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.192);
+      }
+  
+      .alinhaSelect label{
+        font-family: var(--fontes-de-texto);
+        font-size: 1.1rem;
+        margin-left: 1%;
+      }
+  
+      .geralAtt option {
+        background-color: var(--background-color-branco);
+      }
+  
+      .geralAtt input {
+        font-family: "Questrial", sans-serif;
+        font-size: 110%;
+        margin-top: 2%;
+        height: 1.5vh;
+        width: 260px;
+        border: none;
+        border-radius: 20px;
+        padding: 10px;
+        color: #0c1618;
+        background-color: rgb(255, 255, 255);
+        outline: 0;
+        text-align: left;
+        padding: 9px;
+        box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.192);
+      }
+  
+      .opcoes {
+        margin-bottom: 5%;
+      }
+  
+      #areaAtt label {
+        text-align: left;
+      }
+  
+      .alinhaSelect {
+        display: flex;
+        justify-content: left;
+        align-items: left;
+        flex-direction: column;
+        margin-left: 8%;
+      }
+  
+      .labelEscolha {
+        margin-top: 5%;
+      }
+         /*MEDIA QUERIES MOBILE ATUALIZAR INFORMAÇÕES*/
+    @media screen and (max-width: 335px){
+        #areaAtt select{
+          width: 80%;
+        }
+        .alinhaSelect select{
+          width: 60%;
+        }
+      }
+  
+      /*MEDIA QUERIES DESKTOP ATUALIZAR INFORMAÇÕES*/
+      @media screen and (min-width: 600px) {
+        #mainAtt {
+          padding-top: 5vh;
+          padding-bottom: 10%;
+          margin-bottom: 10%;
+        }
+  
+        #areaAtt p {
+          font-size: 1.3rem;
+        }
+  
+        #areaAtt select {
+          width: 60%;
+        }
+        .labelEscolha{
+          margin-top: 6%;
+        }
+        .alinhaSelect select{
+          margin-top: 1%;
+        }
+      }
+  /*MEDIA QUERIES DESKTOP ATUALIZAR INFORMAÇÕES*/
+        @media screen and (min-width: 800px) {
+          #mainAtt h1 {
+            font-size: 2.2rem;
+          }
+  
+          #mainAtt h2 {
+            font-size: 1.2rem;
+          }
+  
+          #mainAtt {
+            margin-bottom: 5%;
+          }
+          .alinhaSelect label{
+            font-size: 1.2rem;
+          }
+          p{
+            margin-bottom: 0;
+          }
+        }
+  /*MEDIA QUERIES DESKTOP ATUALIZAR INFORMAÇÕES*/
+        @media screen and (min-width: 1020px) {
+          #mainAtt h1 {
+            font-size: 2.5rem;
+          }
+  
+          #mainAtt h2 {
+            font-size: 1.3rem;
+          }
+  
+          #mainAtt {
+            margin-bottom: 5%;
+          }
+  
+          #areaAtt select {
+            width: 50%;
+          }
+          .labelEscolha{
+            margin-top: 3%;
+          }
+          .alinhaSelect select{
+            margin-top: 1%;
+          }
+        }
+  /*MEDIA QUERIES DESKTOP ATUALIZAR INFORMAÇÕES*/
+        @media screen and (min-width: 1345px) {
+          #areaAtt select{
+            width: 30%;
+          }
+        
+  
+        .alinhaSelect{
+          margin-bottom: 5%;
+        }
+  
+        .labelEscolha{
+          margin-top: 2%;
+        }
+      }
+
+      /* --------- estilo da CADASTRO INFORMAÇÕES ---------------*/
+      .headertitulo {
+        height: 42vh;
+        border-radius: 10%;
+        width: 100%;
+        background-color: var(--azul-escuro);
+      }
+     
+      .central {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: space-around;
+      }
+     
+      .titulocentral {
+        margin-top: 10%;
+        color: var(--amarelo);
+        font-family: "Poppins", sans-serif;
+        font-size: 1.6rem;
+      }
+     
+      .hrVerde_cadastroInfo {
+        border: none;
+        background-color: var(--verde);
+        width: 15vw;
+        height: 0.5vh;
+        display: flex;
+        align-self: flex-start;
+        margin-bottom: 3%;
+      }
+     
+      .inputCadastroInfo {
+        background: none;
+        border: none;
+        border-bottom: 1px solid var(--preto);
+      }
+     
+      .select_cadastroInfos_turma, .t1 select {
+        background-color: var(--amarelo);
+        border: none;
+        -bottom: 1px solid black;
+        text-align: left;
+        font-size: 120%;
+        margin-top: 2%;
+        width: 300px;
+        border-radius: 20px;
+        padding: 9px;
+        color: #0C1618;
+        outline: 0;
+        box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.192);
+      }
+     
+      .labelEscolha {
+        font-family: "Poppins";
+        font-weight: 500;
+        color: var(--background-color-branco);
+        width: max-content;
+        
+      }
+     
+      .select2_cadastrosInfo {
+       width: fit-content;
+       font-size: 120%;
+       margin-top: 2%;
+       border: none;
+       border-radius: 20px;
+       padding: 9px;
+       color: #0C1618;
+       background-color: #FAF4D3;
+       outline: 0;
+      }
+     
+      .select2_cadastrosInfo option {
+        background-color: #0a395e;
+        border-bottom: 1px solid var(--preto);
+        color: var(--background-color-branco);
+        width: 100%;
+      }
+     
+      .select2_cadastrosInfo:focus {
+        outline: none;
+      }
+     
+      .select_cadastroInfos_turma:hover option {
+        background-color: #ffffff;
+        color: var(--preto);
+      }
+     
+     .alinhaSelect{
+       display: flex;
+       flex-direction: row;
+       gap: 5%;
+       width: 100%;
+     }
+     
+     .btnAdd{
+       background-color: transparent;
+       border: none;
+       cursor: pointer;
+     }
+     
+     .alinhamento{
+       display: flex;
+       justify-content: center;
+       flex-direction: row;
+       gap: 4%;
+       align-items: center;
+     }
+     
+     #alinharOpCurso{
+       margin-top: 5%;
+       margin-bottom: 2%;
+     }
+     
+      /*Opções a serem selecionadas*/
+      #escolha_aluno_cadastroInfo,
+      /*#escolha_professor_cadastroInfo,*/
+      #escolha_curso_cadastroInfo,
+      #escolha_turma_cadastroInfo,
+      #escolha_unidade_curricular_cadastroInfo, #escolha_periodo_cadastroInfo {
+        display: none;
+      }
+     
+      /* } */
+     
+      .divCategoria2_naoVisivel {
+        display: none;
+      }
+     
+      .divCategoria2_naoVisivel input {
+        flex-grow: 1;
+        background: none;
+        border: none;
+        outline: none;
+        text-align: center;
+        border-bottom: 1px solid var(--preto);
+      }
+     
+      .t1 {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+      }
+     
+      .t1 input{
+       font-family: 'Questrial', sans-serif;
+       font-size: 110%;
+       margin-top: 2%;
+       height: 1.5vh;
+       width: 260px;
+       border: none;
+       border-radius: 20px;
+       padding: 10px;
+       color: #0C1618;
+       background-color: rgb(255, 255, 255);
+       outline: 0;
+       text-align: left;
+       padding: 9px;
+       box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.192);
+      }
+     
+     
+      .opcoes{
+       margin-bottom: 5%;
+      }
+     
+      #texto_preenchaDados_cadastroInfo {
+        font-weight: 400;
+        margin: 5%;
+        font-size: x-large;
+        text-align: center;
+        text-decoration: 2px solid var(--bordo) underline;
+      }
+     
+      .attCadastro{
+       color: #0C1618;
+       cursor: pointer;
+      }
+      .alinharInputs{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+       }
+      
+       .alinhaRadio{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+       }
+      
+       .opcoesEscolha, .opcoes{
+        width: 100%;
+        justify-content: left;
+        flex-direction: column;
+        align-items: center;
+       }
+      
+       .btnCadastro{
+        background-color: #912B64;
+        color: #fff;
+        border: none;
+        width: 200px;
+        height: 3.8vh;
+       }
+      
+       .divBtnCadastro{
+        margin-top: 5vh;
+        display: flex;
+        justify-content: left;
+        flex-direction: column;
+        width: 100%;
+       }
+      
+       .attCadastro{
+        margin-top: 5%;
+        color: #0A395E;
+        cursor: pointer;
+       }
+      
+       .main_cadastroInfos{
+        margin-left: 10%;
+       }
+      
+       .opcoesCurso{
+        margin-top: 7%;
+        display: flex;
+        justify-content: left;
+        flex-direction: column;
+        font-size: 120%;
+       }
+      
+       .main_cadastroInfos h2{
+        margin-left: 0px;
+       }
+      
+       .btnDel{
+        background-color: transparent;
+        border: none;
+      
+       }
+      
+       .t1 #pdf_plano_curso{
+        height: 4vh;
+        width: 50px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+       }
+      
+       #pdfAnexado{
+        display: flex;
+        justify-content: left;
+        flex-direction: row;
+        align-items: center;
+        gap: 2%;
+        
+      }
+      .t1  .checkgroup{
+        box-shadow: none;
+      }
+      /* MOBILE DA CADASTRO DE INFORMAÇÕES*/
+      @media screen and (max-width: 480px){
+        .t1 label{
+        margin-top: 5%;
+        margin-bottom: 5%;
+        font-size: 120%;
+        width: 100%;
+       }
+       .btnCadastro{
+        width: 60%;
+       }
+       }
+      
+       @media (min-width: 480px) {
+         .titulocentral {
+           margin-top: 2em;
+         }
+         #divCategorias_cadastroinfo {
+           align-items: self-start;
+           justify-content: space-around;
+           gap: .5em;
+           display: flex;
+           margin-top: 2em;
+         }
+      
+      .main_cadastroInfos{
+        justify-content: center;
+      }
+      
+      .divCategoria2_naoVisivel {
+        max-width: 70%;
+      }
+      
+      .t2 {
+        width: 100%;
+      }
+      
+      .divCategoria2_naoVisivel {
+       width: 60%;
+      }
+      
+      }
