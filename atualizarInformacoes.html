@@ -7,381 +7,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css">
   <title>Atualizar informações</title>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
-    /* roboto titulos*/
-    @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
-    /*questrial textos*/
-    @import url("https://fonts.googleapis.com/css2?family=Ruda:wght@400;600&display=swap");
-    /*ruda*/
-
-    :root {
-      --azul-escuro: #0a395e;
-      --bordo: #912b64;
-      --amarelo: #faf4d3;
-      --verde: #70a288;
-      --background-color-branco: #ebe4e4;
-      --preto: #0c1618;
-      --azul-claro-botao: #93b4db;
-      --fontes-de-texto: "Questrial", sans-serif;
-      --fontes-de-titulo: "Roboto", sans-serif;
-      --fonte-adicional: "Ruda", sans-serif;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      width: 100%;
-      height: 10vh;
-      background-color: #0a395e;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: "Lato", sans-serif;
-    }
-
-    .div-cabecalho {
-      padding-left: 2%;
-      padding-right: 2%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-    }
-
-    #btn-mobile {
-      background-color: transparent;
-      border-color: transparent;
-    }
-
-    #menu {
-      display: block;
-      position: absolute;
-      width: 100%;
-      right: 0px;
-      background: var(--azul-escuro);
-      transition: 0.5s;
-      z-index: 1000;
-      height: 0px;
-      visibility: hidden;
-      overflow-y: hidden;
-    }
-
-    #nav-menu-hamburguer.active #menu {
-      display: flex;
-      flex-direction: column;
-      height: calc(30vh - 60px);
-      visibility: visible;
-      overflow-y: auto;
-    }
-
-    #menu a {
-      text-align: center;
-      font-family: var(--fontes-de-texto);
-      font-size: 15px;
-      padding: 1rem 0;
-      margin: 0 1rem;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.05);
-    }
-
-    #btn-mobile {
-      display: flex;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      border: none;
-      background: none;
-      cursor: pointer;
-      gap: 0.5rem;
-      color: #d6d8db;
-    }
-
-    a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    #modo-desktop {
-      width: 100vw;
-    }
-
-    #modo-desktop li {
-      list-style: none;
-    }
-
-    #modo-desktop ul {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      text-align: center;
-      gap: 4%;
-    }
-
-    /*------------- DESKTOP -----------------*/
-    @media screen and (max-width: 900px) {
-      #modo-desktop {
-        display: none;
-      }
-    }
-
-    @media screen and (min-width: 900px) {
-      #nav-menu-hamburguer {
-        display: none;
-      }
-
-      .div-cabecalho {
-        margin-left: -5%;
-      }
-    }
-
-    /*mobile*/
-    @media (max-width: 480px) {
-
-      /*------------------ footer ------------*/
-      /*-------- ESTILO PADRÃO DAS PÁGINAS, HEADER E FOOTER --------------*/
-      .footer-professor-adm {
-        background-color: #0a395e;
-        font-size: 12px;
-        text-align: left;
-        color: var(--background-color-branco);
-        padding-top: 8%;
-      }
-
-      .direitosAutorais {
-        font-size: 10px;
-        text-align: center;
-        padding: 2%;
-      }
-
-      /*------------------ FIM DO FOOTER---------------*/
-    }
-
-    #mainAtt {
-      background-color: var(--azul-escuro);
-      margin-bottom: 15%;
-      padding-bottom: 20%;
-      border-radius: 0% 0% 15% 15%;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      text-align: left;
-      align-items: left;
-      color: #fff;
-      font-family: var(--fonte-adicional);
-      padding-left: 10%;
-      padding-top: 8vh;
-    }
-
-    #mainAtt h1 {
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 1.7rem;
-    }
-
-    #mainAtt h2 {
-      font-size: 1rem;
-    }
-
-    #linhaAtt {
-      height: 1px;
-      width: 50%;
-      margin-top: 10px;
-      background-color: var(--bordo);
-    }
-
-    #areaAtt p {
-      font-family: var(--fonte-adicional);
-      color: var(--preto);
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
-
-    #areaAtt {
-      display: flex;
-      justify-content: left;
-      align-items: left;
-      flex-direction: column;
-      margin-left: 8%;
-    }
-
-    .geralAtt select {
-      background-color: var(--amarelo);
-      border: none;
-      -bottom: 1px solid black;
-      text-align: left;
-      font-size: 120%;
-      margin-top: 2%;
-      width: 300px;
-      border-radius: 20px;
-      padding: 9px;
-      color: #0c1618;
-      outline: 0;
-      box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.192);
-    }
-
-    .alinhaSelect select {
-      background-color: var(--amarelo);
-      border: none;
-      -bottom: 1px solid black;
-      text-align: left;
-      font-size: 120%;
-      margin-top: 2%;
-      width: 300px;
-      border-radius: 20px;
-      padding: 9px;
-      color: #0c1618;
-      outline: 0;
-      box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.192);
-    }
-
-    .alinhaSelect label{
-      font-family: var(--fontes-de-texto);
-      font-size: 1.1rem;
-      margin-left: 1%;
-    }
-
-    .geralAtt option {
-      background-color: var(--background-color-branco);
-    }
-
-    .geralAtt input {
-      font-family: "Questrial", sans-serif;
-      font-size: 110%;
-      margin-top: 2%;
-      height: 1.5vh;
-      width: 260px;
-      border: none;
-      border-radius: 20px;
-      padding: 10px;
-      color: #0c1618;
-      background-color: rgb(255, 255, 255);
-      outline: 0;
-      text-align: left;
-      padding: 9px;
-      box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.192);
-    }
-
-    .opcoes {
-      margin-bottom: 5%;
-    }
-
-    #areaAtt label {
-      text-align: left;
-    }
-
-    .alinhaSelect {
-      display: flex;
-      justify-content: left;
-      align-items: left;
-      flex-direction: column;
-      margin-left: 8%;
-    }
-
-    .labelEscolha {
-      margin-top: 5%;
-    }
-
-    /*MEDIA QUERIES MOBILE*/
-    @media screen and (max-width: 335px){
-      #areaAtt select{
-        width: 80%;
-      }
-      .alinhaSelect select{
-        width: 60%;
-      }
-    }
-
-
-
-
-    /*MEDIA QUERIES DESKTOP*/
-    @media screen and (min-width: 600px) {
-      #mainAtt {
-        padding-top: 5vh;
-        padding-bottom: 10%;
-        margin-bottom: 10%;
-      }
-
-      #areaAtt p {
-        font-size: 1.3rem;
-      }
-
-      #areaAtt select {
-        width: 60%;
-      }
-      .labelEscolha{
-        margin-top: 6%;
-      }
-      .alinhaSelect select{
-        margin-top: 1%;
-      }
-    }
-
-      @media screen and (min-width: 800px) {
-        #mainAtt h1 {
-          font-size: 2.2rem;
-        }
-
-        #mainAtt h2 {
-          font-size: 1.2rem;
-        }
-
-        #mainAtt {
-          margin-bottom: 5%;
-        }
-        .alinhaSelect label{
-          font-size: 1.2rem;
-        }
-        p{
-          margin-bottom: 0;
-        }
-      }
-
-      @media screen and (min-width: 1020px) {
-        #mainAtt h1 {
-          font-size: 2.5rem;
-        }
-
-        #mainAtt h2 {
-          font-size: 1.3rem;
-        }
-
-        #mainAtt {
-          margin-bottom: 5%;
-        }
-
-        #areaAtt select {
-          width: 50%;
-        }
-        .labelEscolha{
-          margin-top: 3%;
-        }
-        .alinhaSelect select{
-          margin-top: 1%;
-        }
-      }
-
-      @media screen and (min-width: 1345px) {
-        #areaAtt select{
-          width: 30%;
-        }
-      
-
-      .alinhaSelect{
-        margin-bottom: 5%;
-      }
-
-      .labelEscolha{
-        margin-top: 2%;
-      }
-    }
-    
-  </style>
 </head>
 
 <body onload="carregar()">
@@ -505,6 +134,40 @@
       </div>
     </div>
   </main>
+
+  <footer class="footer-professor-adm">
+    <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <p class="tituloRodape">Site SENAI oficial:</p><hr>
+            <p class="textoRodape">Acesse o site oficial do SENAI para ver outras informações <a href="https://www.sp.senai.br/">Clique aqui</a></p>
+          </div>
+
+          <div class="col-6">
+            <div class="contatos">
+                <p class="tituloRodape">Contatos</p><hr>
+                <p class="textoRodape">
+                   <a href="mailto:beatriz.britofer@gmail.com">Enviar email para Beatriz Brito</a><br>
+                  <a href="mailto:evelynvic23toria10@gmail.com">Enviar email para Evelyn Victória</a><br>
+                  <a href="mailto:jp6001707@gmail.com">Enviar email para Juliana Lima</a><br>
+                  <a href="mailto:trinitynascimento@gmail.com">Enviar email para Trinity Domingues</a><br>
+                    <br>
+                </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <p class="direitosAutorais">
+                    Copyright 2023 - Beatriz Brito, Evelyn Victória Santos, Juliana Lima e Trinity Nascimento<br>
+                    Esse site foi produzido pelas alunas citadas acima no curso de Desenvolvimento de Sistemas do Senai "Nami Jafet" para uso escolar e administrativo
+                </p>
+               
+            </div>
+          </div>
+      </div>
+</footer>
 
   <script>
     function carregar() {
