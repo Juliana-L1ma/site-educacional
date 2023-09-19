@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Atualizar - Disciplinas</title>
+    <title>Tabelas para visualização</title>
 </head>
 <body>
     <header class="header-professor-adm">
@@ -50,105 +50,86 @@
         </div>
       </header>
 
-
-      <nav class="topo-areaDeFormacao">
+      <nav class="nav-seuperior-tabelasEdicoes">
         <a href="./atualizarInformacoes.html"><img src="./img/seta-esquerda-azul.png" alt="seta esquerda azul" class="seta-esquerda-azul"></a>
-
-        <div class="infoAreaDeFormacao">
-        <h1>Disciplinas</h1>
-        <h3>Desenvolvimento de Sistemas</h3>
-        <h5>Clique na célula que deseja editar</h5>
-       </div>
+        <p class="titulo-nav-tabelasEdicoes">1º Semestre - Duração: 11/06/2022 - 19/12/2022</p>
       </nav>
 
-      <div class="container-disciplinas">
+      <p class="titulo-tabelaEdicoes">Professores e Disciplina do 1º Semestre</p>
+      <form id="tabela-professores-form">
+      <table class="table table-bordered" id="tabela-professores-semestre-atualizar">
+        <thead>
+          <tr>
+            <th scope="col">Disciplinas</th>
+            <th scope="col">Professor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Redes</td>
+            <td>Carlos Ferreira</td>
+          </tr>
 
-      <form id="tabela-infoDisciplinas-form">
-        <table class="table table-bordered" id="tabela-disciplinaSemestral-atualizar">
-            <thead>
-                <tr>
-                    <td colspan="3" style="text-align: center;">1º Semestre</td>
-                </tr>
-              <tr>
-                <th scope="col">Disciplinas</th>
-                <th scope="col">Professor</th>
-                <th scope="col">Carga horária</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Lorem ipsum</td>
-                <td>Lorem ipsum</td>
-                <td>Lorem ipsum</td>
-              </tr>
-    
-              <tr>
-                <td>Lorem ipsum</td>
-                <td>Lorem ipsum</td>
-                <td>Lorem ipsum</td>
-              </tr>
-    
-              <tr>
-                <td>Lorem ipsum</td>
-                <td>Lorem ipsum</td>
-                <td>Lorem ipsum</td>
-              </tr>
+          <tr>
+            <td>Java</td>
+            <td>Ismael Farias</td>
+          </tr>
 
-              <tr>
-                <td>Lorem ipsum</td>
-                <td>Lorem ipsum</td>
-                <td>Lorem ipsum</td>
-              </tr>
-    
-            </tbody>
-          </table>
-    
-          <table class="table table-bordered" id="tabela-disciplinaSemestral-atualizar">
-            <thead>
-                <tr>
-                    <td colspan="3" style="text-align: center;">2º Semestre</td>
-                </tr>
-                <tr>
-                    <th scope="col">Disciplinas</th>
-                    <th scope="col">Professor</th>
-                    <th scope="col">Carga horária</th>
-                  </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Lorem ipsum</td>
-                    <td>Lorem ipsum</td>
-                    <td>Lorem ipsum</td>
-                  </tr>
-    
-                  <tr>
-                    <td>Lorem ipsum</td>
-                    <td>Lorem ipsum</td>
-                    <td>Lorem ipsum</td>
-                  </tr>
-    
-                  <tr>
-                    <td>Lorem ipsum</td>
-                    <td>Lorem ipsum</td>
-                    <td>Lorem ipsum</td>
-                  </tr>
+          <tr>
+            <td>Linguagem de Marcação</td>
+            <td>Silas Bastianelli</td>
+          </tr>
 
-                  <tr>
-                    <td>Lorem ipsum</td>
-                    <td>Lorem ipsum</td>
-                    <td>Lorem ipsum</td>
-                  </tr>
-            </tbody>
-          </table>
-    </div>
+          <tr>
+            <td>Sistemas Operacionais</td>
+            <td>Silas Bastianelli</td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
 
-        <button class="button-atualiza" type="button" id="atualizarTabelaDisciplinaSemestral" onclick="avisoAtualizado()">
-          Atualizar
-         </button>
-      </form>
+      
 
-     <footer class="footer-professor-adm">
+      <hr class="separacao-azul">
+
+      <p class="titulo-tabelaEdicoes">Alunos do 1º Semestre</p>
+      <form id="tabela-alunos-semestre-form">
+      <table class="table table-bordered" id="tabela-alunos-semestre-atualizar">
+        <thead>
+          <tr>
+            <th scope="col">Aluno</th>
+            <th scope="col">Turma</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Alisson</td>
+            <td>B</td>
+          </tr>
+
+          <tr>
+            <td>Arthr</td>
+            <td>A</td>
+          </tr>
+
+          <tr>
+            <td>Beatriz</td>
+            <td>A</td>
+          </tr>
+
+          <tr>
+            <td>Camila</td>
+            <td>A</td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <footer class="footer-professor-adm">
+
       <div class="container">
+         
+
           <div class="row">
             <div class="col-6">
               <p class="tituloRodape">Site SENAI oficial:</p><hr>
@@ -182,7 +163,9 @@
   
   </footer>
 </body>
-<script>
+ <!-- js para fazer as ações do menu hamburguer -->
+
+ <script>
     const btnMobile = document.getElementById('btn-mobile');
 
 function toggleMenu(event) {
