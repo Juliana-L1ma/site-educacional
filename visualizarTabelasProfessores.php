@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Visualizar - Professores</title>
 </head>
@@ -89,232 +90,146 @@
 
 
         ?>
-        <table class="table table-bordered" id="tabela-professores-atualizar">
-        <thead>
-       <tr class="th">
 
-       <tbody>
+<div class="table-responsive">
+       <table class="table table-bordered tabela-customizada" id="tabela-professores-atualizar">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>CPF</th>
+            <th>RG</th>
+            <th>Endereço</th>
+            <th>Telefone</th>
+            <th>Nascimento</th>
+            <th>Email</th>
+            <th>Email Educacional</th>
+            <th>Senha Educacional</th>
+        </tr>
+    </thead>
+    <tbody>
 
      
-           <th>Nome</th>
-           <th>Sobrenome</th>
-           <th>CPF</th>
-           <th>RG</th>
-           <th>Endereço</th>
-           <th>Telefone</th>
-           <th>Nascimento</th>
-           <th>Email</th>
-           <th>Email Educacional</th>
-           <th>Senha Educacional</th>
+
+    <?php
+    while ($linha = mysqli_fetch_assoc($professores)) {
+        $nome_professor = $linha['nome_professor'];
+        $sobrenome_professor = $linha['sobrenome_professor'];
+        $cpf_professor = $linha['cpf_professor'];
+        $rg_professor = $linha['rg_professor'];
+        $endereco_professor = $linha['endereco_professor'];
+        $telefone_professor = $linha['telefone_professor'];
+        $data_nascimento_professor = $linha['data_nascimento_professor'];
+        $email_pessoal_professor = $linha['email_pessoal_professor'];
+        $email_educacional_professor = $linha['email_educacional_professor'];
+        $senha_educacional_professor = $linha['senha_educacional_professor'];
+
+        echo "<tr>";
+        echo "<td>$nome_professor</td>";
+        echo "<td>$sobrenome_professor</td>";
+        echo "<td>$cpf_professor</td>";
+        echo "<td>$rg_professor</td>";
+        echo "<td>$endereco_professor</td>";
+        echo "<td>$telefone_professor</td>";
+        echo "<td>$data_nascimento_professor</td>";
+        echo "<td>$email_pessoal_professor</td>";
+        echo "<td>$email_educacional_professor</td>";
+        echo "<td>$senha_educacional_professor</td>";
+        echo "</tr>";
+    }
+    ?>
 
 
-           </tbody>
-      </tr>
-           </thead>
+</table>
 
-       
-   
-       <?php
-       while ($linha = mysqli_fetch_assoc($professores)) {
-           $nome_professor = $linha['nome_professor'];
-           $sobrenome_professor = $linha['sobrenome_professor'];
-           $cpf_professor = $linha['cpf_professor'];
-           $rg_professor = $linha['rg_professor'];
-           $endereco_professor = $linha['endereco_professor'];
-           $telefone_professor = $linha['telefone_professor'];
-           $data_nascimento_professor = $linha['data_nascimento_professor'];
-           $email_pessoal_professor = $linha['email_pessoal_professor'];
-           $email_educacional_professor = $linha['email_educacional_professor'];
-           $senha_educacional_professor = $linha['senha_educacional_professor'];
-
-           
-   
-           echo "<tr>";
-           echo "<td>$nome_professor</td>";
-           echo "<td>$sobrenome_professor</td>";
-           echo "<td>$cpf_professor</td>";
-           echo "<td>$rg_professor</td>";
-           echo "<td>$endereco_professor</td>";
-           echo "<td>$telefone_professor</td>";
-           echo "<td>$data_nascimento_professor</td>";
-           echo "<td>$email_pessoal_professor</td>";
-           echo "<td>$email_educacional_professor</td>";
-           echo "<td>$senha_educacional_professor</td>";
-           echo "</tr>";
-       }
-       ?>
-   
-   </table>
-
-   <br>
+</div>
 
 
 
    
 
 
- 
-      
- 
 
 
 
-      <!-- <div class="container-dadosProfessores">
-      <form id="tabela-professores-form">
-        <table class="table table-bordered" id="tabela-professores-atualizar">
-          <thead>
-            <tr>
-              <th scope="col">Nome</th>
-              <th scope="col">Sobrenome</th>
-              <th scope="col">CPF</th>
-              <th scope="col">RG</th>
-              <th scope="col">Endereço</th>
-              <th scope="col">Telefone</th>
-              <th scope="col">Nascimento</th>
-              <th scope="col">Email</th>
-              <th scope="col">Email educacional</th>
-              <th scope="col">Senha educacional</th>
-            </tr>
-          </thead>
 
-          <tbody>
-            <tr>
-              <td>Carlos Ferreira</td>
-              <td>Carlos Ferreira</td>
-              <td>Carlos Ferreira</td>
-              <td>Carlos Ferreira</td>
-              <td>Carlos Ferreira</td>
-              <td>Carlos Ferreira</td>
-              <td>Carlos Ferreira</td>
-              <td>Carlos Ferreira</td>
-              <td>Carlos Ferreira</td>
-              <td>Carlos Ferreira</td>
-            </tr>
-  
-            <tr>
-              <td>Ismael Farias</td>
-              <td>Ismael Farias</td>
-              <td>Ismael Farias</td>
-              <td>Ismael Farias</td>
-              <td>Ismael Farias</td>
-              <td>Ismael Farias</td>
-              <td>Ismael Farias</td>
-              <td>Ismael Farias</td>
-              <td>Ismael Farias</td>
-              <td>Ismael Farias</td>
-            </tr>
-  
-            <tr>
-              <td>Silas Bastianelli</td>
-              <td>Silas Bastianelli</td>
-              <td>Silas Bastianelli</td>
-              <td>Silas Bastianelli</td>
-              <td>Silas Bastianelli</td>
-              <td>Silas Bastianelli</td>
-              <td>Silas Bastianelli</td>
-              <td>Silas Bastianelli</td>
-              <td>Silas Bastianelli</td>
-              <td>Silas Bastianelli</td>
-            </tr>
-  
-            
-          </tbody>
-        </table>
-    </div>
-      </form> -->
+      <!-- CRIAÇÃO DAS TABELAS DAS INFOS DOS PROFESSORES SEPARADAMENTE -->
 
- <form id="tabela-professores-form">
-      <table class="table table-bordered" id="tabela-professoresSenai-atualizar">
-        <thead>
-            <tr>
-                <td colspan="3" style="text-align: center;">Silas Bastianelli</td>
-            </tr>
-          <tr>
-            <th scope="col">Disciplinas</th>
-            <th scope="col">Turmas</th>
-            <th scope="col">Curso</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Linguagem de Marcação</td>
-            <td>M1P</td>
-            <td>Desenvolvimento de Sistemas</td>
-          </tr>
 
-          <tr>
-            <td>Linguagem de Marcação</td>
-            <td>M1P</td>
-            <td>Desenvolvimento de Sistemas</td>
-          </tr>
+      <?php
+// Consulta SQL para obter a lista de professores
+$sqlProfessores = "SELECT DISTINCT cpf_professor, nome_professor, sobrenome_professor FROM professores";
 
-          <tr>
-            <td>Linguagem de Marcação</td>
-            <td>M1P</td>
-            <td>Desenvolvimento de Sistemas</td>
-          </tr>
+$resultProfessores = $cx->query($sqlProfessores);
 
-        </tbody>
-      </table>
+if ($resultProfessores->num_rows > 0) {
+    // Loop pelos professores
+    while ($rowProfessor = $resultProfessores->fetch_assoc()) {
+        $cpfProfessor = $rowProfessor["cpf_professor"];
+        $nomeProfessor = $rowProfessor["nome_professor"];
+        $sobrenomeProfessor = $rowProfessor["sobrenome_professor"];
 
-      <table class="table table-bordered" id="tabela-professoresSenai-atualizar">
-        <thead>
-            <tr>
-                <td colspan="3" style="text-align: center;">Ismael Alves</td>
-            </tr>
-            <tr>
-                <th scope="col">Disciplinas</th>
-                <th scope="col">Turmas</th>
-                <th scope="col">Curso</th>
-              </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Linguagem de Marcação</td>
-                <td>M1P</td>
-                <td>Desenvolvimento de Sistemas</td>
-              </tr>
+        // Criar uma tabela para o professor
+        $nomeTabelaProfessor = "info_professor_" . $cpfProfessor;
+        $sqlCriarTabela = "CREATE TABLE IF NOT EXISTS $nomeTabelaProfessor (
+            Disciplina VARCHAR(100),
+            Turma VARCHAR(10),
+            Curso VARCHAR(100)
+        )";
 
-              <tr>
-                <td>Linguagem de Marcação</td>
-                <td>M1P</td>
-                <td>Desenvolvimento de Sistemas</td>
-              </tr>
+        if ($cx->query($sqlCriarTabela) === TRUE) {
+            // Consulta SQL para obter as informações do professor
+            $sqlInfoProfessor = "SELECT
+                d.nome_uc AS Disciplina,
+                t.nome_turma AS Turma,
+                c.nome_curso AS Curso
+            FROM professores p
+            LEFT JOIN lista_disc_prof ld ON p.cpf_professor = ld.id_professor
+            LEFT JOIN unidade_curricular d ON ld.id_unidade_curricular = d.id_unid_curricular
+            LEFT JOIN lista_prof_turma lpt ON p.cpf_professor = lpt.id_professor
+            LEFT JOIN turmas t ON lpt.id_turma = t.id_turma
+            LEFT JOIN cursos c ON t.id_curso = c.id_curso
+            WHERE p.cpf_professor = '$cpfProfessor'";
 
-              <tr>
-                <td>Linguagem de Marcação</td>
-                <td>M1P</td>
-                <td>Desenvolvimento de Sistemas</td>
-              </tr>
-        </tbody>
-      </table>
+            $resultInfoProfessor = $cx->query($sqlInfoProfessor);
 
-      <table class="table table-bordered" id="tabela-professoresSenai-atualizar">
-        <thead>
-            <tr>
-                <td colspan="3" style="text-align: center;">Bruno Messias</td>
-            </tr>
-            <tr>
-                <th scope="col">Disciplinas</th>
-                <th scope="col">Turmas</th>
-                <th scope="col">Curso</th>
-              </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Linguagem de Marcação</td>
-                <td>M1P</td>
-                <td>Desenvolvimento de Sistemas</td>
-              </tr>
+            if ($resultInfoProfessor->num_rows > 0) {
+             
+                echo '<table class="table table-bordered tabela-customizada" id="tabela-professores-atualizar">';
+                echo "<tr><td colspan='4'>$nomeProfessor $sobrenomeProfessor</td></tr>";
+                echo "<th >Disciplina</th>";
+                echo "<th>Turma</th>";
+                echo "<th>Curso</th>";
+                echo "</tr>";
+                // Loop pelas informações do professor e insira na tabela do professor
+                while ($rowInfoProfessor = $resultInfoProfessor->fetch_assoc()) {
+                    $disciplina = $rowInfoProfessor["Disciplina"];
+                    $turma = $rowInfoProfessor["Turma"];
+                    $curso = $rowInfoProfessor["Curso"];
+                    
+                    echo "<tr>";
+                    echo "<td>$disciplina</td>";
+                    echo "<td>$turma</td>";
+                    echo "<td>$curso</td>";
+                    echo "</tr>";
+                }
+                echo "</table>";
+            }
+        }
+    }
+} else {
+   
+}
 
-              <tr>
-                <td>Linguagem de Marcação</td>
-                <td>M1P</td>
-                <td>Desenvolvimento de Sistemas</td>
-              </tr>
-        </tbody>
-      </table>
-    </form>
+$cx->close();
+?>
+
+
+
+
+
+
+
 
      <footer class="footer-professor-adm">
 
