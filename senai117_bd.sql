@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Set-2023 às 15:59
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.2.0
+-- Tempo de geração: 26-Set-2023 às 15:39
+-- Versão do servidor: 10.4.25-MariaDB
+-- versão do PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,7 @@ CREATE TABLE `alunos` (
   `email_pessoal_aluno` varchar(100) DEFAULT NULL,
   `email_educacional_aluno` varchar(110) DEFAULT NULL,
   `senha_educacional_aluno` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `alunos`
@@ -63,7 +63,7 @@ CREATE TABLE `boletim` (
   `cpf_aluno` varchar(11) DEFAULT NULL,
   `id_turma` int(11) DEFAULT NULL,
   `id_unid_curricular` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `boletim`
@@ -89,7 +89,7 @@ CREATE TABLE `cursos` (
   `plano_curso` longblob DEFAULT NULL,
   `capacidade` int(11) DEFAULT NULL,
   `categoria` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `cursos`
@@ -102,10 +102,10 @@ INSERT INTO `cursos` (`id_curso`, `id_unidade_curricular`, `carga_horaria_curso`
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para vista `informacoes_curso`
+-- Estrutura stand-in para vista `informacoes_curso2`
 -- (Veja abaixo para a view atual)
 --
-CREATE TABLE `informacoes_curso` (
+CREATE TABLE `informacoes_curso2` (
 `NomeDoCurso` varchar(100)
 ,`QuantidadeDeTurmas` bigint(21)
 ,`CargaHorariaDoCurso` int(11)
@@ -114,15 +114,38 @@ CREATE TABLE `informacoes_curso` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para vista `informacoes_curso_turma`
--- (Veja abaixo para a view atual)
+-- Estrutura da tabela `info_professor_45896735826`
 --
-CREATE TABLE `informacoes_curso_turma` (
-`NomeDoCurso` varchar(100)
-,`NomeDaTurma` varchar(10)
-,`DataInicioTurma` datetime(3)
-,`DataFimTurma` datetime(3)
-);
+
+CREATE TABLE `info_professor_45896735826` (
+  `Disciplina` varchar(100) DEFAULT NULL,
+  `Turma` varchar(10) DEFAULT NULL,
+  `Curso` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `info_professor_45932568974`
+--
+
+CREATE TABLE `info_professor_45932568974` (
+  `Disciplina` varchar(100) DEFAULT NULL,
+  `Turma` varchar(10) DEFAULT NULL,
+  `Curso` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `info_professor_47865923845`
+--
+
+CREATE TABLE `info_professor_47865923845` (
+  `Disciplina` varchar(100) DEFAULT NULL,
+  `Turma` varchar(10) DEFAULT NULL,
+  `Curso` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -135,7 +158,7 @@ CREATE TABLE `lista_alunos` (
   `divisao` varchar(1) DEFAULT NULL,
   `id_turma` int(11) DEFAULT NULL,
   `id_aluno` varchar(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `lista_alunos`
@@ -155,7 +178,7 @@ CREATE TABLE `lista_disc_prof` (
   `id_lista_disc_prof` int(11) NOT NULL,
   `id_professor` varchar(11) DEFAULT NULL,
   `id_unidade_curricular` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `lista_disc_prof`
@@ -176,7 +199,7 @@ CREATE TABLE `lista_prof_turma` (
   `id_lista_prof_turma` int(11) NOT NULL,
   `id_turma` int(11) DEFAULT NULL,
   `id_professor` varchar(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `lista_prof_turma`
@@ -197,7 +220,7 @@ CREATE TABLE `lista_turma_uc` (
   `id_lista_turma_uc` int(11) NOT NULL,
   `id_unidade_curricular` int(11) DEFAULT NULL,
   `id_turma` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `lista_turma_uc`
@@ -225,7 +248,7 @@ CREATE TABLE `professores` (
   `email_pessoal_professor` varchar(100) DEFAULT NULL,
   `email_educacional_professor` varchar(110) DEFAULT NULL,
   `senha_educacional_professor` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `professores`
@@ -250,7 +273,7 @@ CREATE TABLE `turmas` (
   `periodo_turma` varchar(20) DEFAULT NULL,
   `data_conclusao_turma` datetime(3) DEFAULT NULL,
   `total_alunos` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `turmas`
@@ -272,7 +295,7 @@ CREATE TABLE `unidade_curricular` (
   `nome_uc` varchar(100) DEFAULT NULL,
   `carga_horaria` int(11) DEFAULT NULL,
   `area_vinculada` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `unidade_curricular`
@@ -286,20 +309,32 @@ INSERT INTO `unidade_curricular` (`id_unid_curricular`, `nome_uc`, `carga_horari
 -- --------------------------------------------------------
 
 --
--- Estrutura para vista `informacoes_curso`
+-- Estrutura stand-in para vista `view_boletim`
+-- (Veja abaixo para a view atual)
 --
-DROP TABLE IF EXISTS `informacoes_curso`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `informacoes_curso`  AS SELECT `c`.`nome_curso` AS `NomeDoCurso`, count(`t`.`id_turma`) AS `QuantidadeDeTurmas`, `c`.`carga_horaria_curso` AS `CargaHorariaDoCurso` FROM (`cursos` `c` left join `turmas` `t` on(`c`.`id_curso` = `t`.`id_curso`)) GROUP BY `c`.`id_curso`, `c`.`nome_curso`, `c`.`carga_horaria_curso``carga_horaria_curso`  ;
+CREATE TABLE `view_boletim` (
+`nome_uc` varchar(100)
+,`nota_boletim` varchar(1)
+,`frequencia_boletim` double
+);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para vista `informacoes_curso_turma`
+-- Estrutura para vista `informacoes_curso2`
 --
-DROP TABLE IF EXISTS `informacoes_curso_turma`;
+DROP TABLE IF EXISTS `informacoes_curso2`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `informacoes_curso_turma`  AS SELECT `c`.`nome_curso` AS `NomeDoCurso`, `t`.`nome_turma` AS `NomeDaTurma`, `t`.`data_inicio_turma` AS `DataInicioTurma`, `t`.`data_conclusao_turma` AS `DataFimTurma` FROM (`cursos` `c` left join `turmas` `t` on(`c`.`id_curso` = `t`.`id_curso`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `informacoes_curso2`  AS SELECT `c`.`nome_curso` AS `NomeDoCurso`, count(`t`.`id_turma`) AS `QuantidadeDeTurmas`, `c`.`carga_horaria_curso` AS `CargaHorariaDoCurso` FROM (`cursos` `c` left join `turmas` `t` on(`c`.`id_curso` = `t`.`id_curso`)) GROUP BY `c`.`nome_curso`, `c`.`carga_horaria_curso``carga_horaria_curso`  ;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para vista `view_boletim`
+--
+DROP TABLE IF EXISTS `view_boletim`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_boletim`  AS SELECT `uc`.`nome_uc` AS `nome_uc`, `b`.`nota_boletim` AS `nota_boletim`, `b`.`frequencia_boletim` AS `frequencia_boletim` FROM (`boletim` `b` join `unidade_curricular` `uc` on(`b`.`id_unid_curricular` = `uc`.`id_unid_curricular`))  ;
 
 --
 -- Índices para tabelas despejadas
