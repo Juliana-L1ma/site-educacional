@@ -96,10 +96,10 @@
         $lista_alunos = mysqli_query($cx, "SELECT * FROM lista_alunos");
         $lista_disc_prof = mysqli_query($cx, "SELECT * FROM lista_disc_prof");
         $lista_prof_turma = mysqli_query($cx, "SELECT * FROM lista_prof_turma");
-        $informacoes_curso = mysqli_query($cx, "SELECT * FROM informacoes_curso");
 
 
-        $informacoes_curso_turma = mysqli_query($cx, "SELECT * FROM informacoes_curso_turma");
+        $informacoes_curso2 = mysqli_query($cx, "SELECT * FROM informacoes_curso2");
+
   
         $lista_turma_uc = mysqli_query($cx, "SELECT * FROM lista_turma_uc");
         $professores = mysqli_query($cx, "SELECT * FROM professores") or die( 
@@ -138,14 +138,14 @@
          
      
          <?php
-         while ($linha = mysqli_fetch_assoc($informacoes_curso)) {
+         while ($linha = mysqli_fetch_assoc($informacoes_curso2)) {
       
              $NomeDoCurso = $linha['NomeDoCurso'];
              $QuantidadeDeTurmas = $linha['QuantidadeDeTurmas'];
              $CargaHorariaDoCurso = $linha['CargaHorariaDoCurso'];
 
 
-             
+          
      
              echo "<tr>";
              echo "<td>$NomeDoCurso</td>";
