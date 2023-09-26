@@ -83,6 +83,7 @@
     $lista_alunos = mysqli_query($cx, "SELECT * FROM lista_alunos");
     $lista_disc_prof = mysqli_query($cx, "SELECT * FROM lista_disc_prof");
     $lista_prof_turma = mysqli_query($cx, "SELECT * FROM lista_prof_turma");
+    $view_boletim = mysqli_query($cx, "SELECT * FROM view_boletim");
 
     $lista_turma_uc = mysqli_query($cx, "SELECT * FROM lista_turma_uc");
     $professores = mysqli_query($cx, "SELECT * FROM professores") or die( 
@@ -115,10 +116,10 @@
          </thead>
 
      
- 0
+ 
      <?php
-     while ($linha = mysqli_fetch_assoc($boletim)) {
-        $id_unid_curricular = $linha['id_unid_curricular'];
+     while ($linha = mysqli_fetch_assoc($view_boletim)) {
+        $id_unid_curricular = $linha['nome_uc'];
         $nota_boletim = $linha['nota_boletim'];
         $frequencia_boletim = $linha['frequencia_boletim'];
 
@@ -169,40 +170,7 @@
 
 
 
-    <table class="table table-bordered" id="boletim-geral">
-        <thead>
-          <tr>
-            <th scope="col">Disciplinas</th>
-            <th scope="col">Notas</th>
-            <th scope="col">Faltas</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Redes</td>
-            <td>100</td>
-            <td>4</td>
-          </tr>
-
-          <tr>
-            <td>Java</td>
-            <td>100</td>
-            <td>5</td>
-          </tr>
-
-          <tr>
-            <td>Linguagem de Marcação</td>
-            <td>100</td>
-            <td>4</td>
-          </tr>
-
-          <tr>
-            <td>Sistemas Operacionais</td>
-            <td>100</td>
-            <td>3</td>
-          </tr>
-        </tbody>
-      </table>
+  
 
 
 
