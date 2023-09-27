@@ -1,3 +1,15 @@
+<?php
+session_start();
+// Após verificar o usuário com sucesso, suponha que você tenha recuperado o nome do usuário
+$nomeUsuario = "Wagner Cunha"; // Substitua isso pelo nome real do usuário
+
+// Armazene o nome do usuário na sessão
+$_SESSION['nome'] = $nomeUsuario;
+
+// Recupere o nome do usuário da sessão
+$nomeUsuario = $_SESSION['nome'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -52,7 +64,7 @@
       <div id="container-adm">
         <div class="fotoPerfil"></div>
         <div id="nomeUsuario">
-          <p>$nomeUsuario</p>
+          <p><?php echo $nomeUsuario; ?></p>
           <img src="img/editar.png" id="editar">
         </div>
         <div class="linha"></div>
