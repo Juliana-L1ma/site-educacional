@@ -11,7 +11,7 @@ $result = mysqli_query($conn, $query);
 
 if ($result && mysqli_num_rows($result) > 0) {
     // O usuário é um aluno
-    $_SESSION['tipo_usuario'] = 'aluno';
+    $_SESSION['tipo_usuario'] = 'alunos';
     header("Location: homeAluno.php");
     exit();
 }
@@ -24,6 +24,17 @@ if ($result && mysqli_num_rows($result) > 0) {
     // O usuário é um administrador
     $_SESSION['tipo_usuario'] = 'administrador';
     header("Location: areaAdministrador.php");
+    exit();
+}
+
+// Verifica na tabela "professores"
+$query = "SELECT cpf_professor FROM professores WHERE email_educacional_professor = '$email' AND senha_educacional_professor = '$senha'";
+$result = mysqli_query($conn, $query);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    // O usuário é um professor
+    $_SESSION['tipo_usuario'] = 'professores';
+    header("Location: homeProfessor.php");
     exit();
 }
 
