@@ -16,7 +16,7 @@
         <div id="headermaior">
             <div class="div-cabecalho" id="modo-desktop">
                 <ul>
-                    <a href="">
+                    <a href="index.html">
                         <li>Home</li>
                     </a>
                     <a href="">
@@ -66,32 +66,44 @@
                 <form action="processa_login.php" id="form_senha_login" method="POST">
                     <input id="email_login" type="text" name="email" placeholder="Insira seu email" required>
 
-                        <div style="display: flex; width: 100%;">
+                        <div id="align">
                         <input id="senha_login" type="password" name="senha" placeholder="Insira sua senha" required>
-                        <img id="img_senha_login" src="img/olho-fechado.png" height="20px" alt="">
+                        <span id="imagem_senha"></span>
                         </div>
+                    </input>
+                    <div id="alinharEnvio">
                         <button id="botao_envio_login" type="submit">Entrar</button>
+                    </div>
                 </form>
+                <div id="caixaRecuperarSenha">
+                    <div class="linhas"></div>
+                    <a href="">Esqueci a senha</a>
+                    <div class="linhas"></div>
+                </div>
+
             </div>
         </div>
+ 
     </main>
+
     <script>
-        var form_senha_login = document.getElementById("form_senha_login");
-        var teste = document.getElementById("email_login")
-        var visualizacao_senha_login = document.querySelector("#img_senha_login");
-        var senha_login = document.querySelector("#senha_login");
-        visualizacao_senha_login.addEventListener('click', function () {
-            form_senha_login.classList.toggle('visibilidade_login')
-            if (form_senha_login.classList.contains("visibilidade_login")) {
-                visualizacao_senha_login.src = 'img/olho-aberto.png';
-                senha_login.type = 'text';
-            }
-            else {
-                visualizacao_senha_login.src = 'img/olho-fechado.png';
-                senha_login.setAttribute('type', 'password');
-            }
-        });
-    </script>
+    var form_senha_login = document.getElementById("form_senha_login");
+    var visualizacao_senha_login = document.querySelector("#senha_login");
+    var imagemSenha = document.querySelector("#imagem_senha");
+    imagemSenha.style.backgroundImage = 'url("img/olho-fechado.png")';
+
+
+    imagemSenha.addEventListener('click', function () {
+        form_senha_login.classList.toggle('visibilidade_login')
+        if (form_senha_login.classList.contains("visibilidade_login")) {
+            imagemSenha.style.backgroundImage = 'url("img/olho-aberto.png")';
+            visualizacao_senha_login.type = 'text';
+        } else {
+            imagemSenha.style.backgroundImage = 'url("img/olho-fechado.png")';
+            visualizacao_senha_login.type = 'password';
+        }
+    });
+</script>
 
     
 </body>
