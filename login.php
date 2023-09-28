@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/login&index.css">
     <title>Login</title>
+    <style>
+        .div-cabecalho {
+            padding-right: 0%;
+        }
+    </style>
 </head>
 
 <body>
     <header>
-        <div id="headermenor">
-            <a href="#"><img style="height: 70%;" alt=""></a>
-        </div>
+
         <div id="headermaior">
             <div class="div-cabecalho" id="modo-desktop">
                 <ul>
