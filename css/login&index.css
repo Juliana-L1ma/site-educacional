@@ -124,14 +124,15 @@ main {
 #div_1 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 #caixa_bemvindo_login {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 6%;
 }
 
 #botao_envio_login {
@@ -151,11 +152,22 @@ main {
     border: none;
     outline: none;
     border-bottom: 1px solid var(--preto);
-    width: 60%;
+    width: 70%;
     background: none;
 }
-#senha_login{
-    margin-left: 20%;
+
+#align{
+    display: flex;
+    width: 70%;
+}
+
+
+#imagem_senha {
+    width: 20px; /* Ajuste o tamanho conforme necessário */
+    height: 20px; /* Ajuste o tamanho conforme necessário */
+    background-image: url("img/olho-fechado.png"); /* Defina a imagem de olho fechado */
+    background-size: cover;
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
 }
 
 #form_senha_login {
@@ -168,7 +180,10 @@ main {
 
 #form_senha_login input::placeholder,
 #form_senha_login input {
-    font-size: 2.2vh;
+    font-size: 1.8vh;
+    padding: 2px;
+    font-style: italic;
+    font-family: var(--fontes-de-titulo);
 }
 
 #img_senha_login {
@@ -177,6 +192,30 @@ main {
     height: 40px;
 }
 
+.linhas{
+    width: 80px;
+    height: 0.1vh;
+    background-color: var(--verde);
+}
+
+#caixaRecuperarSenha{
+    margin-top: 15%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+   
+}
+
+#caixaRecuperarSenha a{
+    color: #0C1618;
+    font-family: var(--fontes-de-texto);
+}
+
+#alinharEnvio{
+    display: flex;
+    justify-content: left;
+}
 @media(max-width: 500px) {
     #caixa_bemvindo_login {
         margin-top: 40%;
@@ -199,18 +238,19 @@ main {
 
 
 
-@media(min-width: 500px) and (max-width: 767px) {
+@media(min-width: 100px) and (max-width: 767px) {
     #caixa_geral {
         display: flex;
         flex-direction: column;
         width: 80%;
     }
-    #email_login,
-    #senha_login {
+    #senha_login, #email_login {
         width: 100%;
     }
-    #senha_login{
-        margin-left: 0%;
+    #div_1{
+        width: 90%;
+    }
+    #align{
         width: 100%;
     }
     #form_senha_login {
@@ -233,10 +273,7 @@ main {
         font-family: "Lato", sans-serif;
 
     }
-    #email_login,
-    #senha_login {
-        width: 100%;
-    }
+
     #senha_login{
         margin-left: 0%;
         width: 100%;
@@ -246,7 +283,8 @@ main {
     }
 
     #div_1 {
-        width: 90%;
+        min-width: 40%;
+        max-width: 80%;
         min-height: 90vh;
         background-color: #fff;
         align-items: center;
@@ -261,6 +299,12 @@ main {
     #form_senha_login {
         margin-top: 5%;
         display: flex;
+    }
+}
+
+@media screen and (max-width: 950px){
+    .linhas{
+        width: 60px;
     }
 }
 
@@ -281,12 +325,6 @@ main {
     background-color: var(--background-color-branco);
 }
 
-#setabemvindo {
-    margin: 0%;
-    padding: 0;
-    height: 50px;
-    width: 100px;
-}
 
 .info-introducao {
     text-align: center;
@@ -391,9 +429,6 @@ main {
         background-color: var(--background-color-branco);
       }
       #setabemvindo{
-        margin: 0%;
-        padding: 0;
-        height: 30px;
-        width: 60px;
+        width: 80%;
       }
 }
