@@ -64,7 +64,7 @@ $nomeUsuario = $_SESSION['nome'];
       <div id="container-adm">
         <div class="fotoPerfil"></div>
         <div id="nomeUsuario">
-          <p><?php echo $nomeUsuario; ?></p>
+          <p id="nomeUserAdm" style="white-space: nowrap;"><?php echo $nomeUsuario; ?></p>
           <img src="img/editar.png" id="editar">
         </div>
         <div class="linha"></div>
