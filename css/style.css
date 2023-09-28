@@ -3276,3 +3276,33 @@ textarea::-webkit-scrollbar-thumb {
         }
 
 }
+
+/* disciplina e professor */
+ .linhaAmarela{
+    background-color: #FAF4D3;
+    height: 20px;
+  }
+  #nomeSenai{
+    margin: 2%;
+  }
+  .label-nomecurso{
+    font-weight: bold;
+    margin-left: 2%;
+    font-size: 20px;
+  }
+  .turmaEhorario{
+    display: flex;
+    flex-direction: row;
+    margin: 2%;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  #horarioDeAula{
+    margin-left: 2%;
+    color: #912B64;
+  }
+  #disciplina-professor-table{
+    margin-left: 2%;
+    width: 90%;
+    margin-bottom: 5%;
+  }
