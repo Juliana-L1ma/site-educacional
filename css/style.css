@@ -38,8 +38,7 @@ header {
 }
 
 .div-cabecalho {
-  padding-left: 2%;
-  padding-right: 2%;
+  padding-left: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,6 +102,10 @@ a {
 
 #modo-desktop li {
   list-style: none;
+}
+
+#modo-mobilee{
+  padding-right: 1%;
 }
 
 #modo-desktop ul {
@@ -295,6 +298,10 @@ a {
   }
 
   .informacoesDoAluno {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 80%;
     margin: auto;
     margin-top: 10%;
@@ -304,8 +311,10 @@ a {
     font-size: 20px;
   }
 
-  #cursos {
-    width: 280px;
+  select #cursos  {
+    width: 30%;
+    background-color: transparent;
+    color: var(--background-color-branco);
   }
 
   .footer-aluno {
@@ -357,10 +366,6 @@ a {
   font-size: 20px;
 }
 
-#cursos {
-  width: 400px;
-}
-
 .cta {
   display: flex;
   padding: 11px;
@@ -405,19 +410,24 @@ a {
 
 .buttonDoAluno {
   margin-top: 5%;
-  padding: 1% 2%;
+  text-align: center;
+  padding: 0.3%;
+  width: 220px;
   color: #0C1618;
   font-family: var(--fontes-de-texto);
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
   color: var(--bordo);
   cursor: pointer;
   background: var(--background-color-branco);
   box-shadow: 7px 5px #adadad;
   border: none;
+  border-radius: 5px;
+  transition: 400ms;
 }
 
 .buttonDoAluno:hover {
+  transition: 500ms;
   transform: scale(1.1);
 }
 
@@ -503,6 +513,7 @@ a {
   font-size: 120%;
   font-weight: bold;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 #areaBotoes {
@@ -511,15 +522,17 @@ a {
   flex-direction: column;
   align-items: center;
   margin-bottom: 5%;
+  margin-top: 2%;
 }
 
 #areaBotoes button {
-  margin-top: 2%;
-  width: 19vw;
+  margin-top: 3%;
+  width: 330px;
   height: 5vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: left;
   text-align: center;
+  gap: 10%;
   font-family: 'Questrial', sans-serif;
   font-size: 115%;
   align-items: center;
@@ -530,7 +543,8 @@ a {
 }
 
 #areaBotoes img {
-  padding-top: 25px;
+  padding-top: 15px;
+  margin-left: 30px;
 }
 
 /*MEDIA QUERIES PÁGINA DO ADMINISTRADOR*/
@@ -581,6 +595,9 @@ a {
 
   .icone-info {
     width: 70%;
+  }
+  #caixa-botoes{
+    flex-direction: column;
   }
 }
 
@@ -1371,9 +1388,7 @@ a {
   display: none;
 }
 
-#nav-menu-hamburguer {
-  display: none;
-}
+
 
 .div-cabecalho {
   margin-left: -5%;
