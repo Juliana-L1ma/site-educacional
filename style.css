@@ -1,0 +1,3312 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/* roboto titulos*/
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+/*questrial textos*/
+@import url("https://fonts.googleapis.com/css2?family=Ruda:wght@400;600&display=swap");
+/*ruda*/
+
+:root {
+  --azul-escuro: #0A395E;
+  --bordo: #912B64;
+  --amarelo: #FAF4D3;
+  --verde: #70A288;
+  --background-color-branco: #F5F5F5;
+  --preto: #0C1618;
+  --azul-claro-botao: #93B4DB;
+  --fontes-de-texto: 'Questrial', sans-serif;
+  --fontes-de-titulo: 'Roboto', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background-color-branco);
+}
+
+/* --------- ESTILO DO HEADER PARA DESKTOP --------- */
+header {
+  width: 100%;
+  height: 10vh;
+  background-color: #0A395E;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+}
+
+.div-cabecalho {
+  padding-left: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#btn-mobile {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+#menu {
+  display: block;
+  position: absolute;
+  width: 100%;
+  right: 0px;
+  background: var(--azul-escuro);
+  transition: 0.5s;
+  z-index: 1000;
+  height: 0px;
+  visibility: hidden;
+  overflow-y: hidden;
+}
+
+#nav-menu-hamburguer.active #menu {
+  display: flex;
+  flex-direction: column;
+  height: calc(30vh - 60px);
+  visibility: visible;
+  overflow-y: auto;
+}
+
+#menu a {
+  text-align: center;
+  font-family: var(--fontes-de-texto);
+  font-size: 15px;
+  padding: 1rem 0;
+  margin: 0 1rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+#btn-mobile {
+  display: flex;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  gap: 0.5rem;
+  color: #d6d8db;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#modo-desktop {
+  width: 100vw;
+}
+
+#modo-desktop li {
+  list-style: none;
+}
+
+#modo-mobilee{
+  padding-right: 1%;
+}
+
+#modo-desktop ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+  gap: 4%;
+}
+
+.hidden {
+  display: none;
+}
+
+/*------------- DESKTOP -----------------*/
+@media screen and (max-width: 900px) {
+  #modo-desktop {
+    display: none;
+  }
+
+  .container-dadosAlunosSenai {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .container-dadosProfessores {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .footer-professor-adm {
+    width: auto;
+    background-color: #0A395E;
+    font-size: 20px;
+    text-align: left;
+    color: var(--background-color-branco);
+    padding-top: 4%;
+  }
+
+  .direitosAutorais {
+    font-size: 10px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #nav-menu-hamburguer {
+    display: none;
+  }
+
+  .div-cabecalho {
+    margin-left: -5%;
+  }
+
+}
+
+.footer-professor-adm {
+  width: auto;
+  background-color: #0A395E;
+  font-size: 20px;
+  text-align: left;
+  color: var(--background-color-branco);
+  padding-top: 4%;
+}
+
+.direitosAutorais {
+  font-size: 10px;
+  text-align: center;
+}
+
+/*------FIM DO HEADER--------*/
+
+/*------------- ESTILO DA HOME DO PROFESSOR -------------------*/
+#bemvindo-professor {
+  font-family: var(--fontes-de-titulo);
+  margin-top: 80px;
+  text-align: center;
+}
+
+.caixa-de-funcionalidades {
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 150px;
+  width: 60vh;
+}
+
+#titulo-funcionalidade {
+  font-family: var(--fontes-de-titulo);
+  text-align: center;
+  font-weight: bolder;
+  color: #0A395E;
+}
+
+.botao-funcionalidade {
+  font-family: var(--fontes-de-texto);
+  height: 20vh;
+  width: 20vh;
+  border-radius: 10px;
+  border-color: #0C1618;
+  font-size: 12px;
+  padding: 2%;
+  margin-left: 8%;
+}
+
+.botao-funcionalidade:hover {
+  transform: scale(1.1);
+}
+
+.icone-funcionalidades {
+  height: 75px;
+  width: 75px;
+  padding: 1%;
+}
+
+#separacao-roxa {
+  border-top: 2px solid #88024e;
+
+}
+
+/*-------------------- FIM DA HOME DO PROFESSOR --------------*/
+
+/*FOOTER PARA MOBILE*/
+@media (max-width: 480px) {
+  .footer-professor-adm {
+    background-color: #0A395E;
+    font-size: 12px;
+    text-align: left;
+    color: var(--background-color-branco);
+    padding-top: 8%;
+  }
+
+  .direitosAutorais {
+    font-size: 10px;
+    text-align: center;
+    padding: 2%;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /*------------- ESTILO DA HOME DO PROFESSOR -------------------*/
+  #bemvindo-professor {
+    font-family: var(--fontes-de-titulo);
+    margin-top: 80px;
+    margin-left: 20px;
+  }
+
+  .caixa-de-funcionalidades {
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 150px;
+    width: 40vh;
+  }
+
+  #titulo-funcionalidade {
+    font-family: var(--fontes-de-titulo);
+    text-align: center;
+    font-weight: bolder;
+    color: #0A395E;
+  }
+
+  .botao-funcionalidade {
+    font-family: var(--fontes-de-texto);
+    height: 15vh;
+    width: 15vh;
+    border-radius: 10px;
+    border-color: #0C1618;
+    font-size: 12px;
+    padding: 2%;
+  }
+
+  .icone-funcionalidades {
+    height: 60px;
+    width: 60px;
+    padding: 5%;
+  }
+
+  #separacao-roxa {
+    border-top: 2px solid #88024e;
+  }
+
+  /*-------------------- FIM DA HOME DO PROFESSOR --------------*/
+
+  /*----------- HOME ALUNO MOBILE -----------*/
+  #mainAluno {
+    background-color: #0A395E;
+    padding-bottom: 15%;
+    border-radius: 0px 0px 50px 50px;
+  }
+
+  .informacoesDoAluno {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 15%;
+    color: var(--background-color-branco);
+    text-align: center;
+    font-size: 20px;
+  }
+
+  select #cursos  {
+    width: 30%;
+    background-color: transparent;
+    color: var(--background-color-branco);
+  }
+
+  .footer-aluno {
+    width: auto;
+    margin-top: 20%;
+    background-color: #0A395E;
+    font-size: 10px;
+    text-align: left;
+    color: var(--background-color-branco);
+    padding-top: 4%;
+  }
+}
+
+.container-dadosProfessores {
+  display: flex;
+  overflow-x: auto;
+}
+
+/*----------- HOME DO ALUNO DESKTOP ----------*/
+#mainAluno {
+  background-color: #0A395E;
+  height: 70%;
+  padding-bottom: 5%;
+  border-radius: 0px 0px 50px 50px;
+}
+
+.imagemAluno {
+  background-color: var(--verde);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto;
+  padding: 5%;
+  padding-top: 5%;
+}
+
+#hr-aluno {
+  border-bottom: 2px solid #f8e67e;
+  width: 60%;
+  margin: auto;
+}
+
+.informacoesDoAluno {
+  width: 80%;
+  margin: auto;
+  margin-top: 4%;
+  color: var(--background-color-branco);
+  text-align: center;
+  font-size: 20px;
+}
+
+.cta {
+  display: flex;
+  padding: 11px;
+  text-decoration: none;
+  font-family: var(--fontes-de-titulo);
+  font-size: 20px;
+  font-weight: bold;
+  color: #912B64;
+  background: #F5F5F5;
+  box-shadow: 6px 6px 0 #c9c8c8;
+  transform: skewX(-15deg);
+  border: none;
+  margin: 0 auto;
+  margin-top: 2%;
+}
+
+.cta1 {
+  width: 150px;
+}
+
+.cta:focus {
+  outline: none;
+}
+
+.span {
+  transform: skewX(15deg)
+}
+
+.second {
+  width: 20px;
+  position: relative;
+  top: 2%;
+}
+
+#caixa-botoes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-left: 3%;
+}
+
+.buttonDoAluno {
+  margin-top: 5%;
+  text-align: center;
+  padding: 0.3%;
+  width: 220px;
+  color: #0C1618;
+  font-family: var(--fontes-de-texto);
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--bordo);
+  cursor: pointer;
+  background: var(--background-color-branco);
+  box-shadow: 7px 5px #adadad;
+  border: none;
+  border-radius: 5px;
+  transition: 400ms;
+}
+
+.buttonDoAluno:hover {
+  transition: 500ms;
+  transform: scale(1.1);
+}
+
+.footer-aluno {
+  width: auto;
+  margin-top: 10%;
+  background-color: #0A395E;
+  font-size: 20px;
+  text-align: left;
+  color: var(--background-color-branco);
+  padding-top: 4%;
+}
+
+.direitosAutorais {
+  font-size: 10px;
+  text-align: center;
+}
+
+/*----------------- atualizar alunos da turma desktop ----------*/
+.container-dadosAlunosSenai {
+  display: flex;
+  overflow-x: auto;
+}
+
+.seta-esquerda-azul {
+  margin-top: 2%;
+  width: 32px;
+  height: 32px;
+}
+
+/*----------- AREA DO ADM DESKTOP ------------*/
+#editar {
+  cursor: pointer;
+}
+
+#editar:hover {
+  transform: scale(0.9);
+}
+
+#container-adm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fotoPerfil {
+  margin-top: 5%;
+  width: 180px;
+  height: 180px;
+  background-color: #0C1618;
+  border-radius: 90%;
+}
+
+.linha {
+  margin: 1%;
+  width: 320px;
+  height: 1px;
+  background-color: #912B64;
+}
+
+#nomeUsuario {
+  margin-top: 1%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 2%;
+  align-items: center;
+  font-family: 'Questrial', sans-serif;
+  font-size: 150%;
+}
+
+.adm {
+  font-family: 'Ruda', sans-serif;
+  text-transform: uppercase;
+  color: #0A395E;
+  font-size: 155%;
+}
+
+.subtitulo {
+  margin-top: 3%;
+  font-family: 'Ruda', sans-serif;
+  font-size: 120%;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+#areaBotoes {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5%;
+  margin-top: 2%;
+}
+
+#areaBotoes button {
+  margin-top: 3%;
+  width: 330px;
+  height: 5vh;
+  display: flex;
+  justify-content: left;
+  text-align: center;
+  gap: 10%;
+  font-family: 'Questrial', sans-serif;
+  font-size: 115%;
+  align-items: center;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#areaBotoes img {
+  padding-top: 15px;
+  margin-left: 30px;
+}
+
+/*MEDIA QUERIES PÁGINA DO ADMINISTRADOR*/
+@media screen and (max-width: 670px) {
+  #areaBotoes button {
+    width: 270px;
+  }
+
+  #nomeUsuario {
+    margin-top: 5%;
+  }
+
+  .adm {
+    margin-top: 3%;
+    font-size: 145%;
+  }
+
+  .subtitulo {
+    margin-top: 5%;
+  }
+
+  .icone-info {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  #areaBotoes {
+    flex-direction: column;
+  }
+
+  .fotoPerfil {
+    width: 150px;
+    height: 150px;
+  }
+
+  .adm {
+    font-size: 130%;
+  }
+
+  .subtitulo {
+    margin-top: 9%;
+  }
+
+  .linha {
+    margin-top: 4%;
+  }
+
+  .icone-info {
+    width: 70%;
+  }
+  #caixa-botoes{
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .fotoPerfil {
+    width: 130px;
+    height: 130px;
+  }
+
+  .linha {
+    width: 220px;
+  }
+}
+
+@media screen and (max-width: 293px) {
+  .fotoPerfil {
+    width: 130px;
+    height: 130px;
+  }
+
+  .linha {
+    width: 190px;
+  }
+
+  #areaBotoes button {
+    width: 250px;
+  }
+}
+
+/* FIM DO MEDIA PARA ADMINISTRADOR*/
+
+/*---------- Atualizar alunos da turma desktop ------------*/
+.button-atualiza {
+  font-size: 18px;
+  font-family: var(--fontes-de-texto);
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgba(145, 43, 100, 1) 1%, rgba(204, 110, 163, 1) 49%, rgba(145, 43, 100, 1) 100%);
+  padding: 0 2em;
+  border-radius: 0.3em;
+  color: #fff;
+  height: 2.6em;
+  text-shadow: 0 2px 0 rgb(0 0 0 / 50%);
+  margin-left: 4%;
+  margin-bottom: 2%;
+}
+
+.button-atualiza:hover {
+  transform: scale(1.1);
+}
+
+.seta-esquerda-azul {
+  width: 60px;
+  height: 35px;
+}
+
+.topo-areaDeFormacao {
+  display: flex;
+  width: 80%;
+  margin: 3%;
+  margin-left: 4%;
+  font-family: var(--fontes-de-texto);
+}
+
+.infoAreaDeFormacao {
+  margin-left: 5%;
+}
+
+#tabela-dadosAlunos-form {
+  width: 90%;
+  margin-left: 4%;
+}
+
+/* ---------- ATUALIZAR DADOS SEMESTRAL DESKTOP ---------------*/
+.nav-seuperior-tabelasEdicoes {
+  width: 50%;
+  margin: 3%;
+  display: flex;
+}
+
+.seta-esquerda-azul {
+  width: 60px;
+  height: 35px;
+}
+
+.titulo-nav-tabelasEdicoes {
+  font-family: var(--fontes-de-texto);
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.botao-lapis-edicaoDeTabelas {
+  border: none;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  background-color: var(--background-color-branco);
+}
+
+#info-edicoes {
+  margin: 4%;
+  font-family: var(--fontes-de-texto);
+  font-size: 18px;
+}
+
+.separacao-azul {
+  border: 2px solid #074472;
+}
+
+.titulo-tabelaEdicoes {
+  font-family: var(--fontes-de-texto);
+  font-weight: bold;
+  font-size: 24px;
+  margin-left: 2%;
+}
+
+#tabela-alunos-semestre-atualizar,
+#tabela-professores-semestre-atualizar {
+  width: 90%;
+  margin-left: 2%;
+}
+
+.button-atualiza {
+  font-size: 18px;
+  font-family: var(--fontes-de-texto);
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgba(145, 43, 100, 1) 1%, rgba(204, 110, 163, 1) 49%, rgba(145, 43, 100, 1) 100%);
+  padding: 0 2em;
+  border-radius: 0.3em;
+  color: #fff;
+  height: 2.6em;
+  text-shadow: 0 2px 0 rgb(0 0 0 / 50%);
+  margin-left: 2%;
+  margin-bottom: 2%;
+}
+
+.button-atualiza:hover {
+  transform: scale(1.1);
+}
+
+/*----------mobile DADOS SEMESTRAIS--------*/
+@media (max-width: 480px) {
+  .nav-seuperior-tabelasEdicoes {
+    width: 90%;
+    margin: 3%;
+  }
+
+  .seta-esquerda-azul {
+    margin-top: 2%;
+    width: 55px;
+    height: 30px;
+  }
+
+  .titulo-nav-tabelasEdicoes {
+    margin-left: 4%;
+    font-size: 18px;
+  }
+
+  #info-edicoes {
+    font-size: 16px;
+  }
+
+  .titulo-tabelaEdicoes {
+    font-size: 18px;
+    margin-left: 5%;
+  }
+
+  #tabela-alunos-semestre-atualizar,
+  #tabela-professores-semestre-atualizar {
+    margin: 0 auto;
+  }
+
+  .button-atualiza {
+    font-size: 15px;
+    margin-left: 6%;
+    margin-top: 4%;
+    height: 2.4em;
+  }
+
+  .button-atualiza:hover {
+    transform: scale(1.1);
+  }
+
+  .footer-professor-adm {
+    background-color: #0A395E;
+    font-size: 12px;
+    text-align: left;
+    color: var(--background-color-branco);
+    padding-top: 8%;
+  }
+
+  .direitosAutorais {
+    font-size: 10px;
+    text-align: center;
+    padding: 2%;
+  }
+}
+
+/* -------- ATUALIZAR DISCIPLINAS SEMESTRAIS DESKTOP ---------*/
+.topo-areaDeFormacao {
+  display: flex;
+  width: 80%;
+  margin: 3%;
+  margin-left: 4%;
+  font-family: var(--fontes-de-texto);
+}
+
+.infoAreaDeFormacao {
+  margin-left: 5%;
+}
+
+#tabela-infoDisciplinas-form {
+ width: 70%;
+margin-left: 15%;
+
+
+}
+
+#tabela-professores-form {
+  width: 90%;
+  margin-left: 4%;
+}
+
+.atualiza-profess {
+  margin-left: 5%;
+}
+
+/* ----------- DESKTOP ATUALIZAR INFORMAÇÕES ------------*/
+#mainAtt {
+  background-color: var(--azul-escuro);
+  margin-bottom: 15%;
+  padding-bottom: 20%;
+  border-radius: 0% 0% 15% 15%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+  align-items: left;
+  color: #fff;
+  font-family: var(--fonte-adicional);
+  padding-left: 10%;
+  padding-top: 8vh;
+}
+
+#mainAtt h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+
+#mainAtt h2 {
+  font-size: 1rem;
+}
+
+#linhaAtt {
+  height: 1px;
+  width: 50%;
+  margin-top: 10px;
+  background-color: var(--bordo);
+}
+
+#areaAtt p {
+  font-family: var(--fonte-adicional);
+  color: var(--preto);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+
+.geralAtt select {
+  background-color: var(--amarelo);
+  border: none;
+  -bottom: 1px solid black;
+  text-align: left;
+  font-size: 120%;
+  margin-top: 2%;
+  border-radius: 20px;
+  padding: 9px;
+  color: #0c1618;
+  outline: 0;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.192);
+}
+
+.alinhaSelect select {
+  background-color: var(--amarelo);
+  border: none;
+  -bottom: 1px solid black;
+  text-align: left;
+  font-size: 120%;
+  margin-top: 2%;
+  border-radius: 20px;
+  padding: 9px;
+  color: #0c1618;
+  outline: 0;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.192);
+}
+
+.alinhaSelect label {
+  font-family: var(--fontes-de-texto);
+  font-size: 1.1rem;
+}
+
+.geralAtt option {
+  background-color: var(--background-color-branco);
+}
+
+.geralAtt input {
+  font-family: "Questrial", sans-serif;
+  font-size: 110%;
+  margin-top: 2%;
+  height: 1.5vh;
+  width: 260px;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  color: #0c1618;
+  background-color: rgb(255, 255, 255);
+  outline: 0;
+  text-align: left;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.192);
+}
+
+.opcoes {
+  margin-bottom: 5%;
+}
+
+#areaAtt label {
+  text-align: left;
+}
+
+.labelEscolha {
+  margin-top: 5%;
+}
+
+#alinhando{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+#alinhando select{
+  width: 400px;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+
+
+/*MEDIA QUERIES MOBILE ATUALIZAR INFORMAÇÕES*/
+
+
+/*MEDIA QUERIES DESKTOP ATUALIZAR INFORMAÇÕES*/
+@media screen and (min-width: 200px) {
+  #mainAtt {
+    padding-top: 5vh;
+    padding-bottom: 10%;
+    margin-bottom: 10%;
+  }
+
+  #areaAtt p {
+    font-size: 1.3rem;
+  }
+
+  .labelEscolha {
+    margin-top: 6%;
+  }
+
+  .alinhaSelect select {
+    margin-top: 1%;
+  }
+}
+
+/*MEDIA QUERIES DESKTOP ATUALIZAR INFORMAÇÕES*/
+@media screen and (min-width: 800px) {
+  #mainAtt h1 {
+    font-size: 2.2rem;
+  }
+
+  #mainAtt h2 {
+    font-size: 1.2rem;
+  }
+
+  #mainAtt {
+    margin-bottom: 5%;
+  }
+
+  .alinhaSelect label {
+    font-size: 1.2rem;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+}
+
+/*MEDIA QUERIES DESKTOP ATUALIZAR INFORMAÇÕES*/
+@media screen and (min-width: 1020px) {
+  #mainAtt h1 {
+    font-size: 2.5rem;
+  }
+
+  #mainAtt h2 {
+    font-size: 1.3rem;
+  }
+
+  #mainAtt {
+    margin-bottom: 5%;
+  }
+
+  .labelEscolha {
+    margin-top: 3%;
+  }
+
+  .alinhaSelect select {
+    margin-top: 1%;
+  }
+}
+
+/*MEDIA QUERIES DESKTOP ATUALIZAR INFORMAÇÕES*/
+@media screen and (min-width: 1345px) {
+  .alinhaSelect {
+    margin-bottom: 5%;
+  }
+
+  .labelEscolha {
+    margin-top: 2%;
+  }
+}
+
+@media screen and (max-width: 580px){
+  #alinhando select{
+    width: 300px;
+  }
+}
+
+
+@media screen and (max-width: 360px){
+  #alinhando select{
+    width: 60vw;
+  }
+}
+
+
+/* --------- estilo da CADASTRO INFORMAÇÕES ---------------*/
+.headertitulo {
+  border-radius: 10%;
+  width: 100%;
+  background-color: var(--azul-escuro);
+  padding-bottom: 5%;
+}
+
+.central {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+
+.titulocentral {
+  margin-top: 10%;
+  color: var(--amarelo);
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+}
+
+.hrVerde_cadastroInfo {
+  border: none;
+  background-color: var(--verde);
+  width: 15vw;
+  height: 0.5vh;
+  display: flex;
+  align-self: flex-start;
+  margin-bottom: 3%;
+}
+
+.inputCadastroInfo {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--preto);
+}
+
+.select_cadastroInfos_turma,
+.t1 select {
+  background-color: var(--amarelo);
+  border: none;
+  -bottom: 1px solid black;
+  text-align: left;
+  font-size: 120%;
+  margin-top: 2%;
+  width: 300px;
+  border-radius: 20px;
+  padding: 9px;
+  color: #0C1618;
+  outline: 0;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.192);
+}
+
+.labelEscolha {
+  font-family: "Poppins";
+  font-weight: 500;
+  color: var(--preto);
+  width: max-content;
+
+}
+
+.select2_cadastrosInfo {
+  width: fit-content;
+  font-size: 120%;
+  margin-top: 2%;
+  border: none;
+  border-radius: 20px;
+  padding: 9px;
+  color: #0C1618;
+  background-color: #FAF4D3;
+  outline: 0;
+}
+
+.select2_cadastrosInfo option {
+  background-color: #0a395e;
+  border-bottom: 1px solid var(--preto);
+  color: var(--background-color-branco);
+  width: 100%;
+}
+
+.select2_cadastrosInfo:focus {
+  outline: none;
+}
+
+.select_cadastroInfos_turma:hover option {
+  background-color: #ffffff;
+  color: var(--preto);
+}
+
+.btnAdd {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.alinhamento {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 4%;
+  align-items: center;
+}
+
+
+
+#alinharOpCurso {
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+/*Opções a serem selecionadas*/
+#escolha_aluno_cadastroInfo,
+/*#escolha_professor_cadastroInfo,*/
+#escolha_curso_cadastroInfo,
+#escolha_turma_cadastroInfo,
+#escolha_unidade_curricular_cadastroInfo,
+#escolha_periodo_cadastroInfo {
+  display: none;
+}
+
+/* } */
+
+.divCategoria2_naoVisivel {
+  display: none;
+}
+
+.divCategoria2_naoVisivel input {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  outline: none;
+  text-align: center;
+  border-bottom: 1px solid var(--preto);
+}
+
+.t1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.t1 input {
+  font-family: 'Questrial', sans-serif;
+  font-size: 110%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  height: 4vh;
+  width: 260px;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  color: #0C1618;
+  background-color: rgb(255, 255, 255);
+  outline: 0;
+  text-align: left;
+  padding: 9px;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.192);
+}
+
+
+.opcoes {
+  margin-bottom: 5%;
+}
+
+#texto_preenchaDados_cadastroInfo {
+  font-weight: 400;
+  margin: 5%;
+  font-size: x-large;
+  text-align: center;
+  text-decoration: 2px solid var(--bordo) underline;
+}
+
+.attCadastro {
+  color: #0C1618;
+  cursor: pointer;
+}
+
+.alinharInputs {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alinhaRadio {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.opcoesEscolha,
+.opcoes {
+  width: 100%;
+  justify-content: left;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btnCadastro {
+  background-color: #912B64;
+  color: #fff;
+  border: none;
+  width: 200px;
+  height: 3.8vh;
+}
+
+.divBtnCadastro {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  width: 100%;
+}
+
+.attCadastro {
+  margin-top: 5%;
+  color: #0A395E;
+  cursor: pointer;
+}
+
+.main_cadastroInfos {
+  margin-left: 10%;
+}
+
+.opcoesCurso {
+  margin-top: 7%;
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  font-size: 120%;
+}
+
+.main_cadastroInfos h2 {
+  margin-left: 0px;
+}
+
+.btnDel {
+  background-color: transparent;
+  border: none;
+
+}
+
+.t1 #pdf_plano_curso {
+  height: 4vh;
+  width: 50px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#pdfAnexado {
+  display: flex;
+  justify-content: left;
+  flex-direction: row;
+  align-items: center;
+  gap: 2%;
+
+}
+
+.t1 .checkgroup {
+  box-shadow: none;
+}
+
+/* MOBILE DA CADASTRO DE INFORMAÇÕES*/
+@media screen and (max-width: 480px) {
+  .t1 label {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-size: 120%;
+    width: 100%;
+  }
+
+  .btnCadastro {
+    width: 60%;
+  }
+}
+
+@media (min-width: 480px) {
+  .titulocentral {
+    margin-top: 2em;
+  }
+
+  #divCategorias_cadastroinfo {
+    align-items: self-start;
+    justify-content: space-around;
+    gap: .5em;
+    display: flex;
+    margin-top: 2em;
+  }
+
+  .main_cadastroInfos {
+    justify-content: center;
+  }
+
+  .divCategoria2_naoVisivel {
+    max-width: 70%;
+  }
+
+  .t2 {
+    width: 100%;
+  }
+
+  .divCategoria2_naoVisivel {
+    width: 60%;
+  }
+}
+
+/*--------- CURSO TECNICO ----------*/
+.textoCursotec {
+  display: flex;
+  justify-content: center;
+  margin-top: 4em;
+  margin-bottom: 4em;
+
+}
+
+.tituloCursotec {
+  text-align: center;
+  font-family: var(--fontes-de-titulo);
+  color: var(--azul-escuro);
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.imgCursotec {
+  display: none;
+}
+
+
+
+.div-cabecalho {
+  margin-left: -5%;
+}
+
+.footer-professor-adm {
+  width: auto;
+  background-color: #0A395E;
+  font-size: 20px;
+  text-align: left;
+  color: var(--background-color-branco);
+  padding-top: 4%;
+}
+
+.direitosAutorais {
+  font-size: 10px;
+  text-align: center;
+}
+
+
+.textosCursotec {
+
+  display: flex;
+  justify-content: space-around;
+  justify-items: center;
+  margin-top: 4em;
+}
+
+.excluirCursotec {
+  font-family: var(--fontes-de-texto);
+  color: var(--azul-escuro);
+}
+
+
+
+.botaoCursotec {
+  font-size: 18px;
+  font-family: var(--fontes-de-texto);
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgba(145, 43, 100, 1) 1%, rgba(204, 110, 163, 1) 49%, rgba(145, 43, 100, 1) 100%);
+  padding: 0 2em;
+  border-radius: 0.3em;
+  color: #fff;
+  height: 2.6em;
+  text-shadow: 0 2px 0 rgb(0 0 0 / 50%);
+  margin-left: 2%;
+  margin-bottom: 2%;
+}
+
+.botaoCursotec {
+  transform: scale(1.1);
+}
+
+.linkExcluirCursotec {
+  color: var(--azul-escuro);
+}
+
+/* desktop CURSO TECNICO*/
+@media (max-width: 480px) {
+  .textoCursotec {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    margin-bottom: 2em;
+  }
+
+  .botaoCursotec {
+    font-size: 13px;
+    font-family: var(--fontes-de-texto);
+
+    background: linear-gradient(90deg, rgba(145, 43, 100, 1) 1%, rgba(204, 110, 163, 1) 49%, rgba(145, 43, 100, 1) 100%);
+    padding: 0 2em;
+    border-radius: 0.3em;
+    color: #fff;
+    height: 2.6em;
+    text-shadow: none;
+  }
+
+  .botaoCursotec {
+    transform: scale(1.1);
+  }
+}
+
+/* GERENCIAMENTO DE ALUNOS*/
+.hidden {
+  display: none;
+}
+
+.div-titulo-GDA {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 4%;
+}
+
+.titulo-GDA {
+  font-family: var(--fontes-de-titulo);
+  font-size: 29px;
+  font-weight: 700;
+}
+
+.linha-GDA {
+  border: 2px solid var(--bordo);
+  width: 22em;
+}
+
+.user-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+.label-turma {
+  font-family: var(--fontes-de-texto);
+  font-size: 27px;
+}
+
+.select-turma {
+  background-color: var(--background-color-branco);
+  border: none;
+  width: 20em;
+  text-align: center;
+  font-family: var(--fontes-de-texto);
+  font-size: 23px;
+
+}
+
+.div-azul {
+  font-family: var(--fontes-de-titulo);
+  background-color: var(--azul-escuro);
+  color: var(--background-color-branco);
+  font-size: 20px;
+  width: 200px;
+  padding: 1%;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.div-amarela {
+  width: 900px;
+  display: flex;
+  background-color: var(--amarelo);
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+  justify-content: center;
+  height: 25em;
+}
+
+.select-alunos-boletim {
+  font-family: var(--fontes-de-texto);
+  font-size: 23px;
+  border: none;
+  background-color: var(--amarelo);
+  width: 17em;
+  margin-top: 2%;
+  font-weight: 600;
+  padding-left: 1%;
+}
+
+.mostrarTexto {
+  font-size: 22px;
+  font-family: var(--fontes-de-titulo);
+  margin-left: 3%;
+}
+
+
+.linha-nomes-GDA {
+  padding-top: 3%;
+  border: none;
+}
+
+
+.div-amarela {
+  width: 70%;
+  display: flex;
+  background-color: var(--amarelo);
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .div-titulo-GDA {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 4%;
+  }
+
+  .titulo-GDA {
+    font-family: var(--fontes-de-titulo);
+    font-size: 21px;
+    font-weight: 700;
+  }
+
+  .linha-GDA {
+    border: 2px solid var(--verde);
+    width: 4em;
+    display: flex;
+    margin-right: 12em;
+  }
+
+  .user-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+  }
+
+  .label-turma {
+    font-family: var(--fontes-de-texto);
+    font-size: 18px;
+    margin-top: 2%;
+  }
+
+  .select-turma {
+    background-color: var(--background-color-branco);
+    border: none;
+    width: 20em;
+    text-align: center;
+    font-family: var(--fontes-de-texto);
+    font-size: 16px;
+    margin-top: 2%;
+  }
+
+  .div-azul {
+    font-family: var(--fontes-de-titulo);
+    background-color: var(--azul-escuro);
+    color: var(--background-color-branco);
+    font-size: 20px;
+    width: 200px;
+    padding: 3%;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+  }
+
+  .div-amarela {
+    width: 100%;
+    display: flex;
+    background-color: var(--amarelo);
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .select-alunos-boletim {
+    font-family: var(--fontes-de-texto);
+    font-size: 20px;
+    border: none;
+    background-color: var(--amarelo);
+    width: 17em;
+    font-weight: 600;
+    padding-left: 1%;
+  }
+
+  .link-GDA {
+    color: #70A288;
+    padding: 3%;
+    font-family: var(--fontes-de-texto);
+    font-size: 18px;
+  }
+
+  #nomes-GDA {
+    font-family: var(--fontes-de-texto);
+    font-size: 18px;
+    padding-top: 5%;
+    padding-left: 1%;
+  }
+
+  .links-GDA {
+    display: flex;
+    justify-content: center;
+    margin-top: -20%;
+  }
+
+  .linha-nomes-GDA {
+    padding-top: 3%;
+    border: none;
+  }
+}
+
+/* INFORMAÇÕES SENAI*/
+.separacaoAmarela {
+  width: 100%;
+  height: 25px;
+  background-color: #FAF4D3;
+}
+
+.dadosSenai {
+  width: 50%;
+  margin-left: 3%;
+  margin-top: 7%;
+  font-size: 20px;
+  font-family: var(--fontes-de-texto);
+  color: #0C1618;
+}
+
+.dadosSenai,
+.links-endereco {
+  color: #0C1618;
+}
+
+#separacaoRoxa-quemSomos {
+  border: 2px solid #912B64;
+}
+
+.footer-quemSomos {
+  background-color: #70A288;
+  display: flex;
+  margin-top: 18%;
+}
+
+#img-footer-QS {
+  width: 300px;
+  height: 300px;
+  padding: 2%;
+}
+
+.links-endereco-faleConosco {
+  color: #0C1618;
+  font-size: 20px;
+  margin-top: 4%;
+  margin-left: 3%;
+  font-family: var(--fontes-de-texto);
+  font-weight: bold;
+}
+
+.quemSomos {
+  display: flex;
+}
+
+.mapaSenai {
+  width: 450px;
+  height: 400px;
+  margin-left: 3%;
+  margin-top: 3%;
+}
+
+.direitosAutorais-quemSomos {
+  font-family: var(--fontes-de-titulo);
+  font-size: 13px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 15%;
+}
+
+/*------------- DESKTOP INFORMAÇÕES SENAI -----------------*/
+@media screen and (max-width: 900px) {
+  #modo-desktop {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #nav-menu-hamburguer {
+    display: none;
+  }
+
+  .div-cabecalho {
+    margin-left: -5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .dadosSenai {
+    width: 90%;
+    margin-left: 4%;
+    margin-top: 7%;
+    font-size: 18px;
+    font-family: var(--fontes-de-texto);
+    color: #0C1618;
+  }
+
+  .quemSomos {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-quemSomos {
+    display: flex;
+    flex-direction: column;
+    margin-top: 18%;
+  }
+
+  #img-footer-QS {
+    width: 200px;
+    height: 200px;
+    padding: 2%;
+    margin: 0 auto;
+  }
+
+  .links-endereco-faleConosco {
+    color: #0C1618;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 4%;
+    margin-left: 3%;
+    font-family: var(--fontes-de-texto);
+    font-weight: bold;
+  }
+
+  .mapaSenai {
+    width: 320px;
+    height: 240px;
+    margin-left: 3%;
+    margin-top: 3%;
+  }
+
+  .direitosAutorais-quemSomos {
+    font-family: var(--fontes-de-titulo);
+    font-size: 10px;
+    padding: 5%;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 5%;
+  }
+}
+
+/*----------- MEU BOLETIM -------------*/
+.topo-boletim {
+  margin: 0 auto;
+  margin-top: 2%;
+  display: flex;
+}
+
+#tituloBoletim {
+  font-size: 24px;
+  font-family: var(--fontes-de-titulo);
+  font-weight: bold;
+  color: #0A395E;
+  text-align: center;
+  display: flex;
+}
+
+#foto-do-aluno {
+  background-color: #0C1618;
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+  margin-left: 3%;
+}
+
+.turma-do-aluno {
+  display: flex;
+  flex-direction: row;
+}
+
+#info-aluno-boletim {
+  width: 80%;
+  margin-top: 1%;
+  margin-left: 4%;
+  font-size: 25px;
+}
+
+.alinhaDados {
+  display: flex;
+  flex-direction: row;
+  font-family: var(--fontes-de-titulo);
+  font-size: 20px;
+}
+
+#turma-do-aluno-valor,
+#unidade-curricular-valor {
+  margin-left: 2%;
+}
+
+#linhaVerde-separacao {
+  border: 2px solid #29a866;
+}
+
+.boletim-titulo {
+  margin-left: 3%;
+  font-family: var(--fontes-de-titulo);
+}
+
+#boletim-geral {
+  width: 90%;
+  margin-left: 3%;
+}
+
+#linha-separacao-roxa {
+  border: 2px solid #691c88;
+}
+
+#legendaCriterios {
+  font-family: var(--fontes-de-texto);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 20px;
+}
+
+#excelente,
+#regular,
+#ruim {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5%;
+}
+
+#azul,
+#comportamento-color,
+#relacionamento-color {
+  background-color: #0A395E;
+  margin-left: 2%;
+  width: 20px;
+  height: 20px;
+}
+
+#verde,
+#pontualidade-color {
+  background-color: #70A288;
+  margin-left: 2%;
+  width: 20px;
+  height: 20px;
+}
+
+#bordo {
+  background-color: #912B64;
+  margin-left: 2%;
+  width: 20px;
+  height: 20px;
+}
+
+#consideracoes {
+  margin: 5%;
+  font-family: var(--fontes-de-texto);
+  border: 1px solid #000000;
+  padding: 2%;
+}
+
+#relacionamento,
+#comportamento,
+#pontualidade {
+  display: flex;
+  flex-direction: row;
+}
+
+#nota-final {
+  display: flex;
+  flex-direction: row;
+  font-family: var(--fontes-de-texto);
+}
+
+.nome-da-materia {
+  font-family: var(--fontes-de-titulo);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/*mobile*/
+@media (max-width: 480px) {
+  #foto-do-aluno {
+    background-color: #0C1618;
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    margin-left: 3%;
+    margin-top: 1%;
+  }
+
+  .topo-boletim {
+    margin: 0 auto;
+    margin-top: 8%;
+    display: flex;
+  }
+
+  .turma-do-aluno {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #info-aluno-boletim {
+    width: 80%;
+    margin-left: 4%;
+    font-size: 15px;
+  }
+
+  .alinhaDados {
+    display: flex;
+    flex-direction: row;
+    font-family: var(--fontes-de-titulo);
+    font-size: 15px;
+  }
+
+  #turma-do-aluno-valor,
+  #unidade-curricular-valor {
+    margin-left: 2%;
+  }
+
+  #tituloBoletim {
+    font-size: 18px;
+    font-family: var(--fontes-de-titulo);
+    font-weight: bold;
+    color: #0A395E;
+    text-align: center;
+    display: flex;
+  }
+
+  #linhaVerde-separacao {
+    border: 2px solid #29a866;
+  }
+
+  .boletim-titulo {
+    margin-left: 4%;
+    font-family: var(--fontes-de-titulo);
+  }
+
+  #tabela-CD,
+  #boletim-geral {
+    margin-right: 3%;
+  }
+
+  #linha-separacao-roxa {
+    border: 2px solid #691c88;
+  }
+
+  #legendaCriterios {
+    font-family: var(--fontes-de-texto);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  #excelente,
+  #regular,
+  #ruim {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+  }
+
+  #azul,
+  #comportamento-color,
+  #relacionamento-color {
+    background-color: #0A395E;
+    margin-left: 2%;
+    width: 20px;
+    height: 20px;
+  }
+
+  #verde,
+  #pontualidade-color {
+    background-color: #70A288;
+    margin-left: 2%;
+    width: 20px;
+    height: 20px;
+  }
+
+  #bordo {
+    background-color: #912B64;
+    margin-left: 2%;
+    width: 20px;
+    height: 20px;
+  }
+
+  #consideracoes {
+    margin: 5%;
+    font-family: var(--fontes-de-texto);
+    border: 1px solid #000000;
+    padding: 2%;
+  }
+
+  #relacionamento,
+  #comportamento,
+  #pontualidade {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #nota-final {
+    display: flex;
+    flex-direction: row;
+    font-family: var(--fontes-de-texto);
+  }
+
+  .nome-da-materia {
+    font-family: var(--fontes-de-titulo);
+    font-weight: bold;
+  }
+
+}
+
+/*------------- NOTAS PROFESSOR --------------*/
+.texto-notas-professor {
+  font-size: 32px;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 5%;
+  font-family: var(--fontes-de-texto);
+  color: var(--azul-escuro);
+}
+
+.label-notas-professor {
+  font-size: 25px;
+  font-family: var(--fontes-de-titulo);
+
+}
+
+#turma {
+  border: none;
+  background-color: rgb(255, 255, 255);
+  width: 20%;
+  border-radius: 30px;
+  height: 30px;
+  text-align: center;
+
+}
+
+.linha-n-p {
+  display: none;
+}
+
+.label-notas-professor-2 {
+  font-size: 25px;
+  font-family: var(--fontes-de-titulo);
+}
+
+#unidade {
+  border: none;
+  background-color: rgb(255, 255, 255);
+  width: 20%;
+  border-radius: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.centraliza-NP {
+
+  display: flex;
+  justify-content: space-evenly;
+
+  margin-top: 4%;
+}
+
+.alunos-notas-professor {
+  border: 2px solid #0A395E;
+  color: #F5F5F5;
+  border-radius: 30px;
+  background-color: var(--azul-escuro);
+  width: 250px;
+  text-align: center;
+  font-family: var(--fontes-de-titulo);
+  font-weight: 700;
+  font-size: 20px;
+  padding: 1%;
+}
+
+.conteudo-nota-professor {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+}
+
+.notas-professor {
+  height: 100%;
+  border-radius: 16px;
+  width: 100%;
+  background-color: var(--amarelo);
+}
+
+.mostrarTexto {
+  font-size: 20px;
+  font-family: var(--fontes-de-texto);
+  padding: 1%;
+}
+
+.linha-nomes-GDA {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .centraliza-NP {
+    margin-left: 28%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+
+  .label-notas-professor-2 {
+    font-size: 25px;
+    font-family: var(--fontes-de-titulo);
+    padding-top: 5%;
+  }
+
+}
+
+/* PLANEJAMENTO DE AULAS */
+.linha-verde-PlanejamentoDeAula {
+  height: 15px;
+  background-color: var(--verde);
+}
+
+
+.titulo-PlanejamentoDeAula {
+
+  background-color: #912B64;
+  padding: 5%;
+  font-weight: 700;
+  height: 3px;
+}
+
+#titulo-PlanejamentoDeAula2 {
+  text-align: center;
+  font-family: var(--fontes-de-titulo);
+  color: var(--background-color-branco);
+  font-size: 25px;
+  margin-top: -4%;
+}
+
+.img-PlanejamentoDeAula {
+  width: 5%;
+  margin-top: -2%;
+}
+
+
+.livroPDA {
+  width: 80px;
+  margin-left: -7%;
+  padding-right: 4%;
+
+}
+
+.meio-PDA {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.disciplina-PDA {
+  font-family: var(--fontes-de-titulo);
+  font-size: 27px;
+  text-align: center;
+}
+
+.botao-PDA {
+  margin-top: 13%;
+  margin-left: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 15px;
+  background: #93B4DB;
+  outline: 3px --bordo;
+  outline-offset: -3px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+  width: 230px;
+  padding: 5%;
+}
+
+.botao-PDA .text-PDA {
+  color: var(--preto);
+  font-size: 17px;
+  transition: 400ms;
+  font-family: var(--fontes-de-texto);
+}
+
+@media screen and (max-width: 900px) {
+  #modo-desktop {
+    display: none;
+  }
+
+  .linha-verde-PlanejamentoDeAula {
+
+    height: 15px;
+    background-color: var(--verde);
+
+
+
+  }
+
+  .botao-PDA {
+    margin-top: 13%;
+    margin-left: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 15px;
+    background: #93B4DB;
+    outline: 3px --bordo;
+    outline-offset: -3px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+    width: 230px;
+    padding: 5%;
+  }
+
+  .botao-PDA .text-PDA {
+    color: var(--preto);
+    font-size: 1.2em;
+    transition: 400ms;
+    font-family: var(--fontes-de-texto);
+
+
+  }
+}
+
+
+@media screen and (min-width: 900px) {
+  #nav-menu-hamburguer {
+    display: none;
+  }
+
+  .div-cabecalho {
+    margin-left: -5%;
+  }
+
+  #teste543 {
+    margin-top: 3em;
+    display: flex;
+    gap: 5vw;
+    justify-content: center;
+  }
+
+  .botao-PDA {
+    margin: 0;
+    padding: 1.5em;
+  }
+}
+
+
+@media (min-width: 420px) and (max-width: 900px) {
+  #teste543 {
+    margin-top: 3em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5vw;
+    justify-content: center;
+  }
+
+  .botao-PDA {
+    padding: 1.5em;
+    margin: 0;
+  }
+
+  .titulo-PlanejamentoDeAula {
+    background-color: #912B64;
+    font-weight: 700;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+  #titulo-PlanejamentoDeAula2 {
+    text-align: center;
+    font-family: var(--fontes-de-titulo);
+    color: var(--background-color-branco);
+    font-size: 22px;
+    margin-top: .8%;
+  }
+
+  .img-PlanejamentoDeAula {
+    width: 30%;
+  }
+
+}
+
+@media (max-width: 420px) {
+  .titulo-PlanejamentoDeAula {
+    background-color: #912B64;
+    font-weight: 700;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+  #titulo-PlanejamentoDeAula2 {
+    text-align: center;
+    font-family: var(--fontes-de-titulo);
+    color: var(--background-color-branco);
+    font-size: 1em;
+    margin-top: .8%;
+  }
+
+  .img-PlanejamentoDeAula {
+    width: 30%;
+  }
+}
+
+/*-------- PLANEJAMENTO REGISTRO DE AULAS -------*/
+.img-PRA {
+  width: 28em;
+
+}
+
+.div-img-PRA {
+  display: flex;
+  justify-content: right;
+
+}
+
+.body-PRA {
+  background-color: var(--background-color-branco);
+}
+
+
+
+.titulo-planejamentoRegistroDeAlunos {
+  font-family: var(--fontes-de-titulo);
+  font-weight: 1000;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 8%;
+}
+
+
+
+.botao-PRA {
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 3em;
+  background: var(--bordo);
+  box-shadow: 4px 5px 2px 1px rgb(85, 0, 59);
+  outline: 3px --bordo;
+  outline-offset: -3px;
+
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+  width: 240px;
+  padding: 2%;
+}
+
+.botao-PRA .text-PRA {
+  color: var(--background-color-branco);
+  font-size: 17px;
+  transition: 400ms;
+  font-family: var(--fontes-de-texto);
+
+
+}
+
+
+.meio-PRA {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5em;
+}
+
+
+.titulo-planejamentoRegistroDeAlunos {
+  font-family: var(--fontes-de-titulo);
+  font-weight: 600;
+  font-size: 29px;
+  text-align: center;
+  margin-top: 4%;
+}
+
+.titulo-planejamentoRegistroDeAlunos2 {
+  font-family: var(--fontes-de-titulo);
+  font-weight: 100;
+  font-size: 29px;
+  text-align: center;
+  margin-top: 4%;
+}
+
+.hr-PRA {
+  width: 30em;
+  border: 2px solid var(--verde);
+
+}
+
+#teste78 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+
+.footer-professor-adm {
+  width: auto;
+  background-color: #0A395E;
+  font-size: 20px;
+  text-align: left;
+  color: var(--background-color-branco);
+  padding-top: 4%;
+}
+
+.direitosAutorais {
+  font-size: 10px;
+  text-align: center;
+}
+
+
+
+
+@media screen and (max-width: 900px) {
+  #modo-desktop {
+    display: none;
+  }
+
+
+  #teste78 {
+    display: none;
+  }
+
+
+  .meio-PRA {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .titulo-planejamentoRegistroDeAlunos2 {
+    display: none;
+  }
+
+  /* PÁGINA NOTAS PROFESSOR */
+
+  .texto-notas-professor {
+    font-family: var(--fontes-de-titulo);
+    font-size: 25px;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 7%;
+
+  }
+
+  .unidade-notas-professor {
+    font-family: var(--fontes-de-titulo);
+    font-size: 25px;
+    font-weight: 900;
+
+    margin-top: 7%;
+
+  }
+
+  .linha-nota-professor {
+    width: 70px;
+    margin-top: -4%;
+    margin-left: 15%;
+    margin-bottom: 10%;
+  }
+
+  .label-notas-professor {
+    font-family: var(--fontes-de-texto);
+    font-size: 27px;
+    margin-left: -18%;
+  }
+
+  .label-notas-professor-2 {
+    font-family: var(--fontes-de-texto);
+    font-size: 20px;
+  }
+
+  #turma {
+    text-decoration: none;
+    border: none;
+    margin-left: 20%;
+    background-color: var(--background-color-branco);
+
+  }
+
+  #unidade {
+    text-decoration: none;
+    border: none;
+    margin-left: 17%;
+    background-color: var(--background-color-branco);
+  }
+  .linha-n-p {
+    width: 170px;
+    margin-left: 43%;
+    border-bottom: 2px solid #912B64;
+    color: var(--bordo);
+  }
+
+  .tudo-nota-professor {
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .sai {
+    margin-left: -11%;
+  }
+
+  .alunos-notas-professor {
+    border: 2px solid #0A395E;
+    color: #F5F5F5;
+    border-radius: 7px;
+    background-color: var(--azul-escuro);
+    width: 150px;
+    text-align: center;
+    font-family: var(--fontes-de-titulo);
+    font-weight: 700;
+    font-size: 20px;
+    padding: 2%;
+  }
+
+  .conteudo-nota-professor {
+    display: flex;
+    justify-content: center;
+  }
+
+  #meuSelect {
+    background-color: #ffffffa6;
+    /* Cor de fundo do select */
+    color: #333;
+    /* Cor do texto do select */
+    border: 1px solid #ccc;
+    /* Borda do select */
+    border-radius: 5px;
+    /* Cantos arredondados */
+    padding: 5px;
+    /* Espaçamento interno */
+    text-decoration: none;
+  }
+
+  #meuSelect option {
+    background-color: #d40000;
+    /* Cor de fundo das opções */
+    color: #ff0000;
+    /* Cor do texto das opções */
+  }
+
+
+  #nota-aluno {
+    text-decoration: none;
+    border: none;
+    margin-left: 10%;
+
+    font-family: var(--fontes-de-texto);
+    margin-top: 10%;
+    font-size: 17px;
+    background-color: var(--amarelo);
+
+
+  }
+
+  .criterio-nota-professor {
+
+    font-family: var(--fontes-de-titulo);
+    font-size: 15px;
+    margin-left: 11%;
+    margin-top: 3%;
+
+  }
+
+  .nota-nota-professor {
+    font-family: var(--fontes-de-texto);
+    font-weight: 800;
+    font-size: 23px;
+    margin-left: 10%;
+  }
+
+
+  .nomes-alunos {
+    font-family: var(--fontes-de-texto);
+    font-size: 18px;
+    text-align: justify;
+    margin-left: 10%;
+    padding: 4%;
+  }
+
+  .linhas-nota-professor1 {
+    margin-top: 5%;
+    width: 85%;
+    margin-left: 7%;
+
+  }
+
+  .linhas-nota-professor {
+    color: var(--preto);
+    width: 85%;
+    margin-left: 7%;
+
+  }
+
+  .notas-professor {
+    height: 340px;
+    border-radius: 16px;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: -10%;
+    padding-top: 7%;
+    background-color: var(--amarelo);
+  }
+  .body-nota-professor {
+    background-color: var(--background-color-branco);
+  }
+  /* PÁGINA GERENCIAMENTO DE ALUNOS */
+
+  .texto-GerenciamentoDeAlunos {
+    font-family: var(--fontes-de-titulo);
+    font-size: 23px;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 7%;
+
+  }
+
+  .linhaVerde-GerenciantoDeAlunos {
+    width: 45px;
+    margin-left: 16%;
+    border: 1px solid var(--verde);
+    margin-bottom: 7%;
+  }
+
+  .label-GerenciamentoDeAlunos {
+    font-family: var(--fontes-de-texto);
+    font-size: 20px;
+    margin-left: 15%;
+  }
+  #turma2 {
+    text-decoration: none;
+    border: none;
+    margin-left: 25%;
+    background-color: var(--background-color-branco);
+  }
+  .boletim-GerenciamentoDeAlunos {
+    color: var(--verde);
+    text-decoration: underline;
+    font-family: var(--fontes-de-texto);
+    font-weight: 700;
+    margin-left: 10%;
+  }
+  .info-GerenciamentoDeAlunos {
+    color: var(--verde);
+    text-decoration: underline;
+    font-family: var(--fontes-de-texto);
+    font-weight: 700;
+    margin-left: 10%;
+  }
+  /* PÁGINA PLANEJAMENTO E REGISTRO DE ALUNOS */
+  .titulo-planejamentoRegistroDeAlunos {
+    font-family: var(--fontes-de-titulo);
+    font-weight: 1000;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 8%;
+  }
+
+  .botao-PRA {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 4px 2px 1px rgb(85, 0, 59);
+    background: rgb(145, 43, 100);
+    outline: 3px --bordo;
+    outline-offset: -3px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+    width: 175px;
+    padding: 5%;
+  }
+
+  .botao-PRA .text-PRA {
+    color: var(--background-color-branco);
+    font-size: 17px;
+    transition: 400ms;
+    font-family: var(--fontes-de-texto);
+
+
+  }
+
+  .div-img-PRA {
+    display: flex;
+
+    justify-content: center;
+    margin-right: 10%;
+
+  }
+
+  .img-PRA {
+    width: 260px;
+    margin-left: 15%;
+  }
+
+  .body-PRA {
+    background-color: var(--background-color-branco);
+  }
+
+  .meio-PRA {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+
+  .meio-PRA {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .titulo-planejamentoRegistroDeAlunos2 {
+    display: none;
+  }
+
+  /* PÁGINA NOTAS PROFESSOR */
+  .texto-notas-professor {
+    font-family: var(--fontes-de-titulo);
+    font-size: 25px;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 7%;
+  }
+  .unidade-notas-professor {
+    font-family: var(--fontes-de-titulo);
+    font-size: 25px;
+    font-weight: 900;
+    margin-top: 7%;
+  }
+
+  .linha-nota-professor {
+    width: 70px;
+    margin-top: -4%;
+    margin-left: 15%;
+    margin-bottom: 10%;
+  }
+  .label-notas-professor {
+    font-family: var(--fontes-de-texto);
+    font-size: 27px;
+    margin-left: -18%;
+  }
+  .label-notas-professor-2 {
+    font-family: var(--fontes-de-texto);
+    font-size: 20px;
+  }
+  #turma {
+    text-decoration: none;
+    border: none;
+    margin-left: 20%;
+    background-color: var(--background-color-branco);
+  }
+  #unidade {
+    text-decoration: none;
+    border: none;
+    margin-left: 17%;
+    background-color: var(--background-color-branco);
+  }
+
+  .linha-n-p {
+    width: 170px;
+    margin-left: 43%;
+    border-bottom: 2px solid #912B64;
+    color: var(--bordo);
+  }
+  .tudo-nota-professor {
+    display: flex;
+    justify-content: center;
+  }
+  .sai {
+    margin-left: -11%;
+  }
+  .alunos-notas-professor {
+    border: 2px solid #0A395E;
+    color: #F5F5F5;
+    border-radius: 7px;
+    background-color: var(--azul-escuro);
+    width: 150px;
+    text-align: center;
+    font-family: var(--fontes-de-titulo);
+    font-weight: 700;
+    font-size: 20px;
+    padding: 2%;
+  }
+
+  .conteudo-nota-professor {
+    display: flex;
+    justify-content: center;
+  }
+
+  #meuSelect {
+    background-color: #ffffffa6;
+    /* Cor de fundo do select */
+    color: #333;
+    /* Cor do texto do select */
+    border: 1px solid #ccc;
+    /* Borda do select */
+    border-radius: 5px;
+    /* Cantos arredondados */
+    padding: 5px;
+    /* Espaçamento interno */
+    text-decoration: none;
+  }
+
+  #meuSelect option {
+    background-color: #d40000;
+    /* Cor de fundo das opções */
+    color: #ff0000;
+    /* Cor do texto das opções */
+  }
+  #nota-aluno {
+    text-decoration: none;
+    border: none;
+    margin-left: 10%;
+
+    font-family: var(--fontes-de-texto);
+    margin-top: 10%;
+    font-size: 17px;
+    background-color: var(--amarelo);
+  }
+  .criterio-nota-professor {
+    font-family: var(--fontes-de-titulo);
+    font-size: 15px;
+    margin-left: 11%;
+    margin-top: 3%;
+  }
+  .nota-nota-professor {
+    font-family: var(--fontes-de-texto);
+    font-weight: 800;
+    font-size: 23px;
+    margin-left: 10%;
+  }
+  .nomes-alunos {
+    font-family: var(--fontes-de-texto);
+    font-size: 18px;
+    text-align: justify;
+    margin-left: 10%;
+    padding: 4%;
+  }
+  .linhas-nota-professor1 {
+    margin-top: 5%;
+    width: 85%;
+    margin-left: 7%;
+  }
+  .linhas-nota-professor {
+    color: var(--preto);
+    width: 85%;
+    margin-left: 7%;
+  }
+  .notas-professor {
+    height: 340px;
+    border-radius: 16px;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: -10%;
+    padding-top: 7%;
+    background-color: var(--amarelo);
+  }
+  .body-nota-professor {
+    background-color: var(--background-color-branco);
+  }
+
+  /* PÁGINA GERENCIAMENTO DE ALUNOS */
+  .texto-GerenciamentoDeAlunos {
+    font-family: var(--fontes-de-titulo);
+    font-size: 23px;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 7%;
+  }
+  .linhaVerde-GerenciantoDeAlunos {
+    width: 45px;
+    margin-left: 16%;
+    border: 1px solid var(--verde);
+    margin-bottom: 7%;
+  }
+  .label-GerenciamentoDeAlunos {
+    font-family: var(--fontes-de-texto);
+    font-size: 20px;
+    margin-left: 15%;
+  }
+  #turma2 {
+    text-decoration: none;
+    border: none;
+    margin-left: 25%;
+    background-color: var(--background-color-branco);
+  }
+  .boletim-GerenciamentoDeAlunos {
+    color: var(--verde);
+    text-decoration: underline;
+    font-family: var(--fontes-de-texto);
+    font-weight: 700;
+    margin-left: 10%;
+  }
+  .info-GerenciamentoDeAlunos {
+    color: var(--verde);
+    text-decoration: underline;
+    font-family: var(--fontes-de-texto);
+    font-weight: 700;
+    margin-left: 10%;
+  }
+
+  /* PÁGINA PLANEJAMENTO E REGISTRO DE ALUNOS */
+  .titulo-planejamentoRegistroDeAlunos {
+    font-family: var(--fontes-de-titulo);
+    font-weight: 1000;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 8%;
+  }
+  .botao-PRA {
+    margin-top: 13%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 3px 2px 1px rgb(85, 0, 59);
+    background: rgb(145, 43, 100);
+    outline: 3px --bordo;
+    outline-offset: -3px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+    width: 175px;
+    padding: 5%;
+  }
+  .botao-PRA .text-PRA {
+    color: var(--background-color-branco);
+    font-size: 17px;
+    transition: 400ms;
+    font-family: var(--fontes-de-texto);
+  }
+  .div-img-PRA {
+    display: flex;
+    justify-content: center;
+    margin-right: 10%;
+  }
+  .img-PRA {
+    width: 260px;
+
+  }
+  .body-PRA {
+    background-color: var(--background-color-branco);
+  }
+  .meio-PRA {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+  }
+}
+
+/* -----------  VISUALIZAÇÃO DE BOLETIM --------------- */
+.pink-div {
+  background-color: pink;
+  width: 200px;
+  height: 200px;
+  display: none;
+}
+.textoVDB{
+  display: flex;
+  justify-content: center;
+  margin-top: 5em;
+}
+.textVDB{
+  text-align: center;
+  font-family: var(--fontes-de-texto);
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--azul-escuro);
+}
+.textoVDB2{
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+.textVDB2{
+  text-align: center;
+  font-family: var(--fontes-de-texto);
+  font-size: 20px;
+  color: var(--preto);
+}
+.caixaSelectVDB{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#turma{
+  text-align: center;
+  font-size: 20px;
+  font-family: var(--fontes-de-texto);
+  background-color: var(--amarelo);
+  width: 30%;
+}
+#opcoes{
+  margin-top: 7em;
+}
+#tabelaTeste{
+  border: 1px solid #000;
+}
+
+/* ------ REGISTRO DE AULAS ----------*/
+.linha-verde-registro{
+  height: 15px;
+  background-color: var(--verde);
+  width: 100%;
+}
+.img-PlanejamentoDeAula {
+width: 80px;
+}
+.linha-bordo-registro{
+  background-color: #912B64;
+  padding-top: 2%;
+  padding-bottom: 5%;
+  font-weight: 600;
+  height: 3px;
+}
+
+#titulo-registroDeAula{
+  text-align: center;
+  font-family: var(--fontes-de-titulo);
+  color: var(--background-color-branco);
+  font-size: 25px;
+  margin-top: -4%;
+}   
+
+.button-addRegistro{
+  position: relative;
+  overflow: hidden;
+  height: 3rem;
+  padding: 0 2rem;
+  border-radius: 1.5rem;
+  background: #912B64;
+  background-size: 400%;
+  color: #fff;
+  border: none;
+}
+.container {
+  display: flex; 
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.addNote-content {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 200px;
+  height: 150px;
+  cursor: pointer;
+}
+
+.content {
+  display: contents;
+  margin: 3%;
+}
+
+textarea {
+  font-family: var(--fontes-de-texto);
+  padding: 5%;
+  outline: none;
+  resize: none;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  width: 400px;
+  height: 350px;
+}
+
+textarea::-webkit-scrollbar {
+  width: 4px;
+}
+textarea::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #4B4453; 
+}
+
+
+.item {
+  margin: 0 auto;
+  position:relative;
+  background-color: #FAF4D3;
+  box-shadow: 15px 15px 10px gray;
+  width: 500px;
+  height: 450px;
+  margin-top: 2%;
+}
+
+.remove {
+  position: absolute;
+  right: 6px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+ /*mobile REGISTRO DE AULAS*/  
+ @media (max-width: 480px){
+  .img-PlanejamentoDeAula {
+      width: 20px;
+      margin-left: 3%;
+    }
+      .linha-bordo-registro{
+        background-color: #912B64;
+        padding-top: 3%;
+        padding-bottom: 8%;
+        font-size: 10px;
+        height: 10px;
+      }
+  
+      #titulo-registroDeAula{
+        text-align: center;
+        font-family: var(--fontes-de-titulo);
+        color: var(--background-color-branco);
+      }   
+      .button-addRegistro{
+          position: relative;
+          overflow: hidden;
+          height: 3rem;
+          padding: 0 2rem;
+          border-radius: 1.5rem;
+          background: #912B64;
+          background-size: 400%;
+          color: #fff;
+          border: none;
+        }
+        .container {
+          display: flex; 
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        
+        .addNote-content {
+          display: flex; 
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto;
+          width: 200px;
+          height: 150px;
+          cursor: pointer;
+        }
+        
+        .content {
+          display: contents;
+          margin: 3%;
+        }
+        
+        textarea {
+          font-family: var(--fontes-de-texto);
+          padding: 5%;
+          outline: none;
+          resize: none;
+          border: none;
+          background: transparent;
+          font-size: 15px;
+          width: 200px;
+          height: 200px;
+        }
+        
+        textarea::-webkit-scrollbar {
+          width: 4px;
+        }
+        textarea::-webkit-scrollbar-thumb {
+          border-radius: 10px;
+          background-color: #4B4453; 
+        }
+        
+        .item {
+          margin: 0 auto;
+          position:relative;
+          background-color: #FAF4D3;
+          box-shadow: 12px 12px 8px gray;
+          width: 250px;
+          height: 250px;
+          margin-top: 3%;
+        }
+        
+        .remove {
+          position: absolute;
+          right: 6px;
+          cursor: pointer;
+          color: rgb(0, 0, 0);
+        }
+
+}
+
+/* disciplina e professor */
+ .linhaAmarela{
+    background-color: #FAF4D3;
+    height: 20px;
+  }
+  #nomeSenai{
+    margin: 2%;
+  }
+  .label-nomecurso{
+    font-weight: bold;
+    margin-left: 2%;
+    font-size: 20px;
+  }
+  .turmaEhorario{
+    display: flex;
+    flex-direction: row;
+    margin: 2%;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  #horarioDeAula{
+    margin-left: 2%;
+    color: #912B64;
+  }
+  #disciplina-professor-table{
+    margin-left: 2%;
+    width: 90%;
+    margin-bottom: 5%;
+  }
