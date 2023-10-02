@@ -119,9 +119,9 @@
  
      <?php
      while ($linha = mysqli_fetch_assoc($view_boletim)) {
-        $id_unid_curricular = $linha['nome_uc'];
-        $nota_boletim = $linha['nota_boletim'];
-        $frequencia_boletim = $linha['frequencia_boletim'];
+        $id_unid_curricular = $linha['nome_materia'];
+        $nota_boletim = $linha['nota'];
+        $frequencia_boletim = $linha['falta'];
 
   
         
@@ -381,7 +381,7 @@
                     <p class="tituloRodape">Contatos</p><hr>
                     <p class="textoRodape">
                        <a href="mailto:beatriz.britofer@gmail.com">Enviar email para Beatriz Brito</a><br>
-                      <a href="mailto:evelynvic23toria10@gmail.com">Enviar email para Evelyn Victória</a><br>
+                      <a href="mailto:evelynvic23toria10@gmail.com">Enviar email para Evelyn Victoria</a><br>
                       <a href="mailto:jp6001707@gmail.com">Enviar email para Juliana Lima</a><br>
                       <a href="mailto:trinitynascimento@gmail.com">Enviar email para Trinity Domingues</a><br>
                         <br>
@@ -393,7 +393,7 @@
             <div class="row">
                 <div class="col-12">
                     <p class="direitosAutorais">
-                        Copyright 2023 - Beatriz Brito, Evelyn Victória Santos, Juliana Lima e Trinity Nascimento<br>
+                        Copyright 2023 - Beatriz Brito, Evelyn Victoria Santos, Juliana Lima e Trinity Nascimento<br>
                         Esse site foi produzido pelas alunas citadas acima no curso de Desenvolvimento de Sistemas do Senai "Nami Jafet" para uso escolar e administrativo
                     </p>
                    

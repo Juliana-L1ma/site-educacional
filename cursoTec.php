@@ -98,7 +98,7 @@
         $lista_prof_turma = mysqli_query($cx, "SELECT * FROM lista_prof_turma");
 
 
-        $informacoes_curso2 = mysqli_query($cx, "SELECT * FROM informacoes_curso2");
+        $informacoes_curso = mysqli_query($cx, "SELECT * FROM informacoes_curso");
 
   
         $lista_turma_uc = mysqli_query($cx, "SELECT * FROM lista_turma_uc");
@@ -138,7 +138,7 @@
          
      
          <?php
-         while ($linha = mysqli_fetch_assoc($informacoes_curso2)) {
+         while ($linha = mysqli_fetch_assoc($informacoes_curso)) {
       
              $NomeDoCurso = $linha['NomeDoCurso'];
              $QuantidadeDeTurmas = $linha['QuantidadeDeTurmas'];
@@ -239,7 +239,7 @@
                     <p class="tituloRodape">Contatos</p><hr>
                     <p class="textoRodape">
                        <a href="mailto:beatriz.britofer@gmail.com">Enviar email para Beatriz Brito</a><br>
-                      <a href="mailto:evelynvic23toria10@gmail.com">Enviar email para Evelyn Victória</a><br>
+                      <a href="mailto:evelynvic23toria10@gmail.com">Enviar email para Evelyn Victoria</a><br>
                       <a href="mailto:jp6001707@gmail.com">Enviar email para Juliana Lima</a><br>
                       <a href="mailto:trinitynascimento@gmail.com">Enviar email para Trinity Domingues</a><br>
                         <br>
@@ -251,7 +251,7 @@
             <div class="row">
                 <div class="col-12">
                     <p class="direitosAutorais">
-                        Copyright 2023 - Beatriz Brito, Evelyn Victória Santos, Juliana Lima e Trinity Nascimento<br>
+                        Copyright 2023 - Beatriz Brito, Evelyn Victoria Santos, Juliana Lima e Trinity Nascimento<br>
                         Esse site foi produzido pelas alunas citadas acima no curso de Desenvolvimento de Sistemas do Senai "Nami Jafet" para uso escolar e administrativo
                     </p>
                    

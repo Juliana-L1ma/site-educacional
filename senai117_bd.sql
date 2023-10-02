@@ -102,10 +102,10 @@ INSERT INTO `cursos` (`id_curso`, `id_unidade_curricular`, `carga_horaria_curso`
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para vista `informacoes_curso2`
+-- Estrutura stand-in para vista `informacoes_curso`
 -- (Veja abaixo para a view atual)
 --
-CREATE TABLE `informacoes_curso2` (
+CREATE TABLE `informacoes_curso` (
 `NomeDoCurso` varchar(100)
 ,`QuantidadeDeTurmas` bigint(21)
 ,`CargaHorariaDoCurso` int(11)
@@ -321,11 +321,11 @@ CREATE TABLE `view_boletim` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para vista `informacoes_curso2`
+-- Estrutura para vista `informacoes_curso`
 --
-DROP TABLE IF EXISTS `informacoes_curso2`;
+DROP TABLE IF EXISTS `informacoes_curso`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `informacoes_curso2`  AS SELECT `c`.`nome_curso` AS `NomeDoCurso`, count(`t`.`id_turma`) AS `QuantidadeDeTurmas`, `c`.`carga_horaria_curso` AS `CargaHorariaDoCurso` FROM (`cursos` `c` left join `turmas` `t` on(`c`.`id_curso` = `t`.`id_curso`)) GROUP BY `c`.`nome_curso`, `c`.`carga_horaria_curso``carga_horaria_curso`  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `informacoes_curso`  AS SELECT `c`.`nome_curso` AS `NomeDoCurso`, count(`t`.`id_turma`) AS `QuantidadeDeTurmas`, `c`.`carga_horaria_curso` AS `CargaHorariaDoCurso` FROM (`cursos` `c` left join `turmas` `t` on(`c`.`id_curso` = `t`.`id_curso`)) GROUP BY `c`.`nome_curso`, `c`.`carga_horaria_curso``carga_horaria_curso`  ;
 
 -- --------------------------------------------------------
 
