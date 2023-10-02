@@ -1055,10 +1055,10 @@ a {
 
 /* --------- estilo da CADASTRO INFORMAÇÕES ---------------*/
 .headertitulo {
-  height: 42vh;
   border-radius: 10%;
   width: 100%;
   background-color: var(--azul-escuro);
+  padding-bottom: 5%;
 }
 
 .central {
@@ -1164,6 +1164,8 @@ a {
   align-items: center;
 }
 
+
+
 #alinharOpCurso {
   margin-top: 5%;
   margin-bottom: 2%;
@@ -1204,8 +1206,9 @@ a {
 .t1 input {
   font-family: 'Questrial', sans-serif;
   font-size: 110%;
-  margin-top: 2%;
-  height: 1.5vh;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  height: 4vh;
   width: 260px;
   border: none;
   border-radius: 20px;
