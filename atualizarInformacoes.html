@@ -11,6 +11,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css">
   <title>Atualizar informações</title>
+  <style>
+    p{
+      margin-bottom: 0;
+    }
+  </style>
 </head>
 
 <body onload="carregar()">
@@ -72,7 +77,7 @@
     <h2>Gerencie com segurança</h2>
     <div id="linhaAtt"></div>
   </div>
-  <main>
+  <main id="alinhando">
     <div id="areaAtt" class="geralAtt">
       <p>Selecione a categoria para atualizar</p>
       <select name="categoriaAtt" id="categoriaAtt" class="categoriaAtt">
@@ -148,7 +153,7 @@
                 <p class="tituloRodape">Contatos</p><hr>
                 <p class="textoRodape">
                    <a href="mailto:beatriz.britofer@gmail.com">Enviar email para Beatriz Brito</a><br>
-                  <a href="mailto:evelynvic23toria10@gmail.com">Enviar email para Evelyn Victoria</a><br>
+                  <a href="mailto:evelynvic23toria10@gmail.com">Enviar email para Evelyn Victória</a><br>
                   <a href="mailto:jp6001707@gmail.com">Enviar email para Juliana Lima</a><br>
                   <a href="mailto:trinitynascimento@gmail.com">Enviar email para Trinity Domingues</a><br>
                     <br>
@@ -160,7 +165,7 @@
         <div class="row">
             <div class="col-12">
                 <p class="direitosAutorais">
-                    Copyright 2023 - Beatriz Brito, Evelyn Victoria Santos, Juliana Lima e Trinity Nascimento<br>
+                    Copyright 2023 - Beatriz Brito, Evelyn Victória Santos, Juliana Lima e Trinity Nascimento<br>
                     Esse site foi produzido pelas alunas citadas acima no curso de Desenvolvimento de Sistemas do Senai "Nami Jafet" para uso escolar e administrativo
                 </p>
                
@@ -189,7 +194,6 @@
 
         labelEscolha.forEach(function (div) {
           div.style.display = "none";
-          div.style.textAlign = "left";
         });
       });
 
