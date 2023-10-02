@@ -454,8 +454,8 @@ a {
 
 .seta-esquerda-azul {
   margin-top: 2%;
-  width: 55px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
 }
 
 /*----------- AREA DO ADM DESKTOP ------------*/
@@ -866,13 +866,6 @@ a {
   font-size: 1.1rem;
 }
 
-#areaAtt {
-  display: flex;
-  justify-content: left;
-  align-items: left;
-  flex-direction: column;
-  margin-left: 8%;
-}
 
 .geralAtt select {
   background-color: var(--amarelo);
@@ -881,7 +874,6 @@ a {
   text-align: left;
   font-size: 120%;
   margin-top: 2%;
-  width: 300px;
   border-radius: 20px;
   padding: 9px;
   color: #0c1618;
@@ -896,7 +888,6 @@ a {
   text-align: left;
   font-size: 120%;
   margin-top: 2%;
-  width: 300px;
   border-radius: 20px;
   padding: 9px;
   color: #0c1618;
@@ -907,7 +898,6 @@ a {
 .alinhaSelect label {
   font-family: var(--fontes-de-texto);
   font-size: 1.1rem;
-  margin-left: 1%;
 }
 
 .geralAtt option {
@@ -927,7 +917,6 @@ a {
   background-color: rgb(255, 255, 255);
   outline: 0;
   text-align: left;
-  padding: 9px;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.192);
 }
 
@@ -939,31 +928,31 @@ a {
   text-align: left;
 }
 
-.alinhaSelect {
-  display: flex;
-  justify-content: left;
-  align-items: left;
-  flex-direction: column;
-  margin-left: 8%;
-}
-
 .labelEscolha {
   margin-top: 5%;
 }
 
-/*MEDIA QUERIES MOBILE ATUALIZAR INFORMAÇÕES*/
-@media screen and (max-width: 335px) {
-  #areaAtt select {
-    width: 80%;
-  }
-
-  .alinhaSelect select {
-    width: 60%;
-  }
+#alinhando{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 }
 
+#alinhando select{
+  width: 400px;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+
+
+/*MEDIA QUERIES MOBILE ATUALIZAR INFORMAÇÕES*/
+
+
 /*MEDIA QUERIES DESKTOP ATUALIZAR INFORMAÇÕES*/
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 200px) {
   #mainAtt {
     padding-top: 5vh;
     padding-bottom: 10%;
@@ -972,10 +961,6 @@ a {
 
   #areaAtt p {
     font-size: 1.3rem;
-  }
-
-  #areaAtt select {
-    width: 60%;
   }
 
   .labelEscolha {
@@ -1008,6 +993,7 @@ a {
   p {
     margin-bottom: 0;
   }
+
 }
 
 /*MEDIA QUERIES DESKTOP ATUALIZAR INFORMAÇÕES*/
@@ -1024,10 +1010,6 @@ a {
     margin-bottom: 5%;
   }
 
-  #areaAtt select {
-    width: 50%;
-  }
-
   .labelEscolha {
     margin-top: 3%;
   }
@@ -1039,11 +1021,6 @@ a {
 
 /*MEDIA QUERIES DESKTOP ATUALIZAR INFORMAÇÕES*/
 @media screen and (min-width: 1345px) {
-  #areaAtt select {
-    width: 30%;
-  }
-
-
   .alinhaSelect {
     margin-bottom: 5%;
   }
@@ -1052,6 +1029,20 @@ a {
     margin-top: 2%;
   }
 }
+
+@media screen and (max-width: 580px){
+  #alinhando select{
+    width: 300px;
+  }
+}
+
+
+@media screen and (max-width: 360px){
+  #alinhando select{
+    width: 60vw;
+  }
+}
+
 
 /* --------- estilo da CADASTRO INFORMAÇÕES ---------------*/
 .headertitulo {
@@ -1110,7 +1101,7 @@ a {
 .labelEscolha {
   font-family: "Poppins";
   font-weight: 500;
-  color: var(--background-color-branco);
+  color: var(--preto);
   width: max-content;
 
 }
@@ -1141,13 +1132,6 @@ a {
 .select_cadastroInfos_turma:hover option {
   background-color: #ffffff;
   color: var(--preto);
-}
-
-.alinhaSelect {
-  display: flex;
-  flex-direction: row;
-  gap: 5%;
-  width: 100%;
 }
 
 .btnAdd {
