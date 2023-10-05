@@ -1,6 +1,5 @@
-<?php 
+<?php
 require_once("conexao.php"); // Arquivo de conexão com o banco de dados
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,13 +10,22 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css">
   <title>Atualizar informações</title>
   <style>
-    p{
+    p {
       margin-bottom: 0;
+    }
+    table {
+      margin-top: 2vh;
+      border: collapse;
+    }
+    table td{
+      border: 1px solid #000;
+      padding: 5px;
     }
   </style>
 </head>
@@ -84,48 +92,128 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
   <main id="alinhando">
     <div id="areaAtt" class="geralAtt">
       <p>Selecione a categoria para atualizar</p>
-      <select class="form-control" name="nome_tabela">
-    <?php 
-        $sql = "SHOW TABLES FROM senai117_bd";
-        $resultado = mysqli_query($conn, $sql);
+      <form method="POST" id="formm">
+        <select class="form-control" name="nome_tabela" id="categoriaAtt">
+          <?php
+          // Defina o mapeamento de nomes de tabelas preferidos
+          $tabelasMapeadas = array(
+            "administrador" => "",
+            "alunos" => "Alunos",
+            "cursos" => "Cursos",
+            "unidade_curricular" => "Disciplinas",
+            "professores" => "Professores",
+            "turmas" => "Turmas"
+          );
 
-        if (!$resultado) {
+          $sql = "SHOW TABLES FROM senai117_bd";
+          $resultado = mysqli_query($conn, $sql);
+
+          if (!$resultado) {
             // Tratar erros de consulta, se houverem
             echo "Erro na consulta: " . mysqli_error($conn);
-        } else {
+          } else {
             while ($row = mysqli_fetch_row($resultado)) {
-                $nomeTabela = $row[0];
-                echo '<option value="'.$nomeTabela.'">'.$nomeTabela.'</option>';
+              $nomeTabela = $row[0];
+              // Verifique se a tabela está no mapeamento
+              if (array_key_exists($nomeTabela, $tabelasMapeadas)) {
+                // Use o nome preferido ao exibir a opção
+                echo '<option value="' . $nomeTabela . '">' . $tabelasMapeadas[$nomeTabela] . '</option>';
+              }
             }
-        }
-    ?>
-</select>
+          }
+          ?>
+        </select>
     </div>
     <div class="alinhaSelect">
       <div class="labelEscolha" id="labelCat">
         <label for="">Categoria:</label>
       </div>
       <div class="opcoesGeral">
-        <select name="categoriaCurso" id="catAttCurso" class="opcoesAtt">
-          <option value=""></option>
-          <option value="tec">Técnico</option>
-          <option value="cai">CAI</option>
-          <option value="fic">FIC</option>
+
+        <select class="form-control" name="categoria" id="categoria">
+          <?php
+          // Preencher as opções do select com os valores da coluna "categoria"
+          while ($row = mysqli_fetch_assoc($result)) {
+            echo '<option value="' . $row['categoria'] . '">' . $row['categoria'] . '</option>';
+          }
+          ?>
         </select>
+
       </div>
 
       <div class="labelEscolha" id="cursooEsc">
         <label for="">Curso:</label>
       </div>
       <div class="opcoesGeral">
-        <select name="attCurso" id="cursoEsc" class="opcoesAtt">
-          <option value=""></option>
-          <option value="c1">Curso I</option>
-          <option value="c2">Curso II</option>
-          <option value="c3">Curso III</option>
+        <select class="form-control" name="nome_curso" id="nome_curso">
+          <?php
+          // Preencher as opções do segundo select com os valores da coluna "nome_curso"
+          while ($row = mysqli_fetch_assoc($resultNomeCurso)) {
+            echo '<option value="' . $row['nome_curso'] . '">' . $row['nome_curso'] . '</option>';
+          }
+          ?>
         </select>
       </div>
+      <input type="submit" value="Enviar">
+      </form>
 
+      <table border="1">
+
+
+      <?php
+        // Verificar se o formulário foi enviado
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          $nome_tabela = $_POST["nome_tabela"];
+          $categoria = $_POST["categoria"];
+          $nome_curso = $_POST["nome_curso"];
+
+          if ($nome_tabela === "alunos") {
+            $sql = "	SELECT alunos.*, nome_turma, nome_curso
+            FROM alunos
+            INNER JOIN lista_alunos
+            ON alunos.cpf_aluno = lista_alunos.id_aluno
+             INNER JOIN turmas
+                  ON turmas.id_turma = lista_alunos.id_turma
+              INNER JOIN cursos
+                      ON cursos.id_curso = turmas.id_curso
+              WHERE cursos.categoria = '$categoria'";
+            $result = $conn->query($sql);
+
+            echo "<th>CPF</th>";
+            echo "<th>Nome</th>";
+            echo "<th>Sobrenome</th>";
+            echo "<th>RG</th>";
+            echo "<th>Data de Nascimento</th>";
+            echo "<th>Endereço</th>";
+            echo "<th>Telefone</th>";
+            echo "<th>Turma</th>";
+            echo "<th>Curso</th>";
+
+
+            if ($result->num_rows > 0) {
+                // Loop através dos resultados e exibe cada aluno na tabela
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["cpf_aluno"] . "</td>";
+                    echo "<td>" . $row["nome_aluno"] . "</td>";
+                    echo "<td>" . $row["sobrenome_aluno"] . "</td>";
+                    echo "<td>" . $row["rg_aluno"] . "</td>";
+                    echo "<td>" . $row["data_nascimento_aluno"] . "</td>";
+                    echo "<td>" . $row["endereco_aluno"] . "</td>";
+                    echo "<td>" . $row["telefone_aluno"] . "</td>";
+                    echo "<td>" . $row["nome_turma"] . "</td>";
+                    echo "<td>" . $row["nome_curso"] . "</td>";
+                    // Adicione outras colunas conforme necessário
+                    echo "</tr>";
+                }
+            } else {
+                echo "Nenhum aluno encontrado.";
+            }
+
+              }
+            }
+          ?>
+      </table>
       <div class="labelEscolha" id="labelForm">
         <label for="">Formação:</label>
       </div>
@@ -137,59 +225,64 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
           <option value="eletrica">Elétrica</option>
         </select>
       </div>
-        <div class="labelEscolha" id="labelSemestre">
-          <label for="" id="labelSem">Semestre:</label>
-        </div>
-        <div class="opcoesGeral">
-          <select name="attCurso" id="semestreCurso" class="opcoesAtt">
-            <option value=""></option>
-            <option value="tecnologia">1° Semestre</option>
-            <option value="mecanica">2° Semestre</option>
-            <option value="eletrica">3° Semestre</option>
-          </select>
-        </div>
+      <div class="labelEscolha" id="labelSemestre">
+        <label for="" id="labelSem">Semestre:</label>
+      </div>
+      <div class="opcoesGeral">
+        <select name="attCurso" id="semestreCurso" class="opcoesAtt">
+          <option value=""></option>
+          <option value="tecnologia">1° Semestre</option>
+          <option value="mecanica">2° Semestre</option>
+          <option value="eletrica">3° Semestre</option>
+        </select>
       </div>
     </div>
+    </div>
+
+    <div id="resposta"></div>
   </main>
 
   <footer class="footer-professor-adm">
     <div class="container">
-        <div class="row">
-          <div class="col-6">
-            <p class="tituloRodape">Site SENAI oficial:</p><hr>
-            <p class="textoRodape">Acesse o site oficial do SENAI para ver outras informações <a href="https://www.sp.senai.br/">Clique aqui</a></p>
-          </div>
-
-          <div class="col-6">
-            <div class="contatos">
-                <p class="tituloRodape">Contatos</p><hr>
-                <p class="textoRodape">
-                   <a href="mailto:beatriz.britofer@gmail.com">Enviar email para Beatriz Brito</a><br>
-                  <a href="mailto:evelynvic23toria10@gmail.com">Enviar email para Evelyn Victória</a><br>
-                  <a href="mailto:jp6001707@gmail.com">Enviar email para Juliana Lima</a><br>
-                  <a href="mailto:trinitynascimento@gmail.com">Enviar email para Trinity Domingues</a><br>
-                    <br>
-                </p>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-6">
+          <p class="tituloRodape">Site SENAI oficial:</p>
+          <hr>
+          <p class="textoRodape">Acesse o site oficial do SENAI para ver outras informações <a
+              href="https://www.sp.senai.br/">Clique aqui</a></p>
         </div>
 
-        <div class="row">
-            <div class="col-12">
-                <p class="direitosAutorais">
-                    Copyright 2023 - Beatriz Brito, Evelyn Victória Santos, Juliana Lima e Trinity Nascimento<br>
-                    Esse site foi produzido pelas alunas citadas acima no curso de Desenvolvimento de Sistemas do Senai "Nami Jafet" para uso escolar e administrativo
-                </p>
-               
-            </div>
+        <div class="col-6">
+          <div class="contatos">
+            <p class="tituloRodape">Contatos</p>
+            <hr>
+            <p class="textoRodape">
+              <a href="mailto:beatriz.britofer@gmail.com">Enviar email para Beatriz Brito</a><br>
+              <a href="mailto:evelynvic23toria10@gmail.com">Enviar email para Evelyn Victória</a><br>
+              <a href="mailto:jp6001707@gmail.com">Enviar email para Juliana Lima</a><br>
+              <a href="mailto:trinitynascimento@gmail.com">Enviar email para Trinity Domingues</a><br>
+              <br>
+            </p>
           </div>
+        </div>
       </div>
-</footer>
 
+      <div class="row">
+        <div class="col-12">
+          <p class="direitosAutorais">
+            Copyright 2023 - Beatriz Brito, Evelyn Victória Santos, Juliana Lima e Trinity Nascimento<br>
+            Esse site foi produzido pelas alunas citadas acima no curso de Desenvolvimento de Sistemas do Senai "Nami
+            Jafet" para uso escolar e administrativo
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </footer>
   <script>
     function carregar() {
       var selectAtualizar = document.getElementById("categoriaAtt");
-      var catAttCurso = document.getElementById("catAttCurso");
+      var catAttCurso = document.getElementById("categoria");
       var cursoEsc = document.getElementById("cursoEsc");
       var labelForm = document.getElementById("labelForm");
       var opcoesAtt = document.querySelectorAll(".opcoesAtt");
@@ -209,11 +302,16 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
         });
       });
 
+      catAttCurso.style.display = "none";
+      document.getElementById("nome_curso").style.display = "none";
+
       $(document).ready(function () {
         $("#categoriaAtt").change(function () {
-          if (selectAtualizar.value === "aluno") {
+          if (selectAtualizar.value === "alunos") {
             labelSem.style.color = "transparent";
             console.log(selectAtualizar.value);
+            catAttCurso.style.display = "block";
+            document.getElementById("nome_curso").style.display = "block";
             opcoesAtt.forEach(function (div) {
               div.style.display = "block";
               formacaoEsc.style.display = "none";
@@ -225,7 +323,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
               });
             });
             $(document).ready(function () {
-              $("#catAttCurso").change(function () {
+              $("#categoria").change(function () {
                 if (catAttCurso.value === "tec") {
                   console.log("Técnico");
                 }
@@ -260,7 +358,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
             labelCat.style.display = "block";
 
             $(document).ready(function () {
-              $("#catAttCurso").change(function () {
+              $("#nome_curso").change(function () {
                 if (catAttCurso.value === "tec") {
                   console.log("Técnico");
                   console.log("MOSTRAR TABELA TÉCNICO");
@@ -321,7 +419,13 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
         });
       });
     }
+
+
   </script>
 </body>
 
 </html>
+<?php
+// Fechar a conexão com o banco de dados
+mysqli_close($conn);
+?>
