@@ -1,60 +1,40 @@
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Tempo de geração: 26-Set-2023 às 15:39
--- Versão do servidor: 10.4.25-MariaDB
--- versão do PHP: 8.1.10
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+CREATE TABLE `administrador` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  `email` varchar(120) NOT NULL,
+  `senha` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
---
--- Banco de dados: `senai117_bd`
---
+INSERT INTO `administrador` (`id`, `nome`, `email`, `senha`) VALUES
+(1, 'Wagner Cunha', 'wagnercunha@adm.senai.br', 'adm12345');
 
--- --------------------------------------------------------
 
---
--- Estrutura da tabela `alunos`
---
 
 CREATE TABLE `alunos` (
   `cpf_aluno` varchar(11) NOT NULL,
   `nome_aluno` varchar(50) DEFAULT NULL,
   `sobrenome_aluno` varchar(70) DEFAULT NULL,
-  `rg_aluno` varchar(9) DEFAULT NULL,
-  `data_nascimento_aluno` date DEFAULT NULL,
+  `rg_aluno` int(11) DEFAULT NULL,
+  `data_nascimento_aluno` datetime(3) DEFAULT NULL,
   `endereco_aluno` varchar(100) DEFAULT NULL,
   `endereco_numero_aluno` int(11) DEFAULT NULL,
   `complemento_end_aluno` varchar(70) DEFAULT NULL,
-  `telefone_aluno` varchar(12) DEFAULT NULL,
+  `telefone_aluno` bigint(20) DEFAULT NULL,
   `email_pessoal_aluno` varchar(100) DEFAULT NULL,
   `email_educacional_aluno` varchar(110) DEFAULT NULL,
   `senha_educacional_aluno` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `alunos`
---
+
 
 INSERT INTO `alunos` (`cpf_aluno`, `nome_aluno`, `sobrenome_aluno`, `rg_aluno`, `data_nascimento_aluno`, `endereco_aluno`, `endereco_numero_aluno`, `complemento_end_aluno`, `telefone_aluno`, `email_pessoal_aluno`, `email_educacional_aluno`, `senha_educacional_aluno`) VALUES
-('05496878526', 'Joana', 'D`Arc Manguês', '558963254', '0000-00-00', 'Avenida Dom Juan VI', 41, NULL, '011968535784', 'joaninhadarc30@yahoo.com.br', 'joana.mangues2@aluno.portalsenai117.com', 'joana123'),
-('46825936875', 'Ana Maria', 'das Torres Lima', '725896572', '0000-00-00', 'Rua Tenente Chato', 120, 'Apartamento 2', '011968535784', 'joaninhadarc30@yahoo.com.br', 'joana.mangues2@aluno.portalsenai117.com', 'joana123');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `boletim`
---
+('05496878526', 'Joana', 'D`Arc Manguês', 558963254, '0000-00-00 00:00:00.000', 'Avenida Dom Juan VI', 41, NULL, 11968535784, 'joaninhadarc30@yahoo.com.br', 'joana.mangues2@portalsenai117.com', 'joana123'),
+('46825936875', 'Ana Maria', 'das Torres Lima', 775896572, '0000-00-00 00:00:00.000', 'Rua Tenente Chato', 120, 'Apartamento 2', 11968535784, 'joaninhadarc30@yahoo.com.br', 'joana.mangues2@portalsenai117.com', 'joana123');
 
 CREATE TABLE `boletim` (
   `id_boletim` int(11) NOT NULL,
@@ -65,19 +45,13 @@ CREATE TABLE `boletim` (
   `id_unid_curricular` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `boletim`
---
+
 
 INSERT INTO `boletim` (`id_boletim`, `nota_boletim`, `frequencia_boletim`, `cpf_aluno`, `id_turma`, `id_unid_curricular`) VALUES
 (1, 'A', 92.2, '05496878526', 1, 1),
 (2, 'R', 85, '46825936875', 1, 2);
 
--- --------------------------------------------------------
 
---
--- Estrutura da tabela `cursos`
---
 
 CREATE TABLE `cursos` (
   `id_curso` int(11) NOT NULL,
@@ -96,62 +70,14 @@ CREATE TABLE `cursos` (
 --
 
 INSERT INTO `cursos` (`id_curso`, `id_unidade_curricular`, `carga_horaria_curso`, `valor_curso`, `nome_curso`, `qntd_periodos`, `plano_curso`, `capacidade`, `categoria`) VALUES
-(1, 1, 1200, 2433.6, 'Desenvolvimento de Sistemas', 3, NULL, 32, 'Tecnologia da Informação'),
-(2, 1, 1500, 3124.9, 'Eletroeletrônica', 4, NULL, 32, 'Eletricidade');
+(1, 1, 1200, 2433.6, 'Desenvolvimento de Sistemas', 3, NULL, 32, 'Técnico'),
+(2, 1, 1200, 3200.87, 'Automação Industrial', 4, NULL, 32, 'CAI'),
+(3, 1, 1200, 2000, 'Programação Python', 1, NULL, 16, 'FIC'),
+(4, 1, 1500, 3124.9, 'Eletroeletrônica', 4, NULL, 32, 'Técnico');
 
 -- --------------------------------------------------------
 
---
--- Estrutura stand-in para vista `informacoes_curso`
--- (Veja abaixo para a view atual)
---
-CREATE TABLE `informacoes_curso` (
-`NomeDoCurso` varchar(100)
-,`QuantidadeDeTurmas` bigint(21)
-,`CargaHorariaDoCurso` int(11)
-);
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `info_professor_45896735826`
---
-
-CREATE TABLE `info_professor_45896735826` (
-  `Disciplina` varchar(100) DEFAULT NULL,
-  `Turma` varchar(10) DEFAULT NULL,
-  `Curso` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `info_professor_45932568974`
---
-
-CREATE TABLE `info_professor_45932568974` (
-  `Disciplina` varchar(100) DEFAULT NULL,
-  `Turma` varchar(10) DEFAULT NULL,
-  `Curso` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `info_professor_47865923845`
---
-
-CREATE TABLE `info_professor_47865923845` (
-  `Disciplina` varchar(100) DEFAULT NULL,
-  `Turma` varchar(10) DEFAULT NULL,
-  `Curso` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `lista_alunos`
---
 
 CREATE TABLE `lista_alunos` (
   `id_lista_alunos` int(11) NOT NULL,
@@ -166,7 +92,7 @@ CREATE TABLE `lista_alunos` (
 
 INSERT INTO `lista_alunos` (`id_lista_alunos`, `divisao`, `id_turma`, `id_aluno`) VALUES
 (1, 'A', 1, '05496878526'),
-(2, 'B', 1, '46825936875');
+(2, 'B', 2, '46825936875');
 
 -- --------------------------------------------------------
 
@@ -239,12 +165,12 @@ CREATE TABLE `professores` (
   `cpf_professor` varchar(11) NOT NULL,
   `nome_professor` varchar(50) DEFAULT NULL,
   `sobrenome_professor` varchar(70) DEFAULT NULL,
-  `rg_professor` varchar(9) DEFAULT NULL,
-  `data_nascimento_professor` date DEFAULT NULL,
+  `rg_professor` int(11) DEFAULT NULL,
+  `data_nascimento_professor` datetime(3) DEFAULT NULL,
   `endereco_professor` varchar(100) DEFAULT NULL,
   `numero_end_professor` varchar(10) DEFAULT NULL,
   `complemento_end_professor` varchar(70) DEFAULT NULL,
-  `telefone_professor` varchar(12) DEFAULT NULL,
+  `telefone_professor` bigint(20) DEFAULT NULL,
   `email_pessoal_professor` varchar(100) DEFAULT NULL,
   `email_educacional_professor` varchar(110) DEFAULT NULL,
   `senha_educacional_professor` varchar(15) DEFAULT NULL
@@ -255,9 +181,9 @@ CREATE TABLE `professores` (
 --
 
 INSERT INTO `professores` (`cpf_professor`, `nome_professor`, `sobrenome_professor`, `rg_professor`, `data_nascimento_professor`, `endereco_professor`, `numero_end_professor`, `complemento_end_professor`, `telefone_professor`, `email_pessoal_professor`, `email_educacional_professor`, `senha_educacional_professor`) VALUES
-('45896735826', 'Silas', 'Bastianelli Pinto', '876459302', '0000-00-00', 'Rua Doutor Alvarez de Alvarenga', '21', 'Próxima ao mercado Shibata', '011985689529', 'silas.bapinto@gmail.com', 'silas.pinto@educador.portalsenai117.com', 'aquisilas12'),
-('45932568974', 'Ismael', 'Alves Faria Lima', '365899587', '0000-00-00', 'Rua Super Rico Terceiro', '1041', 'Apartamento 7, bloco 3', '011963558746', 'ismasalves.falima@gmail.com', 'ismael.lima@educador.portalsenai117.com', 'ismaellima23'),
-('47865923845', 'Bruno', 'Messias Aguiar', '987536988', '0000-00-00', 'Avenida Dom Juan I', '133', NULL, '011963587269', 'brunomessias098@yahoo.com.br', 'bruno.aguiar@educador.portalsenai117.com', 'brunoaguia82');
+('45896735826', 'Silas', 'Bastianelli Pinto', 876459302, '0000-00-00 00:00:00.000', 'Rua Doutor Alvarez de Alvarenga', '21', 'Próxima ao mercado Shibata', 985689529, 'silas.bapinto@gmail.com', 'silas.pinto@educador.senai117.com', 'aquisilas12'),
+('45932568974', 'Ismael', 'Alves Faria Lima', 365899587, '0000-00-00 00:00:00.000', 'Rua Super Rico Terceiro', '1041', 'Apartamento 7, bloco 3', 119635587469, 'ismasalves.falima@gmail.com', 'ismael.lima@educador.senai117.com', 'ismaellima23'),
+('47865923845', 'Bruno', 'Messias Aguiar', 987536988, '0000-00-00 00:00:00.000', 'Avenida Dom Juan I', '133', NULL, 11963587269, 'brunomessias098@yahoo.com.br', 'bruno.aguiar@educador.senai117.com', 'brunoaguia82');
 
 -- --------------------------------------------------------
 
@@ -281,16 +207,16 @@ CREATE TABLE `turmas` (
 
 INSERT INTO `turmas` (`id_turma`, `id_curso`, `nome_turma`, `data_inicio_turma`, `periodo_turma`, `data_conclusao_turma`, `total_alunos`) VALUES
 (1, 1, 'M1P', '0000-00-00 00:00:00.000', 'Manhã', '0000-00-00 00:00:00.000', 32),
-(2, 2, 'T2E', '0000-00-00 00:00:00.000', 'Tarde', '0000-00-00 00:00:00.000', 32),
+(2, 4, 'T2E', '0000-00-00 00:00:00.000', 'Tarde', '0000-00-00 00:00:00.000', 32),
 (3, 2, 'M1E', '0000-00-00 00:00:00.000', 'Manhã', '0000-00-00 00:00:00.000', 32);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `unidade_curricular`
+-- Estrutura da tabela `unidades_curriculares`
 --
 
-CREATE TABLE `unidade_curricular` (
+CREATE TABLE `unidades_curriculares` (
   `id_unid_curricular` int(11) NOT NULL,
   `nome_uc` varchar(100) DEFAULT NULL,
   `carga_horaria` int(11) DEFAULT NULL,
@@ -298,43 +224,13 @@ CREATE TABLE `unidade_curricular` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `unidade_curricular`
+-- Extraindo dados da tabela `unidades_curriculares`
 --
 
-INSERT INTO `unidade_curricular` (`id_unid_curricular`, `nome_uc`, `carga_horaria`, `area_vinculada`) VALUES
+INSERT INTO `unidades_curriculares` (`id_unid_curricular`, `nome_uc`, `carga_horaria`, `area_vinculada`) VALUES
 (1, 'Hardware', 75, 'Tecnologia'),
 (2, 'Programação Web Front-End', 75, 'Tecnologia'),
 (3, 'Fundamentos da eletroeletrônica:', 180, 'Mecatrônica');
-
--- --------------------------------------------------------
-
---
--- Estrutura stand-in para vista `view_boletim`
--- (Veja abaixo para a view atual)
---
-CREATE TABLE `view_boletim` (
-`nome_uc` varchar(100)
-,`nota_boletim` varchar(1)
-,`frequencia_boletim` double
-);
-
--- --------------------------------------------------------
-
---
--- Estrutura para vista `informacoes_curso`
---
-DROP TABLE IF EXISTS `informacoes_curso`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `informacoes_curso`  AS SELECT `c`.`nome_curso` AS `NomeDoCurso`, count(`t`.`id_turma`) AS `QuantidadeDeTurmas`, `c`.`carga_horaria_curso` AS `CargaHorariaDoCurso` FROM (`cursos` `c` left join `turmas` `t` on(`c`.`id_curso` = `t`.`id_curso`)) GROUP BY `c`.`nome_curso`, `c`.`carga_horaria_curso``carga_horaria_curso`  ;
-
--- --------------------------------------------------------
-
---
--- Estrutura para vista `view_boletim`
---
-DROP TABLE IF EXISTS `view_boletim`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_boletim`  AS SELECT `uc`.`nome_uc` AS `nome_uc`, `b`.`nota_boletim` AS `nota_boletim`, `b`.`frequencia_boletim` AS `frequencia_boletim` FROM (`boletim` `b` join `unidade_curricular` `uc` on(`b`.`id_unid_curricular` = `uc`.`id_unid_curricular`))  ;
 
 --
 -- Índices para tabelas despejadas
@@ -408,9 +304,9 @@ ALTER TABLE `turmas`
   ADD KEY `id_curso_turm` (`id_curso`);
 
 --
--- Índices para tabela `unidade_curricular`
+-- Índices para tabela `unidades_curriculares`
 --
-ALTER TABLE `unidade_curricular`
+ALTER TABLE `unidades_curriculares`
   ADD PRIMARY KEY (`id_unid_curricular`);
 
 --
@@ -423,13 +319,13 @@ ALTER TABLE `unidade_curricular`
 ALTER TABLE `boletim`
   ADD CONSTRAINT `assoc_aluno_boletim` FOREIGN KEY (`cpf_aluno`) REFERENCES `alunos` (`cpf_aluno`),
   ADD CONSTRAINT `assoc_turma_boletim` FOREIGN KEY (`id_turma`) REFERENCES `turmas` (`id_turma`),
-  ADD CONSTRAINT `assoc_unidcurricular_boletim` FOREIGN KEY (`id_unid_curricular`) REFERENCES `unidade_curricular` (`id_unid_curricular`);
+  ADD CONSTRAINT `assoc_unidcurricular_boletim` FOREIGN KEY (`id_unid_curricular`) REFERENCES `unidades_curriculares` (`id_unid_curricular`);
 
 --
 -- Limitadores para a tabela `cursos`
 --
 ALTER TABLE `cursos`
-  ADD CONSTRAINT `assoc_curso_uc` FOREIGN KEY (`id_unidade_curricular`) REFERENCES `unidade_curricular` (`id_unid_curricular`);
+  ADD CONSTRAINT `assoc_curso_uc` FOREIGN KEY (`id_unidade_curricular`) REFERENCES `unidades_curriculares` (`id_unid_curricular`);
 
 --
 -- Limitadores para a tabela `lista_alunos`
@@ -443,7 +339,7 @@ ALTER TABLE `lista_alunos`
 --
 ALTER TABLE `lista_disc_prof`
   ADD CONSTRAINT `assoc_professor_listadiscprof` FOREIGN KEY (`id_professor`) REFERENCES `professores` (`cpf_professor`),
-  ADD CONSTRAINT `assoc_uc_listadiscprof` FOREIGN KEY (`id_unidade_curricular`) REFERENCES `unidade_curricular` (`id_unid_curricular`);
+  ADD CONSTRAINT `assoc_uc_listadiscprof` FOREIGN KEY (`id_unidade_curricular`) REFERENCES `unidades_curriculares` (`id_unid_curricular`);
 
 --
 -- Limitadores para a tabela `lista_prof_turma`
@@ -464,8 +360,27 @@ ALTER TABLE `lista_turma_uc`
 --
 ALTER TABLE `turmas`
   ADD CONSTRAINT `id_curso_turm` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id_curso`);
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE OR REPLACE VIEW informacoes_curso AS
+SELECT
+    c.nome_curso AS NomeDoCurso,
+    COUNT(t.id_turma) AS QuantidadeDeTurmas,
+    c.carga_horaria_curso AS CargaHorariaDoCurso
+FROM
+    cursos c
+LEFT JOIN
+    turmas t ON c.id_curso = t.id_curso
+GROUP BY
+    c.nome_curso, c.carga_horaria_curso;
+
+
+CREATE VIEW view_boletim AS
+SELECT b.nota_boletim AS nota, b.frequencia_boletim AS falta, u.nome_uc AS materia
+FROM boletim b
+JOIN unidades_curriculares u ON b.id_unid_curricular = u.id_unid_curricular;
+
+
+
+
+
