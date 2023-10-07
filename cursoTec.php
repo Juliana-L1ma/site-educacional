@@ -106,7 +106,7 @@
           mysqli_error($cx) //Caso haja um erro na consultal, exibir erro
           );
           $turmas = mysqli_query($cx, "SELECT * FROM turmas");
-          $unidade_curricular = mysqli_query($cx, "SELECT * FROM unidade_curricular");
+          $unidade_curricular = mysqli_query($cx, "SELECT * FROM unidades_curriculares");
   
   
           $cursos = mysqli_query($cx, "SELECT * FROM cursos");

@@ -85,7 +85,7 @@
 
 
         $turmas = mysqli_query($cx, "SELECT * FROM turmas");
-        $unidade_curricular = mysqli_query($cx, "SELECT * FROM unidade_curricular");
+        $unidade_curricular = mysqli_query($cx, "SELECT * FROM unidades_curriculares");
 
 
 
@@ -185,7 +185,7 @@ if ($resultProfessores->num_rows > 0) {
                 c.nome_curso AS Curso
             FROM professores p
             LEFT JOIN lista_disc_prof ld ON p.cpf_professor = ld.id_professor
-            LEFT JOIN unidade_curricular d ON ld.id_unidade_curricular = d.id_unid_curricular
+            LEFT JOIN unidades_curriculares d ON ld.id_unidade_curricular = d.id_unid_curricular
             LEFT JOIN lista_prof_turma lpt ON p.cpf_professor = lpt.id_professor
             LEFT JOIN turmas t ON lpt.id_turma = t.id_turma
             LEFT JOIN cursos c ON t.id_curso = c.id_curso

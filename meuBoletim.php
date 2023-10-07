@@ -91,7 +91,7 @@
       );
 
       $turmas = mysqli_query($cx, "SELECT * FROM turmas");
-      $unidade_curricular = mysqli_query($cx, "SELECT * FROM unidade_curricular");
+      $unidade_curricular = mysqli_query($cx, "SELECT * FROM unidades_curriculares");
 
 
 
@@ -119,7 +119,7 @@
  
      <?php
      while ($linha = mysqli_fetch_assoc($view_boletim)) {
-        $id_unid_curricular = $linha['nome_materia'];
+        $id_unid_curricular = $linha['materia'];
         $nota_boletim = $linha['nota'];
         $frequencia_boletim = $linha['falta'];
 
