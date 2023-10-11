@@ -367,6 +367,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
             document.getElementById("cursooEsc").style.display = "block";
             document.getElementById("nome_curso").style.display = "block";
             labelSem.style.color = "#000";
+            document.getElementById("categoria").style.display = "none";
             labelSemestre.style.display = "none";
             semestreCurso.style.display = "none";
           }
