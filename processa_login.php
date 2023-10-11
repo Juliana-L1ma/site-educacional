@@ -6,7 +6,7 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 
 // Verifica na tabela "aluno"
-$query = "SELECT cpf_aluno FROM alunos WHERE email_educacional_aluno = '$email' AND senha_educacional_aluno = '$senha'";
+$query = "SELECT nif_aluno FROM alunos WHERE email_educacional_aluno = '$email' AND senha_educacional_aluno = '$senha'";
 $result = mysqli_query($conn, $query);
 
 if ($result && mysqli_num_rows($result) > 0) {
