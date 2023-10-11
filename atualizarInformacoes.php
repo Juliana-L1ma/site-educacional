@@ -100,7 +100,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
             "administrador" => "",
             "alunos" => "Alunos",
             "cursos" => "Cursos",
-            "unidade_curricular" => "Disciplinas",
+            "unidades_curriculares" => "Disciplinas",
             "professores" => "Professores",
             "turmas" => "Turmas"
           );
@@ -154,12 +154,9 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
           ?>
         </select>
       </div>
-      <input type="submit" value="Enviar">
-      </form>
+      
 
       <table border="1">
-
-
       <?php
         // Verificar se o formulário foi enviado
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -214,17 +211,28 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
             }
           ?>
       </table>
+    
       <div class="labelEscolha" id="labelForm">
-        <label for="">Formação:</label>
+        <label for="">Curso:</label>
       </div>
       <div class="opcoesGeral">
         <select name="attCurso" id="formacaoEsc" class="opcoesAtt">
-          <option value=""></option>
-          <option value="tecnologia">Tecnologia</option>
-          <option value="mecanica">Mecânica</option>
-          <option value="eletrica">Elétrica</option>
+        <?php
+        // Consulta SQL para buscar os nomes dos cursos do banco de dados
+        $nomeCursos = "SELECT nome_curso FROM cursos";
+        $result = $conn->query($nomeCursos);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo '<option>' . $row["nome_curso"] . '</option>';
+            }
+        } else {
+            echo '<option>Nenhum curso encontrado</option>';
+        }
+        ?>
         </select>
       </div>
+
       <div class="labelEscolha" id="labelSemestre">
         <label for="" id="labelSem">Semestre:</label>
       </div>
@@ -238,6 +246,8 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
       </div>
     </div>
     </div>
+    <input type="submit" value="Enviar">
+      </form>
 
     <div id="resposta"></div>
   </main>
@@ -293,7 +303,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
       var cursooEsc = document.getElementById("cursooEsc");
       var semestreCurso = document.getElementById("semestreCurso");
 
-
       opcoesAtt.forEach(function (div) {
         div.style.display = "none";
 
@@ -301,7 +310,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
           div.style.display = "none";
         });
       });
-
       catAttCurso.style.display = "none";
       document.getElementById("nome_curso").style.display = "none";
 
@@ -322,25 +330,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
 
               });
             });
-            $(document).ready(function () {
-              $("#categoria").change(function () {
-                if (catAttCurso.value === "tec") {
-                  console.log("Técnico");
-                }
-                if (catAttCurso.value === "fic") {
-                  console.log("FIC");
-                }
-                if (catAttCurso.value === "cai") {
-                  console.log("CAI");
-                }
-                $(document).ready(function () {
-                  $("#cursoEsc").change(function () {
-                    console.log("CURSO");
-                    console.log("MOSTRAR TABELA");
-                  });
-                });
-              });
-            });
           } else {
             console.log(selectAtualizar.value);
             opcoesAtt.forEach(function (div) {
@@ -351,79 +340,40 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
               });
             });
           }
-
           var labelCat = document.getElementById("labelCat");
-          if (selectAtualizar.value === "curso") {
+          if (selectAtualizar.value === "cursos") {
             catAttCurso.style.display = "block";
             labelCat.style.display = "block";
-
-            $(document).ready(function () {
-              $("#nome_curso").change(function () {
-                if (catAttCurso.value === "tec") {
-                  console.log("Técnico");
-                  console.log("MOSTRAR TABELA TÉCNICO");
-                }
-                if (catAttCurso.value === "fic") {
-                  console.log("FIC");
-                  console.log("MOSTRAR TABELA FIC");
-                }
-                if (catAttCurso.value === "cai") {
-                  console.log("CAI");
-                  console.log("MOSTRAR TABELA CAI");
-                }
-              });
-            });
+            document.getElementById("nome_curso").style.display = "none";
           }
-          if (selectAtualizar.value === "professor") {
+
+          if (selectAtualizar.value === "professores") {
             formacaoEsc.style.display = "block";
-            labelForm.style.display = "block";
-            $(document).ready(function () {
-              $("#formacaoEsc").change(function () {
-                if (formacaoEsc.value === "tecnologia") {
-                  console.log("Tecnologia")
-                }
-                if (formacaoEsc.value === "mecanica") {
-                  console.log("Mecânica")
-                }
-                if (formacaoEsc.value === "eletrica") {
-                  console.log("Elétrica")
-                }
-              });
-            });
+            document.getElementById("nome_curso").style.display = "block";
+            cursooEsc.style.display = "block";
+            document.getElementById("categoria").style.display = "none";
+            document.getElementById("formacaoEsc").style.display = "none";
+            labelForm.style.display = "none";
           }
 
-          if (selectAtualizar.value === "disciplina") {
-            cursoEsc.style.display = 'block';
-            cursooEsc.style.display = "block";
-            $(document).ready(function () {
-              $("#cursoEsc").change(function () {
-                if (cursoEsc.value === "c1") {
-                  console.log("Curso 1")
-                }
-                if (cursoEsc.value === "c2") {
-                  console.log("Curso 2")
-                }
-                if (cursoEsc.value === "c3") {
-                  console.log("Curso 3")
-                }
-              });
-            });
-          }
-          if (selectAtualizar.value === "turma") {
-            cursoEsc.style.display = 'block';
-            cursooEsc.style.display = "block";
-            labelSem.style.color = "#000";
+          if (selectAtualizar.value === "unidades_curriculares") {
+            document.getElementById("nome_curso").style.display = "block";
+            document.getElementById("cursooEsc").style.display = "block";
             labelSemestre.style.display = "block";
             semestreCurso.style.display = "block";
+          }
+          if (selectAtualizar.value === "turmas") {
+            document.getElementById("cursooEsc").style.display = "block";
+            document.getElementById("nome_curso").style.display = "block";
+            labelSem.style.color = "#000";
+            labelSemestre.style.display = "none";
+            semestreCurso.style.display = "none";
           }
         });
       });
     }
-
-
   </script>
 </body>
-
 </html>
 <?php
 // Fechar a conexão com o banco de dados
