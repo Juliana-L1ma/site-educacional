@@ -16,7 +16,7 @@ INSERT INTO `administrador` (`id`, `nome`, `email`, `senha`) VALUES
 
 
 CREATE TABLE `alunos` (
-  `cpf_aluno` varchar(11) NOT NULL,
+  `nif_aluno` varchar(11) NOT NULL,
   `nome_aluno` varchar(50) DEFAULT NULL,
   `sobrenome_aluno` varchar(70) DEFAULT NULL,
   `rg_aluno` int(11) DEFAULT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE `alunos` (
 
 
 
-INSERT INTO `alunos` (`cpf_aluno`, `nome_aluno`, `sobrenome_aluno`, `rg_aluno`, `data_nascimento_aluno`, `endereco_aluno`, `endereco_numero_aluno`, `complemento_end_aluno`, `telefone_aluno`, `email_pessoal_aluno`, `email_educacional_aluno`, `senha_educacional_aluno`) VALUES
+INSERT INTO `alunos` (`nif_aluno`, `nome_aluno`, `sobrenome_aluno`, `rg_aluno`, `data_nascimento_aluno`, `endereco_aluno`, `endereco_numero_aluno`, `complemento_end_aluno`, `telefone_aluno`, `email_pessoal_aluno`, `email_educacional_aluno`, `senha_educacional_aluno`) VALUES
 ('05496878526', 'Joana', 'D`Arc Manguês', 558963254, '0000-00-00 00:00:00.000', 'Avenida Dom Juan VI', 41, NULL, 11968535784, 'joaninhadarc30@yahoo.com.br', 'joana.mangues2@portalsenai117.com', 'joana123'),
 ('46825936875', 'Ana Maria', 'das Torres Lima', 775896572, '0000-00-00 00:00:00.000', 'Rua Tenente Chato', 120, 'Apartamento 2', 11968535784, 'joaninhadarc30@yahoo.com.br', 'joana.mangues2@portalsenai117.com', 'joana123');
 
@@ -40,14 +40,14 @@ CREATE TABLE `boletim` (
   `id_boletim` int(11) NOT NULL,
   `nota_boletim` varchar(1) DEFAULT NULL,
   `frequencia_boletim` double DEFAULT NULL,
-  `cpf_aluno` varchar(11) DEFAULT NULL,
+  `nif_aluno` varchar(11) DEFAULT NULL,
   `id_turma` int(11) DEFAULT NULL,
   `id_unid_curricular` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
-INSERT INTO `boletim` (`id_boletim`, `nota_boletim`, `frequencia_boletim`, `cpf_aluno`, `id_turma`, `id_unid_curricular`) VALUES
+INSERT INTO `boletim` (`id_boletim`, `nota_boletim`, `frequencia_boletim`, `nif_aluno`, `id_turma`, `id_unid_curricular`) VALUES
 (1, 'A', 92.2, '05496878526', 1, 1),
 (2, 'R', 85, '46825936875', 1, 2);
 
@@ -240,14 +240,14 @@ INSERT INTO `unidades_curriculares` (`id_unid_curricular`, `nome_uc`, `carga_hor
 -- Índices para tabela `alunos`
 --
 ALTER TABLE `alunos`
-  ADD PRIMARY KEY (`cpf_aluno`);
+  ADD PRIMARY KEY (`nif_aluno`);
 
 --
 -- Índices para tabela `boletim`
 --
 ALTER TABLE `boletim`
   ADD PRIMARY KEY (`id_boletim`),
-  ADD KEY `assoc_aluno_boletim` (`cpf_aluno`),
+  ADD KEY `assoc_aluno_boletim` (`nif_aluno`),
   ADD KEY `assoc_turma_boletim` (`id_turma`),
   ADD KEY `assoc_unidcurricular_boletim` (`id_unid_curricular`);
 
@@ -317,7 +317,7 @@ ALTER TABLE `unidades_curriculares`
 -- Limitadores para a tabela `boletim`
 --
 ALTER TABLE `boletim`
-  ADD CONSTRAINT `assoc_aluno_boletim` FOREIGN KEY (`cpf_aluno`) REFERENCES `alunos` (`cpf_aluno`),
+  ADD CONSTRAINT `assoc_aluno_boletim` FOREIGN KEY (`nif_aluno`) REFERENCES `alunos` (`nif_aluno`),
   ADD CONSTRAINT `assoc_turma_boletim` FOREIGN KEY (`id_turma`) REFERENCES `turmas` (`id_turma`),
   ADD CONSTRAINT `assoc_unidcurricular_boletim` FOREIGN KEY (`id_unid_curricular`) REFERENCES `unidades_curriculares` (`id_unid_curricular`);
 
@@ -331,7 +331,7 @@ ALTER TABLE `cursos`
 -- Limitadores para a tabela `lista_alunos`
 --
 ALTER TABLE `lista_alunos`
-  ADD CONSTRAINT `assoc_alunos_listaalunos` FOREIGN KEY (`id_aluno`) REFERENCES `alunos` (`cpf_aluno`),
+  ADD CONSTRAINT `assoc_alunos_listaalunos` FOREIGN KEY (`id_aluno`) REFERENCES `alunos` (`nif_aluno`),
   ADD CONSTRAINT `assoc_turma_listaalunos` FOREIGN KEY (`id_turma`) REFERENCES `turmas` (`id_turma`);
 
 --
