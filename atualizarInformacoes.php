@@ -171,7 +171,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
             $sql = "	SELECT alunos.*, nome_turma, nome_curso
             FROM alunos
             INNER JOIN lista_alunos
-            ON alunos.cpf_aluno = lista_alunos.id_aluno
+            ON alunos.nif_aluno = lista_alunos.id_aluno
              INNER JOIN turmas
                   ON turmas.id_turma = lista_alunos.id_turma
               INNER JOIN cursos
@@ -179,7 +179,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
               WHERE cursos.categoria = '$categoria'";
             $result = $conn->query($sql);
 
-            echo "<th>CPF</th>";
+            echo "<th>NIF</th>";
             echo "<th>Nome</th>";
             echo "<th>Sobrenome</th>";
             echo "<th>RG</th>";
@@ -194,7 +194,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
                 // Loop através dos resultados e exibe cada aluno na tabela
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>" . $row["cpf_aluno"] . "</td>";
+                    echo "<td>" . $row["nif_aluno"] . "</td>";
                     echo "<td>" . $row["nome_aluno"] . "</td>";
                     echo "<td>" . $row["sobrenome_aluno"] . "</td>";
                     echo "<td>" . $row["rg_aluno"] . "</td>";
