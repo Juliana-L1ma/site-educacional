@@ -909,6 +909,12 @@ a {
   font-size: 1.1rem;
 }
 
+.alinhaSelect{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .geralAtt option {
   background-color: var(--background-color-branco);
 }
