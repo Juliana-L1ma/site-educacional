@@ -458,6 +458,7 @@ a {
   height: 32px;
 }
 
+
 /*----------- AREA DO ADM DESKTOP ------------*/
 #editar {
   cursor: pointer;
@@ -864,6 +865,14 @@ a {
   color: var(--preto);
   font-weight: 600;
   font-size: 1.1rem;
+  margin-bottom: 3%;
+}
+
+#areaAtt{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 
@@ -946,6 +955,22 @@ a {
   margin-bottom: 3%;
 }
 
+#botaoEnvioAtt{
+  width: 64px;
+  height: 64px;
+  border: none;
+  background-image: url("../img/procurar.png");
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-color: transparent;
+}
+
+#envioAtt{
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  padding-right: 2%;
+}
 
 
 /*MEDIA QUERIES MOBILE ATUALIZAR INFORMAÇÕES*/
@@ -1034,8 +1059,14 @@ a {
   #alinhando select{
     width: 300px;
   }
+
 }
 
+@media screen and (max-width: 700px){
+  #botaoEnvioAtt{
+    background-size: 60%;
+  }
+}
 
 @media screen and (max-width: 360px){
   #alinhando select{
