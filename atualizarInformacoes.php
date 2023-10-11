@@ -154,8 +154,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
           ?>
         </select>
       </div>
-      
-
       <table border="1">
       <?php
         // Verificar se o formulário foi enviado
@@ -185,8 +183,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
             echo "<th>Telefone</th>";
             echo "<th>Turma</th>";
             echo "<th>Curso</th>";
-
-
+            
             if ($result->num_rows > 0) {
                 // Loop através dos resultados e exibe cada aluno na tabela
                 while($row = $result->fetch_assoc()) {
@@ -246,7 +243,9 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
       </div>
     </div>
     </div>
-    <input type="submit" value="Enviar">
+    <div id="envioAtt">
+    <input id="botaoEnvioAtt" type="submit" value="">
+    </div>
       </form>
 
     <div id="resposta"></div>
@@ -354,6 +353,8 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
             document.getElementById("categoria").style.display = "none";
             document.getElementById("formacaoEsc").style.display = "none";
             labelForm.style.display = "none";
+
+
           }
 
           if (selectAtualizar.value === "unidades_curriculares") {
