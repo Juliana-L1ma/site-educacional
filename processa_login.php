@@ -6,7 +6,7 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 
 // Verifica na tabela "aluno"
-$query = "SELECT nif_aluno FROM alunos WHERE email_educacional_aluno = '$email' AND senha_educacional_aluno = '$senha'";
+$query = "SELECT num_matricula_aluno FROM alunos WHERE email_educacional_aluno = '$email' AND senha_educacional_aluno = '$senha'";
 $result = mysqli_query($conn, $query);
 
 if ($result && mysqli_num_rows($result) > 0) {
@@ -28,7 +28,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 }
 
 // Verifica na tabela "professores"
-$query = "SELECT cpf_professor FROM professores WHERE email_educacional_professor = '$email' AND senha_educacional_professor = '$senha'";
+$query = "SELECT nif_professor FROM professores WHERE email_educacional_professor = '$email' AND senha_educacional_professor = '$senha'";
 $result = mysqli_query($conn, $query);
 
 if ($result && mysqli_num_rows($result) > 0) {
