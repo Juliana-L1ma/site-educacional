@@ -332,10 +332,13 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
             }
           }
           $sqlUc = "SELECT *
-          FROM unidades_curriculares";
+          FROM unidades_curriculares
+          INNER JOIN cursos ON unidades_curriculares.id_unid_curricular = cursos.id_unidade_curricular
+          WHERE cursos.nome_curso = '$nome_curso'";
           
           if ($nome_tabela === "unidades_curriculares") {
-            echo "<th>Nome</th>";
+            echo "<th>Cursos</th>";
+            echo "<th>Disciplinas</th>";
             echo "<th>Carga Horária</th>";
             echo "<th>Área Vinculada</th>";
 
@@ -343,6 +346,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
             if ($results->num_rows > 0) {
               while ($row = $results->fetch_assoc()) { 
                 echo "<tr>";
+                echo "<td>" . $row["nome_curso"] . "</td>";
                 echo "<td>" . $row["nome_uc"] . "</td>";
                 echo "<td>" . $row["carga_horaria"] . "</td>";
                 echo "<td>" . $row["area_vinculada"] . "</td>";
