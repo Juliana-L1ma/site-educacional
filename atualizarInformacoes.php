@@ -3,7 +3,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -156,7 +155,8 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
           ?>
         </select>
       </div>
-      <table border="1">
+      <div class="table-responsive">
+      <table class="table table-bordered tabela-customizada" id="tabela-professores-atualizar">
         <?php
         // Verificar se o formulário foi enviado
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -176,6 +176,13 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
               WHERE cursos.categoria = '$categoria'
               AND cursos.nome_curso = '$nome_curso'";
             $result = $conn->query($sql);
+            echo "<nav class='topo-areaDeFormacao'>
+            <a href='./atualizarInformacoes.html'><img src='./img/seta-esquerda-azul.png' alt='seta esquerda azul' class='seta-esquerda-azul'></a>
+            <div class='infoAreaDeFormacao'>
+            <h1>$nome_curso</h1>
+            <h3>Alunos</h3>
+           </div>
+          </nav>";
 
             echo "<th>Matrícula</th>";
             echo "<th>Nome</th>";
@@ -299,6 +306,15 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
           ON turmas.id_curso = cursos.id_curso
           WHERE cursos.nome_curso = '$nome_curso'";
           if ($nome_tabela === "professores") {
+            echo "<nav class='topo-areaDeFormacao'>
+            <a href='./atualizarInformacoes.html'><img src='./img/seta-esquerda-azul.png' alt='seta esquerda azul' class='seta-esquerda-azul'>
+            </a>
+            <div class='infoAreaDeFormacao'>
+            <h1>Área de formação</h1>
+            <h3>$nome_curso</h3>
+          </div>
+          </nav>";
+            echo "<thead>";
             echo "<th>NIF</th>";
             echo "<th>Nome</th>";
             echo "<th>Sobrenome</th>";
@@ -311,6 +327,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
             echo "<th>E-mail</th>";
             echo "<th>E-mail Educacional</th>";
             echo "<th>Senha Educacional</th>";
+            echo "</thead>";
 
             $results = $conn->query($sqlResultProfessor);
             if ($results->num_rows > 0) {
@@ -337,6 +354,13 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
           WHERE cursos.nome_curso = '$nome_curso'";
           
           if ($nome_tabela === "unidades_curriculares") {
+            echo "<nav class='topo-areaDeFormacao'>
+            <a href='./atualizarInformacoes.html'><img src='./img/seta-esquerda-azul.png' alt='seta esquerda azul' class='seta-esquerda-azul'></a>
+            <div class='infoAreaDeFormacao'>
+            <h1>Disciplinas</h1>
+            <h3>$nome_curso</h3>
+           </div>
+          </nav>";
             echo "<th>Cursos</th>";
             echo "<th>Disciplinas</th>";
             echo "<th>Carga Horária</th>";
@@ -417,7 +441,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
       <input id="botaoEnvioAtt" type="submit" value="">
     </div>
     </form>
-
+    </div>
     <div id="resposta"></div>
   </main>
 
@@ -430,7 +454,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
           <p class="textoRodape">Acesse o site oficial do SENAI para ver outras informações <a
               href="https://www.sp.senai.br/">Clique aqui</a></p>
         </div>
-
         <div class="col-6">
           <div class="contatos">
             <p class="tituloRodape">Contatos</p>
@@ -445,7 +468,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
           </div>
         </div>
       </div>
-
       <div class="row">
         <div class="col-12">
           <p class="direitosAutorais">
@@ -523,8 +545,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
             document.getElementById("categoria").style.display = "none";
             document.getElementById("formacaoEsc").style.display = "none";
             labelForm.style.display = "none";
-
-
           }
           if (selectAtualizar.value === "unidades_curriculares") {
             document.getElementById("nome_curso").style.display = "block";
