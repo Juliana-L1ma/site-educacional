@@ -349,6 +349,28 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
               }
             }  
           }
+          $sqlResultTurmas = "SELECT *
+          FROM turmas
+          INNER JOIN cursos ON turmas.id_curso = cursos.id_curso
+          WHERE cursos.nome_curso = '$nome_curso'";
+          if ($nome_tabela === "turmas") {
+            echo "<th>Curso</th>";
+            echo "<th>Turmas</th>";
+            echo "<th>Total Alunos</th>";
+            echo "<th>Período</th>";
+
+            $results = $conn->query($sqlResultTurmas);
+            if ($results->num_rows > 0) {
+              while ($row = $results->fetch_assoc()) { 
+                echo "<tr>";
+                echo "<td>" . $row["nome_curso"] . "</td>";
+                echo "<td>" . $row["nome_turma"] . "</td>";
+                echo "<td>" . $row["total_alunos"] . "</td>";
+                echo "<td>" . $row["periodo_turma"] . "</td>";
+                echo "</tr>";
+              }
+            }
+          }
         }
         ?>
       </table>
