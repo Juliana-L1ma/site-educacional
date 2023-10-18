@@ -8,8 +8,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css">
@@ -19,14 +17,23 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
       margin-bottom: 0;
     }
 
-    table {
+    .tabelaAtt table {
       margin-top: 2vh;
       border: collapse;
+      width: 90vw;
     }
 
-    table td {
+    .tabelaAtt td {
       border: 1px solid #000;
       padding: 5px;
+    }
+
+    .tabelaAtt {
+    overflow-x: scroll;
+    }
+
+    th, td {
+        min-width: 50px; /* width/largura das células à escolha */
     }
   </style>
 </head>
@@ -155,7 +162,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
           ?>
         </select>
       </div>
-      <div class="table-responsive">
+      <div class="tabelaAtt">
       <table class="table table-bordered tabela-customizada" id="tabela-professores-atualizar">
         <?php
         // Verificar se o formulário foi enviado
