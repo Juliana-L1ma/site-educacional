@@ -139,7 +139,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
         </select>
       </div>
       <div class="tabelaAtt">
-        <table id="tabela-professores-atualizar">
+        <table id="tabelaAtt">
           <?php
           // Verificar se o formulário foi enviado
           if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -566,6 +566,37 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
         });
       });
     }
+
+    // Função para lidar com o clique em uma célula da tabela
+    function selecionarCelula(event) {
+      // Obtém o valor da célula clicada
+      var valor = event.target.innerText;
+      // Exibe o valor no console
+      console.log("Valor selecionado: " + valor);
+
+     
+        corpo = document.getElementById('alinhando');
+        janela = document.createElement('div');
+        texto = document.createElement('p');
+        textoEscrito = document.createTextNode('Digite no campo para alterar:')
+        input = document.createElement('input');
+        botao = document.createElement('button');
+        txtEnviar = document.createTextNode('Atualizar');
+
+        janela.id = "popUp";
+        
+        texto.appendChild(textoEscrito);
+        janela.appendChild(texto);
+        janela.appendChild(input);
+        botao.appendChild(txtEnviar);
+        janela.appendChild(botao);
+        corpo.appendChild(janela);
+    }
+    // Adicione um evento de clique para cada célula da tabela
+    var cells = document.querySelectorAll("#tabelaAtt td");
+    cells.forEach(function (cell) {
+      cell.addEventListener("click", selecionarCelula);
+    });
   </script>
 </body>
 </html>
