@@ -660,13 +660,9 @@ a {
   display: flex;
   width: 80%;
   margin: 3%;
-  margin-left: 4%;
   font-family: var(--fontes-de-texto);
 }
 
-.infoAreaDeFormacao {
-  margin-left: 5%;
-}
 
 #tabela-dadosAlunos-form {
   width: 90%;
@@ -798,18 +794,12 @@ a {
     padding: 2%;
   }
 }
-
 /* -------- ATUALIZAR DISCIPLINAS SEMESTRAIS DESKTOP ---------*/
 .topo-areaDeFormacao {
   display: flex;
   width: 80%;
-  margin: 3%;
-  margin-left: 4%;
   font-family: var(--fontes-de-texto);
-}
-
-.infoAreaDeFormacao {
-  margin-left: 5%;
+  margin-top: 10%;
 }
 
 #tabela-infoDisciplinas-form {
@@ -825,7 +815,6 @@ a {
 .atualiza-profess {
   margin-left: 5%;
 }
-
 /* ----------- DESKTOP ATUALIZAR INFORMAÇÕES ------------*/
 #mainAtt {
   background-color: var(--azul-escuro);
@@ -909,11 +898,6 @@ a {
   font-size: 1.1rem;
 }
 
-.alinhaSelect{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
 
 .geralAtt option {
   background-color: var(--background-color-branco);
@@ -945,6 +929,7 @@ a {
 
 .labelEscolha {
   margin-top: 5%;
+  text-align: left;
 }
 
 #alinhando{
@@ -959,6 +944,15 @@ a {
   width: 400px;
   margin-top: 2%;
   margin-bottom: 3%;
+}
+
+
+.alinhaSelect {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 #botaoEnvioAtt{
@@ -3250,7 +3244,7 @@ textarea::-webkit-scrollbar-thumb {
           height: 3rem;
           padding: 0 2rem;
           border-radius: 1.5rem;
-          background: #912B64;
+          background: var(--bordo);
           background-size: 400%;
           color: #fff;
           border: none;
@@ -3344,4 +3338,61 @@ textarea::-webkit-scrollbar-thumb {
     margin-left: 2%;
     width: 90%;
     margin-bottom: 5%;
+  }
+
+  /*------------ TABELAS GERAIS ----------------*/
+  .tabelaAtt table {
+    background-color: #fff;
+    margin-top: 2vh;
+    font-family: 'Lato', sans-serif;
+    width: 100%;
+    border-collapse:separate;
+    border: solid #ccc 1px;
+    margin-bottom: 5%;
+    padding: 2px;
+    -webkit-border-radius: 25px;
+       -moz-border-radius: 25px;
+            border-radius: 25px;
+
+  }
+
+  .tabelaAtt td {
+    padding: 5px;
+    border-top: 1px solid var(--bordo);
+  }
+
+  .tabelaAtt {
+    overflow-x: scroll;
+  }
+
+  th,
+  td {
+    min-width: 50px;
+    /* width/largura das células à escolha */
+  }
+
+  th{
+    height: 3vh;
+    padding: 5px;
+  }
+
+  .topo-areaDeFormacao{
+    text-align: left;
+  }
+
+
+  @media screen and (max-width: 1945px){
+    .tabelaAtt{
+      width: 90%;
+    }
+  }
+
+  .infoAreaDeFormacao h1{
+    width: 100%;
+   font-size: 1.7rem; 
+  }
+
+  .infoAreaDeFormacao h3{
+    width: 100%;
+   font-size: 1.2rem; 
   }
