@@ -12,30 +12,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css">
   <title>Atualizar informações</title>
-  <style>
-    p {
-      margin-bottom: 0;
-    }
-
-    .tabelaAtt table {
-      margin-top: 2vh;
-      border: collapse;
-      width: 90vw;
-    }
-
-    .tabelaAtt td {
-      border: 1px solid #000;
-      padding: 5px;
-    }
-
-    .tabelaAtt {
-    overflow-x: scroll;
-    }
-
-    th, td {
-        min-width: 50px; /* width/largura das células à escolha */
-    }
-  </style>
 </head>
 
 <body onload="carregar()">
@@ -163,16 +139,16 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
         </select>
       </div>
       <div class="tabelaAtt">
-      <table class="table table-bordered tabela-customizada" id="tabela-professores-atualizar">
-        <?php
-        // Verificar se o formulário foi enviado
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          $nome_tabela = $_POST["nome_tabela"];
-          $categoria = $_POST["categoria"];
-          $nome_curso = $_POST["nome_curso"];
+        <table id="tabela-professores-atualizar">
+          <?php
+          // Verificar se o formulário foi enviado
+          if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $nome_tabela = $_POST["nome_tabela"];
+            $categoria = $_POST["categoria"];
+            $nome_curso = $_POST["nome_curso"];
 
-          if ($nome_tabela === "alunos") {
-            $sql = "	SELECT alunos.*, nome_turma, nome_curso
+            if ($nome_tabela === "alunos") {
+              $sql = "	SELECT alunos.*, nome_turma, nome_curso
             FROM alunos
             INNER JOIN lista_alunos
             ON alunos.num_matricula_aluno = lista_alunos.id_aluno
@@ -182,128 +158,145 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
                       ON cursos.id_curso = turmas.id_curso
               WHERE cursos.categoria = '$categoria'
               AND cursos.nome_curso = '$nome_curso'";
-            $result = $conn->query($sql);
-            echo "<nav class='topo-areaDeFormacao'>
-            <a href='./atualizarInformacoes.html'><img src='./img/seta-esquerda-azul.png' alt='seta esquerda azul' class='seta-esquerda-azul'></a>
+              $result = $conn->query($sql);
+              echo "<nav class='topo-areaDeFormacao'>
             <div class='infoAreaDeFormacao'>
             <h1>$nome_curso</h1>
-            <h3>Alunos</h3>
+            <h2>Alunos</h2>
+            <h3>Clique na célula que deseja editar</h3>
            </div>
           </nav>";
-
-            echo "<th>Matrícula</th>";
-            echo "<th>Nome</th>";
-            echo "<th>Sobrenome</th>";
-            echo "<th>RG</th>";
-            echo "<th>CPF</th>";
-            echo "<th>Data de Nascimento</th>";
-            echo "<th>Endereço</th>";
-            echo "<th>Telefone</th>";
-            echo "<th>Turma</th>";
-            echo "<th>Curso</th>";
-
-            if ($result->num_rows > 0) {
-              // Loop através dos resultados e exibe cada aluno na tabela
-              while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["num_matricula_aluno"] . "</td>";
-                echo "<td>" . $row["nome_aluno"] . "</td>";
-                echo "<td>" . $row["sobrenome_aluno"] . "</td>";
-                echo "<td>" . $row["rg_aluno"] . "</td>";
-                echo "<td>" . $row["cpf_aluno"] . "</td>";
-                echo "<td>" . $row["data_nascimento_aluno"] . "</td>";
-                echo "<td>" . $row["endereco_aluno"] . "</td>";
-                echo "<td>" . $row["telefone_aluno"] . "</td>";
-                echo "<td>" . $row["nome_turma"] . "</td>";
-                echo "<td>" . $row["nome_curso"] . "</td>";
-                // Adicione outras colunas conforme necessário
-                echo "</tr>";
+              echo "<th>Matrícula</th>";
+              echo "<th>Nome</th>";
+              echo "<th>Sobrenome</th>";
+              echo "<th>RG</th>";
+              echo "<th>CPF</th>";
+              echo "<th>Data de Nascimento</th>";
+              echo "<th>Endereço</th>";
+              echo "<th>Telefone</th>";
+              echo "<th>Turma</th>";
+              echo "<th>Curso</th>";
+              if ($result->num_rows > 0) {
+                // Loop através dos resultados e exibe cada aluno na tabela
+                while ($row = $result->fetch_assoc()) {
+                  echo "<tr>";
+                  echo "<td>" . $row["num_matricula_aluno"] . "</td>";
+                  echo "<td>" . $row["nome_aluno"] . "</td>";
+                  echo "<td>" . $row["sobrenome_aluno"] . "</td>";
+                  echo "<td>" . $row["rg_aluno"] . "</td>";
+                  echo "<td>" . $row["cpf_aluno"] . "</td>";
+                  echo "<td>" . $row["data_nascimento_aluno"] . "</td>";
+                  echo "<td>" . $row["endereco_aluno"] . "</td>";
+                  echo "<td>" . $row["telefone_aluno"] . "</td>";
+                  echo "<td>" . $row["nome_turma"] . "</td>";
+                  echo "<td>" . $row["nome_curso"] . "</td>";
+                  // Adicione outras colunas conforme necessário
+                  echo "</tr>";
+                }
               }
             }
-          }
-          $sqlCursoCai = "SELECT nome_curso, categoria, capacidade, carga_horaria_curso, valor_curso, qntd_periodos, plano_curso
+            $sqlCursoCai = "SELECT nome_curso, categoria, capacidade, carga_horaria_curso, valor_curso, qntd_periodos, plano_curso
           FROM cursos
           WHERE categoria = 'CAI'";
-          $sqlCursoFic = "SELECT nome_curso, categoria, capacidade, carga_horaria_curso, valor_curso, qntd_periodos, plano_curso
+            $sqlCursoFic = "SELECT nome_curso, categoria, capacidade, carga_horaria_curso, valor_curso, qntd_periodos, plano_curso
           FROM cursos
           WHERE categoria = 'FIC'";
-          $sqlCursoTecnico = "SELECT nome_curso, categoria, capacidade, carga_horaria_curso, valor_curso, qntd_periodos, plano_curso
+            $sqlCursoTecnico = "SELECT nome_curso, categoria, capacidade, carga_horaria_curso, valor_curso, qntd_periodos, plano_curso
           FROM cursos
           WHERE categoria = 'Técnico'";
 
-          if ($nome_tabela === "cursos" and $categoria === "CAI") {
-            echo "<th>Curso</th>";
-            echo "<th>Categoria</th>";
-            echo "<th>Capacidade</th>";
-            echo "<th>Carga Horária</th>";
-            echo "<th>Custo</th>";
-            echo "<th>Período</th>";
-            echo "<th>Plano de Curso</th>";
+            if ($nome_tabela === "cursos" and $categoria === "CAI") {
+              echo "<nav class='topo-areaDeFormacao'>
+              <div class='infoAreaDeFormacao'>
+              <h1>Cursos</h1>
+              <h2>$categoria</h2>
+              <h3>Clique na célula que deseja editar</h3>
+             </div>
+            </nav>";
+              echo "<th>Curso</th>";
+              echo "<th>Categoria</th>";
+              echo "<th>Capacidade</th>";
+              echo "<th>Carga Horária</th>";
+              echo "<th>Custo</th>";
+              echo "<th>Período</th>";
+              echo "<th>Plano de Curso</th>";
 
-            $results = $conn->query($sqlCursoCai);
+              $results = $conn->query($sqlCursoCai);
 
-            if ($results->num_rows > 0) {
-              while ($row = $results->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["nome_curso"] . "</td>";
-                echo "<td>" . $row["categoria"] . "</td>";
-                echo "<td>" . $row["capacidade"] . "</td>";
-                echo "<td>" . $row["carga_horaria_curso"] . "</td>";
-                echo "<td>" . $row["valor_curso"] . "</td>";
-                echo "<td>" . $row["qntd_periodos"] . "</td>";
-                echo "<td>" . $row["plano_curso"] . "</td>";
-              }
-
-            }
-          }
-          if ($nome_tabela === "cursos" and $categoria === "FIC") {
-            echo "<th>Curso</th>";
-            echo "<th>Categoria</th>";
-            echo "<th>Capacidade</th>";
-            echo "<th>Carga Horária</th>";
-            echo "<th>Custo</th>";
-            echo "<th>Período</th>";
-            echo "<th>Plano de Curso</th>";
-            $results = $conn->query($sqlCursoFic);
-
-            if ($results->num_rows > 0) {
-              while ($row = $results->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["nome_curso"] . "</td>";
-                echo "<td>" . $row["categoria"] . "</td>";
-                echo "<td>" . $row["capacidade"] . "</td>";
-                echo "<td>" . $row["carga_horaria_curso"] . "</td>";
-                echo "<td>" . $row["valor_curso"] . "</td>";
-                echo "<td>" . $row["qntd_periodos"] . "</td>";
-                echo "<td>" . $row["plano_curso"] . "</td>";
-              }
-
-            }
-          }
-          if ($nome_tabela === "cursos" and $categoria === "Técnico") {
-            echo "<th>Curso</th>";
-            echo "<th>Categoria</th>";
-            echo "<th>Capacidade</th>";
-            echo "<th>Carga Horária</th>";
-            echo "<th>Custo</th>";
-            echo "<th>Período</th>";
-            echo "<th>Plano de Curso</th>";
-            $results = $conn->query($sqlCursoTecnico);
-
-            if ($results->num_rows > 0) {
-              while ($row = $results->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["nome_curso"] . "</td>";
-                echo "<td>" . $row["categoria"] . "</td>";
-                echo "<td>" . $row["capacidade"] . "</td>";
-                echo "<td>" . $row["carga_horaria_curso"] . "</td>";
-                echo "<td>" . $row["valor_curso"] . "</td>";
-                echo "<td>" . $row["qntd_periodos"] . "</td>";
-                echo "<td>" . $row["plano_curso"] . "</td>";
+              if ($results->num_rows > 0) {
+                while ($row = $results->fetch_assoc()) {
+                  echo "<tr>";
+                  echo "<td>" . $row["nome_curso"] . "</td>";
+                  echo "<td>" . $row["categoria"] . "</td>";
+                  echo "<td>" . $row["capacidade"] . "</td>";
+                  echo "<td>" . $row["carga_horaria_curso"] . "</td>";
+                  echo "<td>" . $row["valor_curso"] . "</td>";
+                  echo "<td>" . $row["qntd_periodos"] . "</td>";
+                  echo "<td>" . $row["plano_curso"] . "</td>";
+                }
               }
             }
-          }
-          $sqlResultProfessor = "SELECT professores.*
+            if ($nome_tabela === "cursos" and $categoria === "FIC") {
+              echo "<nav class='topo-areaDeFormacao'>
+              <div class='infoAreaDeFormacao'>
+              <h1>Cursos</h1>
+              <h2>$categoria</h2>
+              <h3>Clique na célula que deseja editar</h3>
+             </div>
+            </nav>";
+              echo "<th>Curso</th>";
+              echo "<th>Categoria</th>";
+              echo "<th>Capacidade</th>";
+              echo "<th>Carga Horária</th>";
+              echo "<th>Custo</th>";
+              echo "<th>Período</th>";
+              echo "<th>Plano de Curso</th>";
+              $results = $conn->query($sqlCursoFic);
+
+              if ($results->num_rows > 0) {
+                while ($row = $results->fetch_assoc()) {
+                  echo "<tr>";
+                  echo "<td>" . $row["nome_curso"] . "</td>";
+                  echo "<td>" . $row["categoria"] . "</td>";
+                  echo "<td>" . $row["capacidade"] . "</td>";
+                  echo "<td>" . $row["carga_horaria_curso"] . "</td>";
+                  echo "<td>" . $row["valor_curso"] . "</td>";
+                  echo "<td>" . $row["qntd_periodos"] . "</td>";
+                  echo "<td>" . $row["plano_curso"] . "</td>";
+                }
+              }
+            }
+            if ($nome_tabela === "cursos" and $categoria === "Técnico") {
+              echo "<nav class='topo-areaDeFormacao'>
+              <div class='infoAreaDeFormacao'>
+              <h1>Cursos</h1>
+              <h2>$categoria</h2>
+              <h3>Clique na célula que deseja editar</h3>
+             </div>
+            </nav>";
+              echo "<th>Curso</th>";
+              echo "<th>Categoria</th>";
+              echo "<th>Capacidade</th>";
+              echo "<th>Carga Horária</th>";
+              echo "<th>Custo</th>";
+              echo "<th>Período</th>";
+              echo "<th>Plano de Curso</th>";
+              $results = $conn->query($sqlCursoTecnico);
+
+              if ($results->num_rows > 0) {
+                while ($row = $results->fetch_assoc()) {
+                  echo "<tr>";
+                  echo "<td>" . $row["nome_curso"] . "</td>";
+                  echo "<td>" . $row["categoria"] . "</td>";
+                  echo "<td>" . $row["capacidade"] . "</td>";
+                  echo "<td>" . $row["carga_horaria_curso"] . "</td>";
+                  echo "<td>" . $row["valor_curso"] . "</td>";
+                  echo "<td>" . $row["qntd_periodos"] . "</td>";
+                  echo "<td>" . $row["plano_curso"] . "</td>";
+                }
+              }
+            }
+            $sqlResultProfessor = "SELECT professores.*
           FROM professores
           INNER JOIN lista_prof_turma
           ON professores.nif_professor = lista_prof_turma.nif_professor
@@ -312,137 +305,141 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
           INNER JOIN cursos
           ON turmas.id_curso = cursos.id_curso
           WHERE cursos.nome_curso = '$nome_curso'";
-          if ($nome_tabela === "professores") {
-            echo "<nav class='topo-areaDeFormacao'>
-            <a href='./atualizarInformacoes.html'><img src='./img/seta-esquerda-azul.png' alt='seta esquerda azul' class='seta-esquerda-azul'>
-            </a>
+            if ($nome_tabela === "professores") {
+              echo "<nav class='topo-areaDeFormacao'>
             <div class='infoAreaDeFormacao'>
             <h1>Área de formação</h1>
-            <h3>$nome_curso</h3>
+            <h2>$nome_curso</h2>
+            <h3>Clique na célula que deseja editar</h3>
           </div>
           </nav>";
-            echo "<thead>";
-            echo "<th>NIF</th>";
-            echo "<th>Nome</th>";
-            echo "<th>Sobrenome</th>";
-            echo "<th>RG</th>";
-            echo "<th>Data de Nascimento</th>";
-            echo "<th>Endereço</th>";
-            echo "<th>Número End</th>";
-            echo "<th>Complemento</th>";
-            echo "<th>Telefone</th>";
-            echo "<th>E-mail</th>";
-            echo "<th>E-mail Educacional</th>";
-            echo "<th>Senha Educacional</th>";
-            echo "</thead>";
+              echo "<thead>";
+              echo "<th>NIF</th>";
+              echo "<th>Nome</th>";
+              echo "<th>Sobrenome</th>";
+              echo "<th>RG</th>";
+              echo "<th>Data de Nascimento</th>";
+              echo "<th>Endereço</th>";
+              echo "<th>Número End</th>";
+              echo "<th>Complemento</th>";
+              echo "<th>Telefone</th>";
+              echo "<th>E-mail</th>";
+              echo "<th>E-mail Educacional</th>";
+              echo "<th>Senha Educacional</th>";
+              echo "</thead>";
 
-            $results = $conn->query($sqlResultProfessor);
-            if ($results->num_rows > 0) {
-              while ($row = $results->fetch_assoc()) {          
-              echo "<tr>";
-              echo "<td>" . $row["nif_professor"] . "</td>";
-              echo "<td>" . $row["nome_professor"] . "</td>";
-              echo "<td>" . $row["sobrenome_professor"] . "</td>";
-              echo "<td>" . $row["rg_professor"] . "</td>";
-              echo "<td>" . $row["data_nascimento_professor"] . "</td>";
-              echo "<td>" . $row["endereco_professor"] . "</td>";
-              echo "<td>" . $row["numero_end_professor"] . "</td>";
-              echo "<td>" . $row["complemento_end_professor"] . "</td>";
-              echo "<td>" . $row["telefone_professor"] . "</td>";
-              echo "<td>" . $row["email_pessoal_professor"] . "</td>";
-              echo "<td>" . $row["email_educacional_professor"] . "</td>";
-              echo "<td>" . $row["senha_educacional_professor"] . "</td>";
+              $results = $conn->query($sqlResultProfessor);
+              if ($results->num_rows > 0) {
+                while ($row = $results->fetch_assoc()) {
+                  echo "<tr>";
+                  echo "<td>" . $row["nif_professor"] . "</td>";
+                  echo "<td>" . $row["nome_professor"] . "</td>";
+                  echo "<td>" . $row["sobrenome_professor"] . "</td>";
+                  echo "<td>" . $row["rg_professor"] . "</td>";
+                  echo "<td>" . $row["data_nascimento_professor"] . "</td>";
+                  echo "<td>" . $row["endereco_professor"] . "</td>";
+                  echo "<td>" . $row["numero_end_professor"] . "</td>";
+                  echo "<td>" . $row["complemento_end_professor"] . "</td>";
+                  echo "<td>" . $row["telefone_professor"] . "</td>";
+                  echo "<td>" . $row["email_pessoal_professor"] . "</td>";
+                  echo "<td>" . $row["email_educacional_professor"] . "</td>";
+                  echo "<td>" . $row["senha_educacional_professor"] . "</td>";
+                }
               }
             }
-          }
-          $sqlUc = "SELECT *
+            $sqlUc = "SELECT *
           FROM unidades_curriculares
           INNER JOIN cursos ON unidades_curriculares.id_unid_curricular = cursos.id_unidade_curricular
           WHERE cursos.nome_curso = '$nome_curso'";
-          
-          if ($nome_tabela === "unidades_curriculares") {
-            echo "<nav class='topo-areaDeFormacao'>
-            <a href='./atualizarInformacoes.html'><img src='./img/seta-esquerda-azul.png' alt='seta esquerda azul' class='seta-esquerda-azul'></a>
+
+            if ($nome_tabela === "unidades_curriculares") {
+              echo "<nav class='topo-areaDeFormacao'>
             <div class='infoAreaDeFormacao'>
             <h1>Disciplinas</h1>
-            <h3>$nome_curso</h3>
+            <h2>$nome_curso</h2>
+            <h3>Clique na célula que deseja editar</h3>
            </div>
           </nav>";
-            echo "<th>Cursos</th>";
-            echo "<th>Disciplinas</th>";
-            echo "<th>Carga Horária</th>";
-            echo "<th>Área Vinculada</th>";
+              echo "<th>Cursos</th>";
+              echo "<th>Disciplinas</th>";
+              echo "<th>Carga Horária</th>";
+              echo "<th>Área Vinculada</th>";
 
-            $results = $conn->query($sqlUc);
-            if ($results->num_rows > 0) {
-              while ($row = $results->fetch_assoc()) { 
-                echo "<tr>";
-                echo "<td>" . $row["nome_curso"] . "</td>";
-                echo "<td>" . $row["nome_uc"] . "</td>";
-                echo "<td>" . $row["carga_horaria"] . "</td>";
-                echo "<td>" . $row["area_vinculada"] . "</td>";
+              $results = $conn->query($sqlUc);
+              if ($results->num_rows > 0) {
+                while ($row = $results->fetch_assoc()) {
+                  echo "<tr>";
+                  echo "<td>" . $row["nome_curso"] . "</td>";
+                  echo "<td>" . $row["nome_uc"] . "</td>";
+                  echo "<td>" . $row["carga_horaria"] . "</td>";
+                  echo "<td>" . $row["area_vinculada"] . "</td>";
+                }
               }
-            }  
-          }
-          $sqlResultTurmas = "SELECT *
+            }
+            $sqlResultTurmas = "SELECT *
           FROM turmas
           INNER JOIN cursos ON turmas.id_curso = cursos.id_curso
           WHERE cursos.nome_curso = '$nome_curso'";
-          if ($nome_tabela === "turmas") {
-            echo "<th>Curso</th>";
-            echo "<th>Turmas</th>";
-            echo "<th>Total Alunos</th>";
-            echo "<th>Período</th>";
+            if ($nome_tabela === "turmas") {
+              echo "<nav class='topo-areaDeFormacao'>
+              <div class='infoAreaDeFormacao'>
+              <h1>Turmas</h1>
+              <h2>$nome_curso</h2>
+              <h3>Clique na célula que deseja editar</h3>
+             </div>
+            </nav>";
+              echo "<th>Curso</th>";
+              echo "<th>Turmas</th>";
+              echo "<th>Total Alunos</th>";
+              echo "<th>Período</th>";
 
-            $results = $conn->query($sqlResultTurmas);
-            if ($results->num_rows > 0) {
-              while ($row = $results->fetch_assoc()) { 
-                echo "<tr>";
-                echo "<td>" . $row["nome_curso"] . "</td>";
-                echo "<td>" . $row["nome_turma"] . "</td>";
-                echo "<td>" . $row["total_alunos"] . "</td>";
-                echo "<td>" . $row["periodo_turma"] . "</td>";
-                echo "</tr>";
+              $results = $conn->query($sqlResultTurmas);
+              if ($results->num_rows > 0) {
+                while ($row = $results->fetch_assoc()) {
+                  echo "<tr>";
+                  echo "<td>" . $row["nome_curso"] . "</td>";
+                  echo "<td>" . $row["nome_turma"] . "</td>";
+                  echo "<td>" . $row["total_alunos"] . "</td>";
+                  echo "<td>" . $row["periodo_turma"] . "</td>";
+                  echo "</tr>";
+                }
               }
             }
           }
-        }
-        ?>
-      </table>
-
-      <div class="labelEscolha" id="labelForm">
-        <label for="">Curso:</label>
-      </div>
-      <div class="opcoesGeral">
-        <select name="attCurso" id="formacaoEsc" class="opcoesAtt">
-          <?php
-          // Consulta SQL para buscar os nomes dos cursos do banco de dados
-          $nomeCursos = "SELECT nome_curso FROM cursos";
-          $result = $conn->query($nomeCursos);
-
-          if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-              echo '<option>' . $row["nome_curso"] . '</option>';
-            }
-          } else {
-            echo '<option>Nenhum curso encontrado</option>';
-          }
           ?>
-        </select>
-      </div>
+        </table>
+        <div class="labelEscolha" id="labelForm">
+          <label for="">Curso:</label>
+        </div>
+        <div class="opcoesGeral">
+          <select name="attCurso" id="formacaoEsc" class="opcoesAtt">
+            <?php
+            // Consulta SQL para buscar os nomes dos cursos do banco de dados
+            $nomeCursos = "SELECT nome_curso FROM cursos";
+            $result = $conn->query($nomeCursos);
 
-      <div class="labelEscolha" id="labelSemestre">
-        <label for="" id="labelSem">Semestre:</label>
+            if ($result->num_rows > 0) {
+              while ($row = $result->fetch_assoc()) {
+                echo '<option>' . $row["nome_curso"] . '</option>';
+              }
+            } else {
+              echo '<option>Nenhum curso encontrado</option>';
+            }
+            ?>
+          </select>
+        </div>
+        <div class="labelEscolha" id="labelSemestre">
+          <label for="" id="labelSem">Semestre:</label>
+        </div>
+        <div class="opcoesGeral">
+          <select name="attCurso" id="semestreCurso" class="opcoesAtt">
+            <option value=""></option>
+            <option value="tecnologia">1° Semestre</option>
+            <option value="mecanica">2° Semestre</option>
+            <option value="eletrica">3° Semestre</option>
+          </select>
+        </div>
       </div>
-      <div class="opcoesGeral">
-        <select name="attCurso" id="semestreCurso" class="opcoesAtt">
-          <option value=""></option>
-          <option value="tecnologia">1° Semestre</option>
-          <option value="mecanica">2° Semestre</option>
-          <option value="eletrica">3° Semestre</option>
-        </select>
-      </div>
-    </div>
     </div>
     <div id="envioAtt">
       <input id="botaoEnvioAtt" type="submit" value="">
@@ -451,7 +448,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
     </div>
     <div id="resposta"></div>
   </main>
-
   <footer class="footer-professor-adm">
     <div class="container">
       <div class="row">
@@ -572,7 +568,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
     }
   </script>
 </body>
-
 </html>
 <?php
 // Fechar a conexão com o banco de dados
