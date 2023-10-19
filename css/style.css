@@ -712,7 +712,7 @@ a {
 }
 
 #tabela-alunos-semestre-atualizar,
-#tabela-professores-semestre-atualizar {
+#tabelaAtt{
   width: 90%;
   margin-left: 2%;
 }
@@ -3396,3 +3396,46 @@ textarea::-webkit-scrollbar-thumb {
     width: 100%;
    font-size: 1.2rem; 
   }
+
+#popUp{
+  width: 300px;
+  background-color: #ffffff;
+  color: var(--preto);
+  height: 150px;
+  padding: 1%;
+  padding-top: 3%;
+  border-radius: 10px;
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#popUp p{
+  padding: 1%;
+  margin-bottom: 3%;
+  font-size: 1.2rem;
+}
+
+#popUp input{
+  border: 1px solid var(--verde);
+  outline: none;
+  width: 80%;
+}
+
+#popUp button{
+  font-family: var(--fontes-de-texto);
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgba(145, 43, 100, 1) 1%, rgba(204, 110, 163, 1) 49%, rgba(145, 43, 100, 1) 100%);
+  padding: 0.2em;
+  border-radius: 0.3em;
+  color: #fff;
+  height: 2.6em;
+  text-shadow: 0 2px 0 rgb(0 0 0 / 50%);
+  width: 100px;
+  margin-top: 4%;
+  text-align: center;
+}
