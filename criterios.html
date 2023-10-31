@@ -9,193 +9,314 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .inputCRI{
-            width: 250px;
-            height: 120px;
-        }
-        #mudaTexto{
-            color: #912B64;
-        }
-        #bottone5 {
-          
-            align-items: center;
-            background-color: #70A288;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: .25rem;
-            box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-            box-sizing: border-box;
-            color: rgba(0, 0, 0, 0.85);
-            cursor: pointer;
-            display: inline-flex;
-            font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            justify-content: center;
-            line-height: 1.25;
-            min-height: 3rem;
-            padding: calc(.875rem - 1px) calc(1.5rem - 1px);
-            text-decoration: none;
-            transition: all 250ms;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            vertical-align: baseline;
-            width: auto;
-           }
-           
-           #bottone5:hover,
-           #bottone5:focus {
-            border-color: rgba(0, 0, 0, 0.15);
-            box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-            color: rgb(255, 255, 255);
-           }
-           
-           #bottone5:hover {
-            transform: translateY(-1px);
-           }
-           
-           #bottone5:active {
-            background-color: #F0F0F1;
-            border-color: rgba(0, 0, 0, 0.15);
-            box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+
+     
+
+
+
+
+
   
-            transform: translateY(0);
-           }
 
 
 
+            .inputCRI{
+                width: 250px;
+                height: 120px;
+            }
+            #mudaTexto{
+                color: #912B64;
+            }
+            #bottone5 {
+
+       
+              
+                align-items: center;
+                background-color: #70A288;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                border-radius: .25rem;
+                box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+                box-sizing: border-box;
+                color: rgba(0, 0, 0, 0.85);
+                cursor: pointer;
+                display: inline-flex;
+                font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-size: 16px;
+                font-weight: 600;
+                justify-content: center;
+                line-height: 1.25;
+                min-height: 3rem;
+                padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+                text-decoration: none;
+                transition: all 250ms;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+                vertical-align: baseline;
+                width: auto;
 
 
-
-
-
-           #bottone6 {
-          
-            align-items: center;
-            background-color: #912B64;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: .25rem;
-            box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-            box-sizing: border-box;
-            color: rgba(0, 0, 0, 0.85);
-            cursor: pointer;
-            display: inline-flex;
-            font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            justify-content: center;
-            line-height: 1.25;
-            min-height: 3rem;
-            padding: calc(.875rem - 1px) calc(1.5rem - 1px);
-            text-decoration: none;
-            transition: all 250ms;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            vertical-align: baseline;
-            width: auto;
-           }
-           
-           #bottone6:hover,
-           #bottone6:focus {
-            border-color: rgba(0, 0, 0, 0.15);
-            box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-            color: rgb(255, 255, 255);
-           }
-           
-           #bottone6:hover {
-            transform: translateY(-1px);
-           }
-           
-           #bottone6:active {
-            background-color: #F0F0F1;
-            border-color: rgba(0, 0, 0, 0.15);
-            box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
-  
-            transform: translateY(0);
-           }
-
-
-
-
-
-
-
-
-
-
-           
-        .containerCRI {
-            cursor: pointer;
-
-            display: flex;
-            justify-content: center;
-            margin-top: 2%;
-
-            
-          }
-          
-          .containerCRI input {
-            display: none;
-          }
-          
-          .containerCRI svg {
-            overflow: visible;
-          }
-          
-          .path {
-            fill: none;
-            stroke: #70A288;
-            
-            stroke-width: 6;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
-            stroke-dasharray: 241 9999999;
-            stroke-dashoffset: 0;
-          }
-          
-          .containerCRI input:checked ~ svg .path {
-            stroke-dasharray: 70.5096664428711 9999999;
-            stroke-dashoffset: -262.2723388671875;
-          }
-          
-        .caixaGeralCri{
-          
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 3%;
-            align-items: center;
-
-
-        }
-        .textosCri{
-            
-            font-family: var(--fontes-de-texto);
-            font-size: 20px;
-            margin-bottom: 1em;
-            
-        }
-        .turma{
-            text-align: center;
-            font-size: 20px;
-            font-family: var(--fontes-de-texto);
-            background-color: var(--amarelo);
-            width: 300px;
-           
-          }
-
-        @media screen and (max-width: 500px){
-
-            .turma{
-            
-                margin: 7%;
-           
+                width: 120px;
+               }
+               
+               #bottone5:hover,
+               #bottone5:focus {
+                border-color: rgba(0, 0, 0, 0.15);
+                box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+                color: rgb(255, 255, 255);
+               }
+               
+               #bottone5:hover {
+                transform: translateY(-1px);
+               }
+               
+               #bottone5:active {
+                background-color: #F0F0F1;
+                border-color: rgba(0, 0, 0, 0.15);
+                box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+      
+                transform: translateY(0);
+               }
+    
+    
+    
+    
+    
+    
+    
+    
+               #bottone6 {
+              
+                align-items: center;
+                background-color: #912B64;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                border-radius: .25rem;
+                box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+                box-sizing: border-box;
+                color: rgba(0, 0, 0, 0.85);
+                cursor: pointer;
+                display: inline-flex;
+                font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-size: 16px;
+                font-weight: 600;
+                justify-content: center;
+                line-height: 1.25;
+                min-height: 3rem;
+                padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+                text-decoration: none;
+                transition: all 250ms;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+                vertical-align: baseline;
+                width: auto;
+               }
+               
+               #bottone6:hover,
+               #bottone6:focus {
+                border-color: rgba(0, 0, 0, 0.15);
+                box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+                color: rgb(255, 255, 255);
+               }
+               
+               #bottone6:hover {
+                transform: translateY(-1px);
+               }
+               
+               #bottone6:active {
+                background-color: #F0F0F1;
+                border-color: rgba(0, 0, 0, 0.15);
+                box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+      
+                transform: translateY(0);
+               }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+               
+            .containerCRI {
+                cursor: pointer;
+    
+                display: flex;
+                justify-content: center;
+                margin-top: 2%;
+    
                 
+              }
+              
+              .containerCRI input {
+                display: none;
+              }
+              
+              .containerCRI svg {
+                overflow: visible;
+              }
+              
+              .path {
+                fill: none;
+                stroke: #70A288;
+                
+                stroke-width: 6;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+                stroke-dasharray: 241 9999999;
+                stroke-dashoffset: 0;
+              }
+              
+              .containerCRI input:checked ~ svg .path {
+                stroke-dasharray: 70.5096664428711 9999999;
+                stroke-dashoffset: -262.2723388671875;
+              }
+              
+            .caixaGeralCri{
+              
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 3%;
+                align-items: center;
+    
+    
+            }
+
+
+
+
+
+
+
+
+
+            .textosCri{
+                
+                font-family: var(--fontes-de-texto);
+                font-size: 25px;
+                margin-bottom: 1em;
+                
+            }
+            .turma{
+                text-align: center;
+                font-size: 20px;
+                font-family: var(--fontes-de-texto);
+                background-color: var(--amarelo);
+                width: 650px;
+                height: 50px;
                
               }
 
+              .textVDB{
+                font-size: 40px;
+              }
+
+              .divCRI{
+
+
+                margin-top: 2%;
+               
+                width: 350px;
+                display: flex;
+                justify-content: space-between;
+
+              }
+
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              @media (max-width: 700px) {
+
+
+                .textVDB{
+                    font-size: 30px;
+                  }
+
+
+                     
+            .textosCri{
+                
+                font-family: var(--fontes-de-texto);
+                font-size: 20px;
+                margin-bottom: 1em;
+                
+            }
+
+
+            .turma{
+                text-align: center;
+                font-size: 20px;
+                font-family: var(--fontes-de-texto);
+                background-color: var(--amarelo);
+                width: 300px;
+            
+               
+              }
+
+
+              
+              .divCRI{
+
+display: contents;
+
+                
+             
+
+              }
+
+            
+
+
+               
+
+
+
         }
+
+        @media (max-width: 500px) {
+
+
+            .turma{
+                text-align: center;
+                font-size: 20px;
+                font-family: var(--fontes-de-texto);
+                background-color: var(--amarelo);
+                width: 300px;
+                margin-right: 4em;
+            
+               
+              }
+        }
+
+
+       
+      
 
     </style>
 </head>
@@ -400,6 +521,10 @@
 
 
 
+             <div class="divCRI">
+
+       
+
              
             <button id="bottone5"  onclick="botCri1()">CRÍTICO</button>
 
@@ -409,7 +534,7 @@
 
 
          
-           
+        </div>
 
 
              <br>

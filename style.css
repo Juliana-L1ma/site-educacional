@@ -458,6 +458,7 @@ a {
   height: 32px;
 }
 
+
 /*----------- AREA DO ADM DESKTOP ------------*/
 #editar {
   cursor: pointer;
@@ -659,13 +660,9 @@ a {
   display: flex;
   width: 80%;
   margin: 3%;
-  margin-left: 4%;
   font-family: var(--fontes-de-texto);
 }
 
-.infoAreaDeFormacao {
-  margin-left: 5%;
-}
 
 #tabela-dadosAlunos-form {
   width: 90%;
@@ -715,7 +712,7 @@ a {
 }
 
 #tabela-alunos-semestre-atualizar,
-#tabela-professores-semestre-atualizar {
+#tabelaAtt{
   width: 90%;
   margin-left: 2%;
 }
@@ -797,25 +794,17 @@ a {
     padding: 2%;
   }
 }
-
 /* -------- ATUALIZAR DISCIPLINAS SEMESTRAIS DESKTOP ---------*/
 .topo-areaDeFormacao {
   display: flex;
   width: 80%;
-  margin: 3%;
-  margin-left: 4%;
   font-family: var(--fontes-de-texto);
-}
-
-.infoAreaDeFormacao {
-  margin-left: 5%;
+  margin-top: 10%;
 }
 
 #tabela-infoDisciplinas-form {
- width: 70%;
-margin-left: 15%;
-
-
+  width: 80%;
+  margin-left: 4%;
 }
 
 #tabela-professores-form {
@@ -826,7 +815,6 @@ margin-left: 15%;
 .atualiza-profess {
   margin-left: 5%;
 }
-
 /* ----------- DESKTOP ATUALIZAR INFORMAÇÕES ------------*/
 #mainAtt {
   background-color: var(--azul-escuro);
@@ -866,6 +854,14 @@ margin-left: 15%;
   color: var(--preto);
   font-weight: 600;
   font-size: 1.1rem;
+  margin-bottom: 3%;
+}
+
+#areaAtt{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 
@@ -902,6 +898,7 @@ margin-left: 15%;
   font-size: 1.1rem;
 }
 
+
 .geralAtt option {
   background-color: var(--background-color-branco);
 }
@@ -932,6 +929,7 @@ margin-left: 15%;
 
 .labelEscolha {
   margin-top: 5%;
+  text-align: left;
 }
 
 #alinhando{
@@ -948,6 +946,31 @@ margin-left: 15%;
   margin-bottom: 3%;
 }
 
+
+.alinhaSelect {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#botaoEnvioAtt{
+  width: 64px;
+  height: 64px;
+  border: none;
+  background-image: url("../img/procurar.png");
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-color: transparent;
+}
+
+#envioAtt{
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  padding-right: 2%;
+}
 
 
 /*MEDIA QUERIES MOBILE ATUALIZAR INFORMAÇÕES*/
@@ -1036,8 +1059,14 @@ margin-left: 15%;
   #alinhando select{
     width: 300px;
   }
+
 }
 
+@media screen and (max-width: 700px){
+  #botaoEnvioAtt{
+    background-size: 60%;
+  }
+}
 
 @media screen and (max-width: 360px){
   #alinhando select{
@@ -2104,6 +2133,15 @@ margin-left: 15%;
   text-align: center;
 
 }
+.turma {
+  border: none;
+  background-color: rgb(255, 255, 255);
+  width: 20%;
+  border-radius: 30px;
+  height: 30px;
+  text-align: center;
+
+}
 
 .linha-n-p {
   display: none;
@@ -2845,6 +2883,12 @@ margin-left: 15%;
     margin-left: 20%;
     background-color: var(--background-color-branco);
   }
+  .turma {
+    text-decoration: none;
+    border: none;
+    margin-left: 20%;
+    background-color: var(--background-color-branco);
+  }
   #unidade {
     text-decoration: none;
     border: none;
@@ -2980,6 +3024,12 @@ margin-left: 15%;
     margin-left: 25%;
     background-color: var(--background-color-branco);
   }
+  .turma2 {
+    text-decoration: none;
+    border: none;
+    margin-left: 25%;
+    background-color: var(--background-color-branco);
+  }
   .boletim-GerenciamentoDeAlunos {
     color: var(--verde);
     text-decoration: underline;
@@ -3082,6 +3132,14 @@ margin-left: 15%;
   flex-direction: column;
 }
 #turma{
+  text-align: center;
+  font-size: 20px;
+  font-family: var(--fontes-de-texto);
+  background-color: var(--amarelo);
+  width: 30%;
+}
+
+.turma{
   text-align: center;
   font-size: 20px;
   font-family: var(--fontes-de-texto);
@@ -3215,7 +3273,7 @@ textarea::-webkit-scrollbar-thumb {
           height: 3rem;
           padding: 0 2rem;
           border-radius: 1.5rem;
-          background: #912B64;
+          background: var(--bordo);
           background-size: 400%;
           color: #fff;
           border: none;
@@ -3310,3 +3368,103 @@ textarea::-webkit-scrollbar-thumb {
     width: 90%;
     margin-bottom: 5%;
   }
+
+  /*------------ TABELAS GERAIS ----------------*/
+  .tabelaAtt table {
+    background-color: #fff;
+    margin-top: 2vh;
+    font-family: 'Lato', sans-serif;
+    width: 100%;
+    border-collapse:separate;
+    border: solid #ccc 1px;
+    margin-bottom: 5%;
+    padding: 2px;
+    -webkit-border-radius: 25px;
+       -moz-border-radius: 25px;
+            border-radius: 25px;
+
+  }
+
+  .tabelaAtt td {
+    padding: 5px;
+    border-top: 1px solid var(--bordo);
+  }
+
+  .tabelaAtt {
+    overflow-x: scroll;
+  }
+
+  th,
+  td {
+    min-width: 50px;
+    /* width/largura das células à escolha */
+  }
+
+  th{
+    height: 3vh;
+    padding: 5px;
+  }
+
+  .topo-areaDeFormacao{
+    text-align: left;
+  }
+
+
+  @media screen and (max-width: 1945px){
+    .tabelaAtt{
+      width: 90%;
+    }
+  }
+
+  .infoAreaDeFormacao h1{
+    width: 100%;
+   font-size: 1.7rem; 
+  }
+
+  .infoAreaDeFormacao h3{
+    width: 100%;
+   font-size: 1.2rem; 
+  }
+
+#popUp{
+  width: 300px;
+  background-color: #ffffff;
+  color: var(--preto);
+  height: 150px;
+  padding: 1%;
+  padding-top: 3%;
+  border-radius: 10px;
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#popUp p{
+  padding: 1%;
+  margin-bottom: 3%;
+  font-size: 1.2rem;
+}
+
+#popUp input{
+  border: 1px solid var(--verde);
+  outline: none;
+  width: 80%;
+}
+
+#popUp button{
+  font-family: var(--fontes-de-texto);
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgba(145, 43, 100, 1) 1%, rgba(204, 110, 163, 1) 49%, rgba(145, 43, 100, 1) 100%);
+  padding: 0.2em;
+  border-radius: 0.3em;
+  color: #fff;
+  height: 2.6em;
+  text-shadow: 0 2px 0 rgb(0 0 0 / 50%);
+  width: 100px;
+  margin-top: 4%;
+  text-align: center;
+}
