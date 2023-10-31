@@ -1,5 +1,3 @@
-USE senai117_bd;
-
 CREATE TABLE `administrador` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL,
