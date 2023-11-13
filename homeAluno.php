@@ -1,3 +1,8 @@
+<?php
+session_start();
+// Recupere o nome do usuário da sessão
+$nomeUsuario = $_SESSION["nome_usuario"];
+?>
 <!DOCTYPE html>
 <html lang="PT-BR">
 <head>
@@ -62,7 +67,7 @@
 
       <div class="informacoesDoAluno">
 
-        <p id="nomeDoAluno">$Nome-do-aluno</p>
+        <p id="nomeDoAluno"><?php echo $nomeUsuario;?></p>
         <hr id="hr-aluno"><br>
 
         <label class="label-curso" for="turma">Curso:</label>
@@ -77,7 +82,7 @@
 
       <div id="caixa-botoes">
 
-        <a href="./meuBoletim.html" class="buttonDoAluno">Boletim</a>
+        <a href="./meuBoletim.php" class="buttonDoAluno">Boletim</a>
         <a href="./" class="buttonDoAluno">Informações</a>
 
       </div>
