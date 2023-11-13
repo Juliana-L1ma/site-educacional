@@ -1,6 +1,6 @@
 <?php
 session_start();
-// Recupere o nome do usuário da sessão
+//pego o nome do usuário de quem logou
 $nomeUsuario = $_SESSION["nome_usuario"];
 ?>
 
