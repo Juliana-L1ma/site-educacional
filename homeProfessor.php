@@ -1,3 +1,8 @@
+<?php
+session_start();
+//pego o nome do usuário de quem logou
+$nomeUsuario = $_SESSION["nome_usuario"];
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -49,8 +54,9 @@
     </div>
   </header>
 
+  
     <main id="main-professor">
-      <h2 id="bemvindo-professor"><b>Seja bem vindo(a) $nomeDoProfessor</b></h2>
+      <h2 id="bemvindo-professor"><b>Seja bem vindo(a) <?php echo $nomeUsuario;?></b></h2>
     <br>
 
     <div class="caixa-de-funcionalidades">
