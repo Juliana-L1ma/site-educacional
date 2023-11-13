@@ -1,13 +1,7 @@
 <?php
 session_start();
-// Após verificar o usuário com sucesso, suponha que você tenha recuperado o nome do usuário
-$nomeUsuario = "Wagner Cunha"; // Substitua isso pelo nome real do usuário
-
-// Armazene o nome do usuário na sessão
-$_SESSION['nome'] = $nomeUsuario;
-
 // Recupere o nome do usuário da sessão
-$nomeUsuario = $_SESSION['nome'];
+$nomeUsuario = $_SESSION["nome_usuario"];
 ?>
 
 <!DOCTYPE html>
