@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql) === TRUE) {
         echo "Atualização realizada com sucesso!";
-        } else {
+    } else {
         echo "Erro na atualização: " . $conn->error;
     }
 
@@ -72,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <br><br>
 
 <body>
+    <!-- TABELA ALUNOS -->
     <div class="tabelaAtt">
         <table cellpadding="6">
             <?php
@@ -108,10 +109,163 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             ?>
         </table>
+        <br>
+        <!-- TABELA PROFESSORES -->
+        <table cellpadding="6">
+            <?php
+            $sql = "SELECT * FROM professores";
+            $result = $conn->query($sql);
+            echo "<nav>
+        <h2>Professores</h2>
     </div>
+    </nav>";
+            echo "<th>NIF</th>";
+            echo "<th>Nome</th>";
+            echo "<th>Sobrenome</th>";
+            echo "<th>RG</th>";
+            echo "<th>Data de Nascimento</th>";
+            echo "<th>Endereço</th>";
+            echo "<th>Número</th>";
+            echo "<th>Complemento</th>";
+            echo "<th>Telefone</th>";
+            echo "<th>Email</th>";
+            echo "<th>Email Educacional</th>";
+            echo "<th>Senha Educacional</th>";
 
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["nif_professor"] . "</td>";
+                    echo "<td class='attNomeProfessor'>" . $row["nome_professor"] . "</td>";
+                    echo "<td class='attSobProfessor'>" . $row["sobrenome_professor"] . "</td>";
+                    echo "<td class='attRgProfessor'>" . $row["rg_professor"] . "</td>";
+                    echo "<td class='attNascProfessor'>" . $row["data_nascimento_professor"] . "</td>";
+                    echo "<td class='attEndProfessor'>" . $row["endereco_professor"] . "</td>";
+                    echo "<td class='attNumeroProfessor'>" . $row["numero_end_professor"] . "</td>";
+                    echo "<td class='attCompProfessor'>" . $row["complemento_end_professor"] . "</td>";
+                    echo "<td class='attTelProfessor'>" . $row["telefone_professor"] . "</td>";
+                    echo "<td class='attEmailProfessor'>" . $row["email_pessoal_professor"] . "</td>";
+                    echo "<td class='attEmailEdProfessor'>" . $row["email_educacional_professor"] . "</td>";
+                    echo "<td class='attSenhaEdProfessor'>" . $row["senha_educacional_professor"] . "</td>";
+                    echo "</tr>";
+                }
+            }
+            ?>
+        </table>
+        <br>
+        <!-- TABELA TURMAS -->
+        <table cellpadding="6">
+            <?php
+            $sql = "SELECT * FROM turmas";
+            $result = $conn->query($sql);
+            echo "<nav>
+        <h2>Turmas</h2>
+    </div>
+    </nav>";
+            echo "<th>Turma</th>";
+            echo "<th>Alunos</th>";
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td class='attNomeTurma'>" . $row["nome_turma"] . "</td>";
+                    echo "<td class='attTotalAluno'>" . $row["total_alunos"] . "</td>";
+                    echo "</tr>";
+                }
+            }
+            ?>
+        </table>
+        <br>
+        <!-- TABELA DISCIPLINAS-->
+        <table cellpadding="6">
+            <?php
+            $sql = "SELECT * FROM unidades_curriculares";
+            $result = $conn->query($sql);
+            echo "<nav>
+        <h2>Disciplinas</h2>
+    </div>
+    </nav>";
+            echo "<th>Disciplina</th>";
+            echo "<th>Carga Horária</th>";
+            echo "<th>Área Vinculada</th></th>";
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td class='attNomeUc'>" . $row["nome_uc"] . "</td>";
+                    echo "<td class='attCargaHoraria'>" . $row["carga_horaria"] . "</td>";
+                    echo "<td class='attAreaVinculada'>" . $row["area_vinculada"] . "</td>";
+                    echo "</tr>";
+                }
+            }
+            ?>
+        </table>
+        <br><br>
+        <!-- TABELA DISCIPLINAS PROFESSORES-->
+        <table cellpadding="6">
+            <?php
+            $sql = "SELECT * FROM lista_disc_prof";
+            $result = $conn->query($sql);
+            echo "<nav>
+        <h2>Professores e Disciplina</h2>
+    </div>
+    </nav>";
+            echo "<th>NIF</th>";
+            echo "<th>ID Disciplina</th>";
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td class='attNomeProf'>" . $row["nif_professor"] . "</td>";
+                    echo "<td class='attUc'>" . $row["id_unidade_curricular"] . "</td>";
+                    echo "</tr>";
+                }
+            }
+            ?>
+        </table>
+        <br><br>
+        <!-- TABELA DE PROFESSORES DA TURMA-->
+        <table cellpadding="6">
+            <?php
+            $sql = "SELECT * FROM lista_prof_turma";
+            $result = $conn->query($sql);
+            echo "<nav>
+        <h2>Professores da Turma</h2>
+    </div>
+    </nav>";
+            echo "<th>ID Turma</th>";
+            echo "<th>NIF</th>";
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td class='attTurma'>" . $row["id_turma"] . "</td>";
+                    echo "<td class='attProf'>" . $row["nif_professor"] . "</td>";
+                    echo "</tr>";
+                }
+            }
+            ?>
+        </table>
+        <br><br>
+        <!-- TABELA DISCIPLINAS LECIONADAS NA TURMA-->
+        <table cellpadding="6">
+            <?php
+            $sql = "SELECT * FROM lista_turma_uc";
+            $result = $conn->query($sql);
+            echo "<nav>
+        <h2>Disciplinas da Turma</h2>
+    </div>
+    </nav>";
+            echo "<th>ID Disciplina</th>";
+            echo "<th>ID Turma</th>";
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td class='attUc'>" . $row["id_unidade_curricular"] . "</td>";
+                    echo "<td class='attTurma'>" . $row["id_turma"] . "</td>";
+                    echo "</tr>";
+                }
+            }
+            ?>
+        </table>
+        <br>
+    </div>
     <script src="atualizarDados.js"></script>
-
 </body>
-
 </html>
