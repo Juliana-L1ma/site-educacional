@@ -12,11 +12,14 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $coluna = $_POST['coluna'];
     $valor = $_POST['valor'];
+    $nif = $_POST['nif'];
     $matricula = $_POST['matricula'];
 
-    $sql = "UPDATE alunos SET $coluna = '$valor' WHERE num_matricula_aluno = '$matricula'";
+    // Use uma consulta condicional para atualizar em ambas as tabelas
+    $sql = "UPDATE alunos SET $coluna = '$valor' WHERE num_matricula_aluno = '$matricula';";
+    $sql .= "UPDATE professores SET $coluna = '$valor' WHERE nif_professor = '$nif';";
 
-    if ($conn->query($sql) === TRUE) {
+    if ($conn->multi_query($sql) === TRUE) {
         echo "Atualização realizada com sucesso!";
     } else {
         echo "Erro na atualização: " . $conn->error;
@@ -88,8 +91,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<th>RG</th>";
             echo "<th>CPF</th>";
             echo "<th>Data de Nascimento</th>";
-            echo "<th>Endereço</th>";
             echo "<th>Telefone</th>";
+            echo "<th>Endereço</th>";
+            echo "<th>Número</th>";
+            echo "<th>Complemento</th>";
+            echo "<th>E-mail</th>";
+            echo "<th>E-mail Educacional</th>";
+            echo "<th>Senha Educacional</th>";
+
 
             if ($result->num_rows > 0) {
                 // Loop através dos resultados e exibe cada aluno na tabela
@@ -101,9 +110,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo "<td class='attRgAluno'>" . $row["rg_aluno"] . "</td>";
                     echo "<td class='attCpfAluno'>" . $row["cpf_aluno"] . "</td>";
                     echo "<td class='attNascAluno'>" . $row["data_nascimento_aluno"] . "</td>";
-                    echo "<td class='attEndAluno'>" . $row["endereco_aluno"] . "</td>";
                     echo "<td class='attTelAluno'>" . $row["telefone_aluno"] . "</td>";
-                    // Adicione outras colunas conforme necessário
+                    echo "<td class='attEndAluno'>" . $row["endereco_aluno"] . "</td>";
+                    echo "<td class='attNumAluno'>" . $row["endereco_numero_aluno"] . "</td>";
+                    echo "<td class='attCompAluno'>" . $row["complemento_end_aluno"] . "</td>";
+                    echo "<td class='attEmailAluno'>" . $row["email_pessoal_aluno"] . "</td>";
+                    echo "<td class='attEmailEdAluno'>" . $row["email_educacional_aluno"] . "</td>";
+                    echo "<td class='attSenhaEdAluno'>" . $row["senha_educacional_aluno"] . "</td>";
                     echo "</tr>";
                 }
             }
