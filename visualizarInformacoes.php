@@ -75,7 +75,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
   </div>
   <main id="alinhando">
     <div id="areaAtt" class="geralAtt">
-      <p>Selecione a categoria para atualizar</p>
+      <p>Selecione a categoria para visualizar</p>
       <form method="POST" id="formm">
         <select class="form-control" name="nome_tabela" id="categoriaAtt">
           <?php
