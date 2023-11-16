@@ -69,7 +69,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
     </div>
   </header>
   <div id="mainAtt">
-    <h1 id="textoAtt">Atualizar</h1>
+    <h1 id="textoAtt">Visualizar</h1>
     <h2>Gerencie com segurança</h2>
     <div id="linhaAtt"></div>
   </div>
