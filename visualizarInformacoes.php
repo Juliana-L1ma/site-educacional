@@ -163,7 +163,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
             <div class='infoAreaDeFormacao'>
             <h1>$nome_curso</h1>
             <h2>Alunos</h2>
-            <h3>Clique na célula que deseja editar</h3>
            </div>
           </nav>";
               echo "<th>Matrícula</th>";
@@ -210,7 +209,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
               <div class='infoAreaDeFormacao'>
               <h1>Cursos</h1>
               <h2>$categoria</h2>
-              <h3>Clique na célula que deseja editar</h3>
              </div>
             </nav>";
               echo "<th>Curso</th>";
@@ -228,8 +226,8 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
                   echo "<td>" . $row["nome_curso"] . "</td>";
                   echo "<td>" . $row["categoria"] . "</td>";
                   echo "<td>" . $row["capacidade"] . "</td>";
-                  echo "<td>" . $row["carga_horaria_curso"] . "</td>";
-                  echo "<td>" . $row["valor_curso"] . "</td>";
+                  echo "<td>" . $row["carga_horaria_curso"] . "h</td>";
+                  echo "<td>R$" . $row["valor_curso"] . "</td>";
                   echo "<td>" . $row["plano_curso"] . "</td>";
                 }
               }
@@ -239,7 +237,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
               <div class='infoAreaDeFormacao'>
               <h1>Cursos</h1>
               <h2>$categoria</h2>
-              <h3>Clique na célula que deseja editar</h3>
              </div>
             </nav>";
               echo "<th>Curso</th>";
@@ -256,8 +253,8 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
                   echo "<td>" . $row["nome_curso"] . "</td>";
                   echo "<td>" . $row["categoria"] . "</td>";
                   echo "<td>" . $row["capacidade"] . "</td>";
-                  echo "<td>" . $row["carga_horaria_curso"] . "</td>";
-                  echo "<td>" . $row["valor_curso"] . "</td>";
+                  echo "<td>" . $row["carga_horaria_curso"] . "h</td>";
+                  echo "<td>R$" . $row["valor_curso"] . "</td>";
                   echo "<td>" . $row["plano_curso"] . "</td>";
                 }
               }
@@ -267,7 +264,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
               <div class='infoAreaDeFormacao'>
               <h1>Cursos</h1>
               <h2>$categoria</h2>
-              <h3>Clique na célula que deseja editar</h3>
              </div>
             </nav>";
               echo "<th>Curso</th>";
@@ -284,8 +280,8 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
                   echo "<td>" . $row["nome_curso"] . "</td>";
                   echo "<td>" . $row["categoria"] . "</td>";
                   echo "<td>" . $row["capacidade"] . "</td>";
-                  echo "<td>" . $row["carga_horaria_curso"] . "</td>";
-                  echo "<td>" . $row["valor_curso"] . "</td>";
+                  echo "<td>" . $row["carga_horaria_curso"] . "h</td>";
+                  echo "<td>R$" . $row["valor_curso"] . "</td>";
                   echo "<td>" . $row["plano_curso"] . "</td>";
                 }
               }
@@ -304,7 +300,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
             <div class='infoAreaDeFormacao'>
             <h1>Área de formação</h1>
             <h2>$nome_curso</h2>
-            <h3>Clique na célula que deseja editar</h3>
           </div>
           </nav>";
               echo "<thead>";
@@ -355,7 +350,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
             <div class='infoAreaDeFormacao'>
             <h1>Disciplinas</h1>
             <h2>$nome_curso</h2>
-            <h3>Clique na célula que deseja editar</h3>
            </div>
           </nav>";
               echo "<th>Curso</th></th>";
@@ -382,7 +376,6 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
               <div class='infoAreaDeFormacao'>
               <h1>Turmas</h1>
               <h2>$nome_curso</h2>
-              <h3>Clique na célula que deseja editar</h3>
              </div>
             </nav>";
               echo "<th>Curso</th>";
