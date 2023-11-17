@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $.ajax({
           type: "POST",
-          url: "deletar.php",
+          url: "deletarDados.php",
           data: { num_matricula_aluno: num_matricula_aluno },
           success: function (response) {
             if (response.trim() === "success") {
@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $.ajax({
           type: "POST",
-          url: "deletar.php",
+          url: "deletarDados.php",
           data: { id_curso: id_curso },
           success: function (response) {
             if (response.trim() === "success") {
@@ -162,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $.ajax({
           type: "POST",
-          url: "deletar.php",
+          url: "deletarDados.php",
           data: { nif_professor: nif_professor },
           success: function (response) {
             if (response.trim() === "success") {
@@ -183,7 +183,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       $.ajax({
         type: "POST",
-        url: "deletar.php",
+        url: "deletarDados.php",
         data: { id_turma: id_turma },
         success: function (response) {
           if (response.trim() === "success") {
@@ -268,7 +268,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               echo "<td>" . $row["id_curso"] . "</td>";
               echo "<td>" . $row["nome_curso"] . "</td>";
               echo "<td> R$ " . $row["valor_curso"] . "</td>";
-              echo "<td>" . $row["qntd_periodos"] . "</td>";
               echo "<td>" . $row["plano_curso"] . "</td>";
               echo "<td>" . $row["capacidade"] . "</td>";
               echo "<td>" . $row["categoria"] . "</td>";
@@ -302,7 +301,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               echo "<td>" . $row["nif_professor"] . "</td>";
               echo "<td>" . $row["nome_professor"] . "</td>";
               echo "<td>" . $row["sobrenome_professor"] . "h</td>";
-              echo "<td>" . $row["rg_professor"] . "</td>";
               echo "<td><button class='btn-excluir-professor'>Excluir</button></td>"; // Adicionando uma classe ao botão de exclusão
               echo "</tr>";
             }
