@@ -1,3 +1,9 @@
+
+// var primeiroSelect_cadastro;
+// var segundoSelectTurma;
+// var segundoSelectDisciplina = document.getElementById("cursoSelecionado_disciplina");
+// var segundoSelectAluno = document.getElementById("turmaSelecionada_aluno");
+
 function mostraSegundoSelect_cadastro() {
     var primeiroSelect_cadastro = document.getElementById("primeiroSelect_cadastro");
     var segundaOpcaoAluno = document.getElementById("segundaOpcao_aluno");
@@ -101,6 +107,7 @@ function addProfessor() {
     var select = document.getElementById("professor");
     var cpf = select.value;
     var nome = select.options[select.selectedIndex].text;
+    console.log(nome);
 
     if (document.getElementById(cpf)) {
         Swal.fire({
@@ -254,7 +261,6 @@ checkboxesCategoria.forEach(function(chk) {
 
 
 
-
 function envioAJAX(formId) {
     if (formId === 'div_cadastroInfo_unidade_curricular') {
         var data = {
@@ -298,9 +304,8 @@ function envioAJAX(formId) {
 
     if (formId === 'div_cadastroInfo_turma') {
         //crio a condição que muda o value para que eu possa pegar o id do curso e do período selecionados no php depois
-        document.getElementById("cursoSelecionado_turma").value = primeiroSelectTurma.value;
-        document.getElementById("periodoSelecionado_turma").value = segundoSelectTurma
-            .value;
+        document.getElementById("cursoSelecionado_turma").value = document.getElementById("opcaoTurma1").value;
+        document.getElementById("periodoSelecionado_turma").value = document.getElementById("opcaoTurma2").value;
 
         var data = {
             origem: 'formulário padrão',
