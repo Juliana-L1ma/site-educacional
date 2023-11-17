@@ -101,7 +101,7 @@
         <div class="central">
             <h1 class="titulocentral">Cadastro de Informações</h1>
             <hr class="hrVerde_cadastroInfo">
-            <select id="primeiroSelect_cadastro" class="select_cadastroInfos_turma" onchange="mostraSegundoSelect_cadastro()">
+            <select id="primeiroSelect_cadastro" class="select_cadastroInfos" onchange="mostraSegundoSelect_cadastro()">
                 <option id="" value=""></option>
                 <option value="aluno">Aluno</option>
                 <option value="curso">Curso</option>
@@ -112,7 +112,7 @@
             </select>
 
             <div id="segundaOpcao_aluno" class="invisivel_cadastro">
-                <select name="" class="select_secundario select_cadastroInfos_style" id="selecionarOpcao_aluno">
+                <select name="" class="select_secundario select_cadastroInfos_style select_cadastroInfos" id="selecionarOpcao_aluno">
                     <option value=""></option>
                     <?php
                             // Consulta para buscar as opções do banco de dados
@@ -133,7 +133,7 @@
             </div>
 
             <div id="segundaOpcao_turma1" class="invisivel_cadastro">
-                <select name="" class="select_secundario select_cadastroInfos_style" id="opcaoTurma1">
+                <select name="" class="select_secundario select_cadastroInfos_style select_cadastroInfos" id="opcaoTurma1">
                     <option value=""></option>
                     <?php
                         // Consulta para buscar as opções do banco de dados
@@ -153,7 +153,7 @@
             </div>
 
             <div id="segundaOpcao_turma2" class="invisivel_cadastro">
-                <select name="" class="select_secundario select_cadastroInfos_style" id="opcaoTurma2">
+                <select name="" class="select_secundario select_cadastroInfos_style select_cadastroInfos" id="opcaoTurma2">
                     <option value=""></option>
                     <option value="Manhã">Manhã</option>
                     <option value="Tarde">Tarde</option>
@@ -162,7 +162,7 @@
             </div>
 
             <div id="segundaOpcao_disciplina" class="invisivel_cadastro">
-                <select name="" class="select_secundario select_cadastroInfos_style" id="selecionarOpcao_disciplina">
+                <select name="" class="select_secundario select_cadastroInfos_style select_cadastroInfos" id="selecionarOpcao_disciplina">
                     <option value=""></option>
                     <?php
                         // Consulta para buscar as opções do banco de dados
@@ -183,7 +183,7 @@
         </div>
     </div>
 
-    <h2 id="texto_preenchaDados_cadastroInfo" style="margin-left: none;">Preencha com os dados exigidos</h2>
+    <h2 id="texto_preenchaDados_cadastroInfo" style="margin-left: none;">Preencha os dados exigidos</h2>
 
     <main class="main_cadastroInfos">
 
