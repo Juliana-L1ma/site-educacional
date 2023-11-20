@@ -91,7 +91,11 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
                         "cursos" => "Cursos",
                         "unidades_curriculares" => "Disciplinas",
                         "professores" => "Professores",
-                        "turmas" => "Turmas"
+                        "turmas" => "Turmas",
+                        "lista_prof_turma" => "Professores por Turma",
+                        "lista_disc_prof" => "Professores por Disciplina",
+                        "lista_turma_uc" => "Disciplinas por Turma",
+                        "lista_alunos" => "Lista Alunos"
                     );
 
                     $sql = "SHOW TABLES FROM senai117_bd";
@@ -113,64 +117,255 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
                     ?>
                 </select>
         </div>
-            <div class="tabelaAtt">
-                <table id="tabelaAtt">
-                    <?php
-                    // Verificar se o formulário foi enviado
-                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                        $nome_tabela = $_POST["nome_tabela"];
+        <div class="tabelaAtt">
+            <table id="tabelaAtt">
+                <?php
+                // Verificar se o formulário foi enviado
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $nome_tabela = $_POST["nome_tabela"];
 
-                        if ($nome_tabela === "alunos") {
-                            $sql = "SELECT * FROM alunos";
-                            $result = $conn->query($sql);
-                            echo "<nav>
-                <h2>Alunos</h2>
-            </div>
-            </nav>";
-                            echo "<th>Matrícula</th>";
-                            echo "<th>Nome</th>";
-                            echo "<th>Sobrenome</th>";
-                            echo "<th>RG</th>";
-                            echo "<th>CPF</th>";
-                            echo "<th>Data de Nascimento</th>";
-                            echo "<th>Telefone</th>";
-                            echo "<th>Endereço</th>";
-                            echo "<th>Número</th>";
-                            echo "<th>Complemento</th>";
-                            echo "<th>E-mail</th>";
-                            echo "<th>E-mail Educacional</th>";
-                            echo "<th>Senha Educacional</th>";
+                    if ($nome_tabela === "alunos") {
+                        $sql = "SELECT * FROM alunos";
+                        $result = $conn->query($sql);
+                        echo "<nav>
+                        <h2>Alunos</h2>
+                        </nav>";
+                        echo "<th>Matrícula</th>";
+                        echo "<th>Nome</th>";
+                        echo "<th>Sobrenome</th>";
+                        echo "<th>RG</th>";
+                        echo "<th>CPF</th>";
+                        echo "<th>Data de Nascimento</th>";
+                        echo "<th>Telefone</th>";
+                        echo "<th>Endereço</th>";
+                        echo "<th>Número</th>";
+                        echo "<th>Complemento</th>";
+                        echo "<th>E-mail</th>";
+                        echo "<th>E-mail Educacional</th>";
+                        echo "<th>Senha Educacional</th>";
 
-
-                            if ($result->num_rows > 0) {
-                                // Loop através dos resultados e exibe cada aluno na tabela
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<tr>";
-                                    echo "<td>" . $row["num_matricula_aluno"] . "</td>";
-                                    echo "<td class='attNomeAluno'>" . $row["nome_aluno"] . "</td>";
-                                    echo "<td class='attSobAluno'>" . $row["sobrenome_aluno"] . "</td>";
-                                    echo "<td class='attRgAluno'>" . $row["rg_aluno"] . "</td>";
-                                    echo "<td class='attCpfAluno'>" . $row["cpf_aluno"] . "</td>";
-                                    echo "<td class='attNascAluno'>" . $row["data_nascimento_aluno"] . "</td>";
-                                    echo "<td class='attTelAluno'>" . $row["telefone_aluno"] . "</td>";
-                                    echo "<td class='attEndAluno'>" . $row["endereco_aluno"] . "</td>";
-                                    echo "<td class='attNumAluno'>" . $row["endereco_numero_aluno"] . "</td>";
-                                    echo "<td class='attCompAluno'>" . $row["complemento_end_aluno"] . "</td>";
-                                    echo "<td class='attEmailAluno'>" . $row["email_pessoal_aluno"] . "</td>";
-                                    echo "<td class='attEmailEdAluno'>" . $row["email_educacional_aluno"] . "</td>";
-                                    echo "<td class='attSenhaEdAluno'>" . $row["senha_educacional_aluno"] . "</td>";
-                                    echo "</tr>";
-                                }
+                        if ($result->num_rows > 0) {
+                            // Loop através dos resultados e exibe cada aluno na tabela
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td>" . $row["num_matricula_aluno"] . "</td>";
+                                echo "<td class='attNomeAluno'>" . $row["nome_aluno"] . "</td>";
+                                echo "<td class='attSobAluno'>" . $row["sobrenome_aluno"] . "</td>";
+                                echo "<td class='attRgAluno'>" . $row["rg_aluno"] . "</td>";
+                                echo "<td class='attCpfAluno'>" . $row["cpf_aluno"] . "</td>";
+                                echo "<td class='attNascAluno'>" . $row["data_nascimento_aluno"] . "</td>";
+                                echo "<td class='attTelAluno'>" . $row["telefone_aluno"] . "</td>";
+                                echo "<td class='attEndAluno'>" . $row["endereco_aluno"] . "</td>";
+                                echo "<td class='attNumAluno'>" . $row["endereco_numero_aluno"] . "</td>";
+                                echo "<td class='attCompAluno'>" . $row["complemento_end_aluno"] . "</td>";
+                                echo "<td class='attEmailAluno'>" . $row["email_pessoal_aluno"] . "</td>";
+                                echo "<td class='attEmailEdAluno'>" . $row["email_educacional_aluno"] . "</td>";
+                                echo "<td class='attSenhaEdAluno'>" . $row["senha_educacional_aluno"] . "</td>";
+                                echo "</tr>";
                             }
                         }
                     }
-                    ?>
-                </table>
-            </div>
-            <div id="envioAtt">
-                <input id="botaoEnvioAtt" type="submit" value="">
-            </div>
-            </form>
+                    if ($nome_tabela === "professores") {
+                        $sql = "SELECT * FROM professores";
+                        $result = $conn->query($sql);
+                        echo "<nav>
+                        <h2>Professores</h2>
+                        </nav>";
+                        echo "<th>NIF</th>";
+                        echo "<th>Nome</th>";
+                        echo "<th>Sobrenome</th>";
+                        echo "<th>Data de Nascimento</th>";
+                        echo "<th>Telefone</th>";
+                        echo "<th>Endereço</th>";
+                        echo "<th>Número</th>";
+                        echo "<th>Complemento</th>";
+                        echo "<th>E-mail</th>";
+                        echo "<th>E-mail Educacional</th>";
+                        echo "<th>Senha Educacional</th>";
+
+                        if ($result->num_rows > 0) {
+                            // Loop através dos resultados e exibe cada aluno na tabela
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td>" . $row["nif_professor"] . "</td>";
+                                echo "<td class='attNomeAluno'>" . $row["nome_professor"] . "</td>";
+                                echo "<td class='attSobAluno'>" . $row["sobrenome_professor"] . "</td>";
+                                echo "<td class='attNascAluno'>" . $row["data_nascimento_professor"] . "</td>";
+                                echo "<td class='attTelAluno'>" . $row["telefone_professor"] . "</td>";
+                                echo "<td class='attEndAluno'>" . $row["endereco_professor"] . "</td>";
+                                echo "<td class='attNumAluno'>" . $row["numero_end_professor"] . "</td>";
+                                echo "<td class='attCompAluno'>" . $row["complemento_end_professor"] . "</td>";
+                                echo "<td class='attEmailAluno'>" . $row["email_pessoal_professor"] . "</td>";
+                                echo "<td class='attEmailEdAluno'>" . $row["email_educacional_professor"] . "</td>";
+                                echo "<td class='attSenhaEdAluno'>" . $row["senha_educacional_professor"] . "</td>";
+                                echo "</tr>";
+                            }
+                        }
+                    }
+                    if ($nome_tabela === "turmas") {
+                        $sql = "SELECT * FROM turmas";
+                        $result = $conn->query($sql);
+                        echo "<nav>
+                        <h2>Turmas</h2>
+                        </nav>";
+                        echo "<th>Turma</th>";
+                        echo "<th>Alunos</th>";
+                        echo "<th>Período</th>";
+                        echo "<th>Início</th>";
+                        echo "<th>Término</th>";
+
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td class='attNomeTurma'>" . $row["nome_turma"] . "</td>";
+                                echo "<td class='attTotalAluno'>" . $row["total_alunos"] . "</td>";
+                                echo "<td class='attPeriodoTurma'>" . $row["periodo_turma"] . "</td>";
+                                echo "<td class='attInicioTurma'>" . $row["data_inicio_turma"] . "</td>";
+                                echo "<td class='attTerminoTurma'>" . $row["data_conclusao_turma"] . "</td>";
+                                echo "</tr>";
+                            }
+                        }
+                    }
+                    if ($nome_tabela === "unidades_curriculares") {
+                        $sql = "SELECT * FROM unidades_curriculares";
+                        $result = $conn->query($sql);
+                        echo "<nav>
+                        <h2>Disciplinas</h2>
+                        </nav>";
+                        echo "<th>Disciplina</th>";
+                        echo "<th>Carga Horária</th>";
+                        echo "<th>Área Vinculada</th></th>";
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td class='attNomeUc'>" . $row["nome_uc"] . "</td>";
+                                echo "<td class='attCargaHoraria'>" . $row["carga_horariaUc"] . "</td>";
+                                echo "<td class='attAreaVinculada'>" . $row["area_vinculadaUc"] . "</td>";
+                                echo "</tr>";
+                            }
+                        }
+                    }
+                    if ($nome_tabela === "lista_disc_prof") {
+                        $sql = "SELECT
+                        p.nif_professor,
+                        p.nome_professor,
+                        p.sobrenome_professor,
+                        uc.nome_uc
+                    FROM
+                        professores p
+                    JOIN
+                        lista_disc_prof ldp ON p.nif_professor = ldp.nif_professor
+                    JOIN
+                        unidades_curriculares uc ON ldp.id_unidade_curricular = uc.id_unid_curricular;";
+                        $result = $conn->query($sql);
+                        echo "<nav>
+                        <h2>Professores e Disciplinas</h2>
+                        </nav>";
+                        echo "<th>NIF</th>";
+                        echo "<th>Nome</th>";
+                        echo "<th>Sobrenome</th>";
+                        echo "<th>Disciplina</th>";
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td class='attNomeProf'>" . $row["nif_professor"] . "</td>";
+                                echo "<td class='attNomeProf'>" . $row["nome_professor"] . "</td>";
+                                echo "<td class='attNomeProf'>" . $row["sobrenome_professor"] . "</td>";
+                                echo "<td class='attUc'>" . $row["nome_uc"] . "</td>";
+                                echo "</tr>";
+                            }
+                        }
+                    }
+                    if ($nome_tabela === "lista_prof_turma") {
+                        $sql = "SELECT
+                        p.nome_professor,
+                        p.sobrenome_professor,
+                        t.nome_turma,
+                        c.nome_curso
+                    FROM
+                        professores p
+                    JOIN
+                        lista_prof_turma lpt ON p.nif_professor = lpt.nif_professor
+                    JOIN
+                        turmas t ON lpt.id_turma = t.id_turma
+                    JOIN
+                        cursos c ON t.id_curso = c.id_curso;";
+                        $result = $conn->query($sql);
+                        echo "<nav>
+                        <h2>Professores da Turma</h2>
+                        </nav>";
+                        echo "<th>Turma</th>";
+                        echo "<th>Curso</th>";
+                        echo "<th>Nome</th>";
+                        echo "<th>Sobrenome</th>";
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td class='attTurma'>" . $row["nome_turma"] . "</td>";
+                                echo "<td class='attProf'>" . $row["nome_curso"] . "</td>";
+                                echo "<td class='attProf'>" . $row["nome_professor"] . "</td>";
+                                echo "<td class='attProf'>" . $row["sobrenome_professor"] . "</td>";
+                                echo "</tr>";
+                            }
+                        }
+                    }
+                    if ($nome_tabela === "lista_turma_uc") {
+                        $sql = "SELECT
+                        t.nome_turma,
+                        uc.nome_uc
+                    FROM
+                        turmas t
+                    JOIN
+                        lista_turma_uc ltu ON t.id_turma = ltu.id_turma
+                    JOIN
+                        unidades_curriculares uc ON ltu.id_unidade_curricular = uc.id_unid_curricular;";
+                        $result = $conn->query($sql);
+                        echo "<nav>
+                        <h2>Disciplinas da Turma</h2>
+                        </nav>";
+                        echo "<th>Disciplina</th>";
+                        echo "<th>Turma</th>";
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td class='attUc'>" . $row["nome_uc"] . "</td>";
+                                echo "<td class='attTurma'>" . $row["nome_turma"] . "</td>";
+                                echo "</tr>";
+                            }
+                        }
+                    }
+                    if ($nome_tabela === "cursos") {
+                        $sql = "SELECT * FROM cursos";
+                        $result = $conn->query($sql);
+                        echo "<nav>
+                        <h2>Cursos</h2>
+                        </nav>";
+                        echo "<th>Nome</th>";
+                        echo "<th>Categoria</th>";
+                        echo "<th>Capacidade</th>";
+                        echo "<th>Custo</th>";
+                        echo "<th>Carga Horária</th>";
+
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td class='attUc'>" . $row["nome_curso"] . "</td>";
+                                echo "<td class='attTurma'>" . $row["categoria"] . "</td>";
+                                echo "<td class='attTurma'>" . $row["capacidade"] . "</td>";
+                                echo "<td class='attTurma'>R$" . $row["valor_curso"] . "</td>";
+                                echo "<td class='attTurma'>" . $row["carga_horaria_curso"] . "h</td>";
+                                echo "</tr>";
+                            }
+                        }
+                    }
+                }
+                ?>
+            </table>
+        </div>
+        <div id="envioAtt">
+            <input id="botaoEnvioAtt" type="submit" value="">
+        </div>
+        </form>
         </div>
         <div id="resposta"></div>
     </main>
@@ -213,6 +408,7 @@ require_once("conexao.php"); // Arquivo de conexão com o banco de dados
     <script src="atualizarDados.js"></script>
 
 </body>
+
 </html>
 <?php
 // Fechar a conexão com o banco de dados
