@@ -9,7 +9,6 @@ $senha = $_POST['senha'];
 $query = "SELECT num_matricula_aluno FROM alunos WHERE email_educacional_aluno = '$email' AND senha_educacional_aluno = '$senha'";
 $resultAluno = mysqli_query($conn, $query);
 
- // ...
 if ($resultAluno && mysqli_num_rows($resultAluno) > 0) {
 
     // O usuário é um aluno
@@ -26,13 +25,9 @@ if ($resultAluno && mysqli_num_rows($resultAluno) > 0) {
         $_SESSION["sobrenome_usuario"] = $linha["sobrenome_aluno"];
     }
     
-    header("Location: homeAlunoTeste.php");
+    header("Location: homeAluno.php");
     exit();
 }
-// ...
-
-
-
 
 //verifica se o aluno está logado e faz as ações de pegar imagem 
 if ($_SESSION['tipo_usuario'] === 'alunos') {
@@ -50,11 +45,8 @@ if ($_SESSION['tipo_usuario'] === 'alunos') {
             mysqli_query($conn, $query);
         }
     }
-
-
     header("Location: homeAlunoTeste.php");
 }
-
 
 // Verifica na tabela "administrador"
 $query = "SELECT id_adm FROM administrador WHERE email_administrativo = '$email' AND senha_administrativa = '$senha'";
@@ -75,9 +67,6 @@ if ($resultAdm && mysqli_num_rows($resultAdm) > 0) {
     header("Location: areaAdministrador.php");
     exit();
 }
-
-
-
 // Verifica na tabela "professores"
 $query = "SELECT nif_professor FROM professores WHERE email_educacional_professor = '$email' AND senha_educacional_professor = '$senha'";
 $resultProf = mysqli_query($conn, $query);
