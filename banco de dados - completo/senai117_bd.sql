@@ -44,7 +44,8 @@ CREATE TABLE unidades_curriculares
     id_unid_curricular INT PRIMARY KEY AUTO_INCREMENT,
     nome_uc VARCHAR(100),
     carga_horariaUc INT,
-    area_vinculadaUc VARCHAR(30)
+    area_vinculadaUc VARCHAR(30),
+    pdf_path BLOB (100)
 );
 
 CREATE TABLE cursos
