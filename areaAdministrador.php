@@ -40,20 +40,27 @@ $nomeUsuario = $_SESSION["nome_usuario"];
             </span>
           </button>
           <ul id="menu" role="menu">
-            <br><li><a class="header-item" href="index.html">Home</a></li><br><hr>
+            <br><li><a class="header-item" href="login.php">Sair</a></li><br><hr>
             <br><li> <a class="header-item" href="products.html">Products</a></li><br><hr>
             <br><li><a class="header-item" href="aboutus.html">About us</a></li> <br><hr>          
         </ul>
         </nav>
       </div>
       <div class="div-cabecalho" id="modo-mobilee">
-        <a href="https://www.flaticon.com/br/icones-gratis/perfil" title="Perfil ícones criados por inkubators - Flaticon" id="icone-perfil"> 
+        <a title="Perfil ícones criados por inkubators - Flaticon" id="icone-perfil"> 
           <img src="./img/perfil-de-usuario.png"/>
         </a>
-        <a href="https://www.flaticon.com/br/icones-gratis/engrenagem" title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem"> <img src="./img/engrenagem.png"/>
+        <a title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem"> <img src="./img/engrenagem.png"/>
         </a>
       </div>
     </header>
+    <div>
+      <a href="login.php" id="divSair">
+        <button id="btnSair">
+          <img src="img/sair.png" alt="">
+        </button>
+      </a>
+    </div>
     <main>
       <div id="container-adm">
         <div class="fotoPerfil"></div>
@@ -86,9 +93,6 @@ $nomeUsuario = $_SESSION["nome_usuario"];
             Excluir
           </button>
         </div>
-        <p>
-        <a href="login.php" style="color: #000;">Sair</a>
-    </p>
       </div>
 
       <footer class="footer-professor-adm">
@@ -119,7 +123,6 @@ $nomeUsuario = $_SESSION["nome_usuario"];
                         Copyright 2023 - Beatriz Brito, Evelyn Victoria Santos, Juliana Lima e Trinity Nascimento<br>
                         Esse site foi produzido pelas alunas citadas acima no curso de Desenvolvimento de Sistemas do Senai "Nami Jafet" para uso escolar e administrativo
                     </p>
-                   
                 </div>
               </div>
           </div>
@@ -143,6 +146,25 @@ $nomeUsuario = $_SESSION["nome_usuario"];
       }
       btnMobile.addEventListener('click', toggleMenu);
       btnMobile.addEventListener('touchstart', toggleMenu);
+
+      //LOGOUT
+      var i = 0;
+      
+      var sair = document.querySelector('#icone-engrenagem');
+      var caixa = document.getElementById("divSair");
+      var botao = document.getElementById("btnSair");
+
+      caixa.style.display = "none";
+      botao.style.display = "none";
+
+      sair.addEventListener('click', function click(e) {
+        i++;
+
+      caixa.style.display = "flex";
+      botao.style.display = "flex";
+    });
+      
+      
     </script>
   </body>
 </html>
