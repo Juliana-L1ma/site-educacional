@@ -551,6 +551,25 @@ a {
   margin-left: 30px;
 }
 
+#btnSair{
+  border: none;
+  background-color: transparent;
+  margin-top: 10%;
+}
+
+#divSair{
+  background-color: var(--amarelo);
+  height: 6vh;
+  width: 18vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  bottom: 83%;
+  left: 90.9%;
+  border-radius: 10px;
+}
+
 /*MEDIA QUERIES PÁGINA DO ADMINISTRADOR*/
 @media screen and (max-width: 670px) {
   #areaBotoes button {
