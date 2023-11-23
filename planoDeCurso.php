@@ -7,16 +7,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
-  <title>Planejamento de Aulas</title>
+  
+  <title>Plano de curso</title>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/* roboto titulos*/
+
     .botao-PDA{
       margin: 5%;
      
     }
+    #cliquePvisualizar{
+      margin-top:1%;
+      text-align:center;
+      font-family: 'Roboto', sans-serif;
+    }
+    .main-pdfs{
+      margin-left:15%;
+      color:black;
+      margin-bottom: 15%;
+      margin-top:4%;
+      border: 1px solid black;
+      width:250px;
+      border-radius:5px;
+      padding:2%;
+    }
     #link-pdf{
       color: black;
+      background-color: #FAF4D3;
+      padding:2%;
+      margin-top:2%
     }
+    
   </style>
 </head>
 
@@ -99,8 +122,7 @@ if ($result) {
     echo "Erro na consulta: " . mysqli_error($conn);
 }
 
-// Feche a conexão, se necessário
-mysqli_close($conn);
+
 
 ?>
 
@@ -117,40 +139,40 @@ mysqli_close($conn);
       <img class="livroPDA" src="img/livro-PDA-removebg-preview.png" alt="">
       <p class="disciplina-PDA">Suas disciplinas:</p>
     </div>
+    <h5 id="cliquePvisualizar">Clique para visualizar o PDF</h5><br>
 
-    Clique para fazer o download do PDF <br>
+    <div class="main-pdfs">
     <?php
-    // Conectar ao banco de dados
-$usuario = 'root';
-$senha = '';
-$database = 'senai117_bd';
-$host = 'localhost';
+require_once("conexao.php");
 
-$conn= new mysqli($host, $usuario, $senha, $database);
+// Obtém o NIF do professor da sessão
+$professor_nif = $_SESSION['id_usuario'];
 
-if ($conn->connect_error) {
-    die("Falha na conexão com o banco de dados: " . $conn->connect_error);
+
+// Consulta SQL para obter as unidades curriculares associadas ao professor logado
+$sql = "SELECT uc.nome_uc, uc.pdf_path
+        FROM lista_disc_prof lista
+        INNER JOIN unidades_curriculares uc ON lista.id_unidade_curricular = uc.id_unid_curricular
+        WHERE lista.nif_professor = '$professor_nif'";
+
+$result = mysqli_query($conn, $sql);
+
+// Verifica se a consulta foi bem-sucedida
+if ($result) {
+    // Fetch os resultados
+    $resultados = mysqli_fetch_all($result, MYSQLI_ASSOC);
+} else {
+    // Trate erros, se houver
+    echo "Erro na consulta: " . mysqli_error($conn);
 }
-// Verifica se o ID do documento é válido
-if (isset($_GET['id_unid_curricular'])) {
-  $id_unid_curricular = $_GET['id_unid_curricular'];
 
-  $sql = "SELECT pdf_path FROM unidade_curriculares WHERE id_unid_curricular = $id_unid_curricular";
-  $result = $conn->query($sql);
-
-  if ($result->num_rows > 0) {
-      $row = $result->fetch_assoc();
-
-
-      // Exibe o conteúdo do PDF
-      echo $row['pdf_path'];
-  } else {
-      echo "Documento não encontrado.";
-  }
+// Exibe os PDFs e os nomes das unidades curriculares na página
+foreach ($resultados as $row) {
+    echo "<p>Unidade Curricular: " . $row['nome_uc'] . "</p>";
+    echo "<a id='link-pdf' href='" . $row['pdf_path'] . "' target='_blank'>Visualizar PDF</a><br>";
 }
-$conn->close();
 ?>
-
+</div>
   </main>
 
   <footer class="footer-professor-adm">
@@ -194,21 +216,7 @@ $conn->close();
 </body>
 
 
-<script>
-  $(document).ready(function() {
-  // Quando um botão de disciplina for clicado
-  $(".btn-disciplina").click(function() {
-    // Obtenha o ID da disciplina a partir do atributo data-id
-    let disciplinaId = $(this).data("id");
 
-    // Agora você pode usar o ID da disciplina para realizar ações, como consulta ao banco de dados
-    // ou navegação para uma página relacionada a essa disciplina
-    // Exemplo de ação:
-    console.log("Disciplina selecionada (ID): " + disciplinaId);
-  });
-});
-
-</script>
 
 <script>
   const btnMobile = document.getElementById('btn-mobile');
