@@ -56,7 +56,7 @@ $nomeUsuario = $_SESSION["nome_usuario"];
 
   
     <main id="main-professor">
-      <h2 id="bemvindo-professor"><b>Seja bem vindo(a) <?php echo $nomeUsuario;?></b></h2>
+      <h2 id="bemvindo-professor"><b>Seja bem vindo(a) <?php echo  $_SESSION["nome_usuario"];?></b></h2>
     <br>
 
     <div class="caixa-de-funcionalidades">
@@ -66,28 +66,33 @@ $nomeUsuario = $_SESSION["nome_usuario"];
         <div class="container">
             <div class="row">
               <div class="col">
+                <a href="./notas-professor-E.html">
                 <button class="botao-funcionalidade">
                     <img class="icone-funcionalidades" src="./img/boletim.png"><br>
                     Notas
                 </button>  
+                </a>
             </div>
 
               <div class="col">
+                <a href="./planoEregistro.html">
                 <button class="botao-funcionalidade">
                     <img class="icone-funcionalidades" src="./img/planejamento.png" title="Plano estratégico ícones criados por Freepik - Flaticon"><br>
                     Planejamento e registro de aulas
                 </button>
-
+                </a>
               </div>
              
               <div class="w-100"></div>
               <br>
               <hr size="15" id="separacao-roxa">
               <div class="col">
+                <a href="./criterios.html">
                 <button class="botao-funcionalidade">
                    <img class="icone-funcionalidades" src="./img/check-mark.png" title="Verifica ícones criados por Freepik - Flaticon"><br>
                    Registrar critérios
                 </button>
+                </a>
             </div>
 
               <div class="col">
@@ -163,5 +168,3 @@ $nomeUsuario = $_SESSION["nome_usuario"];
   </script>
 </body>
 </html>
-
-
