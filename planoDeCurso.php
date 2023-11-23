@@ -14,6 +14,9 @@
       margin: 5%;
      
     }
+    #link-pdf{
+      color: black;
+    }
   </style>
 </head>
 
@@ -70,78 +73,83 @@
   <main>
 
 
+<?php
+session_start();
+require_once("conexao.php");
+
+// Obtém o nif_professor da sessão
+$nif_professor = $_SESSION["id_usuario"];
+
+// Substitua 'sua_tabela_lista_disc_prof' e 'sua_tabela_unidades_curriculares' pelos detalhes reais das suas tabelas
+$sql = "SELECT uc.nome_uc, uc.pdf_path
+        FROM lista_disc_prof lista
+        INNER JOIN unidades_curriculares uc ON lista.id_unidade_curricular = uc.id_unid_curricular
+        WHERE lista.nif_professor = '$nif_professor'";
+
+// Execute a consulta SQL
+$result = mysqli_query($conn, $sql);
+
+// Verifique se a consulta foi bem-sucedida
+if ($result) {
+    // Fetch os resultados
+    $resultados = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    
+} else {
+    // Trate erros, se houver
+    echo "Erro na consulta: " . mysqli_error($conn);
+}
+
+// Feche a conexão, se necessário
+mysqli_close($conn);
+
+?>
+
     <div class="titulo-PlanejamentoDeAula">
-      <a href="./planejamentoRegistroDeAulas-E.html"><img class="img-PlanejamentoDeAula" src="img/seta-planejamentoDeAula.png" alt=""></a>
+      <a href="./planoEregistro.html"><img class="img-PlanejamentoDeAula" src="img/seta-planejamentoDeAula.png" alt=""></a>
 
 
-      <p id="titulo-PlanejamentoDeAula2">Planejamento de Aula</p>
+      <p id="titulo-PlanejamentoDeAula2">Plano de curso</p>
     </div>
 
     <br>
 
     <div class="meio-PDA">
       <img class="livroPDA" src="img/livro-PDA-removebg-preview.png" alt="">
-      <p class="disciplina-PDA">Disciplinas:</p>
+      <p class="disciplina-PDA">Suas disciplinas:</p>
     </div>
 
-
-
-
+    Clique para fazer o download do PDF <br>
     <?php
-    //Iniciando a conexão com o banco de dados 
-    $cx = mysqli_connect("localhost", "root", "");
-   
-    //Selecionando o banco de dados 
-    $db = mysqli_select_db($cx, "senai117_bd");
+    // Conectar ao banco de dados
+$usuario = 'root';
+$senha = '';
+$database = 'senai117_bd';
+$host = 'localhost';
+
+$conn= new mysqli($host, $usuario, $senha, $database);
+
+if ($conn->connect_error) {
+    die("Falha na conexão com o banco de dados: " . $conn->connect_error);
+}
+// Verifica se o ID do documento é válido
+if (isset($_GET['id_unid_curricular'])) {
+  $id_unid_curricular = $_GET['id_unid_curricular'];
+
+  $sql = "SELECT pdf_path FROM unidade_curriculares WHERE id_unid_curricular = $id_unid_curricular";
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
 
 
-    //Criando a query de consulta à tabela criada 
- 
-    $alunos = mysqli_query($cx, "SELECT * FROM alunos");
-    $boletim = mysqli_query($cx, "SELECT * FROM boletim");
-    $cursos = mysqli_query($cx, "SELECT * FROM cursos");
-    $lista_alunos = mysqli_query($cx, "SELECT * FROM lista_alunos");
-    $lista_disc_prof = mysqli_query($cx, "SELECT * FROM lista_disc_prof");
-    $lista_prof_turma = mysqli_query($cx, "SELECT * FROM lista_prof_turma");
-
-
-
-
-    $lista_turma_uc = mysqli_query($cx, "SELECT * FROM lista_turma_uc");
-    $professores = mysqli_query($cx, "SELECT * FROM professores") or die( 
-      mysqli_error($cx) //Caso haja um erro na consultal, exibir erro
-      );
-      $turmas = mysqli_query($cx, "SELECT * FROM turmas");
-      $unidade_curricular = mysqli_query($cx, "SELECT * FROM unidades_curriculares");
-
-      $cursos = mysqli_query($cx, "SELECT * FROM cursos");
-
-     
-
-
-
-
-
-      ?>
-
-
-
-<div id="teste543">
-<div class="disciplinas">
-  <?php
-  while ($row = mysqli_fetch_assoc($unidade_curricular)) {
-    echo '<button class="botao-PDA" data-id="' . $row['id_unid_curricular'] . '">' . $row['nome_uc'] . '</button>';
+      // Exibe o conteúdo do PDF
+      echo $row['pdf_path'];
+  } else {
+      echo "Documento não encontrado.";
   }
-  ?>
-</div>
-</div>
-
-
-
-
-
-
-
+}
+$conn->close();
+?>
 
   </main>
 
