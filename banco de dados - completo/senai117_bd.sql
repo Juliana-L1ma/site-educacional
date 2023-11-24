@@ -138,6 +138,7 @@ CREATE TABLE lista_turma_uc
 CREATE TABLE lista_curso_uc
 (
     id_lista_curso_uc INT PRIMARY KEY AUTO_INCREMENT,
+    semestre_uc INT,
     id_curso INT,
     id_unidade_curricular INT,
 CONSTRAINT assoc_curso_listacursouc
