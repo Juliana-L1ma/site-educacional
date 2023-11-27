@@ -22,34 +22,10 @@ if ($conect->connect_error) {
       color: #000;
       text-align: center;
     }
-    #fotoDePerfil{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin: 0 auto;
-  padding: 5%;
-  padding-top: 5%;
-}
-.imagemAluno {
-  background-color: #0A395E;
-  width: 0px;
-  height: 0px;
-  margin-left: 40%;
-  padding: 5%;
-  padding-top: 5%;
-}
 
-.form-aluno-area{
-  margin-top: 3%; 
-  margin-left: 40%;
-}
-.btn-form-enviar{
-  padding: 1%;
-  border-radius: 5%;
-  border-color: #912B64;
-  color: #912B64;
-  --fontes-de-titulo: 'Roboto', sans-serif;
-}
+    .imagemAluno {
+        background-color: transparent;
+    }
     </style>
     <title>Home do aluno</title>
 </head>
@@ -95,7 +71,6 @@ if ($conect->connect_error) {
   </header>
 
     <main id="mainAluno">
-
       <div class="imagemAluno">
       <?php
   require_once("conexao.php");
@@ -189,30 +164,24 @@ if ($_SESSION['tipo_usuario'] === 'alunos' && isset($_SESSION['num_matricula_alu
   }
 }
 else {
-echo "nao foi";
+echo "Erro ao inserir foto!";
 }
 ?>
 
-</div>
+
 
 
 
 <div class="form-aluno-area">
-
   <form id="formImagem" action="homeAluno.php" method="post" enctype="multipart/form-data">
     <input type="file" name="imagem" id="fotoDePerfil">
-    <input type="button" id="enviarImagemBtn" value="Enviar Imagem">
+    <input type="button" id="enviarImagemBtn" value="Carregar">
   </form>
-
 </div>
 
-   
+</div>
       <div class="informacoesDoAluno">
-
-      
       <p id="nomeDoAluno"><?php echo $_SESSION['nome_aluno']; ?></p>
-
-
 
         <hr id="hr-aluno"><br>
 
