@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Recupere o nome do usuário da sessão
-$olaUsuario = 'Olá, ' . $_SESSION["nome_usuario"];
+$usuarioBoletim = 'Olá, ' . $_SESSION["nome_usuario"];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,14 +20,11 @@ $olaUsuario = 'Olá, ' . $_SESSION["nome_usuario"];
     <header class="header-professor-adm">
         <div class="div-cabecalho" id="modo-desktop">
             <ul>
-                <a href="">
+                <a href="./homeAluno.php">
                     <li>Home</li>
                 </a>
                 <a href="">
                     <li>Perfil</li>
-                </a>
-                <a href="">
-                    <li>Funcionalidades</li>
                 </a>
                 <a href="">
                     <li>Sobre o Senai</li>
@@ -45,13 +42,13 @@ $olaUsuario = 'Olá, ' . $_SESSION["nome_usuario"];
                 </button>
                 <ul id="menu" role="menu">
                     <br>
-                    <li><a class="header-item" href="index.html">Home</a></li><br>
+                    <li><a class="header-item" href="./homeAluno.php">Home</a></li><br>
                     <hr>
                     <br>
-                    <li> <a class="header-item" href="products.html">Products</a></li><br>
+                    <li> <a class="header-item" href="products.html">Perfil</a></li><br>
                     <hr>
                     <br>
-                    <li><a class="header-item" href="aboutus.html">About us</a></li> <br>
+                    <li><a class="header-item" href="aboutus.html">Sobre o SENAI</a></li> <br>
                     <hr>
                 </ul>
             </nav>
@@ -101,23 +98,15 @@ if ($_SESSION['tipo_usuario'] === 'alunos' && isset($_SESSION['num_matricula_alu
 
 ?>
 
-
         <div id="info-aluno-boletim">
-            <h2 id="tituloBoletim"><p id="nomeDoAluno-boletim"><?php echo $olaUsuario;?>!</p>
+            <h2 id="tituloBoletim"><p id="nomeDoAluno-boletim"><?php echo $usuarioBoletim;?>!</p>
             </h2>
         </div>
     </nav>
 
     <hr id="linhaVerde-separacao">
 
-    
-
     <h2 class="boletim-titulo">Boletim geral</h2>
-
-
-
-
-
     <?php
         //Iniciando a conexão com o banco de dados 
         $conexao = mysqli_connect("localhost", "root", "");
@@ -159,45 +148,7 @@ if ($_SESSION['tipo_usuario'] === 'alunos' && isset($_SESSION['num_matricula_alu
      ?>
 
     </table>
-
     <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <hr id="linha-separacao-roxa">
 
