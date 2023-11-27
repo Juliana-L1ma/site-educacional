@@ -1,4 +1,5 @@
 CREATE DATABASE senai117_bd;
+USE senai117_bd;
 
 CREATE TABLE alunos
 (
