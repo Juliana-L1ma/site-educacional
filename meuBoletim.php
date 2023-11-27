@@ -23,7 +23,7 @@ $usuarioBoletim = 'Olá, ' . $_SESSION["nome_usuario"];
                 <a href="./homeAluno.php">
                     <li>Home</li>
                 </a>
-                <a href="">
+                <a href="homeAluno.php">
                     <li>Perfil</li>
                 </a>
                 <a href="">
@@ -54,7 +54,7 @@ $usuarioBoletim = 'Olá, ' . $_SESSION["nome_usuario"];
             </nav>
         </div>
         <div class="div-cabecalho" id="modo-mobilee">
-            <a href="https://www.flaticon.com/br/icones-gratis/perfil"
+            <a href="homeAluno.php"
                 title="Perfil ícones criados por inkubators - Flaticon" id="icone-perfil">
                 <img src="./img/perfil-de-usuario.png" />
             </a>
@@ -375,8 +375,6 @@ if ($_SESSION['tipo_usuario'] === 'alunos' && isset($_SESSION['num_matricula_alu
     <footer class="footer-professor-adm">
 
         <div class="container">
-
-
             <div class="row">
                 <div class="col-6">
                     <p class="tituloRodape">Site SENAI oficial:</p>
@@ -431,9 +429,7 @@ function toggleMenu(event) {
         event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
     }
 }
-
 btnMobile.addEventListener('click', toggleMenu);
 btnMobile.addEventListener('touchstart', toggleMenu);
 </script>
-
 </html>
