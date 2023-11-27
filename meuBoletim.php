@@ -69,17 +69,8 @@ $olaUsuario = 'Olá, ' . $_SESSION["nome_usuario"];
     </header>
 
     <nav class="topo-boletim">
-        <div id="foto-do-aluno"></div>
-
-        <div id="info-aluno-boletim">
-            <h2 id="tituloBoletim"><p id="nomeDoAluno-boletim"><?php echo $olaUsuario;?>!</p>
-            </h2>
-        </div>
-    </nav>
-
-    <hr id="linhaVerde-separacao">
-
     <?php
+     require_once("conexao.php");
     //Selecionando o banco de dados 
     $conexao = new mysqli("localhost", "root", "", "senai117_bd");
 
@@ -90,7 +81,36 @@ if($_SESSION["email"] !== "" && $_SESSION["senha"]){
   $senha_usuarioLogado = $_SESSION["senha"];
   $num_matricula = $_SESSION["id_usuario"];
 }
+
+if ($_SESSION['tipo_usuario'] === 'alunos' && isset($_SESSION['num_matricula_aluno'])) {
+    $id_usuario = $_SESSION['num_matricula_aluno'];
+    $query = "SELECT fotoDoAluno FROM alunos WHERE num_matricula_aluno = $id_usuario";
+    $result = mysqli_query($conn, $query);
+  
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $caminho_imagem = $row['fotoDoAluno'];
+  
+        if (!empty($caminho_imagem)) {
+          echo '<img src="' . $caminho_imagem . '" id="foto-do-aluno"  alt="Imagem do Aluno">';
+      } else {
+          // echo 'Nenhuma imagem de perfil encontrada.';
+      }
+    }
+  }
+
 ?>
+
+
+        <div id="info-aluno-boletim">
+            <h2 id="tituloBoletim"><p id="nomeDoAluno-boletim"><?php echo $olaUsuario;?>!</p>
+            </h2>
+        </div>
+    </nav>
+
+    <hr id="linhaVerde-separacao">
+
+    
 
     <h2 class="boletim-titulo">Boletim geral</h2>
 
