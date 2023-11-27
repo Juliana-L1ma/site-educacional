@@ -344,15 +344,6 @@ a {
   border-radius: 0px 0px 50px 50px;
 }
 
-.imagemAluno {
-  background-color: var(--verde);
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin: 0 auto;
-  padding: 5%;
-  padding-top: 5%;
-}
 
 #hr-aluno {
   border-bottom: 2px solid #f8e67e;
@@ -448,6 +439,60 @@ a {
   font-size: 10px;
   text-align: center;
 }
+
+input[type=file]::-webkit-file-upload-button {
+  background-image: url("../img/lapis-edicao.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  height: 35px;
+  width: 35px;
+  color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 25%;
+}
+
+input[type="file" i] {
+  color: transparent;
+}
+
+#enviarImagemBtn{
+  margin-top: 8px;
+  background-image: url("../img/check.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  width: 50px;
+  height: 29px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  color: var(--background-color-branco);
+}
+
+.imagemAluno{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#formImagem{
+  margin-top: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+#fotoDePerfil{
+  margin-top: 5%;
+  width: 90px;
+  border-radius: 50%;
+}
+
 
 /*----------------- atualizar alunos da turma desktop ----------*/
 .container-dadosAlunosSenai {
