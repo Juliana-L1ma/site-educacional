@@ -65,10 +65,17 @@ if ($conect->connect_error) {
       <a href="https://www.flaticon.com/br/icones-gratis/perfil" title="Perfil ícones criados por inkubators - Flaticon" id="icone-perfil"> 
         <img src="./img/perfil-de-usuario.png"/>
       </a>
-      <a href="https://www.flaticon.com/br/icones-gratis/engrenagem" title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem"> <img src="./img/engrenagem.png"/>
+      <a title="Engrenagem ícones criados por Freepik - Flaticon" id="icone-engrenagem"> <img src="./img/engrenagem.png"/>
       </a>
     </div>
   </header>
+  <div>
+      <a href="login.php" id="divSair">
+        <button id="btnSair">
+          <img src="img/sair.png" alt="">
+        </button>
+      </a>
+    </div>
 
     <main id="mainAluno">
       <div class="imagemAluno">
@@ -167,15 +174,10 @@ else {
 echo "Erro ao inserir foto!";
 }
 ?>
-
-
-
-
-
 <div class="form-aluno-area">
   <form id="formImagem" action="homeAluno.php" method="post" enctype="multipart/form-data">
     <input type="file" name="imagem" id="fotoDePerfil">
-    <input type="button" id="enviarImagemBtn" value="Carregar">
+    <input type="button" id="enviarImagemBtn" title="Carregar">
   </form>
 </div>
 
@@ -209,22 +211,14 @@ if ($result->num_rows > 0) {
 ?>
             </select>
       </div>
-
       <div id="caixa-botoes">
-
         <a href="./meuBoletim.php" class="buttonDoAluno">Boletim</a>
         <a href="./" class="buttonDoAluno">Informações</a>
-
-      </div>
-      
-
+      </div> 
     </main>
 
     <footer class="footer-aluno">
-
         <div class="container">
-           
-
             <div class="row">
               <div class="col-6">
                 <p class="tituloRodape">Site SENAI oficial:</p><hr>
@@ -259,35 +253,50 @@ if ($result->num_rows > 0) {
     </footer>
 </body>
 
-
 <script>
   const btnMobile = document.getElementById('btn-mobile');
 
-function toggleMenu(event) {
-if (event.type === 'touchstart') event.preventDefault();
-const nav = document.getElementById('nav-menu-hamburguer');
-nav.classList.toggle('active');
-const active = nav.classList.contains('active');
-event.currentTarget.setAttribute('aria-expanded', active);
-if (active) {
-  event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
-} else {
-  event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
-}
-}
+    function toggleMenu(event) {
+    if (event.type === 'touchstart') event.preventDefault();
+    const nav = document.getElementById('nav-menu-hamburguer');
+    nav.classList.toggle('active');
+    const active = nav.classList.contains('active');
+    event.currentTarget.setAttribute('aria-expanded', active);
+    if (active) {
+    event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
+    } else {
+    event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
+    }
+    }
 
-btnMobile.addEventListener('click', toggleMenu);
-btnMobile.addEventListener('touchstart', toggleMenu);
+    btnMobile.addEventListener('click', toggleMenu);
+    btnMobile.addEventListener('touchstart', toggleMenu);
 
-//script do botão de editar
-document.addEventListener('DOMContentLoaded', function () {
+    //script do botão de editar
+    document.addEventListener('DOMContentLoaded', function () {
 
-        var enviarImagemBtn = document.getElementById('enviarImagemBtn');
-        enviarImagemBtn.addEventListener('click', function () {
-            formImagem.submit(); // Submeter o formulário manualmente
+            var enviarImagemBtn = document.getElementById('enviarImagemBtn');
+            enviarImagemBtn.addEventListener('click', function () {
+                formImagem.submit(); // Submeter o formulário manualmente
+            });
+
         });
 
+              //LOGOUT
+      var i = 0;
+      
+      var sair = document.querySelector('#icone-engrenagem');
+      var caixa = document.getElementById("divSair");
+      var botao = document.getElementById("btnSair");
+
+      caixa.style.display = "none";
+      botao.style.display = "none";
+
+      sair.addEventListener('click', function click(e) {
+        i++;
+
+      caixa.style.display = "flex";
+      botao.style.display = "flex";
     });
 </script>
-
 </html>
