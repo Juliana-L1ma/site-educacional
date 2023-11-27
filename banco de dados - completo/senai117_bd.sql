@@ -356,6 +356,19 @@ VALUES
 (1, 1),
 (2, 1);
 
+INSERT INTO lista_curso_uc
+(
+    semestre_uc,
+    id_curso,
+    id_unidade_curricular
+)
+VALUES
+(1, 1, 1),
+(1, 1, 3),
+(3, 2, 1),
+(2, 2, 1),
+(2, 3, 2);
+
 INSERT INTO lista_disc_prof
 (
     id_lista_disc_prof,
