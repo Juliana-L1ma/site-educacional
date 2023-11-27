@@ -45,7 +45,7 @@ if ($_SESSION['tipo_usuario'] === 'alunos') {
             mysqli_query($conn, $query);
         }
     }
-    header("Location: homeAlunoTeste.php");
+    header("Location: homeAluno.php");
 }
 
 // Verifica na tabela "administrador"
