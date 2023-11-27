@@ -1,4 +1,14 @@
+<?php
+session_start();
+// Recupere o nome do usuário da sessão
+$nomeUsuario = $_SESSION["nome_usuario"] . " " . $_SESSION["sobrenome_usuario"];
+$id_aluno = $_SESSION["id_usuario"];
 
+$conect = mysqli_connect("localhost", "root", "", "senai117_bd");
+if ($conect->connect_error) {
+    die("Conexão falhou: " . $conect->connect_error);
+}
+?>
 <!DOCTYPE html>
 <html lang="PT-BR">
 <head>
@@ -88,7 +98,6 @@
 
       <div class="imagemAluno">
       <?php
-  session_start();
   require_once("conexao.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -211,10 +220,26 @@ echo "nao foi";
         <label class="label-curso" for="turma">Curso:</label>
 
 	<select id="cursos" name="cursos" style="background-color: transparent; border: none; color: #fff; outline: none;">
-		<option value="Desenvolvimento de sistemas">Desenvolvimento de sistemas</option>
-		<option value="Elétrica">Elétrica</option>
-	</select>  
+                <?php
+$sqlTurmaPorAluno = "SELECT turmas.id_curso, cursos.id_curso, cursos.nome_curso, lista_alunos.id_turma, lista_alunos.id_aluno
+                    FROM lista_alunos
+                    INNER JOIN turmas ON turmas.id_turma = lista_alunos.id_turma
+                    INNER JOIN cursos ON cursos.id_curso = turmas.id_curso
+                    WHERE lista_alunos.id_aluno = '$id_aluno'";
 
+$result = $conect->query($sqlTurmaPorAluno);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $id = $row['id_curso'];
+        $nomeCurso = $row['nome_curso']; // Certifique-se de que o nome da coluna está correto
+        echo '<option value="' . $id . '">';
+        echo $nomeCurso;
+        echo '</option>';
+    }
+}
+?>
+            </select>
       </div>
 
       <div id="caixa-botoes">
