@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="PT-BR">
-<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,12 +40,6 @@
   color: #912B64;
   --fontes-de-titulo: 'Roboto', sans-serif;
 }
-    <link rel="stylesheet" href="./css/login&index.css">
-    <title>Login</title>
-    <style>
-        .div-cabecalho {
-            padding-right: 0%;
-        }
     </style>
     <title>Home do aluno</title>
 </head>
@@ -133,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     if ($_SESSION['tipo_usuario'] === 'alunos' && isset($_SESSION['num_matricula_aluno'])) {
       $id_usuario = $_SESSION['num_matricula_aluno'];
-
+  
    // Consulta para obter a imagem anterior do aluno
    $query = "SELECT fotoDoAluno FROM alunos WHERE num_matricula_aluno = $id_usuario";
    $result = mysqli_query($conn, $query);
@@ -153,7 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       if (move_uploaded_file($_FILES["imagem"]["tmp_name"], $targetFile)) {
           // echo "O arquivo " . htmlspecialchars(basename($_FILES["imagem"]["name"])) . " foi enviado com sucesso.";
-
+  
           // Atualize o banco de dados com o caminho da imagem do aluno
           $query = "UPDATE alunos SET fotoDoAluno = '$targetFile' WHERE num_matricula_aluno = $id_usuario";
           if (mysqli_query($conn, $query)) {
@@ -196,7 +190,7 @@ echo "nao foi";
 
 <div class="form-aluno-area">
 
-  <form id="formImagem" action="homeAlunoTeste.php" method="post" enctype="multipart/form-data">
+  <form id="formImagem" action="homeAluno.php" method="post" enctype="multipart/form-data">
     <input type="file" name="imagem">
     <input type="button" id="enviarImagemBtn" value="Enviar Imagem">
   </form>
@@ -204,15 +198,16 @@ echo "nao foi";
   <img id="editarBtn" src="./img/lapis-edicao.png" alt="Editar Imagem" style="cursor: pointer;">
 </div>
 
-
+   
       <div class="informacoesDoAluno">
 
-
+      
       <p id="nomeDoAluno"><?php echo $_SESSION['nome_aluno']; ?></p>
 
 
 
         <hr id="hr-aluno"><br>
+
         <label class="label-curso" for="turma">Curso:</label>
 
 	<select id="cursos" name="cursos" style="background-color: transparent; border: none; color: #fff; outline: none;">
@@ -220,7 +215,6 @@ echo "nao foi";
 		<option value="Elétrica">Elétrica</option>
 	</select>  
 
-  <p id="nomeDaTurma"><br>$nomeDaTurma</p>
       </div>
 
       <div id="caixa-botoes">
@@ -229,14 +223,14 @@ echo "nao foi";
         <a href="./" class="buttonDoAluno">Informações</a>
 
       </div>
-
+      
 
     </main>
 
     <footer class="footer-aluno">
 
         <div class="container">
-
+           
 
             <div class="row">
               <div class="col-6">
@@ -256,24 +250,6 @@ echo "nao foi";
                     </p>
                 </div>
               </div>
-<body>
-    <header>
-        <div id="headermaior">
-            <div class="div-cabecalho" id="modo-desktop">
-                <ul>
-                    <a href="index.html">
-                        <li>Home</li>
-                    </a>
-                    <a href="">
-                        <li>Perfil</li>
-                    </a>
-                    <a href="">
-                        <li>Funcionalidades</li>
-                    </a>
-                    <a href="">
-                        <li>Sobre o Senai</li>
-                    </a>
-                </ul>
             </div>
 
             <div class="row">
@@ -282,41 +258,11 @@ echo "nao foi";
                         Copyright 2023 - Beatriz Brito, Evelyn Victoria Santos, Juliana Lima e Trinity Nascimento<br>
                         Esse site foi produzido pelas alunas citadas acima no curso de Desenvolvimento de Sistemas do Senai "Nami Jafet" para uso escolar e administrativo
                     </p>
-
-            <div class="div-cabecalho" id="modo-mobile">
-                <nav id="nav-menu-hamburguer">
-                    <ul id="menu" role="menu">
-                        <br />
-                        <li><a class="header-item" href="index.html">Home</a></li>
-                        <br />
-                        <hr />
-                        <br />
-                        <li><a class="header-item" href="index.html">Perfil</a></li>
-                        <br />
-                        <hr />
-                        <br />
-                        <li><a class="header-item" href="products.html">Funcionalidades</a></li>
-                        <br />
-                        <hr />
-                        <br />
-                        <li><a class="header-item" href="aboutus.html">Sobre o SENAI</a></li>
-                        <br />
-                        <hr />
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <main>
-        <div id="div_1">
-            <div id="caixa_geral">
-                <div id="caixa_bemvindo_login">
-                    <h1 class="titulo_principal_login">Bem vindo!</h1>
-                    <h3 class="subtitulo_login">Faça login para continuar</h3>
+                   
                 </div>
               </div>
           </div>
-
+    
     </footer>
 </body>
 
@@ -339,53 +285,21 @@ if (active) {
 
 btnMobile.addEventListener('click', toggleMenu);
 btnMobile.addEventListener('touchstart', toggleMenu);
+
 //script do botão de editar
 document.addEventListener('DOMContentLoaded', function () {
         var formImagem = document.getElementById('formImagem');
         formImagem.style.display = 'none';
-                <form action="processa_login.php" id="form_senha_login" method="POST">
-                    <input id="email_login" type="text" name="email" placeholder="Insira seu email" required>
-                        <div id="align">
-                        <input id="senha_login" type="password" name="senha" placeholder="Insira sua senha" required>
-                        <span id="imagem_senha"></span>
-                        </div>
-                    </input>
-                    <div id="alinharEnvio">
-                        <button id="botao_envio_login" type="submit">Entrar</button>
-                    </div>
-                </form>
-                <div id="caixaRecuperarSenha">
-                    <div class="linhas"></div>
-                    <a href="">Esqueci a senha</a>
-                    <div class="linhas"></div>
-                </div>
+
         var enviarImagemBtn = document.getElementById('enviarImagemBtn');
         enviarImagemBtn.addEventListener('click', function () {
             formImagem.submit(); // Submeter o formulário manualmente
         });
-            </div>
-        </div>
- 
-    </main>
+
         document.getElementById('editarBtn').addEventListener('click', function () {
             formImagem.style.display = (formImagem.style.display === 'none' || formImagem.style.display === '') ? 'block' : 'none';
         });
-    <script>
-    var form_senha_login = document.getElementById("form_senha_login");
-    var visualizacao_senha_login = document.querySelector("#senha_login");
-    var imagemSenha = document.querySelector("#imagem_senha");
-    imagemSenha.style.backgroundImage = 'url("img/olho-fechado.png")';
-    imagemSenha.addEventListener('click', function () {
-        form_senha_login.classList.toggle('visibilidade_login')
-        if (form_senha_login.classList.contains("visibilidade_login")) {
-            imagemSenha.style.backgroundImage = 'url("img/olho-aberto.png")';
-            visualizacao_senha_login.type = 'text';
-        } else {
-            imagemSenha.style.backgroundImage = 'url("img/olho-fechado.png")';
-            visualizacao_senha_login.type = 'password';
-        }
     });
 </script>
-    
-</body>
+
 </html>
