@@ -166,10 +166,6 @@ CREATE TABLE lista_disc_prof
 ALTER TABLE alunos
 ADD COLUMN fotoDoAluno BLOB;
 
-ALTER TABLE unidades_curriculares
-ADD COLUMN pdf_path BLOB;
-
-
 CREATE VIEW view_boletim AS
 SELECT b.nota_boletim AS notas_boletim, b.frequencia_boletim AS frequencia, u.nome_uc AS materia, b.faltas_totais AS faltas, b.id_unid_curricular AS unidadeCurricular, b.id_aluno AS id_aluno
 FROM boletim b
