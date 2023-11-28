@@ -60,6 +60,23 @@ CREATE TABLE cursos
     categoria VARCHAR(25)
 );
 
+CREATE TABLE criterios_uc
+(
+    id_criterioUc INT PRIMARY KEY AUTO_INCREMENT,
+    id_unidadeCurricular INT,
+    id_curso INT,
+    semestre_uc INT,
+    tipo_criterio VARCHAR(9),
+    objetivo TEXT,
+	CONSTRAINT id_criterio_unid
+        FOREIGN KEY (id_unidadeCurricular)
+        REFERENCES unidades_curriculares (id_unid_curricular),
+
+	CONSTRAINT id_criterio_curso
+        FOREIGN KEY (id_curso)
+        REFERENCES cursos (id_curso)
+);
+
 CREATE TABLE turmas
 (
     id_turma INT PRIMARY KEY AUTO_INCREMENT,
@@ -380,6 +397,19 @@ VALUES
 (1, '1080043', 2),
 (2, '12098876', 1),
 (3, '1178922', 3);
+
+INSERT INTO criterios_uc
+(
+    id_unidadeCurricular,
+    id_curso,
+    semestre_uc,
+    tipo_criterio,
+    objetivo
+)
+VALUES
+(1, 2, 1, 'Desejável', 'Saber montar um computador inteiro sozinho'),
+(2, 3, 3, 'Crítico', 'Usar frameworks em javascript'),
+(3, 1, 2, 'Crítico', 'Ligar lâmpada em placa');
 
 INSERT INTO boletim (
 	nota_boletim,
