@@ -1548,6 +1548,31 @@ align-items: center;
   color: var(--azul-escuro);
 }
 
+#btnPesquisar{
+  background-image: url("../img/procurar.png");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  height: 5vh;
+  width: 5vw;
+  border: none;
+  background-color: transparent;
+}
+
+#alinhaDel{
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  padding: 1%;
+}
+
+.btn-excluir-aluno, .btn-excluir-professor{
+  background-color: var(--bordo);
+  padding: 4%;
+  color: var(--amarelo);
+  font-family: var(--fontes-de-texto);
+  border: transparent;
+  border-radius: 5px;
+}
 
 
 .botaoCursotec {
@@ -3415,7 +3440,6 @@ textarea::-webkit-scrollbar-thumb {
           cursor: pointer;
           color: rgb(0, 0, 0);
         }
-
 }
 
 /* disciplina e professor */
@@ -3461,7 +3485,6 @@ textarea::-webkit-scrollbar-thumb {
     -webkit-border-radius: 25px;
        -moz-border-radius: 25px;
             border-radius: 25px;
-
   }
 
   .tabelaAtt td {
