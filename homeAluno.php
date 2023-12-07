@@ -8,7 +8,16 @@ $conect = mysqli_connect("localhost", "root", "", "senai117_bd");
 if ($conect->connect_error) {
     die("Conexão falhou: " . $conect->connect_error);
 }
+
+if(isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] == 'alunos' && !empty($_SESSION['nome_usuario'])) {
+  // Acesso permitido à página
+} else {
+  // Redireciona para a página de login
+  header("Location: login.php");
+  exit();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="PT-BR">
 <head>
