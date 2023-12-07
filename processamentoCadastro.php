@@ -116,13 +116,6 @@ if($data && isset($data->origem)){
 }
 
 
-
-
-
-
-
-
-
 if ($data->origem === "disc") {
     $nif = $conect->real_escape_string($data->nif_professor);
     $id_unid = $conect->real_escape_string($data->id_unid_cur_selected);
@@ -143,10 +136,74 @@ if ($data->origem === "disc") {
     echo json_encode($resposta);
 }
 
+
+if ($data->origem === "criterios") {
+    $uc = $conect->real_escape_string($data->id_unidade_curricular);
+    $curso = $conect->real_escape_string($data->id_curso);
+
+    // Consulta para obter a quantidade de semestres
+    $sqlVerificacao = "SELECT id_curso, id_unidade_curricular, COUNT(DISTINCT semestre_uc) as quantidade_semestres 
+                      FROM lista_curso_uc 
+                      WHERE id_unidade_curricular = $uc AND id_curso = $curso
+                      GROUP BY id_curso, id_unidade_curricular 
+                      HAVING quantidade_semestres > 1";
+
+    $resultadoQuery = $conect->query($sqlVerificacao);
+
+    if ($resultadoQuery && $resultadoQuery->num_rows !== 0) {
+        // Consulta para obter a lista de semestres
+        $sqlSemestres = "SELECT DISTINCT semestre_uc 
+                         FROM lista_curso_uc 
+                         WHERE id_unidade_curricular = $uc AND id_curso = $curso";
+
+        $resultadoSemestres = $conect->query($sqlSemestres);
+
+        $semestres = array();
+        while ($row = $resultadoSemestres->fetch_assoc()) {
+            $semestres[] = $row['semestre_uc'];
+        }
+
+        $resposta = array("maisDeDoisSemestres" => true, "mensagem" => "Foi", "semestres" => $semestres);
+    } else {
+        $resposta = array("maisDeDoisSemestres" => false, "mensagem" => "Não foi");
+    }
+    echo trim(json_encode($resposta));
 }
 
+if ($data->origem === "envio de critérios") {
+    if(isset($data->semestre)){
+        $uc = $conect->real_escape_string($data->unidade_curricular);
+    $curso = $conect->real_escape_string($data->curso);
+    $semestre = $conect->real_escape_string($data->semestre);
+    $tipo = $conect->real_escape_string($data->tipo);
+    $objetivo = $conect->real_escape_string($data->objetivo);
 
+        $sql = "INSERT INTO criterios_uc (id_unidadeCurricular, id_curso, semestre_uc, tipo_criterio, objetivo) VALUES ('$uc', '$curso', '$semestre', '$tipo', '$objetivo')";
+        if ($conect->query($sql) === TRUE) {
+            $resposta = array("chegou" => true, "inseriu_criterio" => true, "mensagem" => "Critério registrado com sucesso!");
+        } else {
+            $resposta = array("chegou" => true, "inseriu_criterio" => false, "mensagem" => "Erro ao inserir critério na tabela, verifique as informações selecionadas");
+        }
+        echo json_encode($resposta);
 
+}
+
+if(!isset($data->semestre)){
+    $uc = $conect->real_escape_string($data->unidade_curricular);
+    $curso = $conect->real_escape_string($data->curso);
+    $tipo = $conect->real_escape_string($data->tipo);
+    $objetivo = $conect->real_escape_string($data->objetivo);
+
+    $sql = "INSERT INTO criterios_uc (id_unidadeCurricular, id_curso, semestre_uc, tipo_criterio, objetivo) VALUES ('$uc', '$curso', NULL, '$tipo', '$objetivo')";
+        if ($conect->query($sql) === TRUE) {
+            $resposta = array("chegou" => true, "inseriu_criterio" => true, "mensagem" => "Critério registrado com sucesso!");
+        } else {
+            $resposta = array("chegou" => true, "inseriu_criterio" => false, "mensagem" => "Erro ao inserir critério na tabela, verifique as informações selecionadas");
+        }
+        echo json_encode($resposta);
+}
+}
+}
 ?>
 
 
@@ -309,4 +366,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
-
