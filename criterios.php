@@ -325,7 +325,7 @@
         </div>
     </main>
 
-    <script src="./script/scriptCriterios.js"></script>
+    <script src="./script/scriptCriterios2.js"></script>
 
     <script>
     const btnMobile = document.getElementById('btn-mobile');
