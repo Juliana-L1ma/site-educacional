@@ -1,10 +1,15 @@
 <?php
 session_start();
-if (!isset($_SESSION['id_usuario'])) {
-    header("Location: login.php");
-    exit();
-}else{
+
+//Pego o nome do usuário de quem logou
 $nomeUsuario = $_SESSION["nome_usuario"];
+
+if(isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] == 'administrador' && !empty($_SESSION['nome_usuario'])) {
+  // Acesso permitido à página
+} else {
+  // Redireciona para a página de login
+  header("Location: login.php");
+  exit();
 }
 ?>
 
