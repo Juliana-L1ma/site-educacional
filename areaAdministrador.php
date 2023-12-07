@@ -1,7 +1,11 @@
 <?php
 session_start();
-//pego o nome do usuário de quem logou
+if (!isset($_SESSION['id_usuario'])) {
+    header("Location: login.php");
+    exit();
+}else{
 $nomeUsuario = $_SESSION["nome_usuario"];
+}
 ?>
 
 <!DOCTYPE html>
