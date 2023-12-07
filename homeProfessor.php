@@ -2,6 +2,14 @@
 session_start();
 //pego o nome do usuário de quem logou
 $nomeUsuario = $_SESSION["nome_usuario"];
+
+if(isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] == 'professores' && !empty($_SESSION['nome_usuario'])) {
+  // Acesso permitido à página
+} else {
+  // Redireciona para a página de login
+  header("Location: login.php");
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
