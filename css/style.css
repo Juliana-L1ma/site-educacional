@@ -2724,7 +2724,6 @@ align-items: center;
   #turma {
     text-decoration: none;
     border: none;
-    margin-left: 20%;
     background-color: var(--background-color-branco);
 
   }
@@ -3004,7 +3003,6 @@ align-items: center;
   #turma {
     text-decoration: none;
     border: none;
-    margin-left: 20%;
     background-color: var(--background-color-branco);
   }
   #unidade {
@@ -3768,4 +3766,80 @@ textarea::-webkit-scrollbar-thumb {
   #botoes{
     margin-top: 5%;
   }
+}
+
+/*---------- CADASTRO NOTAS ALUNO -----------*/
+#mainNotas {
+  font-family: 'Questrial', sans-serif;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#alinhaNotas {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+#alinhaNotas select {
+  width: 230px;
+  margin-top: 5%;
+  margin-bottom: 7%;
+  padding-top: 2%;
+}
+
+#alinhaDiscs {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+#alinhaDiscs > select {
+  margin-top: 10%;
+  margin-bottom: 5%;
+  text-align: center;
+  font-size: 20px;
+  font-family: var(--fontes-de-texto);
+  background-color: var(--amarelo);
+  border-radius: 20px;
+  padding: 2.5%;
+  outline: none;
+}
+
+
+#tabela-alunos {
+  margin: 3%;
+  text-align: center;
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5%;
+  border-width: 1px;
+}
+
+
+#btnCadastroNotas{
+  border: none;
+  border-radius: 5px;
+  background-color: var(--bordo);
+  padding: 1%;
+  width: 40px;
+  font-weight: bold;
+  margin-top: 4%;
+  color: var(--background-color-branco);
+
+}
+
+#alinhaBtnNotas{
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: right;
 }
