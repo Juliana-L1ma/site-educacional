@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="css/style.css">
   <title>Registros de aulas</title>
   <style>
   
-  
+ .button-addRegistro{
+  margin-bottom: 3%;
+ }
   </style>
 </head>
 <body>
@@ -60,12 +63,13 @@
 
       <p id="titulo-registroDeAula">Registro de aulas</p>
     </div>
-
-
+  
     <div class="addNote-content">
         <button class="button-addRegistro">
             <span class="button-content">Adicionar registro +</span>
         </button>
+
+        <button class="button-addRegistro" id="salvar-registro" onclick="salvarRegistro()" >Salvar registro</button>
     </div>
 <div class="areaDosRegistros">
     <div class="content"></div>
@@ -74,6 +78,17 @@
 
   
   <script>
+    function salvarRegistro(){
+
+      Swal.fire({
+  title: "Salvo!",
+  text: "Seu registro foi salvo com sucesso!",
+  icon: "success"
+});
+
+    }
+
+
     const content = document.querySelector(".content");
 const btnNew = document.querySelector(".addNote-content");
 
