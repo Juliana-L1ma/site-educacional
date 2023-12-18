@@ -1,7 +1,16 @@
 <?php
 session_start();
-// Recupere o nome do usuário da sessão
-$usuarioBoletim = 'Olá, ' . $_SESSION["nome_usuario"];
+
+if (!isset($_SESSION["id_usuario"])) {
+    header("Location: login.php");
+    exit();
+}
+
+$ola_usuarioBoletim = 'Olá, ' . $_SESSION["nome_usuario"];
+$usuarioBoletim = $_SESSION["id_usuario"];
+
+// $sql = "SELECT * FROM view_boletim WHERE id_aluno = $";
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -54,8 +63,7 @@ $usuarioBoletim = 'Olá, ' . $_SESSION["nome_usuario"];
             </nav>
         </div>
         <div class="div-cabecalho" id="modo-mobilee">
-            <a href="homeAluno.php"
-                title="Perfil ícones criados por inkubators - Flaticon" id="icone-perfil">
+            <a href="homeAluno.php" title="Perfil ícones criados por inkubators - Flaticon" id="icone-perfil">
                 <img src="./img/perfil-de-usuario.png" />
             </a>
             <a href="https://www.flaticon.com/br/icones-gratis/engrenagem"
@@ -66,7 +74,7 @@ $usuarioBoletim = 'Olá, ' . $_SESSION["nome_usuario"];
     </header>
 
     <nav class="topo-boletim">
-    <?php
+        <?php
      require_once("conexao.php");
     //Selecionando o banco de dados 
     $conexao = new mysqli("localhost", "root", "", "senai117_bd");
@@ -99,7 +107,8 @@ if ($_SESSION['tipo_usuario'] === 'alunos' && isset($_SESSION['num_matricula_alu
 ?>
 
         <div id="info-aluno-boletim">
-            <h2 id="tituloBoletim"><p id="nomeDoAluno-boletim"><?php echo $usuarioBoletim;?>!</p>
+            <h2 id="tituloBoletim">
+                <p id="nomeDoAluno-boletim"><?php echo $ola_usuarioBoletim;?>!</p>
             </h2>
         </div>
     </nav>
@@ -107,46 +116,95 @@ if ($_SESSION['tipo_usuario'] === 'alunos' && isset($_SESSION['num_matricula_alu
     <hr id="linhaVerde-separacao">
 
     <h2 class="boletim-titulo">Boletim geral</h2>
-    <?php
-        //Iniciando a conexão com o banco de dados 
-        $conexao = mysqli_connect("localhost", "root", "");
-   
-        //Selecionando o banco de dados 
-        $db = mysqli_select_db($conexao, "senai117_bd");
-      $view_boletim = mysqli_query($conexao, "SELECT * FROM view_boletim WHERE id_aluno = '$num_matricula'");
-
-      ?>
-
-      <!-- /////////////// para fazer uma tabela, crio a tag table > thead > tbody > th (para os títulos) e fecho todas as tags menos a table. Depois de thead crio um php dentro para colocar as tds  -->
+    <!-- /////////////// para fazer uma tabela, crio a tag table > thead > tbody > th (para os títulos) e fecho todas as tags menos a table. Depois de thead crio um php dentro para colocar as tds  -->
     <table class="table table-bordered" id="tabela-professores-atualizar">
         <thead>
-            <!-- <tr class="th"> -->
-        <tbody>
             <th>Unidade Curricular</th>
             <th>Nota/situação</th>
-            <th>Frequência</th>
             <th>Faltas</th>
-        </tbody>
-        </tr>
         </thead>
+        <tbody>
+        <?php
+$usuario = 'root';
+$senha = '';
+$database = 'senai117_bd';
+$host = 'localhost';
 
-       <?php
-       while ($linha = mysqli_fetch_assoc($view_boletim)) {
-        $id_unid_curricular = $linha['materia'];
-        $nota_boletim = $linha['notas_boletim'];
-        $frequencia_boletim = $linha['frequencia'];
-        $faltas = $linha['faltas'];
-        $id_aluno = $linha['id_aluno'];
-        
-         echo "<tr>";
-         echo "<td>$id_unid_curricular</td>";
-         echo "<td>$nota_boletim</td>";
-         echo "<td>$frequencia_boletim</td>";
-         echo "<td>$faltas</td>";
-         echo "</tr>";
-     }
-     ?>
+$conn = new mysqli($host, $usuario, $senha, $database);
 
+// Verificar a conexão
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
+}
+
+// Consulta para obter dados específicos do usuário logado da view
+$sql = "SELECT * FROM view_boletim WHERE id_aluno = $usuarioBoletim";
+$resultado = mysqli_query($conn, $sql);
+
+if (!$resultado) {
+    die('Consulta falhou: ' . mysqli_error($conn));
+}
+
+// Array para armazenar o total de faltas por unidade curricular
+$totalFaltasPorUnidade = array();
+
+// Array para armazenar a nota_boletim por unidade curricular
+$notaBoletimPorUnidade = array();
+
+// Consulta para obter a quantidade de faltas do aluno logado por unidade curricular
+$sqlFaltas = "SELECT id_unidade_curricular, COUNT(*) as total_faltas FROM frequencia_alunos WHERE id_aluno = $usuarioBoletim AND presenca_aluno = 'A' GROUP BY id_unidade_curricular";
+$resultadoFaltas = mysqli_query($conn, $sqlFaltas);
+
+if (!$resultadoFaltas) {
+    die('Consulta de faltas falhou: ' . mysqli_error($conn));
+}
+
+// Preencher o array com o total de faltas por unidade curricular
+while ($linhaFaltas = mysqli_fetch_assoc($resultadoFaltas)) {
+    $idUnidadeCurricular = $linhaFaltas['id_unidade_curricular'];
+    $totalFaltasPorUnidade[$idUnidadeCurricular] = $linhaFaltas['total_faltas'];
+}
+
+// Consulta para obter a nota_boletim por unidade curricular
+$sqlNotas = "SELECT c.id_unidadeCurricular, AVG(npc.nota) as nota_media 
+             FROM nota_por_criterio npc
+             INNER JOIN criterios_uc c ON npc.id_criterio = c.id_criterioUc
+             WHERE npc.id_aluno = $usuarioBoletim
+             GROUP BY c.id_unidadeCurricular";
+$resultadoNotas = mysqli_query($conn, $sqlNotas);
+
+if (!$resultadoNotas) {
+    die('Consulta de notas falhou: ' . mysqli_error($conn));
+}
+
+// Preencher o array com a nota_boletim média por unidade curricular
+while ($linhaNotas = mysqli_fetch_assoc($resultadoNotas)) {
+    $idUnidadeCurricularNota = $linhaNotas['id_unidadeCurricular'];
+    $notaBoletimPorUnidade[$idUnidadeCurricularNota] = $linhaNotas['nota_media'];
+}
+
+while ($linha = mysqli_fetch_assoc($resultado)) {
+    $materia = $linha['materia'];
+    $id_unid_curricular = $linha['unidadeCurricular'];
+
+    // Exibir o total de faltas para a unidade curricular atual
+    $totalFaltas = isset($totalFaltasPorUnidade[$id_unid_curricular]) ? $totalFaltasPorUnidade[$id_unid_curricular] : 0;
+
+    // Exibir a nota_boletim média para a unidade curricular atual
+    $notaBoletim = isset($notaBoletimPorUnidade[$id_unid_curricular]) ? $notaBoletimPorUnidade[$id_unid_curricular] : 0;
+
+    echo "<tr>";
+    echo "<td>$materia</td>";
+    echo "<td>$notaBoletim</td>";
+    echo "<td>$totalFaltas</td>";
+    echo "</tr>";
+}
+
+// Fechar a conexão
+$conn->close();
+?>
+
+        </tbody>
     </table>
     <br>
 
@@ -432,4 +490,5 @@ function toggleMenu(event) {
 btnMobile.addEventListener('click', toggleMenu);
 btnMobile.addEventListener('touchstart', toggleMenu);
 </script>
+
 </html>
